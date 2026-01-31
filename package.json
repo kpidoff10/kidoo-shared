@@ -9,6 +9,14 @@
       "types": "./index.ts",
       "default": "./index.ts"
     },
+    "./prisma": {
+      "types": "./prisma/index.d.ts",
+      "default": "./prisma/index.js"
+    },
+    "./prisma/*": {
+      "types": "./prisma/*.d.ts",
+      "default": "./prisma/*.js"
+    },
     "./schemas/*": {
       "types": "./schemas/*.ts",
       "default": "./schemas/*.ts"
