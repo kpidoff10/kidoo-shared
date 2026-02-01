@@ -127,6 +127,7 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   avatar: 'avatar',
   password: 'password',
+  isAdmin: 'isAdmin',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -192,6 +193,17 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   identifier: 'identifier',
   token: 'token',
   expires: 'expires'
+};
+
+exports.Prisma.FirmwareScalarFieldEnum = {
+  id: 'id',
+  model: 'model',
+  version: 'version',
+  url: 'url',
+  path: 'path',
+  fileName: 'fileName',
+  fileSize: 'fileSize',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.FileScalarFieldEnum = {
@@ -289,6 +301,7 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Session: 'Session',
   VerificationToken: 'VerificationToken',
+  Firmware: 'Firmware',
   File: 'File',
   KidooConfigBasic: 'KidooConfigBasic',
   KidooConfigDream: 'KidooConfigDream',

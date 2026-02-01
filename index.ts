@@ -24,3 +24,7 @@ export * from './kidoos/config/dream-wakeup';
 // Kidoos - Commands (temps réel)
 export * from './kidoos/commands/get-info';
 export * from './kidoos/commands/reboot';
+
+// Firmware - Modèles supportés
+export * from './firmware/models';
+export * from './firmware/schema';
