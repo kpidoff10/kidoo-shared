@@ -203,6 +203,7 @@ exports.Prisma.FirmwareScalarFieldEnum = {
   path: 'path',
   fileName: 'fileName',
   fileSize: 'fileSize',
+  changelog: 'changelog',
   createdAt: 'createdAt'
 };
 
@@ -288,6 +289,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.KidooModel = exports.$Enums.KidooModel = {
+  basic: 'basic',
+  dream: 'dream'
+};
+
 exports.TagType = exports.$Enums.TagType = {
   MUSIC: 'MUSIC',
   STORY: 'STORY',

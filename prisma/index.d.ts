@@ -86,11 +86,23 @@ export namespace $Enums {
 
 export type TagType = (typeof TagType)[keyof typeof TagType]
 
+
+export const KidooModel: {
+  basic: 'basic',
+  dream: 'dream'
+};
+
+export type KidooModel = (typeof KidooModel)[keyof typeof KidooModel]
+
 }
 
 export type TagType = $Enums.TagType
 
 export const TagType: typeof $Enums.TagType
+
+export type KidooModel = $Enums.KidooModel
+
+export const KidooModel: typeof $Enums.KidooModel
 
 /**
  * ##  Prisma Client ʲˢ
@@ -3316,7 +3328,7 @@ export namespace Prisma {
   export type KidooMinAggregateOutputType = {
     id: string | null
     name: string | null
-    model: string | null
+    model: $Enums.KidooModel | null
     macAddress: string | null
     bluetoothMacAddress: string | null
     deviceId: string | null
@@ -3339,7 +3351,7 @@ export namespace Prisma {
   export type KidooMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    model: string | null
+    model: $Enums.KidooModel | null
     macAddress: string | null
     bluetoothMacAddress: string | null
     deviceId: string | null
@@ -3561,7 +3573,7 @@ export namespace Prisma {
   export type KidooGroupByOutputType = {
     id: string
     name: string
-    model: string
+    model: $Enums.KidooModel
     macAddress: string | null
     bluetoothMacAddress: string | null
     deviceId: string
@@ -3725,7 +3737,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      model: string
+      model: $Enums.KidooModel
       macAddress: string | null
       bluetoothMacAddress: string | null
       deviceId: string
@@ -4172,7 +4184,7 @@ export namespace Prisma {
   interface KidooFieldRefs {
     readonly id: FieldRef<"Kidoo", 'String'>
     readonly name: FieldRef<"Kidoo", 'String'>
-    readonly model: FieldRef<"Kidoo", 'String'>
+    readonly model: FieldRef<"Kidoo", 'KidooModel'>
     readonly macAddress: FieldRef<"Kidoo", 'String'>
     readonly bluetoothMacAddress: FieldRef<"Kidoo", 'String'>
     readonly deviceId: FieldRef<"Kidoo", 'String'>
@@ -9052,23 +9064,25 @@ export namespace Prisma {
 
   export type FirmwareMinAggregateOutputType = {
     id: string | null
-    model: string | null
+    model: $Enums.KidooModel | null
     version: string | null
     url: string | null
     path: string | null
     fileName: string | null
     fileSize: number | null
+    changelog: string | null
     createdAt: Date | null
   }
 
   export type FirmwareMaxAggregateOutputType = {
     id: string | null
-    model: string | null
+    model: $Enums.KidooModel | null
     version: string | null
     url: string | null
     path: string | null
     fileName: string | null
     fileSize: number | null
+    changelog: string | null
     createdAt: Date | null
   }
 
@@ -9080,6 +9094,7 @@ export namespace Prisma {
     path: number
     fileName: number
     fileSize: number
+    changelog: number
     createdAt: number
     _all: number
   }
@@ -9101,6 +9116,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    changelog?: true
     createdAt?: true
   }
 
@@ -9112,6 +9128,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    changelog?: true
     createdAt?: true
   }
 
@@ -9123,6 +9140,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    changelog?: true
     createdAt?: true
     _all?: true
   }
@@ -9215,12 +9233,13 @@ export namespace Prisma {
 
   export type FirmwareGroupByOutputType = {
     id: string
-    model: string
+    model: $Enums.KidooModel
     version: string
     url: string
     path: string
     fileName: string
     fileSize: number
+    changelog: string | null
     createdAt: Date
     _count: FirmwareCountAggregateOutputType | null
     _avg: FirmwareAvgAggregateOutputType | null
@@ -9251,6 +9270,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
 
@@ -9262,6 +9282,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
 
@@ -9273,6 +9294,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
 
@@ -9284,22 +9306,24 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    changelog?: boolean
     createdAt?: boolean
   }
 
-  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "createdAt", ExtArgs["result"]["firmware"]>
+  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "changelog" | "createdAt", ExtArgs["result"]["firmware"]>
 
   export type $FirmwarePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Firmware"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      model: string
+      model: $Enums.KidooModel
       version: string
       url: string
       path: string
       fileName: string
       fileSize: number
+      changelog: string | null
       createdAt: Date
     }, ExtArgs["result"]["firmware"]>
     composites: {}
@@ -9725,12 +9749,13 @@ export namespace Prisma {
    */
   interface FirmwareFieldRefs {
     readonly id: FieldRef<"Firmware", 'String'>
-    readonly model: FieldRef<"Firmware", 'String'>
+    readonly model: FieldRef<"Firmware", 'KidooModel'>
     readonly version: FieldRef<"Firmware", 'String'>
     readonly url: FieldRef<"Firmware", 'String'>
     readonly path: FieldRef<"Firmware", 'String'>
     readonly fileName: FieldRef<"Firmware", 'String'>
     readonly fileSize: FieldRef<"Firmware", 'Int'>
+    readonly changelog: FieldRef<"Firmware", 'String'>
     readonly createdAt: FieldRef<"Firmware", 'DateTime'>
   }
     
@@ -16159,6 +16184,7 @@ export namespace Prisma {
     path: 'path',
     fileName: 'fileName',
     fileSize: 'fileSize',
+    changelog: 'changelog',
     createdAt: 'createdAt'
   };
 
@@ -16309,6 +16335,20 @@ export namespace Prisma {
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'KidooModel'
+   */
+  export type EnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel'>
+    
+
+
+  /**
+   * Reference to a field of type 'KidooModel[]'
+   */
+  export type ListEnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel[]'>
     
 
 
@@ -16464,7 +16504,7 @@ export namespace Prisma {
     NOT?: KidooWhereInput | KidooWhereInput[]
     id?: StringFilter<"Kidoo"> | string
     name?: StringFilter<"Kidoo"> | string
-    model?: StringFilter<"Kidoo"> | string
+    model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableFilter<"Kidoo"> | string | null
     bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     deviceId?: StringFilter<"Kidoo"> | string
@@ -16522,7 +16562,7 @@ export namespace Prisma {
     OR?: KidooWhereInput[]
     NOT?: KidooWhereInput | KidooWhereInput[]
     name?: StringFilter<"Kidoo"> | string
-    model?: StringFilter<"Kidoo"> | string
+    model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableFilter<"Kidoo"> | string | null
     bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     firmwareVersion?: StringNullableFilter<"Kidoo"> | string | null
@@ -16579,7 +16619,7 @@ export namespace Prisma {
     NOT?: KidooScalarWhereWithAggregatesInput | KidooScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Kidoo"> | string
     name?: StringWithAggregatesFilter<"Kidoo"> | string
-    model?: StringWithAggregatesFilter<"Kidoo"> | string
+    model?: EnumKidooModelWithAggregatesFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
     bluetoothMacAddress?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
     deviceId?: StringWithAggregatesFilter<"Kidoo"> | string
@@ -16871,12 +16911,13 @@ export namespace Prisma {
     OR?: FirmwareWhereInput[]
     NOT?: FirmwareWhereInput | FirmwareWhereInput[]
     id?: StringFilter<"Firmware"> | string
-    model?: StringFilter<"Firmware"> | string
+    model?: EnumKidooModelFilter<"Firmware"> | $Enums.KidooModel
     version?: StringFilter<"Firmware"> | string
     url?: StringFilter<"Firmware"> | string
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
+    changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
   }
 
@@ -16888,6 +16929,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
   }
 
@@ -16897,12 +16939,13 @@ export namespace Prisma {
     AND?: FirmwareWhereInput | FirmwareWhereInput[]
     OR?: FirmwareWhereInput[]
     NOT?: FirmwareWhereInput | FirmwareWhereInput[]
-    model?: StringFilter<"Firmware"> | string
+    model?: EnumKidooModelFilter<"Firmware"> | $Enums.KidooModel
     version?: StringFilter<"Firmware"> | string
     url?: StringFilter<"Firmware"> | string
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
+    changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
   }, "id" | "model_version">
 
@@ -16914,6 +16957,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: FirmwareCountOrderByAggregateInput
     _avg?: FirmwareAvgOrderByAggregateInput
@@ -16927,12 +16971,13 @@ export namespace Prisma {
     OR?: FirmwareScalarWhereWithAggregatesInput[]
     NOT?: FirmwareScalarWhereWithAggregatesInput | FirmwareScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Firmware"> | string
-    model?: StringWithAggregatesFilter<"Firmware"> | string
+    model?: EnumKidooModelWithAggregatesFilter<"Firmware"> | $Enums.KidooModel
     version?: StringWithAggregatesFilter<"Firmware"> | string
     url?: StringWithAggregatesFilter<"Firmware"> | string
     path?: StringWithAggregatesFilter<"Firmware"> | string
     fileName?: StringWithAggregatesFilter<"Firmware"> | string
     fileSize?: IntWithAggregatesFilter<"Firmware"> | number
+    changelog?: StringNullableWithAggregatesFilter<"Firmware"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Firmware"> | Date | string
   }
 
@@ -17479,7 +17524,7 @@ export namespace Prisma {
   export type KidooCreateInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -17505,7 +17550,7 @@ export namespace Prisma {
   export type KidooUncheckedCreateInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -17531,7 +17576,7 @@ export namespace Prisma {
   export type KidooUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -17557,7 +17602,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -17583,7 +17628,7 @@ export namespace Prisma {
   export type KidooCreateManyInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -17606,7 +17651,7 @@ export namespace Prisma {
   export type KidooUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -17628,7 +17673,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -17930,78 +17975,85 @@ export namespace Prisma {
 
   export type FirmwareCreateInput = {
     id?: string
-    model: string
+    model: $Enums.KidooModel
     version: string
     url: string
     path: string
     fileName: string
     fileSize: number
+    changelog?: string | null
     createdAt?: Date | string
   }
 
   export type FirmwareUncheckedCreateInput = {
     id?: string
-    model: string
+    model: $Enums.KidooModel
     version: string
     url: string
     path: string
     fileName: string
     fileSize: number
+    changelog?: string | null
     createdAt?: Date | string
   }
 
   export type FirmwareUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     version?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FirmwareUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     version?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FirmwareCreateManyInput = {
     id?: string
-    model: string
+    model: $Enums.KidooModel
     version: string
     url: string
     path: string
     fileName: string
     fileSize: number
+    changelog?: string | null
     createdAt?: Date | string
   }
 
   export type FirmwareUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     version?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FirmwareUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     version?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18703,6 +18755,13 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type EnumKidooModelFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -18825,6 +18884,16 @@ export namespace Prisma {
     sleepColorG?: SortOrder
     sleepColorB?: SortOrder
     sleepEffect?: SortOrder
+  }
+
+  export type EnumKidooModelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelWithAggregatesFilter<$PrismaModel> | $Enums.KidooModel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumKidooModelFilter<$PrismaModel>
+    _max?: NestedEnumKidooModelFilter<$PrismaModel>
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -19025,7 +19094,7 @@ export namespace Prisma {
   }
 
   export type FirmwareModelVersionCompoundUniqueInput = {
-    model: string
+    model: $Enums.KidooModel
     version: string
   }
 
@@ -19037,6 +19106,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    changelog?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -19052,6 +19122,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    changelog?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -19063,6 +19134,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    changelog?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -19683,6 +19755,10 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
+  export type EnumKidooModelFieldUpdateOperationsInput = {
+    set?: $Enums.KidooModel
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -20202,6 +20278,23 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedEnumKidooModelFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
+  }
+
+  export type NestedEnumKidooModelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelWithAggregatesFilter<$PrismaModel> | $Enums.KidooModel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumKidooModelFilter<$PrismaModel>
+    _max?: NestedEnumKidooModelFilter<$PrismaModel>
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -20363,7 +20456,7 @@ export namespace Prisma {
   export type KidooCreateWithoutUserInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -20388,7 +20481,7 @@ export namespace Prisma {
   export type KidooUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -20576,7 +20669,7 @@ export namespace Prisma {
     NOT?: KidooScalarWhereInput | KidooScalarWhereInput[]
     id?: StringFilter<"Kidoo"> | string
     name?: StringFilter<"Kidoo"> | string
-    model?: StringFilter<"Kidoo"> | string
+    model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableFilter<"Kidoo"> | string | null
     bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     deviceId?: StringFilter<"Kidoo"> | string
@@ -20947,7 +21040,7 @@ export namespace Prisma {
   export type KidooCreateWithoutTagsInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -20972,7 +21065,7 @@ export namespace Prisma {
   export type KidooUncheckedCreateWithoutTagsInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -21090,7 +21183,7 @@ export namespace Prisma {
   export type KidooUpdateWithoutTagsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -21115,7 +21208,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateWithoutTagsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -21503,7 +21596,7 @@ export namespace Prisma {
   export type KidooCreateWithoutConfigBasicInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -21528,7 +21621,7 @@ export namespace Prisma {
   export type KidooUncheckedCreateWithoutConfigBasicInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -21569,7 +21662,7 @@ export namespace Prisma {
   export type KidooUpdateWithoutConfigBasicInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -21594,7 +21687,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateWithoutConfigBasicInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -21619,7 +21712,7 @@ export namespace Prisma {
   export type KidooCreateWithoutConfigDreamInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -21644,7 +21737,7 @@ export namespace Prisma {
   export type KidooUncheckedCreateWithoutConfigDreamInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -21745,7 +21838,7 @@ export namespace Prisma {
   export type KidooUpdateWithoutConfigDreamInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -21770,7 +21863,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateWithoutConfigDreamInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -22051,7 +22144,7 @@ export namespace Prisma {
   export type KidooCreateManyUserInput = {
     id?: string
     name: string
-    model?: string
+    model?: $Enums.KidooModel
     macAddress?: string | null
     bluetoothMacAddress?: string | null
     deviceId: string
@@ -22159,7 +22252,7 @@ export namespace Prisma {
   export type KidooUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -22184,7 +22277,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
@@ -22209,7 +22302,7 @@ export namespace Prisma {
   export type KidooUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    model?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
     bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string

@@ -3,13 +3,16 @@
  */
 
 import { z } from 'zod';
+import { KIDOO_MODEL_IDS } from '../firmware/models';
 
 /**
  * Schéma pour créer un Kidoo
  */
 export const createKidooInputSchema = z.object({
   name: z.string().min(1, 'Le nom est requis').max(100, 'Nom trop long'),
-  model: z.string().min(1, 'Le modèle est requis'),
+  model: z.enum(KIDOO_MODEL_IDS, {
+    message: `Modèle invalide (${KIDOO_MODEL_IDS.join(', ')})`,
+  }),
   macAddress: z.string().optional(), // Adresse MAC WiFi (renvoyée par l'ESP32 lors du setup)
   bluetoothMacAddress: z.string().optional(), // Adresse MAC Bluetooth (pour comparer lors des scans automatiques)
   deviceId: z.string().uuid(),
@@ -46,7 +49,7 @@ export type KidooWiFiInput = z.infer<typeof kidooWiFiSchema>;
  */
 export const updateKidooInputSchema = z.object({
   name: z.string().min(1, 'Le nom est requis').max(100, 'Nom trop long').optional(),
-  model: z.string().optional(),
+  model: z.enum(KIDOO_MODEL_IDS).optional(),
   macAddress: z.string().optional(),
   bluetoothMacAddress: z.string().optional(),
   wifiSSID: z.string().optional(),

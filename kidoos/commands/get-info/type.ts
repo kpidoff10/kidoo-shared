@@ -2,6 +2,8 @@
  * Types de réponse get-info communs à tous les modèles Kidoo
  */
 
+import type { KidooModelId } from '../../firmware/models';
+
 /**
  * Structure de base de la réponse - champs communs à tous les modèles
  */
@@ -11,7 +13,7 @@ export interface KidooInfoResponseBase {
   mac: string;
   ip: string;
   firmware?: string;
-  model: string;
+  model: KidooModelId;
   uptime: number; // en secondes
   freeHeap: number; // en bytes
   wifi: {
