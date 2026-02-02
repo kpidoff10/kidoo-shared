@@ -1,18 +1,17 @@
 /**
  * Modèles Kidoo supportés pour le firmware.
- * Les ids sont dérivés de l'enum Prisma KidooModel (base de données) pour une seule source de vérité.
+ * KIDOO_MODEL_IDS est généré depuis l'enum Prisma KidooModel (source de vérité).
+ * Pas d'import du client Prisma ici pour rester utilisable en React Native / Expo.
  */
 
-import { KidooModel as PrismaKidooModel } from '../prisma';
+import { KIDOO_MODEL_IDS } from './modelIds.generated';
 
-// Ids dérivés de l'enum Prisma (alignés avec la base de données)
-export const KIDOO_MODEL_IDS = Object.values(PrismaKidooModel) as [string, ...string[]];
-export type KidooModelId = (typeof PrismaKidooModel)[keyof typeof PrismaKidooModel];
+export { KIDOO_MODEL_IDS };
+export type KidooModelId = (typeof KIDOO_MODEL_IDS)[number];
 
-// Métadonnées d'affichage (label, description) par id — clés basées sur l'enum Prisma
 const KIDOO_MODEL_META: Record<KidooModelId, { label: string; description: string }> = {
-  [PrismaKidooModel.basic]: { label: 'Basic', description: 'Kidoo Basic' },
-  [PrismaKidooModel.dream]: { label: 'Dream', description: 'Kidoo Dream' },
+  basic: { label: 'Basic', description: 'Kidoo Basic' },
+  dream: { label: 'Dream', description: 'Kidoo Dream' },
 };
 
 export const KIDOO_MODELS = KIDOO_MODEL_IDS.map((id) => ({
