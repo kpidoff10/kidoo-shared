@@ -203,6 +203,7 @@ exports.Prisma.FirmwareScalarFieldEnum = {
   path: 'path',
   fileName: 'fileName',
   fileSize: 'fileSize',
+  partCount: 'partCount',
   changelog: 'changelog',
   createdAt: 'createdAt'
 };

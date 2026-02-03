@@ -9056,10 +9056,12 @@ export namespace Prisma {
 
   export type FirmwareAvgAggregateOutputType = {
     fileSize: number | null
+    partCount: number | null
   }
 
   export type FirmwareSumAggregateOutputType = {
     fileSize: number | null
+    partCount: number | null
   }
 
   export type FirmwareMinAggregateOutputType = {
@@ -9070,6 +9072,7 @@ export namespace Prisma {
     path: string | null
     fileName: string | null
     fileSize: number | null
+    partCount: number | null
     changelog: string | null
     createdAt: Date | null
   }
@@ -9082,6 +9085,7 @@ export namespace Prisma {
     path: string | null
     fileName: string | null
     fileSize: number | null
+    partCount: number | null
     changelog: string | null
     createdAt: Date | null
   }
@@ -9094,6 +9098,7 @@ export namespace Prisma {
     path: number
     fileName: number
     fileSize: number
+    partCount: number
     changelog: number
     createdAt: number
     _all: number
@@ -9102,10 +9107,12 @@ export namespace Prisma {
 
   export type FirmwareAvgAggregateInputType = {
     fileSize?: true
+    partCount?: true
   }
 
   export type FirmwareSumAggregateInputType = {
     fileSize?: true
+    partCount?: true
   }
 
   export type FirmwareMinAggregateInputType = {
@@ -9116,6 +9123,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    partCount?: true
     changelog?: true
     createdAt?: true
   }
@@ -9128,6 +9136,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    partCount?: true
     changelog?: true
     createdAt?: true
   }
@@ -9140,6 +9149,7 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
+    partCount?: true
     changelog?: true
     createdAt?: true
     _all?: true
@@ -9239,6 +9249,7 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
+    partCount: number
     changelog: string | null
     createdAt: Date
     _count: FirmwareCountAggregateOutputType | null
@@ -9270,6 +9281,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    partCount?: boolean
     changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
@@ -9282,6 +9294,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    partCount?: boolean
     changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
@@ -9294,6 +9307,7 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    partCount?: boolean
     changelog?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["firmware"]>
@@ -9306,11 +9320,12 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
+    partCount?: boolean
     changelog?: boolean
     createdAt?: boolean
   }
 
-  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "changelog" | "createdAt", ExtArgs["result"]["firmware"]>
+  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "partCount" | "changelog" | "createdAt", ExtArgs["result"]["firmware"]>
 
   export type $FirmwarePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Firmware"
@@ -9323,6 +9338,7 @@ export namespace Prisma {
       path: string
       fileName: string
       fileSize: number
+      partCount: number
       changelog: string | null
       createdAt: Date
     }, ExtArgs["result"]["firmware"]>
@@ -9755,6 +9771,7 @@ export namespace Prisma {
     readonly path: FieldRef<"Firmware", 'String'>
     readonly fileName: FieldRef<"Firmware", 'String'>
     readonly fileSize: FieldRef<"Firmware", 'Int'>
+    readonly partCount: FieldRef<"Firmware", 'Int'>
     readonly changelog: FieldRef<"Firmware", 'String'>
     readonly createdAt: FieldRef<"Firmware", 'DateTime'>
   }
@@ -16184,6 +16201,7 @@ export namespace Prisma {
     path: 'path',
     fileName: 'fileName',
     fileSize: 'fileSize',
+    partCount: 'partCount',
     changelog: 'changelog',
     createdAt: 'createdAt'
   };
@@ -16917,6 +16935,7 @@ export namespace Prisma {
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
+    partCount?: IntFilter<"Firmware"> | number
     changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
   }
@@ -16929,6 +16948,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    partCount?: SortOrder
     changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
   }
@@ -16945,6 +16965,7 @@ export namespace Prisma {
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
+    partCount?: IntFilter<"Firmware"> | number
     changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
   }, "id" | "model_version">
@@ -16957,6 +16978,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    partCount?: SortOrder
     changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: FirmwareCountOrderByAggregateInput
@@ -16977,6 +16999,7 @@ export namespace Prisma {
     path?: StringWithAggregatesFilter<"Firmware"> | string
     fileName?: StringWithAggregatesFilter<"Firmware"> | string
     fileSize?: IntWithAggregatesFilter<"Firmware"> | number
+    partCount?: IntWithAggregatesFilter<"Firmware"> | number
     changelog?: StringNullableWithAggregatesFilter<"Firmware"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Firmware"> | Date | string
   }
@@ -17981,6 +18004,7 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
+    partCount?: number
     changelog?: string | null
     createdAt?: Date | string
   }
@@ -17993,6 +18017,7 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
+    partCount?: number
     changelog?: string | null
     createdAt?: Date | string
   }
@@ -18005,6 +18030,7 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    partCount?: IntFieldUpdateOperationsInput | number
     changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18017,6 +18043,7 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    partCount?: IntFieldUpdateOperationsInput | number
     changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18029,6 +18056,7 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
+    partCount?: number
     changelog?: string | null
     createdAt?: Date | string
   }
@@ -18041,6 +18069,7 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    partCount?: IntFieldUpdateOperationsInput | number
     changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18053,6 +18082,7 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
+    partCount?: IntFieldUpdateOperationsInput | number
     changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19106,12 +19136,14 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    partCount?: SortOrder
     changelog?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FirmwareAvgOrderByAggregateInput = {
     fileSize?: SortOrder
+    partCount?: SortOrder
   }
 
   export type FirmwareMaxOrderByAggregateInput = {
@@ -19122,6 +19154,7 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    partCount?: SortOrder
     changelog?: SortOrder
     createdAt?: SortOrder
   }
@@ -19134,12 +19167,14 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
+    partCount?: SortOrder
     changelog?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FirmwareSumOrderByAggregateInput = {
     fileSize?: SortOrder
+    partCount?: SortOrder
   }
 
   export type TagScalarRelationFilter = {

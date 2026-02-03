@@ -2,7 +2,7 @@
  * Types de réponse get-info communs à tous les modèles Kidoo
  */
 
-import type { KidooModelId } from '../../firmware/models';
+import type { KidooModelId } from '../../../firmware/models';
 
 /**
  * Structure de base de la réponse - champs communs à tous les modèles
