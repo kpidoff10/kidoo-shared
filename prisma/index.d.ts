@@ -73,6 +73,11 @@ export type KidooConfigDreamBedtimeSchedule = $Result.DefaultSelection<Prisma.$K
  * 
  */
 export type KidooConfigDreamWakeupSchedule = $Result.DefaultSelection<Prisma.$KidooConfigDreamWakeupSchedulePayload>
+/**
+ * Model KidooDeviceStateLog
+ * 
+ */
+export type KidooDeviceStateLog = $Result.DefaultSelection<Prisma.$KidooDeviceStateLogPayload>
 
 /**
  * Enums
@@ -94,6 +99,15 @@ export const KidooModel: {
 
 export type KidooModel = (typeof KidooModel)[keyof typeof KidooModel]
 
+
+export const DeviceStateLogState: {
+  idle: 'idle',
+  bedtime: 'bedtime',
+  wakeup: 'wakeup'
+};
+
+export type DeviceStateLogState = (typeof DeviceStateLogState)[keyof typeof DeviceStateLogState]
+
 }
 
 export type TagType = $Enums.TagType
@@ -103,6 +117,10 @@ export const TagType: typeof $Enums.TagType
 export type KidooModel = $Enums.KidooModel
 
 export const KidooModel: typeof $Enums.KidooModel
+
+export type DeviceStateLogState = $Enums.DeviceStateLogState
+
+export const DeviceStateLogState: typeof $Enums.DeviceStateLogState
 
 /**
  * ##  Prisma Client ʲˢ
@@ -340,6 +358,16 @@ export class PrismaClient<
     * ```
     */
   get kidooConfigDreamWakeupSchedule(): Prisma.KidooConfigDreamWakeupScheduleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.kidooDeviceStateLog`: Exposes CRUD operations for the **KidooDeviceStateLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more KidooDeviceStateLogs
+    * const kidooDeviceStateLogs = await prisma.kidooDeviceStateLog.findMany()
+    * ```
+    */
+  get kidooDeviceStateLog(): Prisma.KidooDeviceStateLogDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -785,7 +813,8 @@ export namespace Prisma {
     KidooConfigBasic: 'KidooConfigBasic',
     KidooConfigDream: 'KidooConfigDream',
     KidooConfigDreamBedtimeSchedule: 'KidooConfigDreamBedtimeSchedule',
-    KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule'
+    KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule',
+    KidooDeviceStateLog: 'KidooDeviceStateLog'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -801,7 +830,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
+      modelProps: "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule" | "kidooDeviceStateLog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1693,6 +1722,80 @@ export namespace Prisma {
           }
         }
       }
+      KidooDeviceStateLog: {
+        payload: Prisma.$KidooDeviceStateLogPayload<ExtArgs>
+        fields: Prisma.KidooDeviceStateLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.KidooDeviceStateLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.KidooDeviceStateLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          findFirst: {
+            args: Prisma.KidooDeviceStateLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.KidooDeviceStateLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          findMany: {
+            args: Prisma.KidooDeviceStateLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>[]
+          }
+          create: {
+            args: Prisma.KidooDeviceStateLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          createMany: {
+            args: Prisma.KidooDeviceStateLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.KidooDeviceStateLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>[]
+          }
+          delete: {
+            args: Prisma.KidooDeviceStateLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          update: {
+            args: Prisma.KidooDeviceStateLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.KidooDeviceStateLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.KidooDeviceStateLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.KidooDeviceStateLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.KidooDeviceStateLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooDeviceStateLogPayload>
+          }
+          aggregate: {
+            args: Prisma.KidooDeviceStateLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateKidooDeviceStateLog>
+          }
+          groupBy: {
+            args: Prisma.KidooDeviceStateLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<KidooDeviceStateLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.KidooDeviceStateLogCountArgs<ExtArgs>
+            result: $Utils.Optional<KidooDeviceStateLogCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1813,6 +1916,7 @@ export namespace Prisma {
     kidooConfigDream?: KidooConfigDreamOmit
     kidooConfigDreamBedtimeSchedule?: KidooConfigDreamBedtimeScheduleOmit
     kidooConfigDreamWakeupSchedule?: KidooConfigDreamWakeupScheduleOmit
+    kidooDeviceStateLog?: KidooDeviceStateLogOmit
   }
 
   /* Types for Logging */
@@ -1961,10 +2065,12 @@ export namespace Prisma {
 
   export type KidooCountOutputType = {
     tags: number
+    deviceStateLogs: number
   }
 
   export type KidooCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tags?: boolean | KidooCountOutputTypeCountTagsArgs
+    deviceStateLogs?: boolean | KidooCountOutputTypeCountDeviceStateLogsArgs
   }
 
   // Custom InputTypes
@@ -1983,6 +2089,13 @@ export namespace Prisma {
    */
   export type KidooCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TagWhereInput
+  }
+
+  /**
+   * KidooCountOutputType without action
+   */
+  export type KidooCountOutputTypeCountDeviceStateLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KidooDeviceStateLogWhereInput
   }
 
 
@@ -3637,6 +3750,7 @@ export namespace Prisma {
     tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    deviceStateLogs?: boolean | Kidoo$deviceStateLogsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -3717,6 +3831,7 @@ export namespace Prisma {
     tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    deviceStateLogs?: boolean | Kidoo$deviceStateLogsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KidooIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3733,6 +3848,7 @@ export namespace Prisma {
       tags: Prisma.$TagPayload<ExtArgs>[]
       configBasic: Prisma.$KidooConfigBasicPayload<ExtArgs> | null
       configDream: Prisma.$KidooConfigDreamPayload<ExtArgs> | null
+      deviceStateLogs: Prisma.$KidooDeviceStateLogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4153,6 +4269,7 @@ export namespace Prisma {
     tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     configBasic<T extends Kidoo$configBasicArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configBasicArgs<ExtArgs>>): Prisma__KidooConfigBasicClient<$Result.GetResult<Prisma.$KidooConfigBasicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     configDream<T extends Kidoo$configDreamArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configDreamArgs<ExtArgs>>): Prisma__KidooConfigDreamClient<$Result.GetResult<Prisma.$KidooConfigDreamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    deviceStateLogs<T extends Kidoo$deviceStateLogsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$deviceStateLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4676,6 +4793,30 @@ export namespace Prisma {
      */
     include?: KidooConfigDreamInclude<ExtArgs> | null
     where?: KidooConfigDreamWhereInput
+  }
+
+  /**
+   * Kidoo.deviceStateLogs
+   */
+  export type Kidoo$deviceStateLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    where?: KidooDeviceStateLogWhereInput
+    orderBy?: KidooDeviceStateLogOrderByWithRelationInput | KidooDeviceStateLogOrderByWithRelationInput[]
+    cursor?: KidooDeviceStateLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: KidooDeviceStateLogScalarFieldEnum | KidooDeviceStateLogScalarFieldEnum[]
   }
 
   /**
@@ -16087,6 +16228,1073 @@ export namespace Prisma {
 
 
   /**
+   * Model KidooDeviceStateLog
+   */
+
+  export type AggregateKidooDeviceStateLog = {
+    _count: KidooDeviceStateLogCountAggregateOutputType | null
+    _min: KidooDeviceStateLogMinAggregateOutputType | null
+    _max: KidooDeviceStateLogMaxAggregateOutputType | null
+  }
+
+  export type KidooDeviceStateLogMinAggregateOutputType = {
+    id: string | null
+    kidooId: string | null
+    state: $Enums.DeviceStateLogState | null
+    source: string | null
+    createdAt: Date | null
+  }
+
+  export type KidooDeviceStateLogMaxAggregateOutputType = {
+    id: string | null
+    kidooId: string | null
+    state: $Enums.DeviceStateLogState | null
+    source: string | null
+    createdAt: Date | null
+  }
+
+  export type KidooDeviceStateLogCountAggregateOutputType = {
+    id: number
+    kidooId: number
+    state: number
+    source: number
+    payload: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type KidooDeviceStateLogMinAggregateInputType = {
+    id?: true
+    kidooId?: true
+    state?: true
+    source?: true
+    createdAt?: true
+  }
+
+  export type KidooDeviceStateLogMaxAggregateInputType = {
+    id?: true
+    kidooId?: true
+    state?: true
+    source?: true
+    createdAt?: true
+  }
+
+  export type KidooDeviceStateLogCountAggregateInputType = {
+    id?: true
+    kidooId?: true
+    state?: true
+    source?: true
+    payload?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type KidooDeviceStateLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which KidooDeviceStateLog to aggregate.
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooDeviceStateLogs to fetch.
+     */
+    orderBy?: KidooDeviceStateLogOrderByWithRelationInput | KidooDeviceStateLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: KidooDeviceStateLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooDeviceStateLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooDeviceStateLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned KidooDeviceStateLogs
+    **/
+    _count?: true | KidooDeviceStateLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: KidooDeviceStateLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: KidooDeviceStateLogMaxAggregateInputType
+  }
+
+  export type GetKidooDeviceStateLogAggregateType<T extends KidooDeviceStateLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateKidooDeviceStateLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateKidooDeviceStateLog[P]>
+      : GetScalarType<T[P], AggregateKidooDeviceStateLog[P]>
+  }
+
+
+
+
+  export type KidooDeviceStateLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KidooDeviceStateLogWhereInput
+    orderBy?: KidooDeviceStateLogOrderByWithAggregationInput | KidooDeviceStateLogOrderByWithAggregationInput[]
+    by: KidooDeviceStateLogScalarFieldEnum[] | KidooDeviceStateLogScalarFieldEnum
+    having?: KidooDeviceStateLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: KidooDeviceStateLogCountAggregateInputType | true
+    _min?: KidooDeviceStateLogMinAggregateInputType
+    _max?: KidooDeviceStateLogMaxAggregateInputType
+  }
+
+  export type KidooDeviceStateLogGroupByOutputType = {
+    id: string
+    kidooId: string
+    state: $Enums.DeviceStateLogState
+    source: string | null
+    payload: JsonValue | null
+    createdAt: Date
+    _count: KidooDeviceStateLogCountAggregateOutputType | null
+    _min: KidooDeviceStateLogMinAggregateOutputType | null
+    _max: KidooDeviceStateLogMaxAggregateOutputType | null
+  }
+
+  type GetKidooDeviceStateLogGroupByPayload<T extends KidooDeviceStateLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<KidooDeviceStateLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof KidooDeviceStateLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], KidooDeviceStateLogGroupByOutputType[P]>
+            : GetScalarType<T[P], KidooDeviceStateLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type KidooDeviceStateLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    state?: boolean
+    source?: boolean
+    payload?: boolean
+    createdAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooDeviceStateLog"]>
+
+  export type KidooDeviceStateLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    state?: boolean
+    source?: boolean
+    payload?: boolean
+    createdAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooDeviceStateLog"]>
+
+  export type KidooDeviceStateLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    state?: boolean
+    source?: boolean
+    payload?: boolean
+    createdAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooDeviceStateLog"]>
+
+  export type KidooDeviceStateLogSelectScalar = {
+    id?: boolean
+    kidooId?: boolean
+    state?: boolean
+    source?: boolean
+    payload?: boolean
+    createdAt?: boolean
+  }
+
+  export type KidooDeviceStateLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "state" | "source" | "payload" | "createdAt", ExtArgs["result"]["kidooDeviceStateLog"]>
+  export type KidooDeviceStateLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+  export type KidooDeviceStateLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+  export type KidooDeviceStateLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+
+  export type $KidooDeviceStateLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "KidooDeviceStateLog"
+    objects: {
+      kidoo: Prisma.$KidooPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      kidooId: string
+      state: $Enums.DeviceStateLogState
+      source: string | null
+      payload: Prisma.JsonValue | null
+      createdAt: Date
+    }, ExtArgs["result"]["kidooDeviceStateLog"]>
+    composites: {}
+  }
+
+  type KidooDeviceStateLogGetPayload<S extends boolean | null | undefined | KidooDeviceStateLogDefaultArgs> = $Result.GetResult<Prisma.$KidooDeviceStateLogPayload, S>
+
+  type KidooDeviceStateLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<KidooDeviceStateLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: KidooDeviceStateLogCountAggregateInputType | true
+    }
+
+  export interface KidooDeviceStateLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['KidooDeviceStateLog'], meta: { name: 'KidooDeviceStateLog' } }
+    /**
+     * Find zero or one KidooDeviceStateLog that matches the filter.
+     * @param {KidooDeviceStateLogFindUniqueArgs} args - Arguments to find a KidooDeviceStateLog
+     * @example
+     * // Get one KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends KidooDeviceStateLogFindUniqueArgs>(args: SelectSubset<T, KidooDeviceStateLogFindUniqueArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one KidooDeviceStateLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {KidooDeviceStateLogFindUniqueOrThrowArgs} args - Arguments to find a KidooDeviceStateLog
+     * @example
+     * // Get one KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends KidooDeviceStateLogFindUniqueOrThrowArgs>(args: SelectSubset<T, KidooDeviceStateLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first KidooDeviceStateLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogFindFirstArgs} args - Arguments to find a KidooDeviceStateLog
+     * @example
+     * // Get one KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends KidooDeviceStateLogFindFirstArgs>(args?: SelectSubset<T, KidooDeviceStateLogFindFirstArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first KidooDeviceStateLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogFindFirstOrThrowArgs} args - Arguments to find a KidooDeviceStateLog
+     * @example
+     * // Get one KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends KidooDeviceStateLogFindFirstOrThrowArgs>(args?: SelectSubset<T, KidooDeviceStateLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more KidooDeviceStateLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all KidooDeviceStateLogs
+     * const kidooDeviceStateLogs = await prisma.kidooDeviceStateLog.findMany()
+     * 
+     * // Get first 10 KidooDeviceStateLogs
+     * const kidooDeviceStateLogs = await prisma.kidooDeviceStateLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const kidooDeviceStateLogWithIdOnly = await prisma.kidooDeviceStateLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends KidooDeviceStateLogFindManyArgs>(args?: SelectSubset<T, KidooDeviceStateLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a KidooDeviceStateLog.
+     * @param {KidooDeviceStateLogCreateArgs} args - Arguments to create a KidooDeviceStateLog.
+     * @example
+     * // Create one KidooDeviceStateLog
+     * const KidooDeviceStateLog = await prisma.kidooDeviceStateLog.create({
+     *   data: {
+     *     // ... data to create a KidooDeviceStateLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends KidooDeviceStateLogCreateArgs>(args: SelectSubset<T, KidooDeviceStateLogCreateArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many KidooDeviceStateLogs.
+     * @param {KidooDeviceStateLogCreateManyArgs} args - Arguments to create many KidooDeviceStateLogs.
+     * @example
+     * // Create many KidooDeviceStateLogs
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends KidooDeviceStateLogCreateManyArgs>(args?: SelectSubset<T, KidooDeviceStateLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many KidooDeviceStateLogs and returns the data saved in the database.
+     * @param {KidooDeviceStateLogCreateManyAndReturnArgs} args - Arguments to create many KidooDeviceStateLogs.
+     * @example
+     * // Create many KidooDeviceStateLogs
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many KidooDeviceStateLogs and only return the `id`
+     * const kidooDeviceStateLogWithIdOnly = await prisma.kidooDeviceStateLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends KidooDeviceStateLogCreateManyAndReturnArgs>(args?: SelectSubset<T, KidooDeviceStateLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a KidooDeviceStateLog.
+     * @param {KidooDeviceStateLogDeleteArgs} args - Arguments to delete one KidooDeviceStateLog.
+     * @example
+     * // Delete one KidooDeviceStateLog
+     * const KidooDeviceStateLog = await prisma.kidooDeviceStateLog.delete({
+     *   where: {
+     *     // ... filter to delete one KidooDeviceStateLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends KidooDeviceStateLogDeleteArgs>(args: SelectSubset<T, KidooDeviceStateLogDeleteArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one KidooDeviceStateLog.
+     * @param {KidooDeviceStateLogUpdateArgs} args - Arguments to update one KidooDeviceStateLog.
+     * @example
+     * // Update one KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends KidooDeviceStateLogUpdateArgs>(args: SelectSubset<T, KidooDeviceStateLogUpdateArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more KidooDeviceStateLogs.
+     * @param {KidooDeviceStateLogDeleteManyArgs} args - Arguments to filter KidooDeviceStateLogs to delete.
+     * @example
+     * // Delete a few KidooDeviceStateLogs
+     * const { count } = await prisma.kidooDeviceStateLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends KidooDeviceStateLogDeleteManyArgs>(args?: SelectSubset<T, KidooDeviceStateLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more KidooDeviceStateLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many KidooDeviceStateLogs
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends KidooDeviceStateLogUpdateManyArgs>(args: SelectSubset<T, KidooDeviceStateLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more KidooDeviceStateLogs and returns the data updated in the database.
+     * @param {KidooDeviceStateLogUpdateManyAndReturnArgs} args - Arguments to update many KidooDeviceStateLogs.
+     * @example
+     * // Update many KidooDeviceStateLogs
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more KidooDeviceStateLogs and only return the `id`
+     * const kidooDeviceStateLogWithIdOnly = await prisma.kidooDeviceStateLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends KidooDeviceStateLogUpdateManyAndReturnArgs>(args: SelectSubset<T, KidooDeviceStateLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one KidooDeviceStateLog.
+     * @param {KidooDeviceStateLogUpsertArgs} args - Arguments to update or create a KidooDeviceStateLog.
+     * @example
+     * // Update or create a KidooDeviceStateLog
+     * const kidooDeviceStateLog = await prisma.kidooDeviceStateLog.upsert({
+     *   create: {
+     *     // ... data to create a KidooDeviceStateLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the KidooDeviceStateLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends KidooDeviceStateLogUpsertArgs>(args: SelectSubset<T, KidooDeviceStateLogUpsertArgs<ExtArgs>>): Prisma__KidooDeviceStateLogClient<$Result.GetResult<Prisma.$KidooDeviceStateLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of KidooDeviceStateLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogCountArgs} args - Arguments to filter KidooDeviceStateLogs to count.
+     * @example
+     * // Count the number of KidooDeviceStateLogs
+     * const count = await prisma.kidooDeviceStateLog.count({
+     *   where: {
+     *     // ... the filter for the KidooDeviceStateLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends KidooDeviceStateLogCountArgs>(
+      args?: Subset<T, KidooDeviceStateLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], KidooDeviceStateLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a KidooDeviceStateLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends KidooDeviceStateLogAggregateArgs>(args: Subset<T, KidooDeviceStateLogAggregateArgs>): Prisma.PrismaPromise<GetKidooDeviceStateLogAggregateType<T>>
+
+    /**
+     * Group by KidooDeviceStateLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooDeviceStateLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends KidooDeviceStateLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: KidooDeviceStateLogGroupByArgs['orderBy'] }
+        : { orderBy?: KidooDeviceStateLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, KidooDeviceStateLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKidooDeviceStateLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the KidooDeviceStateLog model
+   */
+  readonly fields: KidooDeviceStateLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for KidooDeviceStateLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__KidooDeviceStateLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    kidoo<T extends KidooDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KidooDefaultArgs<ExtArgs>>): Prisma__KidooClient<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the KidooDeviceStateLog model
+   */
+  interface KidooDeviceStateLogFieldRefs {
+    readonly id: FieldRef<"KidooDeviceStateLog", 'String'>
+    readonly kidooId: FieldRef<"KidooDeviceStateLog", 'String'>
+    readonly state: FieldRef<"KidooDeviceStateLog", 'DeviceStateLogState'>
+    readonly source: FieldRef<"KidooDeviceStateLog", 'String'>
+    readonly payload: FieldRef<"KidooDeviceStateLog", 'Json'>
+    readonly createdAt: FieldRef<"KidooDeviceStateLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * KidooDeviceStateLog findUnique
+   */
+  export type KidooDeviceStateLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooDeviceStateLog to fetch.
+     */
+    where: KidooDeviceStateLogWhereUniqueInput
+  }
+
+  /**
+   * KidooDeviceStateLog findUniqueOrThrow
+   */
+  export type KidooDeviceStateLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooDeviceStateLog to fetch.
+     */
+    where: KidooDeviceStateLogWhereUniqueInput
+  }
+
+  /**
+   * KidooDeviceStateLog findFirst
+   */
+  export type KidooDeviceStateLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooDeviceStateLog to fetch.
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooDeviceStateLogs to fetch.
+     */
+    orderBy?: KidooDeviceStateLogOrderByWithRelationInput | KidooDeviceStateLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for KidooDeviceStateLogs.
+     */
+    cursor?: KidooDeviceStateLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooDeviceStateLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooDeviceStateLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of KidooDeviceStateLogs.
+     */
+    distinct?: KidooDeviceStateLogScalarFieldEnum | KidooDeviceStateLogScalarFieldEnum[]
+  }
+
+  /**
+   * KidooDeviceStateLog findFirstOrThrow
+   */
+  export type KidooDeviceStateLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooDeviceStateLog to fetch.
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooDeviceStateLogs to fetch.
+     */
+    orderBy?: KidooDeviceStateLogOrderByWithRelationInput | KidooDeviceStateLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for KidooDeviceStateLogs.
+     */
+    cursor?: KidooDeviceStateLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooDeviceStateLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooDeviceStateLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of KidooDeviceStateLogs.
+     */
+    distinct?: KidooDeviceStateLogScalarFieldEnum | KidooDeviceStateLogScalarFieldEnum[]
+  }
+
+  /**
+   * KidooDeviceStateLog findMany
+   */
+  export type KidooDeviceStateLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooDeviceStateLogs to fetch.
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooDeviceStateLogs to fetch.
+     */
+    orderBy?: KidooDeviceStateLogOrderByWithRelationInput | KidooDeviceStateLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing KidooDeviceStateLogs.
+     */
+    cursor?: KidooDeviceStateLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooDeviceStateLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooDeviceStateLogs.
+     */
+    skip?: number
+    distinct?: KidooDeviceStateLogScalarFieldEnum | KidooDeviceStateLogScalarFieldEnum[]
+  }
+
+  /**
+   * KidooDeviceStateLog create
+   */
+  export type KidooDeviceStateLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a KidooDeviceStateLog.
+     */
+    data: XOR<KidooDeviceStateLogCreateInput, KidooDeviceStateLogUncheckedCreateInput>
+  }
+
+  /**
+   * KidooDeviceStateLog createMany
+   */
+  export type KidooDeviceStateLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many KidooDeviceStateLogs.
+     */
+    data: KidooDeviceStateLogCreateManyInput | KidooDeviceStateLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * KidooDeviceStateLog createManyAndReturn
+   */
+  export type KidooDeviceStateLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many KidooDeviceStateLogs.
+     */
+    data: KidooDeviceStateLogCreateManyInput | KidooDeviceStateLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * KidooDeviceStateLog update
+   */
+  export type KidooDeviceStateLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a KidooDeviceStateLog.
+     */
+    data: XOR<KidooDeviceStateLogUpdateInput, KidooDeviceStateLogUncheckedUpdateInput>
+    /**
+     * Choose, which KidooDeviceStateLog to update.
+     */
+    where: KidooDeviceStateLogWhereUniqueInput
+  }
+
+  /**
+   * KidooDeviceStateLog updateMany
+   */
+  export type KidooDeviceStateLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update KidooDeviceStateLogs.
+     */
+    data: XOR<KidooDeviceStateLogUpdateManyMutationInput, KidooDeviceStateLogUncheckedUpdateManyInput>
+    /**
+     * Filter which KidooDeviceStateLogs to update
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * Limit how many KidooDeviceStateLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * KidooDeviceStateLog updateManyAndReturn
+   */
+  export type KidooDeviceStateLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * The data used to update KidooDeviceStateLogs.
+     */
+    data: XOR<KidooDeviceStateLogUpdateManyMutationInput, KidooDeviceStateLogUncheckedUpdateManyInput>
+    /**
+     * Filter which KidooDeviceStateLogs to update
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * Limit how many KidooDeviceStateLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * KidooDeviceStateLog upsert
+   */
+  export type KidooDeviceStateLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the KidooDeviceStateLog to update in case it exists.
+     */
+    where: KidooDeviceStateLogWhereUniqueInput
+    /**
+     * In case the KidooDeviceStateLog found by the `where` argument doesn't exist, create a new KidooDeviceStateLog with this data.
+     */
+    create: XOR<KidooDeviceStateLogCreateInput, KidooDeviceStateLogUncheckedCreateInput>
+    /**
+     * In case the KidooDeviceStateLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<KidooDeviceStateLogUpdateInput, KidooDeviceStateLogUncheckedUpdateInput>
+  }
+
+  /**
+   * KidooDeviceStateLog delete
+   */
+  export type KidooDeviceStateLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+    /**
+     * Filter which KidooDeviceStateLog to delete.
+     */
+    where: KidooDeviceStateLogWhereUniqueInput
+  }
+
+  /**
+   * KidooDeviceStateLog deleteMany
+   */
+  export type KidooDeviceStateLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which KidooDeviceStateLogs to delete
+     */
+    where?: KidooDeviceStateLogWhereInput
+    /**
+     * Limit how many KidooDeviceStateLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * KidooDeviceStateLog without action
+   */
+  export type KidooDeviceStateLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooDeviceStateLog
+     */
+    select?: KidooDeviceStateLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooDeviceStateLog
+     */
+    omit?: KidooDeviceStateLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooDeviceStateLogInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16292,12 +17500,32 @@ export namespace Prisma {
   export type KidooConfigDreamWakeupScheduleScalarFieldEnum = (typeof KidooConfigDreamWakeupScheduleScalarFieldEnum)[keyof typeof KidooConfigDreamWakeupScheduleScalarFieldEnum]
 
 
+  export const KidooDeviceStateLogScalarFieldEnum: {
+    id: 'id',
+    kidooId: 'kidooId',
+    state: 'state',
+    source: 'source',
+    payload: 'payload',
+    createdAt: 'createdAt'
+  };
+
+  export type KidooDeviceStateLogScalarFieldEnum = (typeof KidooDeviceStateLogScalarFieldEnum)[keyof typeof KidooDeviceStateLogScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -16314,6 +17542,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -16409,6 +17646,34 @@ export namespace Prisma {
    * Reference to a field of type 'BigInt[]'
    */
   export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DeviceStateLogState'
+   */
+  export type EnumDeviceStateLogStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeviceStateLogState'>
+    
+
+
+  /**
+   * Reference to a field of type 'DeviceStateLogState[]'
+   */
+  export type ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeviceStateLogState[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -16544,6 +17809,7 @@ export namespace Prisma {
     tags?: TagListRelationFilter
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    deviceStateLogs?: KidooDeviceStateLogListRelationFilter
   }
 
   export type KidooOrderByWithRelationInput = {
@@ -16571,6 +17837,7 @@ export namespace Prisma {
     tags?: TagOrderByRelationAggregateInput
     configBasic?: KidooConfigBasicOrderByWithRelationInput
     configDream?: KidooConfigDreamOrderByWithRelationInput
+    deviceStateLogs?: KidooDeviceStateLogOrderByRelationAggregateInput
   }
 
   export type KidooWhereUniqueInput = Prisma.AtLeast<{
@@ -16601,6 +17868,7 @@ export namespace Prisma {
     tags?: TagListRelationFilter
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    deviceStateLogs?: KidooDeviceStateLogListRelationFilter
   }, "id" | "deviceId">
 
   export type KidooOrderByWithAggregationInput = {
@@ -17440,6 +18708,66 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
   }
 
+  export type KidooDeviceStateLogWhereInput = {
+    AND?: KidooDeviceStateLogWhereInput | KidooDeviceStateLogWhereInput[]
+    OR?: KidooDeviceStateLogWhereInput[]
+    NOT?: KidooDeviceStateLogWhereInput | KidooDeviceStateLogWhereInput[]
+    id?: StringFilter<"KidooDeviceStateLog"> | string
+    kidooId?: StringFilter<"KidooDeviceStateLog"> | string
+    state?: EnumDeviceStateLogStateFilter<"KidooDeviceStateLog"> | $Enums.DeviceStateLogState
+    source?: StringNullableFilter<"KidooDeviceStateLog"> | string | null
+    payload?: JsonNullableFilter<"KidooDeviceStateLog">
+    createdAt?: DateTimeFilter<"KidooDeviceStateLog"> | Date | string
+    kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
+  }
+
+  export type KidooDeviceStateLogOrderByWithRelationInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    state?: SortOrder
+    source?: SortOrderInput | SortOrder
+    payload?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    kidoo?: KidooOrderByWithRelationInput
+  }
+
+  export type KidooDeviceStateLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: KidooDeviceStateLogWhereInput | KidooDeviceStateLogWhereInput[]
+    OR?: KidooDeviceStateLogWhereInput[]
+    NOT?: KidooDeviceStateLogWhereInput | KidooDeviceStateLogWhereInput[]
+    kidooId?: StringFilter<"KidooDeviceStateLog"> | string
+    state?: EnumDeviceStateLogStateFilter<"KidooDeviceStateLog"> | $Enums.DeviceStateLogState
+    source?: StringNullableFilter<"KidooDeviceStateLog"> | string | null
+    payload?: JsonNullableFilter<"KidooDeviceStateLog">
+    createdAt?: DateTimeFilter<"KidooDeviceStateLog"> | Date | string
+    kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
+  }, "id">
+
+  export type KidooDeviceStateLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    state?: SortOrder
+    source?: SortOrderInput | SortOrder
+    payload?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: KidooDeviceStateLogCountOrderByAggregateInput
+    _max?: KidooDeviceStateLogMaxOrderByAggregateInput
+    _min?: KidooDeviceStateLogMinOrderByAggregateInput
+  }
+
+  export type KidooDeviceStateLogScalarWhereWithAggregatesInput = {
+    AND?: KidooDeviceStateLogScalarWhereWithAggregatesInput | KidooDeviceStateLogScalarWhereWithAggregatesInput[]
+    OR?: KidooDeviceStateLogScalarWhereWithAggregatesInput[]
+    NOT?: KidooDeviceStateLogScalarWhereWithAggregatesInput | KidooDeviceStateLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"KidooDeviceStateLog"> | string
+    kidooId?: StringWithAggregatesFilter<"KidooDeviceStateLog"> | string
+    state?: EnumDeviceStateLogStateWithAggregatesFilter<"KidooDeviceStateLog"> | $Enums.DeviceStateLogState
+    source?: StringNullableWithAggregatesFilter<"KidooDeviceStateLog"> | string | null
+    payload?: JsonNullableWithAggregatesFilter<"KidooDeviceStateLog">
+    createdAt?: DateTimeWithAggregatesFilter<"KidooDeviceStateLog"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -17568,6 +18896,7 @@ export namespace Prisma {
     tags?: TagCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateInput = {
@@ -17594,6 +18923,7 @@ export namespace Prisma {
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUpdateInput = {
@@ -17620,6 +18950,7 @@ export namespace Prisma {
     tags?: TagUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateInput = {
@@ -17646,6 +18977,7 @@ export namespace Prisma {
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateManyInput = {
@@ -18565,6 +19897,68 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type KidooDeviceStateLogCreateInput = {
+    id?: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    kidoo: KidooCreateNestedOneWithoutDeviceStateLogsInput
+  }
+
+  export type KidooDeviceStateLogUncheckedCreateInput = {
+    id?: string
+    kidooId: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type KidooDeviceStateLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidoo?: KidooUpdateOneRequiredWithoutDeviceStateLogsNestedInput
+  }
+
+  export type KidooDeviceStateLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooDeviceStateLogCreateManyInput = {
+    id?: string
+    kidooId: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type KidooDeviceStateLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooDeviceStateLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -18827,6 +20221,16 @@ export namespace Prisma {
   export type KidooConfigDreamNullableScalarRelationFilter = {
     is?: KidooConfigDreamWhereInput | null
     isNot?: KidooConfigDreamWhereInput | null
+  }
+
+  export type KidooDeviceStateLogListRelationFilter = {
+    every?: KidooDeviceStateLogWhereInput
+    some?: KidooDeviceStateLogWhereInput
+    none?: KidooDeviceStateLogWhereInput
+  }
+
+  export type KidooDeviceStateLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type KidooCountOrderByAggregateInput = {
@@ -19516,6 +20920,97 @@ export namespace Prisma {
     minute?: SortOrder
   }
 
+  export type EnumDeviceStateLogStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeviceStateLogState | EnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeviceStateLogStateFilter<$PrismaModel> | $Enums.DeviceStateLogState
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type KidooDeviceStateLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    state?: SortOrder
+    source?: SortOrder
+    payload?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type KidooDeviceStateLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    state?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type KidooDeviceStateLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    state?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type EnumDeviceStateLogStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeviceStateLogState | EnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeviceStateLogStateWithAggregatesFilter<$PrismaModel> | $Enums.DeviceStateLogState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDeviceStateLogStateFilter<$PrismaModel>
+    _max?: NestedEnumDeviceStateLogStateFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
   export type AccountCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -19771,6 +21266,13 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
+  export type KidooDeviceStateLogCreateNestedManyWithoutKidooInput = {
+    create?: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput> | KidooDeviceStateLogCreateWithoutKidooInput[] | KidooDeviceStateLogUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: KidooDeviceStateLogCreateOrConnectWithoutKidooInput | KidooDeviceStateLogCreateOrConnectWithoutKidooInput[]
+    createMany?: KidooDeviceStateLogCreateManyKidooInputEnvelope
+    connect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+  }
+
   export type TagUncheckedCreateNestedManyWithoutKidooInput = {
     create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
@@ -19788,6 +21290,13 @@ export namespace Prisma {
     create?: XOR<KidooConfigDreamCreateWithoutKidooInput, KidooConfigDreamUncheckedCreateWithoutKidooInput>
     connectOrCreate?: KidooConfigDreamCreateOrConnectWithoutKidooInput
     connect?: KidooConfigDreamWhereUniqueInput
+  }
+
+  export type KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput = {
+    create?: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput> | KidooDeviceStateLogCreateWithoutKidooInput[] | KidooDeviceStateLogUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: KidooDeviceStateLogCreateOrConnectWithoutKidooInput | KidooDeviceStateLogCreateOrConnectWithoutKidooInput[]
+    createMany?: KidooDeviceStateLogCreateManyKidooInputEnvelope
+    connect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
   }
 
   export type EnumKidooModelFieldUpdateOperationsInput = {
@@ -19854,6 +21363,20 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
   }
 
+  export type KidooDeviceStateLogUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput> | KidooDeviceStateLogCreateWithoutKidooInput[] | KidooDeviceStateLogUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: KidooDeviceStateLogCreateOrConnectWithoutKidooInput | KidooDeviceStateLogCreateOrConnectWithoutKidooInput[]
+    upsert?: KidooDeviceStateLogUpsertWithWhereUniqueWithoutKidooInput | KidooDeviceStateLogUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: KidooDeviceStateLogCreateManyKidooInputEnvelope
+    set?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    disconnect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    delete?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    connect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    update?: KidooDeviceStateLogUpdateWithWhereUniqueWithoutKidooInput | KidooDeviceStateLogUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: KidooDeviceStateLogUpdateManyWithWhereWithoutKidooInput | KidooDeviceStateLogUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: KidooDeviceStateLogScalarWhereInput | KidooDeviceStateLogScalarWhereInput[]
+  }
+
   export type TagUncheckedUpdateManyWithoutKidooNestedInput = {
     create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
@@ -19886,6 +21409,20 @@ export namespace Prisma {
     delete?: KidooConfigDreamWhereInput | boolean
     connect?: KidooConfigDreamWhereUniqueInput
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput> | KidooDeviceStateLogCreateWithoutKidooInput[] | KidooDeviceStateLogUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: KidooDeviceStateLogCreateOrConnectWithoutKidooInput | KidooDeviceStateLogCreateOrConnectWithoutKidooInput[]
+    upsert?: KidooDeviceStateLogUpsertWithWhereUniqueWithoutKidooInput | KidooDeviceStateLogUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: KidooDeviceStateLogCreateManyKidooInputEnvelope
+    set?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    disconnect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    delete?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    connect?: KidooDeviceStateLogWhereUniqueInput | KidooDeviceStateLogWhereUniqueInput[]
+    update?: KidooDeviceStateLogUpdateWithWhereUniqueWithoutKidooInput | KidooDeviceStateLogUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: KidooDeviceStateLogUpdateManyWithWhereWithoutKidooInput | KidooDeviceStateLogUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: KidooDeviceStateLogScalarWhereInput | KidooDeviceStateLogScalarWhereInput[]
   }
 
   export type KidooCreateNestedOneWithoutTagsInput = {
@@ -20166,6 +21703,24 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutWakeupSchedulesInput, KidooConfigDreamUpdateWithoutWakeupSchedulesInput>, KidooConfigDreamUncheckedUpdateWithoutWakeupSchedulesInput>
   }
 
+  export type KidooCreateNestedOneWithoutDeviceStateLogsInput = {
+    create?: XOR<KidooCreateWithoutDeviceStateLogsInput, KidooUncheckedCreateWithoutDeviceStateLogsInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutDeviceStateLogsInput
+    connect?: KidooWhereUniqueInput
+  }
+
+  export type EnumDeviceStateLogStateFieldUpdateOperationsInput = {
+    set?: $Enums.DeviceStateLogState
+  }
+
+  export type KidooUpdateOneRequiredWithoutDeviceStateLogsNestedInput = {
+    create?: XOR<KidooCreateWithoutDeviceStateLogsInput, KidooUncheckedCreateWithoutDeviceStateLogsInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutDeviceStateLogsInput
+    upsert?: KidooUpsertWithoutDeviceStateLogsInput
+    connect?: KidooWhereUniqueInput
+    update?: XOR<XOR<KidooUpdateToOneWithWhereWithoutDeviceStateLogsInput, KidooUpdateWithoutDeviceStateLogsInput>, KidooUncheckedUpdateWithoutDeviceStateLogsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -20428,6 +21983,46 @@ export namespace Prisma {
     _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
+  export type NestedEnumDeviceStateLogStateFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeviceStateLogState | EnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeviceStateLogStateFilter<$PrismaModel> | $Enums.DeviceStateLogState
+  }
+
+  export type NestedEnumDeviceStateLogStateWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeviceStateLogState | EnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    in?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeviceStateLogState[] | ListEnumDeviceStateLogStateFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeviceStateLogStateWithAggregatesFilter<$PrismaModel> | $Enums.DeviceStateLogState
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDeviceStateLogStateFilter<$PrismaModel>
+    _max?: NestedEnumDeviceStateLogStateFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
   export type AccountCreateWithoutUserInput = {
     id?: string
     type: string
@@ -20511,6 +22106,7 @@ export namespace Prisma {
     tags?: TagCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutUserInput = {
@@ -20536,6 +22132,7 @@ export namespace Prisma {
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutUserInput = {
@@ -20931,6 +22528,32 @@ export namespace Prisma {
     create: XOR<KidooConfigDreamCreateWithoutKidooInput, KidooConfigDreamUncheckedCreateWithoutKidooInput>
   }
 
+  export type KidooDeviceStateLogCreateWithoutKidooInput = {
+    id?: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type KidooDeviceStateLogUncheckedCreateWithoutKidooInput = {
+    id?: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type KidooDeviceStateLogCreateOrConnectWithoutKidooInput = {
+    where: KidooDeviceStateLogWhereUniqueInput
+    create: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput>
+  }
+
+  export type KidooDeviceStateLogCreateManyKidooInputEnvelope = {
+    data: KidooDeviceStateLogCreateManyKidooInput | KidooDeviceStateLogCreateManyKidooInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserUpsertWithoutKidoosInput = {
     update: XOR<UserUpdateWithoutKidoosInput, UserUncheckedUpdateWithoutKidoosInput>
     create: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
@@ -21072,6 +22695,34 @@ export namespace Prisma {
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 
+  export type KidooDeviceStateLogUpsertWithWhereUniqueWithoutKidooInput = {
+    where: KidooDeviceStateLogWhereUniqueInput
+    update: XOR<KidooDeviceStateLogUpdateWithoutKidooInput, KidooDeviceStateLogUncheckedUpdateWithoutKidooInput>
+    create: XOR<KidooDeviceStateLogCreateWithoutKidooInput, KidooDeviceStateLogUncheckedCreateWithoutKidooInput>
+  }
+
+  export type KidooDeviceStateLogUpdateWithWhereUniqueWithoutKidooInput = {
+    where: KidooDeviceStateLogWhereUniqueInput
+    data: XOR<KidooDeviceStateLogUpdateWithoutKidooInput, KidooDeviceStateLogUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type KidooDeviceStateLogUpdateManyWithWhereWithoutKidooInput = {
+    where: KidooDeviceStateLogScalarWhereInput
+    data: XOR<KidooDeviceStateLogUpdateManyMutationInput, KidooDeviceStateLogUncheckedUpdateManyWithoutKidooInput>
+  }
+
+  export type KidooDeviceStateLogScalarWhereInput = {
+    AND?: KidooDeviceStateLogScalarWhereInput | KidooDeviceStateLogScalarWhereInput[]
+    OR?: KidooDeviceStateLogScalarWhereInput[]
+    NOT?: KidooDeviceStateLogScalarWhereInput | KidooDeviceStateLogScalarWhereInput[]
+    id?: StringFilter<"KidooDeviceStateLog"> | string
+    kidooId?: StringFilter<"KidooDeviceStateLog"> | string
+    state?: EnumDeviceStateLogStateFilter<"KidooDeviceStateLog"> | $Enums.DeviceStateLogState
+    source?: StringNullableFilter<"KidooDeviceStateLog"> | string | null
+    payload?: JsonNullableFilter<"KidooDeviceStateLog">
+    createdAt?: DateTimeFilter<"KidooDeviceStateLog"> | Date | string
+  }
+
   export type KidooCreateWithoutTagsInput = {
     id?: string
     name: string
@@ -21095,6 +22746,7 @@ export namespace Prisma {
     user?: UserCreateNestedOneWithoutKidoosInput
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutTagsInput = {
@@ -21120,6 +22772,7 @@ export namespace Prisma {
     sleepEffect?: number | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutTagsInput = {
@@ -21238,6 +22891,7 @@ export namespace Prisma {
     user?: UserUpdateOneWithoutKidoosNestedInput
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutTagsInput = {
@@ -21263,6 +22917,7 @@ export namespace Prisma {
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type UserUpsertWithoutTagsInput = {
@@ -21651,6 +23306,7 @@ export namespace Prisma {
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigBasicInput = {
@@ -21676,6 +23332,7 @@ export namespace Prisma {
     sleepEffect?: number | null
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigBasicInput = {
@@ -21717,6 +23374,7 @@ export namespace Prisma {
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigBasicInput = {
@@ -21742,6 +23400,7 @@ export namespace Prisma {
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateWithoutConfigDreamInput = {
@@ -21767,6 +23426,7 @@ export namespace Prisma {
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigDreamInput = {
@@ -21792,6 +23452,7 @@ export namespace Prisma {
     sleepEffect?: number | null
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigDreamInput = {
@@ -21893,6 +23554,7 @@ export namespace Prisma {
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigDreamInput = {
@@ -21918,6 +23580,7 @@ export namespace Prisma {
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooConfigDreamBedtimeScheduleUpsertWithWhereUniqueWithoutKidooConfigDreamInput = {
@@ -22156,6 +23819,126 @@ export namespace Prisma {
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 
+  export type KidooCreateWithoutDeviceStateLogsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    bluetoothMacAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brightness?: number
+    sleepTimeout?: number
+    sleepColorR?: number | null
+    sleepColorG?: number | null
+    sleepColorB?: number | null
+    sleepEffect?: number | null
+    user?: UserCreateNestedOneWithoutKidoosInput
+    tags?: TagCreateNestedManyWithoutKidooInput
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+  }
+
+  export type KidooUncheckedCreateWithoutDeviceStateLogsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    bluetoothMacAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    userId?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    brightness?: number
+    sleepTimeout?: number
+    sleepColorR?: number | null
+    sleepColorG?: number | null
+    sleepColorB?: number | null
+    sleepEffect?: number | null
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+  }
+
+  export type KidooCreateOrConnectWithoutDeviceStateLogsInput = {
+    where: KidooWhereUniqueInput
+    create: XOR<KidooCreateWithoutDeviceStateLogsInput, KidooUncheckedCreateWithoutDeviceStateLogsInput>
+  }
+
+  export type KidooUpsertWithoutDeviceStateLogsInput = {
+    update: XOR<KidooUpdateWithoutDeviceStateLogsInput, KidooUncheckedUpdateWithoutDeviceStateLogsInput>
+    create: XOR<KidooCreateWithoutDeviceStateLogsInput, KidooUncheckedCreateWithoutDeviceStateLogsInput>
+    where?: KidooWhereInput
+  }
+
+  export type KidooUpdateToOneWithWhereWithoutDeviceStateLogsInput = {
+    where?: KidooWhereInput
+    data: XOR<KidooUpdateWithoutDeviceStateLogsInput, KidooUncheckedUpdateWithoutDeviceStateLogsInput>
+  }
+
+  export type KidooUpdateWithoutDeviceStateLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    user?: UserUpdateOneWithoutKidoosNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
+    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+  }
+
+  export type KidooUncheckedUpdateWithoutDeviceStateLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+  }
+
   export type AccountCreateManyUserInput = {
     id?: string
     type: string
@@ -22307,6 +24090,7 @@ export namespace Prisma {
     tags?: TagUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutUserInput = {
@@ -22332,6 +24116,7 @@ export namespace Prisma {
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    deviceStateLogs?: KidooDeviceStateLogUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateManyWithoutUserInput = {
@@ -22447,6 +24232,14 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type KidooDeviceStateLogCreateManyKidooInput = {
+    id?: string
+    state: $Enums.DeviceStateLogState
+    source?: string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
   export type TagUpdateWithoutKidooInput = {
     id?: StringFieldUpdateOperationsInput | string
     tagId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -22480,6 +24273,30 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooDeviceStateLogUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooDeviceStateLogUncheckedUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooDeviceStateLogUncheckedUpdateManyWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    state?: EnumDeviceStateLogStateFieldUpdateOperationsInput | $Enums.DeviceStateLogState
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    payload?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FileCreateManyTagInput = {

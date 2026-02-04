@@ -22,6 +22,13 @@ enum KidooModel {
   dream
 }
 
+// État connu du device (Dream: bedtime, wakeup, idle)
+enum DeviceStateLogState {
+  idle
+  bedtime
+  wakeup
+}
+
 model User {
   id            String    @id @default(uuid())
   email         String    @unique
@@ -67,10 +74,11 @@ model Kidoo {
   sleepColorB Int? // Composante bleue de la couleur de veille (0-255, null si non configuré)
   sleepEffect Int? // Effet LED pour le sleep mode (0 = LED_EFFECT_NONE, null si non configuré)
 
-  user        User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tags        Tag[]
-  configBasic KidooConfigBasic? // Configuration spécifique au modèle Basic (relation 1:1)
-  configDream KidooConfigDream? // Configuration spécifique au modèle Dream (relation 1:1)
+  user            User?                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tags            Tag[]
+  configBasic     KidooConfigBasic? // Configuration spécifique au modèle Basic (relation 1:1)
+  configDream     KidooConfigDream? // Configuration spécifique au modèle Dream (relation 1:1)
+  deviceStateLogs KidooDeviceStateLog[] // Dernier état connu (bedtime en cours, wakeup, idle)
 
   @@index([userId])
   @@index([deviceId])
@@ -287,4 +295,21 @@ model KidooConfigDreamWakeupSchedule {
   @@unique([kidooConfigDreamId, weekday])
   @@index([kidooConfigDreamId])
   @@map("kidoo_config_dream_wakeup_schedule")
+}
+
+// Logs d'état du device (Dream: bedtime en cours, wakeup en cours, idle)
+// Permet de connaître le dernier état connu du device (rapporté par l'ESP ou par une commande serveur)
+model KidooDeviceStateLog {
+  id        String              @id @default(uuid())
+  kidooId   String
+  state     DeviceStateLogState // idle | bedtime | wakeup
+  source    String?             @default("device") // "device" (ESP a rapporté) | "server" (commande envoyée)
+  payload   Json? // Données optionnelles (ex: ip, timestamp RTC)
+  createdAt DateTime            @default(now())
+
+  kidoo Kidoo @relation(fields: [kidooId], references: [id], onDelete: Cascade)
+
+  @@index([kidooId])
+  @@index([kidooId, createdAt(sort: Desc)])
+  @@map("kidoo_device_state_logs")
 }
