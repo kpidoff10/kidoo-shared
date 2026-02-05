@@ -14,6 +14,61 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model Character
+ * 
+ */
+export type Character = $Result.DefaultSelection<Prisma.$CharacterPayload>
+/**
+ * Model Emotion
+ * 
+ */
+export type Emotion = $Result.DefaultSelection<Prisma.$EmotionPayload>
+/**
+ * Model Clip
+ * 
+ */
+export type Clip = $Result.DefaultSelection<Prisma.$ClipPayload>
+/**
+ * Model ClipArtifact
+ * 
+ */
+export type ClipArtifact = $Result.DefaultSelection<Prisma.$ClipArtifactPayload>
+/**
+ * Model ClipFaceRegion
+ * 
+ */
+export type ClipFaceRegion = $Result.DefaultSelection<Prisma.$ClipFaceRegionPayload>
+/**
+ * Model EmotionVideo
+ * 
+ */
+export type EmotionVideo = $Result.DefaultSelection<Prisma.$EmotionVideoPayload>
+/**
+ * Model EmotionDevice
+ * 
+ */
+export type EmotionDevice = $Result.DefaultSelection<Prisma.$EmotionDevicePayload>
+/**
+ * Model DeviceClipCache
+ * 
+ */
+export type DeviceClipCache = $Result.DefaultSelection<Prisma.$DeviceClipCachePayload>
+/**
+ * Model Rule
+ * 
+ */
+export type Rule = $Result.DefaultSelection<Prisma.$RulePayload>
+/**
+ * Model ObjectType
+ * 
+ */
+export type ObjectType = $Result.DefaultSelection<Prisma.$ObjectTypePayload>
+/**
+ * Model RfidObject
+ * 
+ */
+export type RfidObject = $Result.DefaultSelection<Prisma.$RfidObjectPayload>
+/**
  * Model User
  * 
  */
@@ -87,6 +142,94 @@ export namespace $Enums {
 export type TagType = (typeof TagType)[keyof typeof TagType]
 
 
+export const CharacterSex: {
+  FEMALE: 'FEMALE',
+  MALE: 'MALE'
+};
+
+export type CharacterSex = (typeof CharacterSex)[keyof typeof CharacterSex]
+
+
+export const CharacterPersonality: {
+  TIMID: 'TIMID',
+  GRUMPY: 'GRUMPY',
+  FUNNY: 'FUNNY',
+  ALWAYS_HUNGRY: 'ALWAYS_HUNGRY',
+  BASIC: 'BASIC'
+};
+
+export type CharacterPersonality = (typeof CharacterPersonality)[keyof typeof CharacterPersonality]
+
+
+export const EventType: {
+  RFID: 'RFID',
+  TEMP: 'TEMP',
+  IMU: 'IMU',
+  TOUCH: 'TOUCH',
+  POWER: 'POWER',
+  SYSTEM: 'SYSTEM'
+};
+
+export type EventType = (typeof EventType)[keyof typeof EventType]
+
+
+export const EventKey: {
+  TAG_PRESENT: 'TAG_PRESENT',
+  TAG_ABSENT: 'TAG_ABSENT',
+  TEMP_READING: 'TEMP_READING',
+  TEMP_HOT: 'TEMP_HOT',
+  TEMP_COLD: 'TEMP_COLD',
+  IMU_SHAKE: 'IMU_SHAKE',
+  IMU_TILT: 'IMU_TILT',
+  TOUCH_TAP: 'TOUCH_TAP',
+  TOUCH_LONG: 'TOUCH_LONG',
+  CHARGING_STARTED: 'CHARGING_STARTED',
+  CHARGING_STOPPED: 'CHARGING_STOPPED',
+  SLEEP_ENTER: 'SLEEP_ENTER',
+  SLEEP_EXIT: 'SLEEP_EXIT',
+  CUSTOM: 'CUSTOM'
+};
+
+export type EventKey = (typeof EventKey)[keyof typeof EventKey]
+
+
+export const ClipStatus: {
+  DRAFT: 'DRAFT',
+  GENERATING: 'GENERATING',
+  READY: 'READY',
+  FAILED: 'FAILED',
+  DISABLED: 'DISABLED'
+};
+
+export type ClipStatus = (typeof ClipStatus)[keyof typeof ClipStatus]
+
+
+export const FaceRegionKey: {
+  LEFT_EYE: 'LEFT_EYE',
+  RIGHT_EYE: 'RIGHT_EYE',
+  MOUTH: 'MOUTH'
+};
+
+export type FaceRegionKey = (typeof FaceRegionKey)[keyof typeof FaceRegionKey]
+
+
+export const CornerStyle: {
+  ROUNDED: 'ROUNDED',
+  SQUARE: 'SQUARE'
+};
+
+export type CornerStyle = (typeof CornerStyle)[keyof typeof CornerStyle]
+
+
+export const EmotionDeviceMode: {
+  NORMAL: 'NORMAL',
+  CHARGING: 'CHARGING',
+  SLEEP: 'SLEEP'
+};
+
+export type EmotionDeviceMode = (typeof EmotionDeviceMode)[keyof typeof EmotionDeviceMode]
+
+
 export const KidooModel: {
   basic: 'basic',
   dream: 'dream'
@@ -100,6 +243,38 @@ export type TagType = $Enums.TagType
 
 export const TagType: typeof $Enums.TagType
 
+export type CharacterSex = $Enums.CharacterSex
+
+export const CharacterSex: typeof $Enums.CharacterSex
+
+export type CharacterPersonality = $Enums.CharacterPersonality
+
+export const CharacterPersonality: typeof $Enums.CharacterPersonality
+
+export type EventType = $Enums.EventType
+
+export const EventType: typeof $Enums.EventType
+
+export type EventKey = $Enums.EventKey
+
+export const EventKey: typeof $Enums.EventKey
+
+export type ClipStatus = $Enums.ClipStatus
+
+export const ClipStatus: typeof $Enums.ClipStatus
+
+export type FaceRegionKey = $Enums.FaceRegionKey
+
+export const FaceRegionKey: typeof $Enums.FaceRegionKey
+
+export type CornerStyle = $Enums.CornerStyle
+
+export const CornerStyle: typeof $Enums.CornerStyle
+
+export type EmotionDeviceMode = $Enums.EmotionDeviceMode
+
+export const EmotionDeviceMode: typeof $Enums.EmotionDeviceMode
+
 export type KidooModel = $Enums.KidooModel
 
 export const KidooModel: typeof $Enums.KidooModel
@@ -111,8 +286,8 @@ export const KidooModel: typeof $Enums.KidooModel
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Characters
+ * const characters = await prisma.character.findMany()
  * ```
  *
  *
@@ -132,8 +307,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Characters
+   * const characters = await prisma.character.findMany()
    * ```
    *
    *
@@ -222,6 +397,116 @@ export class PrismaClient<
   }>>
 
       /**
+   * `prisma.character`: Exposes CRUD operations for the **Character** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Characters
+    * const characters = await prisma.character.findMany()
+    * ```
+    */
+  get character(): Prisma.CharacterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emotion`: Exposes CRUD operations for the **Emotion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Emotions
+    * const emotions = await prisma.emotion.findMany()
+    * ```
+    */
+  get emotion(): Prisma.EmotionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clip`: Exposes CRUD operations for the **Clip** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Clips
+    * const clips = await prisma.clip.findMany()
+    * ```
+    */
+  get clip(): Prisma.ClipDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clipArtifact`: Exposes CRUD operations for the **ClipArtifact** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClipArtifacts
+    * const clipArtifacts = await prisma.clipArtifact.findMany()
+    * ```
+    */
+  get clipArtifact(): Prisma.ClipArtifactDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clipFaceRegion`: Exposes CRUD operations for the **ClipFaceRegion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClipFaceRegions
+    * const clipFaceRegions = await prisma.clipFaceRegion.findMany()
+    * ```
+    */
+  get clipFaceRegion(): Prisma.ClipFaceRegionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emotionVideo`: Exposes CRUD operations for the **EmotionVideo** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmotionVideos
+    * const emotionVideos = await prisma.emotionVideo.findMany()
+    * ```
+    */
+  get emotionVideo(): Prisma.EmotionVideoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emotionDevice`: Exposes CRUD operations for the **EmotionDevice** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmotionDevices
+    * const emotionDevices = await prisma.emotionDevice.findMany()
+    * ```
+    */
+  get emotionDevice(): Prisma.EmotionDeviceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.deviceClipCache`: Exposes CRUD operations for the **DeviceClipCache** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DeviceClipCaches
+    * const deviceClipCaches = await prisma.deviceClipCache.findMany()
+    * ```
+    */
+  get deviceClipCache(): Prisma.DeviceClipCacheDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.rule`: Exposes CRUD operations for the **Rule** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Rules
+    * const rules = await prisma.rule.findMany()
+    * ```
+    */
+  get rule(): Prisma.RuleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.objectType`: Exposes CRUD operations for the **ObjectType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ObjectTypes
+    * const objectTypes = await prisma.objectType.findMany()
+    * ```
+    */
+  get objectType(): Prisma.ObjectTypeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.rfidObject`: Exposes CRUD operations for the **RfidObject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RfidObjects
+    * const rfidObjects = await prisma.rfidObject.findMany()
+    * ```
+    */
+  get rfidObject(): Prisma.RfidObjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
@@ -774,6 +1059,17 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    Character: 'Character',
+    Emotion: 'Emotion',
+    Clip: 'Clip',
+    ClipArtifact: 'ClipArtifact',
+    ClipFaceRegion: 'ClipFaceRegion',
+    EmotionVideo: 'EmotionVideo',
+    EmotionDevice: 'EmotionDevice',
+    DeviceClipCache: 'DeviceClipCache',
+    Rule: 'Rule',
+    ObjectType: 'ObjectType',
+    RfidObject: 'RfidObject',
     User: 'User',
     Kidoo: 'Kidoo',
     Tag: 'Tag',
@@ -801,10 +1097,824 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
+      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
+      Character: {
+        payload: Prisma.$CharacterPayload<ExtArgs>
+        fields: Prisma.CharacterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CharacterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CharacterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          findFirst: {
+            args: Prisma.CharacterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CharacterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          findMany: {
+            args: Prisma.CharacterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          create: {
+            args: Prisma.CharacterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          createMany: {
+            args: Prisma.CharacterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CharacterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          delete: {
+            args: Prisma.CharacterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          update: {
+            args: Prisma.CharacterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          deleteMany: {
+            args: Prisma.CharacterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CharacterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CharacterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          upsert: {
+            args: Prisma.CharacterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          aggregate: {
+            args: Prisma.CharacterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCharacter>
+          }
+          groupBy: {
+            args: Prisma.CharacterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CharacterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CharacterCountArgs<ExtArgs>
+            result: $Utils.Optional<CharacterCountAggregateOutputType> | number
+          }
+        }
+      }
+      Emotion: {
+        payload: Prisma.$EmotionPayload<ExtArgs>
+        fields: Prisma.EmotionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmotionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmotionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          findFirst: {
+            args: Prisma.EmotionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmotionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          findMany: {
+            args: Prisma.EmotionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>[]
+          }
+          create: {
+            args: Prisma.EmotionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          createMany: {
+            args: Prisma.EmotionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmotionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>[]
+          }
+          delete: {
+            args: Prisma.EmotionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          update: {
+            args: Prisma.EmotionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmotionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmotionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmotionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmotionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionPayload>
+          }
+          aggregate: {
+            args: Prisma.EmotionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmotion>
+          }
+          groupBy: {
+            args: Prisma.EmotionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmotionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmotionCountArgs<ExtArgs>
+            result: $Utils.Optional<EmotionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Clip: {
+        payload: Prisma.$ClipPayload<ExtArgs>
+        fields: Prisma.ClipFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClipFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClipFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          findFirst: {
+            args: Prisma.ClipFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClipFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          findMany: {
+            args: Prisma.ClipFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>[]
+          }
+          create: {
+            args: Prisma.ClipCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          createMany: {
+            args: Prisma.ClipCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClipCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>[]
+          }
+          delete: {
+            args: Prisma.ClipDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          update: {
+            args: Prisma.ClipUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClipDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClipUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClipUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClipUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipPayload>
+          }
+          aggregate: {
+            args: Prisma.ClipAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClip>
+          }
+          groupBy: {
+            args: Prisma.ClipGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClipGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClipCountArgs<ExtArgs>
+            result: $Utils.Optional<ClipCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClipArtifact: {
+        payload: Prisma.$ClipArtifactPayload<ExtArgs>
+        fields: Prisma.ClipArtifactFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClipArtifactFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClipArtifactFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          findFirst: {
+            args: Prisma.ClipArtifactFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClipArtifactFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          findMany: {
+            args: Prisma.ClipArtifactFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>[]
+          }
+          create: {
+            args: Prisma.ClipArtifactCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          createMany: {
+            args: Prisma.ClipArtifactCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClipArtifactCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>[]
+          }
+          delete: {
+            args: Prisma.ClipArtifactDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          update: {
+            args: Prisma.ClipArtifactUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClipArtifactDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClipArtifactUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClipArtifactUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClipArtifactUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipArtifactPayload>
+          }
+          aggregate: {
+            args: Prisma.ClipArtifactAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClipArtifact>
+          }
+          groupBy: {
+            args: Prisma.ClipArtifactGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClipArtifactGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClipArtifactCountArgs<ExtArgs>
+            result: $Utils.Optional<ClipArtifactCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClipFaceRegion: {
+        payload: Prisma.$ClipFaceRegionPayload<ExtArgs>
+        fields: Prisma.ClipFaceRegionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClipFaceRegionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClipFaceRegionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          findFirst: {
+            args: Prisma.ClipFaceRegionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClipFaceRegionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          findMany: {
+            args: Prisma.ClipFaceRegionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>[]
+          }
+          create: {
+            args: Prisma.ClipFaceRegionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          createMany: {
+            args: Prisma.ClipFaceRegionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClipFaceRegionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>[]
+          }
+          delete: {
+            args: Prisma.ClipFaceRegionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          update: {
+            args: Prisma.ClipFaceRegionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClipFaceRegionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClipFaceRegionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClipFaceRegionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClipFaceRegionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClipFaceRegionPayload>
+          }
+          aggregate: {
+            args: Prisma.ClipFaceRegionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClipFaceRegion>
+          }
+          groupBy: {
+            args: Prisma.ClipFaceRegionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClipFaceRegionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClipFaceRegionCountArgs<ExtArgs>
+            result: $Utils.Optional<ClipFaceRegionCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmotionVideo: {
+        payload: Prisma.$EmotionVideoPayload<ExtArgs>
+        fields: Prisma.EmotionVideoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmotionVideoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmotionVideoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          findFirst: {
+            args: Prisma.EmotionVideoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmotionVideoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          findMany: {
+            args: Prisma.EmotionVideoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          create: {
+            args: Prisma.EmotionVideoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          createMany: {
+            args: Prisma.EmotionVideoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmotionVideoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          delete: {
+            args: Prisma.EmotionVideoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          update: {
+            args: Prisma.EmotionVideoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmotionVideoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmotionVideoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmotionVideoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmotionVideoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          aggregate: {
+            args: Prisma.EmotionVideoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmotionVideo>
+          }
+          groupBy: {
+            args: Prisma.EmotionVideoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmotionVideoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmotionVideoCountArgs<ExtArgs>
+            result: $Utils.Optional<EmotionVideoCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmotionDevice: {
+        payload: Prisma.$EmotionDevicePayload<ExtArgs>
+        fields: Prisma.EmotionDeviceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmotionDeviceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmotionDeviceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          findFirst: {
+            args: Prisma.EmotionDeviceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmotionDeviceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          findMany: {
+            args: Prisma.EmotionDeviceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>[]
+          }
+          create: {
+            args: Prisma.EmotionDeviceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          createMany: {
+            args: Prisma.EmotionDeviceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmotionDeviceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>[]
+          }
+          delete: {
+            args: Prisma.EmotionDeviceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          update: {
+            args: Prisma.EmotionDeviceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          deleteMany: {
+            args: Prisma.EmotionDeviceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmotionDeviceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmotionDeviceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>[]
+          }
+          upsert: {
+            args: Prisma.EmotionDeviceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionDevicePayload>
+          }
+          aggregate: {
+            args: Prisma.EmotionDeviceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmotionDevice>
+          }
+          groupBy: {
+            args: Prisma.EmotionDeviceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmotionDeviceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmotionDeviceCountArgs<ExtArgs>
+            result: $Utils.Optional<EmotionDeviceCountAggregateOutputType> | number
+          }
+        }
+      }
+      DeviceClipCache: {
+        payload: Prisma.$DeviceClipCachePayload<ExtArgs>
+        fields: Prisma.DeviceClipCacheFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeviceClipCacheFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeviceClipCacheFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          findFirst: {
+            args: Prisma.DeviceClipCacheFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeviceClipCacheFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          findMany: {
+            args: Prisma.DeviceClipCacheFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>[]
+          }
+          create: {
+            args: Prisma.DeviceClipCacheCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          createMany: {
+            args: Prisma.DeviceClipCacheCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DeviceClipCacheCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>[]
+          }
+          delete: {
+            args: Prisma.DeviceClipCacheDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          update: {
+            args: Prisma.DeviceClipCacheUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          deleteMany: {
+            args: Prisma.DeviceClipCacheDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeviceClipCacheUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DeviceClipCacheUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>[]
+          }
+          upsert: {
+            args: Prisma.DeviceClipCacheUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeviceClipCachePayload>
+          }
+          aggregate: {
+            args: Prisma.DeviceClipCacheAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeviceClipCache>
+          }
+          groupBy: {
+            args: Prisma.DeviceClipCacheGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DeviceClipCacheGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeviceClipCacheCountArgs<ExtArgs>
+            result: $Utils.Optional<DeviceClipCacheCountAggregateOutputType> | number
+          }
+        }
+      }
+      Rule: {
+        payload: Prisma.$RulePayload<ExtArgs>
+        fields: Prisma.RuleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RuleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RuleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          findFirst: {
+            args: Prisma.RuleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RuleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          findMany: {
+            args: Prisma.RuleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>[]
+          }
+          create: {
+            args: Prisma.RuleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          createMany: {
+            args: Prisma.RuleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RuleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>[]
+          }
+          delete: {
+            args: Prisma.RuleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          update: {
+            args: Prisma.RuleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          deleteMany: {
+            args: Prisma.RuleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RuleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RuleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>[]
+          }
+          upsert: {
+            args: Prisma.RuleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RulePayload>
+          }
+          aggregate: {
+            args: Prisma.RuleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRule>
+          }
+          groupBy: {
+            args: Prisma.RuleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RuleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RuleCountArgs<ExtArgs>
+            result: $Utils.Optional<RuleCountAggregateOutputType> | number
+          }
+        }
+      }
+      ObjectType: {
+        payload: Prisma.$ObjectTypePayload<ExtArgs>
+        fields: Prisma.ObjectTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ObjectTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ObjectTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          findFirst: {
+            args: Prisma.ObjectTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ObjectTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          findMany: {
+            args: Prisma.ObjectTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>[]
+          }
+          create: {
+            args: Prisma.ObjectTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          createMany: {
+            args: Prisma.ObjectTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ObjectTypeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>[]
+          }
+          delete: {
+            args: Prisma.ObjectTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          update: {
+            args: Prisma.ObjectTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.ObjectTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ObjectTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ObjectTypeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>[]
+          }
+          upsert: {
+            args: Prisma.ObjectTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ObjectTypePayload>
+          }
+          aggregate: {
+            args: Prisma.ObjectTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateObjectType>
+          }
+          groupBy: {
+            args: Prisma.ObjectTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ObjectTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ObjectTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<ObjectTypeCountAggregateOutputType> | number
+          }
+        }
+      }
+      RfidObject: {
+        payload: Prisma.$RfidObjectPayload<ExtArgs>
+        fields: Prisma.RfidObjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RfidObjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RfidObjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          findFirst: {
+            args: Prisma.RfidObjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RfidObjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          findMany: {
+            args: Prisma.RfidObjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>[]
+          }
+          create: {
+            args: Prisma.RfidObjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          createMany: {
+            args: Prisma.RfidObjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RfidObjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>[]
+          }
+          delete: {
+            args: Prisma.RfidObjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          update: {
+            args: Prisma.RfidObjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.RfidObjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RfidObjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RfidObjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.RfidObjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RfidObjectPayload>
+          }
+          aggregate: {
+            args: Prisma.RfidObjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRfidObject>
+          }
+          groupBy: {
+            args: Prisma.RfidObjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RfidObjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RfidObjectCountArgs<ExtArgs>
+            result: $Utils.Optional<RfidObjectCountAggregateOutputType> | number
+          }
+        }
+      }
       User: {
         payload: Prisma.$UserPayload<ExtArgs>
         fields: Prisma.UserFieldRefs
@@ -1801,6 +2911,17 @@ export namespace Prisma {
     comments?: runtime.SqlCommenterPlugin[]
   }
   export type GlobalOmitConfig = {
+    character?: CharacterOmit
+    emotion?: EmotionOmit
+    clip?: ClipOmit
+    clipArtifact?: ClipArtifactOmit
+    clipFaceRegion?: ClipFaceRegionOmit
+    emotionVideo?: EmotionVideoOmit
+    emotionDevice?: EmotionDeviceOmit
+    deviceClipCache?: DeviceClipCacheOmit
+    rule?: RuleOmit
+    objectType?: ObjectTypeOmit
+    rfidObject?: RfidObjectOmit
     user?: UserOmit
     kidoo?: KidooOmit
     tag?: TagOmit
@@ -1886,6 +3007,224 @@ export namespace Prisma {
   /**
    * Count Types
    */
+
+
+  /**
+   * Count Type CharacterCountOutputType
+   */
+
+  export type CharacterCountOutputType = {
+    clips: number
+    emotionDevices: number
+    rules: number
+  }
+
+  export type CharacterCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clips?: boolean | CharacterCountOutputTypeCountClipsArgs
+    emotionDevices?: boolean | CharacterCountOutputTypeCountEmotionDevicesArgs
+    rules?: boolean | CharacterCountOutputTypeCountRulesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterCountOutputType
+     */
+    select?: CharacterCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeCountClipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipWhereInput
+  }
+
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeCountEmotionDevicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionDeviceWhereInput
+  }
+
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeCountRulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RuleWhereInput
+  }
+
+
+  /**
+   * Count Type EmotionCountOutputType
+   */
+
+  export type EmotionCountOutputType = {
+    clips: number
+    deviceClipCaches: number
+    emotionVideos: number
+  }
+
+  export type EmotionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clips?: boolean | EmotionCountOutputTypeCountClipsArgs
+    deviceClipCaches?: boolean | EmotionCountOutputTypeCountDeviceClipCachesArgs
+    emotionVideos?: boolean | EmotionCountOutputTypeCountEmotionVideosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EmotionCountOutputType without action
+   */
+  export type EmotionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionCountOutputType
+     */
+    select?: EmotionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EmotionCountOutputType without action
+   */
+  export type EmotionCountOutputTypeCountClipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipWhereInput
+  }
+
+  /**
+   * EmotionCountOutputType without action
+   */
+  export type EmotionCountOutputTypeCountDeviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeviceClipCacheWhereInput
+  }
+
+  /**
+   * EmotionCountOutputType without action
+   */
+  export type EmotionCountOutputTypeCountEmotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
+  }
+
+
+  /**
+   * Count Type ClipCountOutputType
+   */
+
+  export type ClipCountOutputType = {
+    faceRegions: number
+    artifacts: number
+    deviceClipCaches: number
+    emotionVideos: number
+  }
+
+  export type ClipCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    faceRegions?: boolean | ClipCountOutputTypeCountFaceRegionsArgs
+    artifacts?: boolean | ClipCountOutputTypeCountArtifactsArgs
+    deviceClipCaches?: boolean | ClipCountOutputTypeCountDeviceClipCachesArgs
+    emotionVideos?: boolean | ClipCountOutputTypeCountEmotionVideosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipCountOutputType
+     */
+    select?: ClipCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeCountFaceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipFaceRegionWhereInput
+  }
+
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeCountArtifactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipArtifactWhereInput
+  }
+
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeCountDeviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeviceClipCacheWhereInput
+  }
+
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeCountEmotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
+  }
+
+
+  /**
+   * Count Type EmotionDeviceCountOutputType
+   */
+
+  export type EmotionDeviceCountOutputType = {
+    deviceClipCaches: number
+  }
+
+  export type EmotionDeviceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deviceClipCaches?: boolean | EmotionDeviceCountOutputTypeCountDeviceClipCachesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EmotionDeviceCountOutputType without action
+   */
+  export type EmotionDeviceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDeviceCountOutputType
+     */
+    select?: EmotionDeviceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EmotionDeviceCountOutputType without action
+   */
+  export type EmotionDeviceCountOutputTypeCountDeviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeviceClipCacheWhereInput
+  }
+
+
+  /**
+   * Count Type ObjectTypeCountOutputType
+   */
+
+  export type ObjectTypeCountOutputType = {
+    rfidObjects: number
+  }
+
+  export type ObjectTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    rfidObjects?: boolean | ObjectTypeCountOutputTypeCountRfidObjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ObjectTypeCountOutputType without action
+   */
+  export type ObjectTypeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectTypeCountOutputType
+     */
+    select?: ObjectTypeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ObjectTypeCountOutputType without action
+   */
+  export type ObjectTypeCountOutputTypeCountRfidObjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RfidObjectWhereInput
+  }
 
 
   /**
@@ -2060,6 +3399,12983 @@ export namespace Prisma {
   /**
    * Models
    */
+
+  /**
+   * Model Character
+   */
+
+  export type AggregateCharacter = {
+    _count: CharacterCountAggregateOutputType | null
+    _min: CharacterMinAggregateOutputType | null
+    _max: CharacterMaxAggregateOutputType | null
+  }
+
+  export type CharacterMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    defaultImageUrl: string | null
+    stylePrompt: string | null
+    sex: $Enums.CharacterSex | null
+    personality: $Enums.CharacterPersonality | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CharacterMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    defaultImageUrl: string | null
+    stylePrompt: string | null
+    sex: $Enums.CharacterSex | null
+    personality: $Enums.CharacterPersonality | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CharacterCountAggregateOutputType = {
+    id: number
+    name: number
+    defaultImageUrl: number
+    stylePrompt: number
+    sex: number
+    personality: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CharacterMinAggregateInputType = {
+    id?: true
+    name?: true
+    defaultImageUrl?: true
+    stylePrompt?: true
+    sex?: true
+    personality?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CharacterMaxAggregateInputType = {
+    id?: true
+    name?: true
+    defaultImageUrl?: true
+    stylePrompt?: true
+    sex?: true
+    personality?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CharacterCountAggregateInputType = {
+    id?: true
+    name?: true
+    defaultImageUrl?: true
+    stylePrompt?: true
+    sex?: true
+    personality?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CharacterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Character to aggregate.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Characters
+    **/
+    _count?: true | CharacterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CharacterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CharacterMaxAggregateInputType
+  }
+
+  export type GetCharacterAggregateType<T extends CharacterAggregateArgs> = {
+        [P in keyof T & keyof AggregateCharacter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCharacter[P]>
+      : GetScalarType<T[P], AggregateCharacter[P]>
+  }
+
+
+
+
+  export type CharacterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterWhereInput
+    orderBy?: CharacterOrderByWithAggregationInput | CharacterOrderByWithAggregationInput[]
+    by: CharacterScalarFieldEnum[] | CharacterScalarFieldEnum
+    having?: CharacterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CharacterCountAggregateInputType | true
+    _min?: CharacterMinAggregateInputType
+    _max?: CharacterMaxAggregateInputType
+  }
+
+  export type CharacterGroupByOutputType = {
+    id: string
+    name: string | null
+    defaultImageUrl: string | null
+    stylePrompt: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt: Date
+    updatedAt: Date
+    _count: CharacterCountAggregateOutputType | null
+    _min: CharacterMinAggregateOutputType | null
+    _max: CharacterMaxAggregateOutputType | null
+  }
+
+  type GetCharacterGroupByPayload<T extends CharacterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CharacterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CharacterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CharacterGroupByOutputType[P]>
+            : GetScalarType<T[P], CharacterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CharacterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    defaultImageUrl?: boolean
+    stylePrompt?: boolean
+    sex?: boolean
+    personality?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clips?: boolean | Character$clipsArgs<ExtArgs>
+    emotionDevices?: boolean | Character$emotionDevicesArgs<ExtArgs>
+    rules?: boolean | Character$rulesArgs<ExtArgs>
+    _count?: boolean | CharacterCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    defaultImageUrl?: boolean
+    stylePrompt?: boolean
+    sex?: boolean
+    personality?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    defaultImageUrl?: boolean
+    stylePrompt?: boolean
+    sex?: boolean
+    personality?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectScalar = {
+    id?: boolean
+    name?: boolean
+    defaultImageUrl?: boolean
+    stylePrompt?: boolean
+    sex?: boolean
+    personality?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "defaultImageUrl" | "stylePrompt" | "sex" | "personality" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
+  export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clips?: boolean | Character$clipsArgs<ExtArgs>
+    emotionDevices?: boolean | Character$emotionDevicesArgs<ExtArgs>
+    rules?: boolean | Character$rulesArgs<ExtArgs>
+    _count?: boolean | CharacterCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CharacterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CharacterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CharacterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Character"
+    objects: {
+      clips: Prisma.$ClipPayload<ExtArgs>[]
+      emotionDevices: Prisma.$EmotionDevicePayload<ExtArgs>[]
+      rules: Prisma.$RulePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string | null
+      defaultImageUrl: string | null
+      stylePrompt: string | null
+      sex: $Enums.CharacterSex
+      personality: $Enums.CharacterPersonality
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["character"]>
+    composites: {}
+  }
+
+  type CharacterGetPayload<S extends boolean | null | undefined | CharacterDefaultArgs> = $Result.GetResult<Prisma.$CharacterPayload, S>
+
+  type CharacterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CharacterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CharacterCountAggregateInputType | true
+    }
+
+  export interface CharacterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Character'], meta: { name: 'Character' } }
+    /**
+     * Find zero or one Character that matches the filter.
+     * @param {CharacterFindUniqueArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CharacterFindUniqueArgs>(args: SelectSubset<T, CharacterFindUniqueArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Character that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CharacterFindUniqueOrThrowArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CharacterFindUniqueOrThrowArgs>(args: SelectSubset<T, CharacterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Character that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindFirstArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CharacterFindFirstArgs>(args?: SelectSubset<T, CharacterFindFirstArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Character that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindFirstOrThrowArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CharacterFindFirstOrThrowArgs>(args?: SelectSubset<T, CharacterFindFirstOrThrowArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Characters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Characters
+     * const characters = await prisma.character.findMany()
+     * 
+     * // Get first 10 Characters
+     * const characters = await prisma.character.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const characterWithIdOnly = await prisma.character.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CharacterFindManyArgs>(args?: SelectSubset<T, CharacterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Character.
+     * @param {CharacterCreateArgs} args - Arguments to create a Character.
+     * @example
+     * // Create one Character
+     * const Character = await prisma.character.create({
+     *   data: {
+     *     // ... data to create a Character
+     *   }
+     * })
+     * 
+     */
+    create<T extends CharacterCreateArgs>(args: SelectSubset<T, CharacterCreateArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Characters.
+     * @param {CharacterCreateManyArgs} args - Arguments to create many Characters.
+     * @example
+     * // Create many Characters
+     * const character = await prisma.character.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CharacterCreateManyArgs>(args?: SelectSubset<T, CharacterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Characters and returns the data saved in the database.
+     * @param {CharacterCreateManyAndReturnArgs} args - Arguments to create many Characters.
+     * @example
+     * // Create many Characters
+     * const character = await prisma.character.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Characters and only return the `id`
+     * const characterWithIdOnly = await prisma.character.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CharacterCreateManyAndReturnArgs>(args?: SelectSubset<T, CharacterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Character.
+     * @param {CharacterDeleteArgs} args - Arguments to delete one Character.
+     * @example
+     * // Delete one Character
+     * const Character = await prisma.character.delete({
+     *   where: {
+     *     // ... filter to delete one Character
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CharacterDeleteArgs>(args: SelectSubset<T, CharacterDeleteArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Character.
+     * @param {CharacterUpdateArgs} args - Arguments to update one Character.
+     * @example
+     * // Update one Character
+     * const character = await prisma.character.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CharacterUpdateArgs>(args: SelectSubset<T, CharacterUpdateArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Characters.
+     * @param {CharacterDeleteManyArgs} args - Arguments to filter Characters to delete.
+     * @example
+     * // Delete a few Characters
+     * const { count } = await prisma.character.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CharacterDeleteManyArgs>(args?: SelectSubset<T, CharacterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Characters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Characters
+     * const character = await prisma.character.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CharacterUpdateManyArgs>(args: SelectSubset<T, CharacterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Characters and returns the data updated in the database.
+     * @param {CharacterUpdateManyAndReturnArgs} args - Arguments to update many Characters.
+     * @example
+     * // Update many Characters
+     * const character = await prisma.character.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Characters and only return the `id`
+     * const characterWithIdOnly = await prisma.character.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CharacterUpdateManyAndReturnArgs>(args: SelectSubset<T, CharacterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Character.
+     * @param {CharacterUpsertArgs} args - Arguments to update or create a Character.
+     * @example
+     * // Update or create a Character
+     * const character = await prisma.character.upsert({
+     *   create: {
+     *     // ... data to create a Character
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Character we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CharacterUpsertArgs>(args: SelectSubset<T, CharacterUpsertArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Characters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterCountArgs} args - Arguments to filter Characters to count.
+     * @example
+     * // Count the number of Characters
+     * const count = await prisma.character.count({
+     *   where: {
+     *     // ... the filter for the Characters we want to count
+     *   }
+     * })
+    **/
+    count<T extends CharacterCountArgs>(
+      args?: Subset<T, CharacterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CharacterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Character.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CharacterAggregateArgs>(args: Subset<T, CharacterAggregateArgs>): Prisma.PrismaPromise<GetCharacterAggregateType<T>>
+
+    /**
+     * Group by Character.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CharacterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CharacterGroupByArgs['orderBy'] }
+        : { orderBy?: CharacterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CharacterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCharacterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Character model
+   */
+  readonly fields: CharacterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Character.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CharacterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clips<T extends Character$clipsArgs<ExtArgs> = {}>(args?: Subset<T, Character$clipsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emotionDevices<T extends Character$emotionDevicesArgs<ExtArgs> = {}>(args?: Subset<T, Character$emotionDevicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    rules<T extends Character$rulesArgs<ExtArgs> = {}>(args?: Subset<T, Character$rulesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Character model
+   */
+  interface CharacterFieldRefs {
+    readonly id: FieldRef<"Character", 'String'>
+    readonly name: FieldRef<"Character", 'String'>
+    readonly defaultImageUrl: FieldRef<"Character", 'String'>
+    readonly stylePrompt: FieldRef<"Character", 'String'>
+    readonly sex: FieldRef<"Character", 'CharacterSex'>
+    readonly personality: FieldRef<"Character", 'CharacterPersonality'>
+    readonly createdAt: FieldRef<"Character", 'DateTime'>
+    readonly updatedAt: FieldRef<"Character", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Character findUnique
+   */
+  export type CharacterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character findUniqueOrThrow
+   */
+  export type CharacterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character findFirst
+   */
+  export type CharacterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Characters.
+     */
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character findFirstOrThrow
+   */
+  export type CharacterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Characters.
+     */
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character findMany
+   */
+  export type CharacterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Characters to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character create
+   */
+  export type CharacterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Character.
+     */
+    data: XOR<CharacterCreateInput, CharacterUncheckedCreateInput>
+  }
+
+  /**
+   * Character createMany
+   */
+  export type CharacterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Characters.
+     */
+    data: CharacterCreateManyInput | CharacterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Character createManyAndReturn
+   */
+  export type CharacterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * The data used to create many Characters.
+     */
+    data: CharacterCreateManyInput | CharacterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Character update
+   */
+  export type CharacterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Character.
+     */
+    data: XOR<CharacterUpdateInput, CharacterUncheckedUpdateInput>
+    /**
+     * Choose, which Character to update.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character updateMany
+   */
+  export type CharacterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Characters.
+     */
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyInput>
+    /**
+     * Filter which Characters to update
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Character updateManyAndReturn
+   */
+  export type CharacterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * The data used to update Characters.
+     */
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyInput>
+    /**
+     * Filter which Characters to update
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Character upsert
+   */
+  export type CharacterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Character to update in case it exists.
+     */
+    where: CharacterWhereUniqueInput
+    /**
+     * In case the Character found by the `where` argument doesn't exist, create a new Character with this data.
+     */
+    create: XOR<CharacterCreateInput, CharacterUncheckedCreateInput>
+    /**
+     * In case the Character was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CharacterUpdateInput, CharacterUncheckedUpdateInput>
+  }
+
+  /**
+   * Character delete
+   */
+  export type CharacterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter which Character to delete.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character deleteMany
+   */
+  export type CharacterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Characters to delete
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Character.clips
+   */
+  export type Character$clipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    where?: ClipWhereInput
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    cursor?: ClipWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClipScalarFieldEnum | ClipScalarFieldEnum[]
+  }
+
+  /**
+   * Character.emotionDevices
+   */
+  export type Character$emotionDevicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    where?: EmotionDeviceWhereInput
+    orderBy?: EmotionDeviceOrderByWithRelationInput | EmotionDeviceOrderByWithRelationInput[]
+    cursor?: EmotionDeviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmotionDeviceScalarFieldEnum | EmotionDeviceScalarFieldEnum[]
+  }
+
+  /**
+   * Character.rules
+   */
+  export type Character$rulesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    where?: RuleWhereInput
+    orderBy?: RuleOrderByWithRelationInput | RuleOrderByWithRelationInput[]
+    cursor?: RuleWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RuleScalarFieldEnum | RuleScalarFieldEnum[]
+  }
+
+  /**
+   * Character without action
+   */
+  export type CharacterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Emotion
+   */
+
+  export type AggregateEmotion = {
+    _count: EmotionCountAggregateOutputType | null
+    _min: EmotionMinAggregateOutputType | null
+    _max: EmotionMaxAggregateOutputType | null
+  }
+
+  export type EmotionMinAggregateOutputType = {
+    id: string | null
+    key: string | null
+    label: string | null
+    promptCustom: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionMaxAggregateOutputType = {
+    id: string | null
+    key: string | null
+    label: string | null
+    promptCustom: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionCountAggregateOutputType = {
+    id: number
+    key: number
+    label: number
+    promptCustom: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmotionMinAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    promptCustom?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionMaxAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    promptCustom?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionCountAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    promptCustom?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmotionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Emotion to aggregate.
+     */
+    where?: EmotionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Emotions to fetch.
+     */
+    orderBy?: EmotionOrderByWithRelationInput | EmotionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmotionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Emotions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Emotions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Emotions
+    **/
+    _count?: true | EmotionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmotionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmotionMaxAggregateInputType
+  }
+
+  export type GetEmotionAggregateType<T extends EmotionAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmotion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmotion[P]>
+      : GetScalarType<T[P], AggregateEmotion[P]>
+  }
+
+
+
+
+  export type EmotionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionWhereInput
+    orderBy?: EmotionOrderByWithAggregationInput | EmotionOrderByWithAggregationInput[]
+    by: EmotionScalarFieldEnum[] | EmotionScalarFieldEnum
+    having?: EmotionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmotionCountAggregateInputType | true
+    _min?: EmotionMinAggregateInputType
+    _max?: EmotionMaxAggregateInputType
+  }
+
+  export type EmotionGroupByOutputType = {
+    id: string
+    key: string
+    label: string
+    promptCustom: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmotionCountAggregateOutputType | null
+    _min: EmotionMinAggregateOutputType | null
+    _max: EmotionMaxAggregateOutputType | null
+  }
+
+  type GetEmotionGroupByPayload<T extends EmotionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmotionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmotionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmotionGroupByOutputType[P]>
+            : GetScalarType<T[P], EmotionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmotionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    promptCustom?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clips?: boolean | Emotion$clipsArgs<ExtArgs>
+    deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Emotion$emotionVideosArgs<ExtArgs>
+    _count?: boolean | EmotionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotion"]>
+
+  export type EmotionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    promptCustom?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["emotion"]>
+
+  export type EmotionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    promptCustom?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["emotion"]>
+
+  export type EmotionSelectScalar = {
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    promptCustom?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmotionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "label" | "promptCustom" | "createdAt" | "updatedAt", ExtArgs["result"]["emotion"]>
+  export type EmotionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clips?: boolean | Emotion$clipsArgs<ExtArgs>
+    deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Emotion$emotionVideosArgs<ExtArgs>
+    _count?: boolean | EmotionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type EmotionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmotionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $EmotionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Emotion"
+    objects: {
+      clips: Prisma.$ClipPayload<ExtArgs>[]
+      deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+      emotionVideos: Prisma.$EmotionVideoPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      key: string
+      label: string
+      promptCustom: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["emotion"]>
+    composites: {}
+  }
+
+  type EmotionGetPayload<S extends boolean | null | undefined | EmotionDefaultArgs> = $Result.GetResult<Prisma.$EmotionPayload, S>
+
+  type EmotionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmotionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmotionCountAggregateInputType | true
+    }
+
+  export interface EmotionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Emotion'], meta: { name: 'Emotion' } }
+    /**
+     * Find zero or one Emotion that matches the filter.
+     * @param {EmotionFindUniqueArgs} args - Arguments to find a Emotion
+     * @example
+     * // Get one Emotion
+     * const emotion = await prisma.emotion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmotionFindUniqueArgs>(args: SelectSubset<T, EmotionFindUniqueArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Emotion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmotionFindUniqueOrThrowArgs} args - Arguments to find a Emotion
+     * @example
+     * // Get one Emotion
+     * const emotion = await prisma.emotion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmotionFindUniqueOrThrowArgs>(args: SelectSubset<T, EmotionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Emotion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionFindFirstArgs} args - Arguments to find a Emotion
+     * @example
+     * // Get one Emotion
+     * const emotion = await prisma.emotion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmotionFindFirstArgs>(args?: SelectSubset<T, EmotionFindFirstArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Emotion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionFindFirstOrThrowArgs} args - Arguments to find a Emotion
+     * @example
+     * // Get one Emotion
+     * const emotion = await prisma.emotion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmotionFindFirstOrThrowArgs>(args?: SelectSubset<T, EmotionFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Emotions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Emotions
+     * const emotions = await prisma.emotion.findMany()
+     * 
+     * // Get first 10 Emotions
+     * const emotions = await prisma.emotion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emotionWithIdOnly = await prisma.emotion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmotionFindManyArgs>(args?: SelectSubset<T, EmotionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Emotion.
+     * @param {EmotionCreateArgs} args - Arguments to create a Emotion.
+     * @example
+     * // Create one Emotion
+     * const Emotion = await prisma.emotion.create({
+     *   data: {
+     *     // ... data to create a Emotion
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmotionCreateArgs>(args: SelectSubset<T, EmotionCreateArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Emotions.
+     * @param {EmotionCreateManyArgs} args - Arguments to create many Emotions.
+     * @example
+     * // Create many Emotions
+     * const emotion = await prisma.emotion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmotionCreateManyArgs>(args?: SelectSubset<T, EmotionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Emotions and returns the data saved in the database.
+     * @param {EmotionCreateManyAndReturnArgs} args - Arguments to create many Emotions.
+     * @example
+     * // Create many Emotions
+     * const emotion = await prisma.emotion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Emotions and only return the `id`
+     * const emotionWithIdOnly = await prisma.emotion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmotionCreateManyAndReturnArgs>(args?: SelectSubset<T, EmotionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Emotion.
+     * @param {EmotionDeleteArgs} args - Arguments to delete one Emotion.
+     * @example
+     * // Delete one Emotion
+     * const Emotion = await prisma.emotion.delete({
+     *   where: {
+     *     // ... filter to delete one Emotion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmotionDeleteArgs>(args: SelectSubset<T, EmotionDeleteArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Emotion.
+     * @param {EmotionUpdateArgs} args - Arguments to update one Emotion.
+     * @example
+     * // Update one Emotion
+     * const emotion = await prisma.emotion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmotionUpdateArgs>(args: SelectSubset<T, EmotionUpdateArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Emotions.
+     * @param {EmotionDeleteManyArgs} args - Arguments to filter Emotions to delete.
+     * @example
+     * // Delete a few Emotions
+     * const { count } = await prisma.emotion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmotionDeleteManyArgs>(args?: SelectSubset<T, EmotionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Emotions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Emotions
+     * const emotion = await prisma.emotion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmotionUpdateManyArgs>(args: SelectSubset<T, EmotionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Emotions and returns the data updated in the database.
+     * @param {EmotionUpdateManyAndReturnArgs} args - Arguments to update many Emotions.
+     * @example
+     * // Update many Emotions
+     * const emotion = await prisma.emotion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Emotions and only return the `id`
+     * const emotionWithIdOnly = await prisma.emotion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmotionUpdateManyAndReturnArgs>(args: SelectSubset<T, EmotionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Emotion.
+     * @param {EmotionUpsertArgs} args - Arguments to update or create a Emotion.
+     * @example
+     * // Update or create a Emotion
+     * const emotion = await prisma.emotion.upsert({
+     *   create: {
+     *     // ... data to create a Emotion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Emotion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmotionUpsertArgs>(args: SelectSubset<T, EmotionUpsertArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Emotions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionCountArgs} args - Arguments to filter Emotions to count.
+     * @example
+     * // Count the number of Emotions
+     * const count = await prisma.emotion.count({
+     *   where: {
+     *     // ... the filter for the Emotions we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmotionCountArgs>(
+      args?: Subset<T, EmotionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmotionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Emotion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmotionAggregateArgs>(args: Subset<T, EmotionAggregateArgs>): Prisma.PrismaPromise<GetEmotionAggregateType<T>>
+
+    /**
+     * Group by Emotion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmotionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmotionGroupByArgs['orderBy'] }
+        : { orderBy?: EmotionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmotionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmotionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Emotion model
+   */
+  readonly fields: EmotionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Emotion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmotionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clips<T extends Emotion$clipsArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$clipsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    deviceClipCaches<T extends Emotion$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emotionVideos<T extends Emotion$emotionVideosArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$emotionVideosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Emotion model
+   */
+  interface EmotionFieldRefs {
+    readonly id: FieldRef<"Emotion", 'String'>
+    readonly key: FieldRef<"Emotion", 'String'>
+    readonly label: FieldRef<"Emotion", 'String'>
+    readonly promptCustom: FieldRef<"Emotion", 'String'>
+    readonly createdAt: FieldRef<"Emotion", 'DateTime'>
+    readonly updatedAt: FieldRef<"Emotion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Emotion findUnique
+   */
+  export type EmotionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter, which Emotion to fetch.
+     */
+    where: EmotionWhereUniqueInput
+  }
+
+  /**
+   * Emotion findUniqueOrThrow
+   */
+  export type EmotionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter, which Emotion to fetch.
+     */
+    where: EmotionWhereUniqueInput
+  }
+
+  /**
+   * Emotion findFirst
+   */
+  export type EmotionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter, which Emotion to fetch.
+     */
+    where?: EmotionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Emotions to fetch.
+     */
+    orderBy?: EmotionOrderByWithRelationInput | EmotionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Emotions.
+     */
+    cursor?: EmotionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Emotions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Emotions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Emotions.
+     */
+    distinct?: EmotionScalarFieldEnum | EmotionScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion findFirstOrThrow
+   */
+  export type EmotionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter, which Emotion to fetch.
+     */
+    where?: EmotionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Emotions to fetch.
+     */
+    orderBy?: EmotionOrderByWithRelationInput | EmotionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Emotions.
+     */
+    cursor?: EmotionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Emotions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Emotions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Emotions.
+     */
+    distinct?: EmotionScalarFieldEnum | EmotionScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion findMany
+   */
+  export type EmotionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter, which Emotions to fetch.
+     */
+    where?: EmotionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Emotions to fetch.
+     */
+    orderBy?: EmotionOrderByWithRelationInput | EmotionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Emotions.
+     */
+    cursor?: EmotionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Emotions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Emotions.
+     */
+    skip?: number
+    distinct?: EmotionScalarFieldEnum | EmotionScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion create
+   */
+  export type EmotionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Emotion.
+     */
+    data: XOR<EmotionCreateInput, EmotionUncheckedCreateInput>
+  }
+
+  /**
+   * Emotion createMany
+   */
+  export type EmotionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Emotions.
+     */
+    data: EmotionCreateManyInput | EmotionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Emotion createManyAndReturn
+   */
+  export type EmotionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Emotions.
+     */
+    data: EmotionCreateManyInput | EmotionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Emotion update
+   */
+  export type EmotionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Emotion.
+     */
+    data: XOR<EmotionUpdateInput, EmotionUncheckedUpdateInput>
+    /**
+     * Choose, which Emotion to update.
+     */
+    where: EmotionWhereUniqueInput
+  }
+
+  /**
+   * Emotion updateMany
+   */
+  export type EmotionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Emotions.
+     */
+    data: XOR<EmotionUpdateManyMutationInput, EmotionUncheckedUpdateManyInput>
+    /**
+     * Filter which Emotions to update
+     */
+    where?: EmotionWhereInput
+    /**
+     * Limit how many Emotions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Emotion updateManyAndReturn
+   */
+  export type EmotionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * The data used to update Emotions.
+     */
+    data: XOR<EmotionUpdateManyMutationInput, EmotionUncheckedUpdateManyInput>
+    /**
+     * Filter which Emotions to update
+     */
+    where?: EmotionWhereInput
+    /**
+     * Limit how many Emotions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Emotion upsert
+   */
+  export type EmotionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Emotion to update in case it exists.
+     */
+    where: EmotionWhereUniqueInput
+    /**
+     * In case the Emotion found by the `where` argument doesn't exist, create a new Emotion with this data.
+     */
+    create: XOR<EmotionCreateInput, EmotionUncheckedCreateInput>
+    /**
+     * In case the Emotion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmotionUpdateInput, EmotionUncheckedUpdateInput>
+  }
+
+  /**
+   * Emotion delete
+   */
+  export type EmotionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+    /**
+     * Filter which Emotion to delete.
+     */
+    where: EmotionWhereUniqueInput
+  }
+
+  /**
+   * Emotion deleteMany
+   */
+  export type EmotionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Emotions to delete
+     */
+    where?: EmotionWhereInput
+    /**
+     * Limit how many Emotions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Emotion.clips
+   */
+  export type Emotion$clipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    where?: ClipWhereInput
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    cursor?: ClipWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClipScalarFieldEnum | ClipScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion.deviceClipCaches
+   */
+  export type Emotion$deviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    where?: DeviceClipCacheWhereInput
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    cursor?: DeviceClipCacheWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion.emotionVideos
+   */
+  export type Emotion$emotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    cursor?: EmotionVideoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * Emotion without action
+   */
+  export type EmotionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Emotion
+     */
+    select?: EmotionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Emotion
+     */
+    omit?: EmotionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Clip
+   */
+
+  export type AggregateClip = {
+    _count: ClipCountAggregateOutputType | null
+    _avg: ClipAvgAggregateOutputType | null
+    _sum: ClipSumAggregateOutputType | null
+    _min: ClipMinAggregateOutputType | null
+    _max: ClipMaxAggregateOutputType | null
+  }
+
+  export type ClipAvgAggregateOutputType = {
+    sizeBytes: number | null
+    width: number | null
+    height: number | null
+    fps: number | null
+    frames: number | null
+    durationS: number | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    weight: number | null
+  }
+
+  export type ClipSumAggregateOutputType = {
+    sizeBytes: number | null
+    width: number | null
+    height: number | null
+    fps: number | null
+    frames: number | null
+    durationS: number | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    weight: number | null
+  }
+
+  export type ClipMinAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    emotionId: string | null
+    status: $Enums.ClipStatus | null
+    fileUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    width: number | null
+    height: number | null
+    fps: number | null
+    frames: number | null
+    durationS: number | null
+    prompt: string | null
+    modelName: string | null
+    xaiJobId: string | null
+    previewUrl: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    weight: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipMaxAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    emotionId: string | null
+    status: $Enums.ClipStatus | null
+    fileUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    width: number | null
+    height: number | null
+    fps: number | null
+    frames: number | null
+    durationS: number | null
+    prompt: string | null
+    modelName: string | null
+    xaiJobId: string | null
+    previewUrl: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    weight: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipCountAggregateOutputType = {
+    id: number
+    characterId: number
+    emotionId: number
+    status: number
+    fileUrl: number
+    sha256: number
+    sizeBytes: number
+    width: number
+    height: number
+    fps: number
+    frames: number
+    durationS: number
+    prompt: number
+    modelName: number
+    xaiJobId: number
+    previewUrl: number
+    loopStartFrame: number
+    loopEndFrame: number
+    weight: number
+    tags: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClipAvgAggregateInputType = {
+    sizeBytes?: true
+    width?: true
+    height?: true
+    fps?: true
+    frames?: true
+    durationS?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    weight?: true
+  }
+
+  export type ClipSumAggregateInputType = {
+    sizeBytes?: true
+    width?: true
+    height?: true
+    fps?: true
+    frames?: true
+    durationS?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    weight?: true
+  }
+
+  export type ClipMinAggregateInputType = {
+    id?: true
+    characterId?: true
+    emotionId?: true
+    status?: true
+    fileUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    width?: true
+    height?: true
+    fps?: true
+    frames?: true
+    durationS?: true
+    prompt?: true
+    modelName?: true
+    xaiJobId?: true
+    previewUrl?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    weight?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipMaxAggregateInputType = {
+    id?: true
+    characterId?: true
+    emotionId?: true
+    status?: true
+    fileUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    width?: true
+    height?: true
+    fps?: true
+    frames?: true
+    durationS?: true
+    prompt?: true
+    modelName?: true
+    xaiJobId?: true
+    previewUrl?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    weight?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipCountAggregateInputType = {
+    id?: true
+    characterId?: true
+    emotionId?: true
+    status?: true
+    fileUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    width?: true
+    height?: true
+    fps?: true
+    frames?: true
+    durationS?: true
+    prompt?: true
+    modelName?: true
+    xaiJobId?: true
+    previewUrl?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    weight?: true
+    tags?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClipAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Clip to aggregate.
+     */
+    where?: ClipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clips to fetch.
+     */
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clips from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clips.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Clips
+    **/
+    _count?: true | ClipCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClipAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClipSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClipMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClipMaxAggregateInputType
+  }
+
+  export type GetClipAggregateType<T extends ClipAggregateArgs> = {
+        [P in keyof T & keyof AggregateClip]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClip[P]>
+      : GetScalarType<T[P], AggregateClip[P]>
+  }
+
+
+
+
+  export type ClipGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipWhereInput
+    orderBy?: ClipOrderByWithAggregationInput | ClipOrderByWithAggregationInput[]
+    by: ClipScalarFieldEnum[] | ClipScalarFieldEnum
+    having?: ClipScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClipCountAggregateInputType | true
+    _avg?: ClipAvgAggregateInputType
+    _sum?: ClipSumAggregateInputType
+    _min?: ClipMinAggregateInputType
+    _max?: ClipMaxAggregateInputType
+  }
+
+  export type ClipGroupByOutputType = {
+    id: string
+    characterId: string
+    emotionId: string
+    status: $Enums.ClipStatus
+    fileUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    width: number | null
+    height: number | null
+    fps: number | null
+    frames: number | null
+    durationS: number | null
+    prompt: string | null
+    modelName: string | null
+    xaiJobId: string | null
+    previewUrl: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    weight: number
+    tags: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: ClipCountAggregateOutputType | null
+    _avg: ClipAvgAggregateOutputType | null
+    _sum: ClipSumAggregateOutputType | null
+    _min: ClipMinAggregateOutputType | null
+    _max: ClipMaxAggregateOutputType | null
+  }
+
+  type GetClipGroupByPayload<T extends ClipGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClipGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClipGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClipGroupByOutputType[P]>
+            : GetScalarType<T[P], ClipGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClipSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    emotionId?: boolean
+    status?: boolean
+    fileUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    width?: boolean
+    height?: boolean
+    fps?: boolean
+    frames?: boolean
+    durationS?: boolean
+    prompt?: boolean
+    modelName?: boolean
+    xaiJobId?: boolean
+    previewUrl?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    weight?: boolean
+    tags?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
+    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
+    deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
+    _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clip"]>
+
+  export type ClipSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    emotionId?: boolean
+    status?: boolean
+    fileUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    width?: boolean
+    height?: boolean
+    fps?: boolean
+    frames?: boolean
+    durationS?: boolean
+    prompt?: boolean
+    modelName?: boolean
+    xaiJobId?: boolean
+    previewUrl?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    weight?: boolean
+    tags?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clip"]>
+
+  export type ClipSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    emotionId?: boolean
+    status?: boolean
+    fileUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    width?: boolean
+    height?: boolean
+    fps?: boolean
+    frames?: boolean
+    durationS?: boolean
+    prompt?: boolean
+    modelName?: boolean
+    xaiJobId?: boolean
+    previewUrl?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    weight?: boolean
+    tags?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clip"]>
+
+  export type ClipSelectScalar = {
+    id?: boolean
+    characterId?: boolean
+    emotionId?: boolean
+    status?: boolean
+    fileUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    width?: boolean
+    height?: boolean
+    fps?: boolean
+    frames?: boolean
+    durationS?: boolean
+    prompt?: boolean
+    modelName?: boolean
+    xaiJobId?: boolean
+    previewUrl?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    weight?: boolean
+    tags?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "modelName" | "xaiJobId" | "previewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
+  export type ClipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
+    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
+    deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
+    _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClipIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+  }
+  export type ClipIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+  }
+
+  export type $ClipPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Clip"
+    objects: {
+      character: Prisma.$CharacterPayload<ExtArgs>
+      emotion: Prisma.$EmotionPayload<ExtArgs>
+      faceRegions: Prisma.$ClipFaceRegionPayload<ExtArgs>[]
+      artifacts: Prisma.$ClipArtifactPayload<ExtArgs>[]
+      deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+      emotionVideos: Prisma.$EmotionVideoPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      characterId: string
+      emotionId: string
+      status: $Enums.ClipStatus
+      fileUrl: string | null
+      sha256: string | null
+      sizeBytes: number | null
+      width: number | null
+      height: number | null
+      fps: number | null
+      frames: number | null
+      durationS: number | null
+      prompt: string | null
+      modelName: string | null
+      xaiJobId: string | null
+      previewUrl: string | null
+      loopStartFrame: number | null
+      loopEndFrame: number | null
+      weight: number
+      tags: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clip"]>
+    composites: {}
+  }
+
+  type ClipGetPayload<S extends boolean | null | undefined | ClipDefaultArgs> = $Result.GetResult<Prisma.$ClipPayload, S>
+
+  type ClipCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClipFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClipCountAggregateInputType | true
+    }
+
+  export interface ClipDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Clip'], meta: { name: 'Clip' } }
+    /**
+     * Find zero or one Clip that matches the filter.
+     * @param {ClipFindUniqueArgs} args - Arguments to find a Clip
+     * @example
+     * // Get one Clip
+     * const clip = await prisma.clip.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClipFindUniqueArgs>(args: SelectSubset<T, ClipFindUniqueArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Clip that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClipFindUniqueOrThrowArgs} args - Arguments to find a Clip
+     * @example
+     * // Get one Clip
+     * const clip = await prisma.clip.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClipFindUniqueOrThrowArgs>(args: SelectSubset<T, ClipFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Clip that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFindFirstArgs} args - Arguments to find a Clip
+     * @example
+     * // Get one Clip
+     * const clip = await prisma.clip.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClipFindFirstArgs>(args?: SelectSubset<T, ClipFindFirstArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Clip that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFindFirstOrThrowArgs} args - Arguments to find a Clip
+     * @example
+     * // Get one Clip
+     * const clip = await prisma.clip.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClipFindFirstOrThrowArgs>(args?: SelectSubset<T, ClipFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Clips that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Clips
+     * const clips = await prisma.clip.findMany()
+     * 
+     * // Get first 10 Clips
+     * const clips = await prisma.clip.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clipWithIdOnly = await prisma.clip.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClipFindManyArgs>(args?: SelectSubset<T, ClipFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Clip.
+     * @param {ClipCreateArgs} args - Arguments to create a Clip.
+     * @example
+     * // Create one Clip
+     * const Clip = await prisma.clip.create({
+     *   data: {
+     *     // ... data to create a Clip
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClipCreateArgs>(args: SelectSubset<T, ClipCreateArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Clips.
+     * @param {ClipCreateManyArgs} args - Arguments to create many Clips.
+     * @example
+     * // Create many Clips
+     * const clip = await prisma.clip.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClipCreateManyArgs>(args?: SelectSubset<T, ClipCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Clips and returns the data saved in the database.
+     * @param {ClipCreateManyAndReturnArgs} args - Arguments to create many Clips.
+     * @example
+     * // Create many Clips
+     * const clip = await prisma.clip.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Clips and only return the `id`
+     * const clipWithIdOnly = await prisma.clip.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClipCreateManyAndReturnArgs>(args?: SelectSubset<T, ClipCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Clip.
+     * @param {ClipDeleteArgs} args - Arguments to delete one Clip.
+     * @example
+     * // Delete one Clip
+     * const Clip = await prisma.clip.delete({
+     *   where: {
+     *     // ... filter to delete one Clip
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClipDeleteArgs>(args: SelectSubset<T, ClipDeleteArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Clip.
+     * @param {ClipUpdateArgs} args - Arguments to update one Clip.
+     * @example
+     * // Update one Clip
+     * const clip = await prisma.clip.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClipUpdateArgs>(args: SelectSubset<T, ClipUpdateArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Clips.
+     * @param {ClipDeleteManyArgs} args - Arguments to filter Clips to delete.
+     * @example
+     * // Delete a few Clips
+     * const { count } = await prisma.clip.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClipDeleteManyArgs>(args?: SelectSubset<T, ClipDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clips.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Clips
+     * const clip = await prisma.clip.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClipUpdateManyArgs>(args: SelectSubset<T, ClipUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clips and returns the data updated in the database.
+     * @param {ClipUpdateManyAndReturnArgs} args - Arguments to update many Clips.
+     * @example
+     * // Update many Clips
+     * const clip = await prisma.clip.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Clips and only return the `id`
+     * const clipWithIdOnly = await prisma.clip.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClipUpdateManyAndReturnArgs>(args: SelectSubset<T, ClipUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Clip.
+     * @param {ClipUpsertArgs} args - Arguments to update or create a Clip.
+     * @example
+     * // Update or create a Clip
+     * const clip = await prisma.clip.upsert({
+     *   create: {
+     *     // ... data to create a Clip
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Clip we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClipUpsertArgs>(args: SelectSubset<T, ClipUpsertArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Clips.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipCountArgs} args - Arguments to filter Clips to count.
+     * @example
+     * // Count the number of Clips
+     * const count = await prisma.clip.count({
+     *   where: {
+     *     // ... the filter for the Clips we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClipCountArgs>(
+      args?: Subset<T, ClipCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClipCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Clip.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClipAggregateArgs>(args: Subset<T, ClipAggregateArgs>): Prisma.PrismaPromise<GetClipAggregateType<T>>
+
+    /**
+     * Group by Clip.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClipGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClipGroupByArgs['orderBy'] }
+        : { orderBy?: ClipGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClipGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClipGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Clip model
+   */
+  readonly fields: ClipFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Clip.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClipClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    faceRegions<T extends Clip$faceRegionsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$faceRegionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    artifacts<T extends Clip$artifactsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$artifactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    deviceClipCaches<T extends Clip$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, Clip$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emotionVideos<T extends Clip$emotionVideosArgs<ExtArgs> = {}>(args?: Subset<T, Clip$emotionVideosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Clip model
+   */
+  interface ClipFieldRefs {
+    readonly id: FieldRef<"Clip", 'String'>
+    readonly characterId: FieldRef<"Clip", 'String'>
+    readonly emotionId: FieldRef<"Clip", 'String'>
+    readonly status: FieldRef<"Clip", 'ClipStatus'>
+    readonly fileUrl: FieldRef<"Clip", 'String'>
+    readonly sha256: FieldRef<"Clip", 'String'>
+    readonly sizeBytes: FieldRef<"Clip", 'Int'>
+    readonly width: FieldRef<"Clip", 'Int'>
+    readonly height: FieldRef<"Clip", 'Int'>
+    readonly fps: FieldRef<"Clip", 'Int'>
+    readonly frames: FieldRef<"Clip", 'Int'>
+    readonly durationS: FieldRef<"Clip", 'Float'>
+    readonly prompt: FieldRef<"Clip", 'String'>
+    readonly modelName: FieldRef<"Clip", 'String'>
+    readonly xaiJobId: FieldRef<"Clip", 'String'>
+    readonly previewUrl: FieldRef<"Clip", 'String'>
+    readonly loopStartFrame: FieldRef<"Clip", 'Int'>
+    readonly loopEndFrame: FieldRef<"Clip", 'Int'>
+    readonly weight: FieldRef<"Clip", 'Int'>
+    readonly tags: FieldRef<"Clip", 'String[]'>
+    readonly createdAt: FieldRef<"Clip", 'DateTime'>
+    readonly updatedAt: FieldRef<"Clip", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Clip findUnique
+   */
+  export type ClipFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter, which Clip to fetch.
+     */
+    where: ClipWhereUniqueInput
+  }
+
+  /**
+   * Clip findUniqueOrThrow
+   */
+  export type ClipFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter, which Clip to fetch.
+     */
+    where: ClipWhereUniqueInput
+  }
+
+  /**
+   * Clip findFirst
+   */
+  export type ClipFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter, which Clip to fetch.
+     */
+    where?: ClipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clips to fetch.
+     */
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clips.
+     */
+    cursor?: ClipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clips from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clips.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clips.
+     */
+    distinct?: ClipScalarFieldEnum | ClipScalarFieldEnum[]
+  }
+
+  /**
+   * Clip findFirstOrThrow
+   */
+  export type ClipFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter, which Clip to fetch.
+     */
+    where?: ClipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clips to fetch.
+     */
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clips.
+     */
+    cursor?: ClipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clips from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clips.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clips.
+     */
+    distinct?: ClipScalarFieldEnum | ClipScalarFieldEnum[]
+  }
+
+  /**
+   * Clip findMany
+   */
+  export type ClipFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter, which Clips to fetch.
+     */
+    where?: ClipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clips to fetch.
+     */
+    orderBy?: ClipOrderByWithRelationInput | ClipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Clips.
+     */
+    cursor?: ClipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clips from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clips.
+     */
+    skip?: number
+    distinct?: ClipScalarFieldEnum | ClipScalarFieldEnum[]
+  }
+
+  /**
+   * Clip create
+   */
+  export type ClipCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Clip.
+     */
+    data: XOR<ClipCreateInput, ClipUncheckedCreateInput>
+  }
+
+  /**
+   * Clip createMany
+   */
+  export type ClipCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Clips.
+     */
+    data: ClipCreateManyInput | ClipCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Clip createManyAndReturn
+   */
+  export type ClipCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * The data used to create many Clips.
+     */
+    data: ClipCreateManyInput | ClipCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Clip update
+   */
+  export type ClipUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Clip.
+     */
+    data: XOR<ClipUpdateInput, ClipUncheckedUpdateInput>
+    /**
+     * Choose, which Clip to update.
+     */
+    where: ClipWhereUniqueInput
+  }
+
+  /**
+   * Clip updateMany
+   */
+  export type ClipUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Clips.
+     */
+    data: XOR<ClipUpdateManyMutationInput, ClipUncheckedUpdateManyInput>
+    /**
+     * Filter which Clips to update
+     */
+    where?: ClipWhereInput
+    /**
+     * Limit how many Clips to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Clip updateManyAndReturn
+   */
+  export type ClipUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * The data used to update Clips.
+     */
+    data: XOR<ClipUpdateManyMutationInput, ClipUncheckedUpdateManyInput>
+    /**
+     * Filter which Clips to update
+     */
+    where?: ClipWhereInput
+    /**
+     * Limit how many Clips to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Clip upsert
+   */
+  export type ClipUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Clip to update in case it exists.
+     */
+    where: ClipWhereUniqueInput
+    /**
+     * In case the Clip found by the `where` argument doesn't exist, create a new Clip with this data.
+     */
+    create: XOR<ClipCreateInput, ClipUncheckedCreateInput>
+    /**
+     * In case the Clip was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClipUpdateInput, ClipUncheckedUpdateInput>
+  }
+
+  /**
+   * Clip delete
+   */
+  export type ClipDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+    /**
+     * Filter which Clip to delete.
+     */
+    where: ClipWhereUniqueInput
+  }
+
+  /**
+   * Clip deleteMany
+   */
+  export type ClipDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Clips to delete
+     */
+    where?: ClipWhereInput
+    /**
+     * Limit how many Clips to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Clip.faceRegions
+   */
+  export type Clip$faceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    where?: ClipFaceRegionWhereInput
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    cursor?: ClipFaceRegionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
+  }
+
+  /**
+   * Clip.artifacts
+   */
+  export type Clip$artifactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    where?: ClipArtifactWhereInput
+    orderBy?: ClipArtifactOrderByWithRelationInput | ClipArtifactOrderByWithRelationInput[]
+    cursor?: ClipArtifactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClipArtifactScalarFieldEnum | ClipArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * Clip.deviceClipCaches
+   */
+  export type Clip$deviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    where?: DeviceClipCacheWhereInput
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    cursor?: DeviceClipCacheWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * Clip.emotionVideos
+   */
+  export type Clip$emotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    cursor?: EmotionVideoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * Clip without action
+   */
+  export type ClipDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Clip
+     */
+    select?: ClipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Clip
+     */
+    omit?: ClipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ClipArtifact
+   */
+
+  export type AggregateClipArtifact = {
+    _count: ClipArtifactCountAggregateOutputType | null
+    _avg: ClipArtifactAvgAggregateOutputType | null
+    _sum: ClipArtifactSumAggregateOutputType | null
+    _min: ClipArtifactMinAggregateOutputType | null
+    _max: ClipArtifactMaxAggregateOutputType | null
+  }
+
+  export type ClipArtifactAvgAggregateOutputType = {
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+  }
+
+  export type ClipArtifactSumAggregateOutputType = {
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+  }
+
+  export type ClipArtifactMinAggregateOutputType = {
+    id: string | null
+    clipId: string | null
+    frameIndex: number | null
+    name: string | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipArtifactMaxAggregateOutputType = {
+    id: string | null
+    clipId: string | null
+    frameIndex: number | null
+    name: string | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipArtifactCountAggregateOutputType = {
+    id: number
+    clipId: number
+    frameIndex: number
+    name: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle: number
+    imageUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClipArtifactAvgAggregateInputType = {
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+  }
+
+  export type ClipArtifactSumAggregateInputType = {
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+  }
+
+  export type ClipArtifactMinAggregateInputType = {
+    id?: true
+    clipId?: true
+    frameIndex?: true
+    name?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipArtifactMaxAggregateInputType = {
+    id?: true
+    clipId?: true
+    frameIndex?: true
+    name?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipArtifactCountAggregateInputType = {
+    id?: true
+    clipId?: true
+    frameIndex?: true
+    name?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClipArtifactAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClipArtifact to aggregate.
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipArtifacts to fetch.
+     */
+    orderBy?: ClipArtifactOrderByWithRelationInput | ClipArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClipArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClipArtifacts
+    **/
+    _count?: true | ClipArtifactCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClipArtifactAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClipArtifactSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClipArtifactMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClipArtifactMaxAggregateInputType
+  }
+
+  export type GetClipArtifactAggregateType<T extends ClipArtifactAggregateArgs> = {
+        [P in keyof T & keyof AggregateClipArtifact]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClipArtifact[P]>
+      : GetScalarType<T[P], AggregateClipArtifact[P]>
+  }
+
+
+
+
+  export type ClipArtifactGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipArtifactWhereInput
+    orderBy?: ClipArtifactOrderByWithAggregationInput | ClipArtifactOrderByWithAggregationInput[]
+    by: ClipArtifactScalarFieldEnum[] | ClipArtifactScalarFieldEnum
+    having?: ClipArtifactScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClipArtifactCountAggregateInputType | true
+    _avg?: ClipArtifactAvgAggregateInputType
+    _sum?: ClipArtifactSumAggregateInputType
+    _min?: ClipArtifactMinAggregateInputType
+    _max?: ClipArtifactMaxAggregateInputType
+  }
+
+  export type ClipArtifactGroupByOutputType = {
+    id: string
+    clipId: string
+    frameIndex: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle: $Enums.CornerStyle
+    imageUrl: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ClipArtifactCountAggregateOutputType | null
+    _avg: ClipArtifactAvgAggregateOutputType | null
+    _sum: ClipArtifactSumAggregateOutputType | null
+    _min: ClipArtifactMinAggregateOutputType | null
+    _max: ClipArtifactMaxAggregateOutputType | null
+  }
+
+  type GetClipArtifactGroupByPayload<T extends ClipArtifactGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClipArtifactGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClipArtifactGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClipArtifactGroupByOutputType[P]>
+            : GetScalarType<T[P], ClipArtifactGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClipArtifactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    frameIndex?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipArtifact"]>
+
+  export type ClipArtifactSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    frameIndex?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipArtifact"]>
+
+  export type ClipArtifactSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    frameIndex?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipArtifact"]>
+
+  export type ClipArtifactSelectScalar = {
+    id?: boolean
+    clipId?: boolean
+    frameIndex?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClipArtifactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "frameIndex" | "name" | "x" | "y" | "w" | "h" | "cornerStyle" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["clipArtifact"]>
+  export type ClipArtifactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type ClipArtifactIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type ClipArtifactIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+
+  export type $ClipArtifactPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClipArtifact"
+    objects: {
+      clip: Prisma.$ClipPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      clipId: string
+      frameIndex: number
+      name: string
+      x: number
+      y: number
+      w: number
+      h: number
+      cornerStyle: $Enums.CornerStyle
+      imageUrl: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clipArtifact"]>
+    composites: {}
+  }
+
+  type ClipArtifactGetPayload<S extends boolean | null | undefined | ClipArtifactDefaultArgs> = $Result.GetResult<Prisma.$ClipArtifactPayload, S>
+
+  type ClipArtifactCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClipArtifactFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClipArtifactCountAggregateInputType | true
+    }
+
+  export interface ClipArtifactDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClipArtifact'], meta: { name: 'ClipArtifact' } }
+    /**
+     * Find zero or one ClipArtifact that matches the filter.
+     * @param {ClipArtifactFindUniqueArgs} args - Arguments to find a ClipArtifact
+     * @example
+     * // Get one ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClipArtifactFindUniqueArgs>(args: SelectSubset<T, ClipArtifactFindUniqueArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClipArtifact that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClipArtifactFindUniqueOrThrowArgs} args - Arguments to find a ClipArtifact
+     * @example
+     * // Get one ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClipArtifactFindUniqueOrThrowArgs>(args: SelectSubset<T, ClipArtifactFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClipArtifact that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactFindFirstArgs} args - Arguments to find a ClipArtifact
+     * @example
+     * // Get one ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClipArtifactFindFirstArgs>(args?: SelectSubset<T, ClipArtifactFindFirstArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClipArtifact that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactFindFirstOrThrowArgs} args - Arguments to find a ClipArtifact
+     * @example
+     * // Get one ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClipArtifactFindFirstOrThrowArgs>(args?: SelectSubset<T, ClipArtifactFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClipArtifacts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClipArtifacts
+     * const clipArtifacts = await prisma.clipArtifact.findMany()
+     * 
+     * // Get first 10 ClipArtifacts
+     * const clipArtifacts = await prisma.clipArtifact.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clipArtifactWithIdOnly = await prisma.clipArtifact.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClipArtifactFindManyArgs>(args?: SelectSubset<T, ClipArtifactFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClipArtifact.
+     * @param {ClipArtifactCreateArgs} args - Arguments to create a ClipArtifact.
+     * @example
+     * // Create one ClipArtifact
+     * const ClipArtifact = await prisma.clipArtifact.create({
+     *   data: {
+     *     // ... data to create a ClipArtifact
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClipArtifactCreateArgs>(args: SelectSubset<T, ClipArtifactCreateArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClipArtifacts.
+     * @param {ClipArtifactCreateManyArgs} args - Arguments to create many ClipArtifacts.
+     * @example
+     * // Create many ClipArtifacts
+     * const clipArtifact = await prisma.clipArtifact.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClipArtifactCreateManyArgs>(args?: SelectSubset<T, ClipArtifactCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClipArtifacts and returns the data saved in the database.
+     * @param {ClipArtifactCreateManyAndReturnArgs} args - Arguments to create many ClipArtifacts.
+     * @example
+     * // Create many ClipArtifacts
+     * const clipArtifact = await prisma.clipArtifact.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClipArtifacts and only return the `id`
+     * const clipArtifactWithIdOnly = await prisma.clipArtifact.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClipArtifactCreateManyAndReturnArgs>(args?: SelectSubset<T, ClipArtifactCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClipArtifact.
+     * @param {ClipArtifactDeleteArgs} args - Arguments to delete one ClipArtifact.
+     * @example
+     * // Delete one ClipArtifact
+     * const ClipArtifact = await prisma.clipArtifact.delete({
+     *   where: {
+     *     // ... filter to delete one ClipArtifact
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClipArtifactDeleteArgs>(args: SelectSubset<T, ClipArtifactDeleteArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClipArtifact.
+     * @param {ClipArtifactUpdateArgs} args - Arguments to update one ClipArtifact.
+     * @example
+     * // Update one ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClipArtifactUpdateArgs>(args: SelectSubset<T, ClipArtifactUpdateArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClipArtifacts.
+     * @param {ClipArtifactDeleteManyArgs} args - Arguments to filter ClipArtifacts to delete.
+     * @example
+     * // Delete a few ClipArtifacts
+     * const { count } = await prisma.clipArtifact.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClipArtifactDeleteManyArgs>(args?: SelectSubset<T, ClipArtifactDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClipArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClipArtifacts
+     * const clipArtifact = await prisma.clipArtifact.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClipArtifactUpdateManyArgs>(args: SelectSubset<T, ClipArtifactUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClipArtifacts and returns the data updated in the database.
+     * @param {ClipArtifactUpdateManyAndReturnArgs} args - Arguments to update many ClipArtifacts.
+     * @example
+     * // Update many ClipArtifacts
+     * const clipArtifact = await prisma.clipArtifact.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClipArtifacts and only return the `id`
+     * const clipArtifactWithIdOnly = await prisma.clipArtifact.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClipArtifactUpdateManyAndReturnArgs>(args: SelectSubset<T, ClipArtifactUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClipArtifact.
+     * @param {ClipArtifactUpsertArgs} args - Arguments to update or create a ClipArtifact.
+     * @example
+     * // Update or create a ClipArtifact
+     * const clipArtifact = await prisma.clipArtifact.upsert({
+     *   create: {
+     *     // ... data to create a ClipArtifact
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClipArtifact we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClipArtifactUpsertArgs>(args: SelectSubset<T, ClipArtifactUpsertArgs<ExtArgs>>): Prisma__ClipArtifactClient<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClipArtifacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactCountArgs} args - Arguments to filter ClipArtifacts to count.
+     * @example
+     * // Count the number of ClipArtifacts
+     * const count = await prisma.clipArtifact.count({
+     *   where: {
+     *     // ... the filter for the ClipArtifacts we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClipArtifactCountArgs>(
+      args?: Subset<T, ClipArtifactCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClipArtifactCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClipArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClipArtifactAggregateArgs>(args: Subset<T, ClipArtifactAggregateArgs>): Prisma.PrismaPromise<GetClipArtifactAggregateType<T>>
+
+    /**
+     * Group by ClipArtifact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipArtifactGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClipArtifactGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClipArtifactGroupByArgs['orderBy'] }
+        : { orderBy?: ClipArtifactGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClipArtifactGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClipArtifactGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClipArtifact model
+   */
+  readonly fields: ClipArtifactFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClipArtifact.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClipArtifactClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClipArtifact model
+   */
+  interface ClipArtifactFieldRefs {
+    readonly id: FieldRef<"ClipArtifact", 'String'>
+    readonly clipId: FieldRef<"ClipArtifact", 'String'>
+    readonly frameIndex: FieldRef<"ClipArtifact", 'Int'>
+    readonly name: FieldRef<"ClipArtifact", 'String'>
+    readonly x: FieldRef<"ClipArtifact", 'Float'>
+    readonly y: FieldRef<"ClipArtifact", 'Float'>
+    readonly w: FieldRef<"ClipArtifact", 'Float'>
+    readonly h: FieldRef<"ClipArtifact", 'Float'>
+    readonly cornerStyle: FieldRef<"ClipArtifact", 'CornerStyle'>
+    readonly imageUrl: FieldRef<"ClipArtifact", 'String'>
+    readonly createdAt: FieldRef<"ClipArtifact", 'DateTime'>
+    readonly updatedAt: FieldRef<"ClipArtifact", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClipArtifact findUnique
+   */
+  export type ClipArtifactFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipArtifact to fetch.
+     */
+    where: ClipArtifactWhereUniqueInput
+  }
+
+  /**
+   * ClipArtifact findUniqueOrThrow
+   */
+  export type ClipArtifactFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipArtifact to fetch.
+     */
+    where: ClipArtifactWhereUniqueInput
+  }
+
+  /**
+   * ClipArtifact findFirst
+   */
+  export type ClipArtifactFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipArtifact to fetch.
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipArtifacts to fetch.
+     */
+    orderBy?: ClipArtifactOrderByWithRelationInput | ClipArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClipArtifacts.
+     */
+    cursor?: ClipArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClipArtifacts.
+     */
+    distinct?: ClipArtifactScalarFieldEnum | ClipArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * ClipArtifact findFirstOrThrow
+   */
+  export type ClipArtifactFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipArtifact to fetch.
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipArtifacts to fetch.
+     */
+    orderBy?: ClipArtifactOrderByWithRelationInput | ClipArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClipArtifacts.
+     */
+    cursor?: ClipArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipArtifacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClipArtifacts.
+     */
+    distinct?: ClipArtifactScalarFieldEnum | ClipArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * ClipArtifact findMany
+   */
+  export type ClipArtifactFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipArtifacts to fetch.
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipArtifacts to fetch.
+     */
+    orderBy?: ClipArtifactOrderByWithRelationInput | ClipArtifactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClipArtifacts.
+     */
+    cursor?: ClipArtifactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipArtifacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipArtifacts.
+     */
+    skip?: number
+    distinct?: ClipArtifactScalarFieldEnum | ClipArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * ClipArtifact create
+   */
+  export type ClipArtifactCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClipArtifact.
+     */
+    data: XOR<ClipArtifactCreateInput, ClipArtifactUncheckedCreateInput>
+  }
+
+  /**
+   * ClipArtifact createMany
+   */
+  export type ClipArtifactCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClipArtifacts.
+     */
+    data: ClipArtifactCreateManyInput | ClipArtifactCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClipArtifact createManyAndReturn
+   */
+  export type ClipArtifactCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClipArtifacts.
+     */
+    data: ClipArtifactCreateManyInput | ClipArtifactCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClipArtifact update
+   */
+  export type ClipArtifactUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClipArtifact.
+     */
+    data: XOR<ClipArtifactUpdateInput, ClipArtifactUncheckedUpdateInput>
+    /**
+     * Choose, which ClipArtifact to update.
+     */
+    where: ClipArtifactWhereUniqueInput
+  }
+
+  /**
+   * ClipArtifact updateMany
+   */
+  export type ClipArtifactUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClipArtifacts.
+     */
+    data: XOR<ClipArtifactUpdateManyMutationInput, ClipArtifactUncheckedUpdateManyInput>
+    /**
+     * Filter which ClipArtifacts to update
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * Limit how many ClipArtifacts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClipArtifact updateManyAndReturn
+   */
+  export type ClipArtifactUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * The data used to update ClipArtifacts.
+     */
+    data: XOR<ClipArtifactUpdateManyMutationInput, ClipArtifactUncheckedUpdateManyInput>
+    /**
+     * Filter which ClipArtifacts to update
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * Limit how many ClipArtifacts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClipArtifact upsert
+   */
+  export type ClipArtifactUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClipArtifact to update in case it exists.
+     */
+    where: ClipArtifactWhereUniqueInput
+    /**
+     * In case the ClipArtifact found by the `where` argument doesn't exist, create a new ClipArtifact with this data.
+     */
+    create: XOR<ClipArtifactCreateInput, ClipArtifactUncheckedCreateInput>
+    /**
+     * In case the ClipArtifact was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClipArtifactUpdateInput, ClipArtifactUncheckedUpdateInput>
+  }
+
+  /**
+   * ClipArtifact delete
+   */
+  export type ClipArtifactDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+    /**
+     * Filter which ClipArtifact to delete.
+     */
+    where: ClipArtifactWhereUniqueInput
+  }
+
+  /**
+   * ClipArtifact deleteMany
+   */
+  export type ClipArtifactDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClipArtifacts to delete
+     */
+    where?: ClipArtifactWhereInput
+    /**
+     * Limit how many ClipArtifacts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClipArtifact without action
+   */
+  export type ClipArtifactDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipArtifact
+     */
+    select?: ClipArtifactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipArtifact
+     */
+    omit?: ClipArtifactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipArtifactInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ClipFaceRegion
+   */
+
+  export type AggregateClipFaceRegion = {
+    _count: ClipFaceRegionCountAggregateOutputType | null
+    _avg: ClipFaceRegionAvgAggregateOutputType | null
+    _sum: ClipFaceRegionSumAggregateOutputType | null
+    _min: ClipFaceRegionMinAggregateOutputType | null
+    _max: ClipFaceRegionMaxAggregateOutputType | null
+  }
+
+  export type ClipFaceRegionAvgAggregateOutputType = {
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+  }
+
+  export type ClipFaceRegionSumAggregateOutputType = {
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+  }
+
+  export type ClipFaceRegionMinAggregateOutputType = {
+    id: string | null
+    clipId: string | null
+    regionKey: $Enums.FaceRegionKey | null
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipFaceRegionMaxAggregateOutputType = {
+    id: string | null
+    clipId: string | null
+    regionKey: $Enums.FaceRegionKey | null
+    frameIndex: number | null
+    x: number | null
+    y: number | null
+    w: number | null
+    h: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClipFaceRegionCountAggregateOutputType = {
+    id: number
+    clipId: number
+    regionKey: number
+    frameIndex: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle: number
+    imageUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClipFaceRegionAvgAggregateInputType = {
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+  }
+
+  export type ClipFaceRegionSumAggregateInputType = {
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+  }
+
+  export type ClipFaceRegionMinAggregateInputType = {
+    id?: true
+    clipId?: true
+    regionKey?: true
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipFaceRegionMaxAggregateInputType = {
+    id?: true
+    clipId?: true
+    regionKey?: true
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClipFaceRegionCountAggregateInputType = {
+    id?: true
+    clipId?: true
+    regionKey?: true
+    frameIndex?: true
+    x?: true
+    y?: true
+    w?: true
+    h?: true
+    cornerStyle?: true
+    imageUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClipFaceRegionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClipFaceRegion to aggregate.
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipFaceRegions to fetch.
+     */
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClipFaceRegionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipFaceRegions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipFaceRegions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClipFaceRegions
+    **/
+    _count?: true | ClipFaceRegionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClipFaceRegionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClipFaceRegionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClipFaceRegionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClipFaceRegionMaxAggregateInputType
+  }
+
+  export type GetClipFaceRegionAggregateType<T extends ClipFaceRegionAggregateArgs> = {
+        [P in keyof T & keyof AggregateClipFaceRegion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClipFaceRegion[P]>
+      : GetScalarType<T[P], AggregateClipFaceRegion[P]>
+  }
+
+
+
+
+  export type ClipFaceRegionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipFaceRegionWhereInput
+    orderBy?: ClipFaceRegionOrderByWithAggregationInput | ClipFaceRegionOrderByWithAggregationInput[]
+    by: ClipFaceRegionScalarFieldEnum[] | ClipFaceRegionScalarFieldEnum
+    having?: ClipFaceRegionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClipFaceRegionCountAggregateInputType | true
+    _avg?: ClipFaceRegionAvgAggregateInputType
+    _sum?: ClipFaceRegionSumAggregateInputType
+    _min?: ClipFaceRegionMinAggregateInputType
+    _max?: ClipFaceRegionMaxAggregateInputType
+  }
+
+  export type ClipFaceRegionGroupByOutputType = {
+    id: string
+    clipId: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle: $Enums.CornerStyle
+    imageUrl: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ClipFaceRegionCountAggregateOutputType | null
+    _avg: ClipFaceRegionAvgAggregateOutputType | null
+    _sum: ClipFaceRegionSumAggregateOutputType | null
+    _min: ClipFaceRegionMinAggregateOutputType | null
+    _max: ClipFaceRegionMaxAggregateOutputType | null
+  }
+
+  type GetClipFaceRegionGroupByPayload<T extends ClipFaceRegionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClipFaceRegionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClipFaceRegionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClipFaceRegionGroupByOutputType[P]>
+            : GetScalarType<T[P], ClipFaceRegionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClipFaceRegionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    regionKey?: boolean
+    frameIndex?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipFaceRegion"]>
+
+  export type ClipFaceRegionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    regionKey?: boolean
+    frameIndex?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipFaceRegion"]>
+
+  export type ClipFaceRegionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clipId?: boolean
+    regionKey?: boolean
+    frameIndex?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clipFaceRegion"]>
+
+  export type ClipFaceRegionSelectScalar = {
+    id?: boolean
+    clipId?: boolean
+    regionKey?: boolean
+    frameIndex?: boolean
+    x?: boolean
+    y?: boolean
+    w?: boolean
+    h?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClipFaceRegionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "regionKey" | "frameIndex" | "x" | "y" | "w" | "h" | "cornerStyle" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["clipFaceRegion"]>
+  export type ClipFaceRegionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type ClipFaceRegionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type ClipFaceRegionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+
+  export type $ClipFaceRegionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClipFaceRegion"
+    objects: {
+      clip: Prisma.$ClipPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      clipId: string
+      regionKey: $Enums.FaceRegionKey
+      frameIndex: number
+      x: number
+      y: number
+      w: number
+      h: number
+      cornerStyle: $Enums.CornerStyle
+      imageUrl: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clipFaceRegion"]>
+    composites: {}
+  }
+
+  type ClipFaceRegionGetPayload<S extends boolean | null | undefined | ClipFaceRegionDefaultArgs> = $Result.GetResult<Prisma.$ClipFaceRegionPayload, S>
+
+  type ClipFaceRegionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClipFaceRegionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClipFaceRegionCountAggregateInputType | true
+    }
+
+  export interface ClipFaceRegionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClipFaceRegion'], meta: { name: 'ClipFaceRegion' } }
+    /**
+     * Find zero or one ClipFaceRegion that matches the filter.
+     * @param {ClipFaceRegionFindUniqueArgs} args - Arguments to find a ClipFaceRegion
+     * @example
+     * // Get one ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClipFaceRegionFindUniqueArgs>(args: SelectSubset<T, ClipFaceRegionFindUniqueArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClipFaceRegion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClipFaceRegionFindUniqueOrThrowArgs} args - Arguments to find a ClipFaceRegion
+     * @example
+     * // Get one ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClipFaceRegionFindUniqueOrThrowArgs>(args: SelectSubset<T, ClipFaceRegionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClipFaceRegion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionFindFirstArgs} args - Arguments to find a ClipFaceRegion
+     * @example
+     * // Get one ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClipFaceRegionFindFirstArgs>(args?: SelectSubset<T, ClipFaceRegionFindFirstArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClipFaceRegion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionFindFirstOrThrowArgs} args - Arguments to find a ClipFaceRegion
+     * @example
+     * // Get one ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClipFaceRegionFindFirstOrThrowArgs>(args?: SelectSubset<T, ClipFaceRegionFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClipFaceRegions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClipFaceRegions
+     * const clipFaceRegions = await prisma.clipFaceRegion.findMany()
+     * 
+     * // Get first 10 ClipFaceRegions
+     * const clipFaceRegions = await prisma.clipFaceRegion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clipFaceRegionWithIdOnly = await prisma.clipFaceRegion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClipFaceRegionFindManyArgs>(args?: SelectSubset<T, ClipFaceRegionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClipFaceRegion.
+     * @param {ClipFaceRegionCreateArgs} args - Arguments to create a ClipFaceRegion.
+     * @example
+     * // Create one ClipFaceRegion
+     * const ClipFaceRegion = await prisma.clipFaceRegion.create({
+     *   data: {
+     *     // ... data to create a ClipFaceRegion
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClipFaceRegionCreateArgs>(args: SelectSubset<T, ClipFaceRegionCreateArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClipFaceRegions.
+     * @param {ClipFaceRegionCreateManyArgs} args - Arguments to create many ClipFaceRegions.
+     * @example
+     * // Create many ClipFaceRegions
+     * const clipFaceRegion = await prisma.clipFaceRegion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClipFaceRegionCreateManyArgs>(args?: SelectSubset<T, ClipFaceRegionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClipFaceRegions and returns the data saved in the database.
+     * @param {ClipFaceRegionCreateManyAndReturnArgs} args - Arguments to create many ClipFaceRegions.
+     * @example
+     * // Create many ClipFaceRegions
+     * const clipFaceRegion = await prisma.clipFaceRegion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClipFaceRegions and only return the `id`
+     * const clipFaceRegionWithIdOnly = await prisma.clipFaceRegion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClipFaceRegionCreateManyAndReturnArgs>(args?: SelectSubset<T, ClipFaceRegionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClipFaceRegion.
+     * @param {ClipFaceRegionDeleteArgs} args - Arguments to delete one ClipFaceRegion.
+     * @example
+     * // Delete one ClipFaceRegion
+     * const ClipFaceRegion = await prisma.clipFaceRegion.delete({
+     *   where: {
+     *     // ... filter to delete one ClipFaceRegion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClipFaceRegionDeleteArgs>(args: SelectSubset<T, ClipFaceRegionDeleteArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClipFaceRegion.
+     * @param {ClipFaceRegionUpdateArgs} args - Arguments to update one ClipFaceRegion.
+     * @example
+     * // Update one ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClipFaceRegionUpdateArgs>(args: SelectSubset<T, ClipFaceRegionUpdateArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClipFaceRegions.
+     * @param {ClipFaceRegionDeleteManyArgs} args - Arguments to filter ClipFaceRegions to delete.
+     * @example
+     * // Delete a few ClipFaceRegions
+     * const { count } = await prisma.clipFaceRegion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClipFaceRegionDeleteManyArgs>(args?: SelectSubset<T, ClipFaceRegionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClipFaceRegions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClipFaceRegions
+     * const clipFaceRegion = await prisma.clipFaceRegion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClipFaceRegionUpdateManyArgs>(args: SelectSubset<T, ClipFaceRegionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClipFaceRegions and returns the data updated in the database.
+     * @param {ClipFaceRegionUpdateManyAndReturnArgs} args - Arguments to update many ClipFaceRegions.
+     * @example
+     * // Update many ClipFaceRegions
+     * const clipFaceRegion = await prisma.clipFaceRegion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClipFaceRegions and only return the `id`
+     * const clipFaceRegionWithIdOnly = await prisma.clipFaceRegion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClipFaceRegionUpdateManyAndReturnArgs>(args: SelectSubset<T, ClipFaceRegionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClipFaceRegion.
+     * @param {ClipFaceRegionUpsertArgs} args - Arguments to update or create a ClipFaceRegion.
+     * @example
+     * // Update or create a ClipFaceRegion
+     * const clipFaceRegion = await prisma.clipFaceRegion.upsert({
+     *   create: {
+     *     // ... data to create a ClipFaceRegion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClipFaceRegion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClipFaceRegionUpsertArgs>(args: SelectSubset<T, ClipFaceRegionUpsertArgs<ExtArgs>>): Prisma__ClipFaceRegionClient<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClipFaceRegions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionCountArgs} args - Arguments to filter ClipFaceRegions to count.
+     * @example
+     * // Count the number of ClipFaceRegions
+     * const count = await prisma.clipFaceRegion.count({
+     *   where: {
+     *     // ... the filter for the ClipFaceRegions we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClipFaceRegionCountArgs>(
+      args?: Subset<T, ClipFaceRegionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClipFaceRegionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClipFaceRegion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClipFaceRegionAggregateArgs>(args: Subset<T, ClipFaceRegionAggregateArgs>): Prisma.PrismaPromise<GetClipFaceRegionAggregateType<T>>
+
+    /**
+     * Group by ClipFaceRegion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClipFaceRegionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClipFaceRegionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClipFaceRegionGroupByArgs['orderBy'] }
+        : { orderBy?: ClipFaceRegionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClipFaceRegionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClipFaceRegionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClipFaceRegion model
+   */
+  readonly fields: ClipFaceRegionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClipFaceRegion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClipFaceRegionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    clip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClipFaceRegion model
+   */
+  interface ClipFaceRegionFieldRefs {
+    readonly id: FieldRef<"ClipFaceRegion", 'String'>
+    readonly clipId: FieldRef<"ClipFaceRegion", 'String'>
+    readonly regionKey: FieldRef<"ClipFaceRegion", 'FaceRegionKey'>
+    readonly frameIndex: FieldRef<"ClipFaceRegion", 'Int'>
+    readonly x: FieldRef<"ClipFaceRegion", 'Float'>
+    readonly y: FieldRef<"ClipFaceRegion", 'Float'>
+    readonly w: FieldRef<"ClipFaceRegion", 'Float'>
+    readonly h: FieldRef<"ClipFaceRegion", 'Float'>
+    readonly cornerStyle: FieldRef<"ClipFaceRegion", 'CornerStyle'>
+    readonly imageUrl: FieldRef<"ClipFaceRegion", 'String'>
+    readonly createdAt: FieldRef<"ClipFaceRegion", 'DateTime'>
+    readonly updatedAt: FieldRef<"ClipFaceRegion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClipFaceRegion findUnique
+   */
+  export type ClipFaceRegionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipFaceRegion to fetch.
+     */
+    where: ClipFaceRegionWhereUniqueInput
+  }
+
+  /**
+   * ClipFaceRegion findUniqueOrThrow
+   */
+  export type ClipFaceRegionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipFaceRegion to fetch.
+     */
+    where: ClipFaceRegionWhereUniqueInput
+  }
+
+  /**
+   * ClipFaceRegion findFirst
+   */
+  export type ClipFaceRegionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipFaceRegion to fetch.
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipFaceRegions to fetch.
+     */
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClipFaceRegions.
+     */
+    cursor?: ClipFaceRegionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipFaceRegions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipFaceRegions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClipFaceRegions.
+     */
+    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
+  }
+
+  /**
+   * ClipFaceRegion findFirstOrThrow
+   */
+  export type ClipFaceRegionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipFaceRegion to fetch.
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipFaceRegions to fetch.
+     */
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClipFaceRegions.
+     */
+    cursor?: ClipFaceRegionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipFaceRegions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipFaceRegions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClipFaceRegions.
+     */
+    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
+  }
+
+  /**
+   * ClipFaceRegion findMany
+   */
+  export type ClipFaceRegionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter, which ClipFaceRegions to fetch.
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClipFaceRegions to fetch.
+     */
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClipFaceRegions.
+     */
+    cursor?: ClipFaceRegionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClipFaceRegions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClipFaceRegions.
+     */
+    skip?: number
+    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
+  }
+
+  /**
+   * ClipFaceRegion create
+   */
+  export type ClipFaceRegionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClipFaceRegion.
+     */
+    data: XOR<ClipFaceRegionCreateInput, ClipFaceRegionUncheckedCreateInput>
+  }
+
+  /**
+   * ClipFaceRegion createMany
+   */
+  export type ClipFaceRegionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClipFaceRegions.
+     */
+    data: ClipFaceRegionCreateManyInput | ClipFaceRegionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClipFaceRegion createManyAndReturn
+   */
+  export type ClipFaceRegionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClipFaceRegions.
+     */
+    data: ClipFaceRegionCreateManyInput | ClipFaceRegionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClipFaceRegion update
+   */
+  export type ClipFaceRegionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClipFaceRegion.
+     */
+    data: XOR<ClipFaceRegionUpdateInput, ClipFaceRegionUncheckedUpdateInput>
+    /**
+     * Choose, which ClipFaceRegion to update.
+     */
+    where: ClipFaceRegionWhereUniqueInput
+  }
+
+  /**
+   * ClipFaceRegion updateMany
+   */
+  export type ClipFaceRegionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClipFaceRegions.
+     */
+    data: XOR<ClipFaceRegionUpdateManyMutationInput, ClipFaceRegionUncheckedUpdateManyInput>
+    /**
+     * Filter which ClipFaceRegions to update
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * Limit how many ClipFaceRegions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClipFaceRegion updateManyAndReturn
+   */
+  export type ClipFaceRegionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * The data used to update ClipFaceRegions.
+     */
+    data: XOR<ClipFaceRegionUpdateManyMutationInput, ClipFaceRegionUncheckedUpdateManyInput>
+    /**
+     * Filter which ClipFaceRegions to update
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * Limit how many ClipFaceRegions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClipFaceRegion upsert
+   */
+  export type ClipFaceRegionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClipFaceRegion to update in case it exists.
+     */
+    where: ClipFaceRegionWhereUniqueInput
+    /**
+     * In case the ClipFaceRegion found by the `where` argument doesn't exist, create a new ClipFaceRegion with this data.
+     */
+    create: XOR<ClipFaceRegionCreateInput, ClipFaceRegionUncheckedCreateInput>
+    /**
+     * In case the ClipFaceRegion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClipFaceRegionUpdateInput, ClipFaceRegionUncheckedUpdateInput>
+  }
+
+  /**
+   * ClipFaceRegion delete
+   */
+  export type ClipFaceRegionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    /**
+     * Filter which ClipFaceRegion to delete.
+     */
+    where: ClipFaceRegionWhereUniqueInput
+  }
+
+  /**
+   * ClipFaceRegion deleteMany
+   */
+  export type ClipFaceRegionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClipFaceRegions to delete
+     */
+    where?: ClipFaceRegionWhereInput
+    /**
+     * Limit how many ClipFaceRegions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClipFaceRegion without action
+   */
+  export type ClipFaceRegionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmotionVideo
+   */
+
+  export type AggregateEmotionVideo = {
+    _count: EmotionVideoCountAggregateOutputType | null
+    _avg: EmotionVideoAvgAggregateOutputType | null
+    _sum: EmotionVideoSumAggregateOutputType | null
+    _min: EmotionVideoMinAggregateOutputType | null
+    _max: EmotionVideoMaxAggregateOutputType | null
+  }
+
+  export type EmotionVideoAvgAggregateOutputType = {
+    fps: number | null
+    width: number | null
+    height: number | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+  }
+
+  export type EmotionVideoSumAggregateOutputType = {
+    fps: number | null
+    width: number | null
+    height: number | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+  }
+
+  export type EmotionVideoMinAggregateOutputType = {
+    id: string | null
+    emotionId: string | null
+    sourceClipId: string | null
+    name: string | null
+    fps: number | null
+    width: number | null
+    height: number | null
+    status: $Enums.ClipStatus | null
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionVideoMaxAggregateOutputType = {
+    id: string | null
+    emotionId: string | null
+    sourceClipId: string | null
+    name: string | null
+    fps: number | null
+    width: number | null
+    height: number | null
+    status: $Enums.ClipStatus | null
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionVideoCountAggregateOutputType = {
+    id: number
+    emotionId: number
+    sourceClipId: number
+    name: number
+    fps: number
+    width: number
+    height: number
+    introTimeline: number
+    loopTimeline: number
+    exitTimeline: number
+    status: number
+    binUrl: number
+    sha256: number
+    sizeBytes: number
+    totalFrames: number
+    durationS: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmotionVideoAvgAggregateInputType = {
+    fps?: true
+    width?: true
+    height?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+  }
+
+  export type EmotionVideoSumAggregateInputType = {
+    fps?: true
+    width?: true
+    height?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+  }
+
+  export type EmotionVideoMinAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionVideoMaxAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionVideoCountAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    introTimeline?: true
+    loopTimeline?: true
+    exitTimeline?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmotionVideoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionVideo to aggregate.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmotionVideos
+    **/
+    _count?: true | EmotionVideoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmotionVideoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmotionVideoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmotionVideoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmotionVideoMaxAggregateInputType
+  }
+
+  export type GetEmotionVideoAggregateType<T extends EmotionVideoAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmotionVideo]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmotionVideo[P]>
+      : GetScalarType<T[P], AggregateEmotionVideo[P]>
+  }
+
+
+
+
+  export type EmotionVideoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithAggregationInput | EmotionVideoOrderByWithAggregationInput[]
+    by: EmotionVideoScalarFieldEnum[] | EmotionVideoScalarFieldEnum
+    having?: EmotionVideoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmotionVideoCountAggregateInputType | true
+    _avg?: EmotionVideoAvgAggregateInputType
+    _sum?: EmotionVideoSumAggregateInputType
+    _min?: EmotionVideoMinAggregateInputType
+    _max?: EmotionVideoMaxAggregateInputType
+  }
+
+  export type EmotionVideoGroupByOutputType = {
+    id: string
+    emotionId: string
+    sourceClipId: string
+    name: string | null
+    fps: number
+    width: number
+    height: number
+    introTimeline: JsonValue
+    loopTimeline: JsonValue
+    exitTimeline: JsonValue
+    status: $Enums.ClipStatus
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmotionVideoCountAggregateOutputType | null
+    _avg: EmotionVideoAvgAggregateOutputType | null
+    _sum: EmotionVideoSumAggregateOutputType | null
+    _min: EmotionVideoMinAggregateOutputType | null
+    _max: EmotionVideoMaxAggregateOutputType | null
+  }
+
+  type GetEmotionVideoGroupByPayload<T extends EmotionVideoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmotionVideoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmotionVideoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmotionVideoGroupByOutputType[P]>
+            : GetScalarType<T[P], EmotionVideoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmotionVideoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectScalar = {
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "status" | "binUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type EmotionVideoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type EmotionVideoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+
+  export type $EmotionVideoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmotionVideo"
+    objects: {
+      emotion: Prisma.$EmotionPayload<ExtArgs>
+      sourceClip: Prisma.$ClipPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      emotionId: string
+      sourceClipId: string
+      name: string | null
+      fps: number
+      width: number
+      height: number
+      introTimeline: Prisma.JsonValue
+      loopTimeline: Prisma.JsonValue
+      exitTimeline: Prisma.JsonValue
+      status: $Enums.ClipStatus
+      binUrl: string | null
+      sha256: string | null
+      sizeBytes: number | null
+      totalFrames: number | null
+      durationS: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["emotionVideo"]>
+    composites: {}
+  }
+
+  type EmotionVideoGetPayload<S extends boolean | null | undefined | EmotionVideoDefaultArgs> = $Result.GetResult<Prisma.$EmotionVideoPayload, S>
+
+  type EmotionVideoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmotionVideoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmotionVideoCountAggregateInputType | true
+    }
+
+  export interface EmotionVideoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmotionVideo'], meta: { name: 'EmotionVideo' } }
+    /**
+     * Find zero or one EmotionVideo that matches the filter.
+     * @param {EmotionVideoFindUniqueArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmotionVideoFindUniqueArgs>(args: SelectSubset<T, EmotionVideoFindUniqueArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmotionVideo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmotionVideoFindUniqueOrThrowArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmotionVideoFindUniqueOrThrowArgs>(args: SelectSubset<T, EmotionVideoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionVideo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindFirstArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmotionVideoFindFirstArgs>(args?: SelectSubset<T, EmotionVideoFindFirstArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionVideo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindFirstOrThrowArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmotionVideoFindFirstOrThrowArgs>(args?: SelectSubset<T, EmotionVideoFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmotionVideos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmotionVideos
+     * const emotionVideos = await prisma.emotionVideo.findMany()
+     * 
+     * // Get first 10 EmotionVideos
+     * const emotionVideos = await prisma.emotionVideo.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmotionVideoFindManyArgs>(args?: SelectSubset<T, EmotionVideoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmotionVideo.
+     * @param {EmotionVideoCreateArgs} args - Arguments to create a EmotionVideo.
+     * @example
+     * // Create one EmotionVideo
+     * const EmotionVideo = await prisma.emotionVideo.create({
+     *   data: {
+     *     // ... data to create a EmotionVideo
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmotionVideoCreateArgs>(args: SelectSubset<T, EmotionVideoCreateArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmotionVideos.
+     * @param {EmotionVideoCreateManyArgs} args - Arguments to create many EmotionVideos.
+     * @example
+     * // Create many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmotionVideoCreateManyArgs>(args?: SelectSubset<T, EmotionVideoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmotionVideos and returns the data saved in the database.
+     * @param {EmotionVideoCreateManyAndReturnArgs} args - Arguments to create many EmotionVideos.
+     * @example
+     * // Create many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmotionVideos and only return the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmotionVideoCreateManyAndReturnArgs>(args?: SelectSubset<T, EmotionVideoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmotionVideo.
+     * @param {EmotionVideoDeleteArgs} args - Arguments to delete one EmotionVideo.
+     * @example
+     * // Delete one EmotionVideo
+     * const EmotionVideo = await prisma.emotionVideo.delete({
+     *   where: {
+     *     // ... filter to delete one EmotionVideo
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmotionVideoDeleteArgs>(args: SelectSubset<T, EmotionVideoDeleteArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmotionVideo.
+     * @param {EmotionVideoUpdateArgs} args - Arguments to update one EmotionVideo.
+     * @example
+     * // Update one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmotionVideoUpdateArgs>(args: SelectSubset<T, EmotionVideoUpdateArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmotionVideos.
+     * @param {EmotionVideoDeleteManyArgs} args - Arguments to filter EmotionVideos to delete.
+     * @example
+     * // Delete a few EmotionVideos
+     * const { count } = await prisma.emotionVideo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmotionVideoDeleteManyArgs>(args?: SelectSubset<T, EmotionVideoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionVideos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmotionVideoUpdateManyArgs>(args: SelectSubset<T, EmotionVideoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionVideos and returns the data updated in the database.
+     * @param {EmotionVideoUpdateManyAndReturnArgs} args - Arguments to update many EmotionVideos.
+     * @example
+     * // Update many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmotionVideos and only return the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmotionVideoUpdateManyAndReturnArgs>(args: SelectSubset<T, EmotionVideoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmotionVideo.
+     * @param {EmotionVideoUpsertArgs} args - Arguments to update or create a EmotionVideo.
+     * @example
+     * // Update or create a EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.upsert({
+     *   create: {
+     *     // ... data to create a EmotionVideo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmotionVideo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmotionVideoUpsertArgs>(args: SelectSubset<T, EmotionVideoUpsertArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmotionVideos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoCountArgs} args - Arguments to filter EmotionVideos to count.
+     * @example
+     * // Count the number of EmotionVideos
+     * const count = await prisma.emotionVideo.count({
+     *   where: {
+     *     // ... the filter for the EmotionVideos we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmotionVideoCountArgs>(
+      args?: Subset<T, EmotionVideoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmotionVideoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmotionVideo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmotionVideoAggregateArgs>(args: Subset<T, EmotionVideoAggregateArgs>): Prisma.PrismaPromise<GetEmotionVideoAggregateType<T>>
+
+    /**
+     * Group by EmotionVideo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmotionVideoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmotionVideoGroupByArgs['orderBy'] }
+        : { orderBy?: EmotionVideoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmotionVideoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmotionVideoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmotionVideo model
+   */
+  readonly fields: EmotionVideoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmotionVideo.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmotionVideoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sourceClip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmotionVideo model
+   */
+  interface EmotionVideoFieldRefs {
+    readonly id: FieldRef<"EmotionVideo", 'String'>
+    readonly emotionId: FieldRef<"EmotionVideo", 'String'>
+    readonly sourceClipId: FieldRef<"EmotionVideo", 'String'>
+    readonly name: FieldRef<"EmotionVideo", 'String'>
+    readonly fps: FieldRef<"EmotionVideo", 'Int'>
+    readonly width: FieldRef<"EmotionVideo", 'Int'>
+    readonly height: FieldRef<"EmotionVideo", 'Int'>
+    readonly introTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly status: FieldRef<"EmotionVideo", 'ClipStatus'>
+    readonly binUrl: FieldRef<"EmotionVideo", 'String'>
+    readonly sha256: FieldRef<"EmotionVideo", 'String'>
+    readonly sizeBytes: FieldRef<"EmotionVideo", 'Int'>
+    readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
+    readonly durationS: FieldRef<"EmotionVideo", 'Float'>
+    readonly createdAt: FieldRef<"EmotionVideo", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmotionVideo", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmotionVideo findUnique
+   */
+  export type EmotionVideoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo findUniqueOrThrow
+   */
+  export type EmotionVideoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo findFirst
+   */
+  export type EmotionVideoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionVideos.
+     */
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo findFirstOrThrow
+   */
+  export type EmotionVideoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionVideos.
+     */
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo findMany
+   */
+  export type EmotionVideoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideos to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo create
+   */
+  export type EmotionVideoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmotionVideo.
+     */
+    data: XOR<EmotionVideoCreateInput, EmotionVideoUncheckedCreateInput>
+  }
+
+  /**
+   * EmotionVideo createMany
+   */
+  export type EmotionVideoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmotionVideos.
+     */
+    data: EmotionVideoCreateManyInput | EmotionVideoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmotionVideo createManyAndReturn
+   */
+  export type EmotionVideoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmotionVideos.
+     */
+    data: EmotionVideoCreateManyInput | EmotionVideoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionVideo update
+   */
+  export type EmotionVideoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmotionVideo.
+     */
+    data: XOR<EmotionVideoUpdateInput, EmotionVideoUncheckedUpdateInput>
+    /**
+     * Choose, which EmotionVideo to update.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo updateMany
+   */
+  export type EmotionVideoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmotionVideos.
+     */
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionVideos to update
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionVideo updateManyAndReturn
+   */
+  export type EmotionVideoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * The data used to update EmotionVideos.
+     */
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionVideos to update
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionVideo upsert
+   */
+  export type EmotionVideoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmotionVideo to update in case it exists.
+     */
+    where: EmotionVideoWhereUniqueInput
+    /**
+     * In case the EmotionVideo found by the `where` argument doesn't exist, create a new EmotionVideo with this data.
+     */
+    create: XOR<EmotionVideoCreateInput, EmotionVideoUncheckedCreateInput>
+    /**
+     * In case the EmotionVideo was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmotionVideoUpdateInput, EmotionVideoUncheckedUpdateInput>
+  }
+
+  /**
+   * EmotionVideo delete
+   */
+  export type EmotionVideoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter which EmotionVideo to delete.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo deleteMany
+   */
+  export type EmotionVideoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionVideos to delete
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionVideo without action
+   */
+  export type EmotionVideoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmotionDevice
+   */
+
+  export type AggregateEmotionDevice = {
+    _count: EmotionDeviceCountAggregateOutputType | null
+    _min: EmotionDeviceMinAggregateOutputType | null
+    _max: EmotionDeviceMaxAggregateOutputType | null
+  }
+
+  export type EmotionDeviceMinAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    pubnubChannel: string | null
+    mode: $Enums.EmotionDeviceMode | null
+    isCharging: boolean | null
+    lastSeenAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionDeviceMaxAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    pubnubChannel: string | null
+    mode: $Enums.EmotionDeviceMode | null
+    isCharging: boolean | null
+    lastSeenAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionDeviceCountAggregateOutputType = {
+    id: number
+    characterId: number
+    pubnubChannel: number
+    mode: number
+    isCharging: number
+    lastSeenAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmotionDeviceMinAggregateInputType = {
+    id?: true
+    characterId?: true
+    pubnubChannel?: true
+    mode?: true
+    isCharging?: true
+    lastSeenAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionDeviceMaxAggregateInputType = {
+    id?: true
+    characterId?: true
+    pubnubChannel?: true
+    mode?: true
+    isCharging?: true
+    lastSeenAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionDeviceCountAggregateInputType = {
+    id?: true
+    characterId?: true
+    pubnubChannel?: true
+    mode?: true
+    isCharging?: true
+    lastSeenAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmotionDeviceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionDevice to aggregate.
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionDevices to fetch.
+     */
+    orderBy?: EmotionDeviceOrderByWithRelationInput | EmotionDeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmotionDeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionDevices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionDevices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmotionDevices
+    **/
+    _count?: true | EmotionDeviceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmotionDeviceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmotionDeviceMaxAggregateInputType
+  }
+
+  export type GetEmotionDeviceAggregateType<T extends EmotionDeviceAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmotionDevice]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmotionDevice[P]>
+      : GetScalarType<T[P], AggregateEmotionDevice[P]>
+  }
+
+
+
+
+  export type EmotionDeviceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionDeviceWhereInput
+    orderBy?: EmotionDeviceOrderByWithAggregationInput | EmotionDeviceOrderByWithAggregationInput[]
+    by: EmotionDeviceScalarFieldEnum[] | EmotionDeviceScalarFieldEnum
+    having?: EmotionDeviceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmotionDeviceCountAggregateInputType | true
+    _min?: EmotionDeviceMinAggregateInputType
+    _max?: EmotionDeviceMaxAggregateInputType
+  }
+
+  export type EmotionDeviceGroupByOutputType = {
+    id: string
+    characterId: string
+    pubnubChannel: string | null
+    mode: $Enums.EmotionDeviceMode
+    isCharging: boolean
+    lastSeenAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmotionDeviceCountAggregateOutputType | null
+    _min: EmotionDeviceMinAggregateOutputType | null
+    _max: EmotionDeviceMaxAggregateOutputType | null
+  }
+
+  type GetEmotionDeviceGroupByPayload<T extends EmotionDeviceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmotionDeviceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmotionDeviceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmotionDeviceGroupByOutputType[P]>
+            : GetScalarType<T[P], EmotionDeviceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmotionDeviceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    pubnubChannel?: boolean
+    mode?: boolean
+    isCharging?: boolean
+    lastSeenAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    deviceClipCaches?: boolean | EmotionDevice$deviceClipCachesArgs<ExtArgs>
+    _count?: boolean | EmotionDeviceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionDevice"]>
+
+  export type EmotionDeviceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    pubnubChannel?: boolean
+    mode?: boolean
+    isCharging?: boolean
+    lastSeenAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionDevice"]>
+
+  export type EmotionDeviceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    pubnubChannel?: boolean
+    mode?: boolean
+    isCharging?: boolean
+    lastSeenAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionDevice"]>
+
+  export type EmotionDeviceSelectScalar = {
+    id?: boolean
+    characterId?: boolean
+    pubnubChannel?: boolean
+    mode?: boolean
+    isCharging?: boolean
+    lastSeenAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmotionDeviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "pubnubChannel" | "mode" | "isCharging" | "lastSeenAt" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionDevice"]>
+  export type EmotionDeviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    deviceClipCaches?: boolean | EmotionDevice$deviceClipCachesArgs<ExtArgs>
+    _count?: boolean | EmotionDeviceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type EmotionDeviceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+  }
+  export type EmotionDeviceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+  }
+
+  export type $EmotionDevicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmotionDevice"
+    objects: {
+      character: Prisma.$CharacterPayload<ExtArgs>
+      deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      characterId: string
+      pubnubChannel: string | null
+      mode: $Enums.EmotionDeviceMode
+      isCharging: boolean
+      lastSeenAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["emotionDevice"]>
+    composites: {}
+  }
+
+  type EmotionDeviceGetPayload<S extends boolean | null | undefined | EmotionDeviceDefaultArgs> = $Result.GetResult<Prisma.$EmotionDevicePayload, S>
+
+  type EmotionDeviceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmotionDeviceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmotionDeviceCountAggregateInputType | true
+    }
+
+  export interface EmotionDeviceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmotionDevice'], meta: { name: 'EmotionDevice' } }
+    /**
+     * Find zero or one EmotionDevice that matches the filter.
+     * @param {EmotionDeviceFindUniqueArgs} args - Arguments to find a EmotionDevice
+     * @example
+     * // Get one EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmotionDeviceFindUniqueArgs>(args: SelectSubset<T, EmotionDeviceFindUniqueArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmotionDevice that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmotionDeviceFindUniqueOrThrowArgs} args - Arguments to find a EmotionDevice
+     * @example
+     * // Get one EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmotionDeviceFindUniqueOrThrowArgs>(args: SelectSubset<T, EmotionDeviceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionDevice that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceFindFirstArgs} args - Arguments to find a EmotionDevice
+     * @example
+     * // Get one EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmotionDeviceFindFirstArgs>(args?: SelectSubset<T, EmotionDeviceFindFirstArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionDevice that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceFindFirstOrThrowArgs} args - Arguments to find a EmotionDevice
+     * @example
+     * // Get one EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmotionDeviceFindFirstOrThrowArgs>(args?: SelectSubset<T, EmotionDeviceFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmotionDevices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmotionDevices
+     * const emotionDevices = await prisma.emotionDevice.findMany()
+     * 
+     * // Get first 10 EmotionDevices
+     * const emotionDevices = await prisma.emotionDevice.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emotionDeviceWithIdOnly = await prisma.emotionDevice.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmotionDeviceFindManyArgs>(args?: SelectSubset<T, EmotionDeviceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmotionDevice.
+     * @param {EmotionDeviceCreateArgs} args - Arguments to create a EmotionDevice.
+     * @example
+     * // Create one EmotionDevice
+     * const EmotionDevice = await prisma.emotionDevice.create({
+     *   data: {
+     *     // ... data to create a EmotionDevice
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmotionDeviceCreateArgs>(args: SelectSubset<T, EmotionDeviceCreateArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmotionDevices.
+     * @param {EmotionDeviceCreateManyArgs} args - Arguments to create many EmotionDevices.
+     * @example
+     * // Create many EmotionDevices
+     * const emotionDevice = await prisma.emotionDevice.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmotionDeviceCreateManyArgs>(args?: SelectSubset<T, EmotionDeviceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmotionDevices and returns the data saved in the database.
+     * @param {EmotionDeviceCreateManyAndReturnArgs} args - Arguments to create many EmotionDevices.
+     * @example
+     * // Create many EmotionDevices
+     * const emotionDevice = await prisma.emotionDevice.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmotionDevices and only return the `id`
+     * const emotionDeviceWithIdOnly = await prisma.emotionDevice.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmotionDeviceCreateManyAndReturnArgs>(args?: SelectSubset<T, EmotionDeviceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmotionDevice.
+     * @param {EmotionDeviceDeleteArgs} args - Arguments to delete one EmotionDevice.
+     * @example
+     * // Delete one EmotionDevice
+     * const EmotionDevice = await prisma.emotionDevice.delete({
+     *   where: {
+     *     // ... filter to delete one EmotionDevice
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmotionDeviceDeleteArgs>(args: SelectSubset<T, EmotionDeviceDeleteArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmotionDevice.
+     * @param {EmotionDeviceUpdateArgs} args - Arguments to update one EmotionDevice.
+     * @example
+     * // Update one EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmotionDeviceUpdateArgs>(args: SelectSubset<T, EmotionDeviceUpdateArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmotionDevices.
+     * @param {EmotionDeviceDeleteManyArgs} args - Arguments to filter EmotionDevices to delete.
+     * @example
+     * // Delete a few EmotionDevices
+     * const { count } = await prisma.emotionDevice.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmotionDeviceDeleteManyArgs>(args?: SelectSubset<T, EmotionDeviceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionDevices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmotionDevices
+     * const emotionDevice = await prisma.emotionDevice.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmotionDeviceUpdateManyArgs>(args: SelectSubset<T, EmotionDeviceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionDevices and returns the data updated in the database.
+     * @param {EmotionDeviceUpdateManyAndReturnArgs} args - Arguments to update many EmotionDevices.
+     * @example
+     * // Update many EmotionDevices
+     * const emotionDevice = await prisma.emotionDevice.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmotionDevices and only return the `id`
+     * const emotionDeviceWithIdOnly = await prisma.emotionDevice.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmotionDeviceUpdateManyAndReturnArgs>(args: SelectSubset<T, EmotionDeviceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmotionDevice.
+     * @param {EmotionDeviceUpsertArgs} args - Arguments to update or create a EmotionDevice.
+     * @example
+     * // Update or create a EmotionDevice
+     * const emotionDevice = await prisma.emotionDevice.upsert({
+     *   create: {
+     *     // ... data to create a EmotionDevice
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmotionDevice we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmotionDeviceUpsertArgs>(args: SelectSubset<T, EmotionDeviceUpsertArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmotionDevices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceCountArgs} args - Arguments to filter EmotionDevices to count.
+     * @example
+     * // Count the number of EmotionDevices
+     * const count = await prisma.emotionDevice.count({
+     *   where: {
+     *     // ... the filter for the EmotionDevices we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmotionDeviceCountArgs>(
+      args?: Subset<T, EmotionDeviceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmotionDeviceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmotionDevice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmotionDeviceAggregateArgs>(args: Subset<T, EmotionDeviceAggregateArgs>): Prisma.PrismaPromise<GetEmotionDeviceAggregateType<T>>
+
+    /**
+     * Group by EmotionDevice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionDeviceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmotionDeviceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmotionDeviceGroupByArgs['orderBy'] }
+        : { orderBy?: EmotionDeviceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmotionDeviceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmotionDeviceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmotionDevice model
+   */
+  readonly fields: EmotionDeviceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmotionDevice.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmotionDeviceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    deviceClipCaches<T extends EmotionDevice$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDevice$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmotionDevice model
+   */
+  interface EmotionDeviceFieldRefs {
+    readonly id: FieldRef<"EmotionDevice", 'String'>
+    readonly characterId: FieldRef<"EmotionDevice", 'String'>
+    readonly pubnubChannel: FieldRef<"EmotionDevice", 'String'>
+    readonly mode: FieldRef<"EmotionDevice", 'EmotionDeviceMode'>
+    readonly isCharging: FieldRef<"EmotionDevice", 'Boolean'>
+    readonly lastSeenAt: FieldRef<"EmotionDevice", 'DateTime'>
+    readonly createdAt: FieldRef<"EmotionDevice", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmotionDevice", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmotionDevice findUnique
+   */
+  export type EmotionDeviceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionDevice to fetch.
+     */
+    where: EmotionDeviceWhereUniqueInput
+  }
+
+  /**
+   * EmotionDevice findUniqueOrThrow
+   */
+  export type EmotionDeviceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionDevice to fetch.
+     */
+    where: EmotionDeviceWhereUniqueInput
+  }
+
+  /**
+   * EmotionDevice findFirst
+   */
+  export type EmotionDeviceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionDevice to fetch.
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionDevices to fetch.
+     */
+    orderBy?: EmotionDeviceOrderByWithRelationInput | EmotionDeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionDevices.
+     */
+    cursor?: EmotionDeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionDevices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionDevices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionDevices.
+     */
+    distinct?: EmotionDeviceScalarFieldEnum | EmotionDeviceScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionDevice findFirstOrThrow
+   */
+  export type EmotionDeviceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionDevice to fetch.
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionDevices to fetch.
+     */
+    orderBy?: EmotionDeviceOrderByWithRelationInput | EmotionDeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionDevices.
+     */
+    cursor?: EmotionDeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionDevices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionDevices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionDevices.
+     */
+    distinct?: EmotionDeviceScalarFieldEnum | EmotionDeviceScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionDevice findMany
+   */
+  export type EmotionDeviceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionDevices to fetch.
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionDevices to fetch.
+     */
+    orderBy?: EmotionDeviceOrderByWithRelationInput | EmotionDeviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmotionDevices.
+     */
+    cursor?: EmotionDeviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionDevices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionDevices.
+     */
+    skip?: number
+    distinct?: EmotionDeviceScalarFieldEnum | EmotionDeviceScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionDevice create
+   */
+  export type EmotionDeviceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmotionDevice.
+     */
+    data: XOR<EmotionDeviceCreateInput, EmotionDeviceUncheckedCreateInput>
+  }
+
+  /**
+   * EmotionDevice createMany
+   */
+  export type EmotionDeviceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmotionDevices.
+     */
+    data: EmotionDeviceCreateManyInput | EmotionDeviceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmotionDevice createManyAndReturn
+   */
+  export type EmotionDeviceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmotionDevices.
+     */
+    data: EmotionDeviceCreateManyInput | EmotionDeviceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionDevice update
+   */
+  export type EmotionDeviceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmotionDevice.
+     */
+    data: XOR<EmotionDeviceUpdateInput, EmotionDeviceUncheckedUpdateInput>
+    /**
+     * Choose, which EmotionDevice to update.
+     */
+    where: EmotionDeviceWhereUniqueInput
+  }
+
+  /**
+   * EmotionDevice updateMany
+   */
+  export type EmotionDeviceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmotionDevices.
+     */
+    data: XOR<EmotionDeviceUpdateManyMutationInput, EmotionDeviceUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionDevices to update
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * Limit how many EmotionDevices to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionDevice updateManyAndReturn
+   */
+  export type EmotionDeviceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * The data used to update EmotionDevices.
+     */
+    data: XOR<EmotionDeviceUpdateManyMutationInput, EmotionDeviceUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionDevices to update
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * Limit how many EmotionDevices to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionDevice upsert
+   */
+  export type EmotionDeviceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmotionDevice to update in case it exists.
+     */
+    where: EmotionDeviceWhereUniqueInput
+    /**
+     * In case the EmotionDevice found by the `where` argument doesn't exist, create a new EmotionDevice with this data.
+     */
+    create: XOR<EmotionDeviceCreateInput, EmotionDeviceUncheckedCreateInput>
+    /**
+     * In case the EmotionDevice was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmotionDeviceUpdateInput, EmotionDeviceUncheckedUpdateInput>
+  }
+
+  /**
+   * EmotionDevice delete
+   */
+  export type EmotionDeviceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+    /**
+     * Filter which EmotionDevice to delete.
+     */
+    where: EmotionDeviceWhereUniqueInput
+  }
+
+  /**
+   * EmotionDevice deleteMany
+   */
+  export type EmotionDeviceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionDevices to delete
+     */
+    where?: EmotionDeviceWhereInput
+    /**
+     * Limit how many EmotionDevices to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionDevice.deviceClipCaches
+   */
+  export type EmotionDevice$deviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    where?: DeviceClipCacheWhereInput
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    cursor?: DeviceClipCacheWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionDevice without action
+   */
+  export type EmotionDeviceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionDevice
+     */
+    select?: EmotionDeviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionDevice
+     */
+    omit?: EmotionDeviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionDeviceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DeviceClipCache
+   */
+
+  export type AggregateDeviceClipCache = {
+    _count: DeviceClipCacheCountAggregateOutputType | null
+    _avg: DeviceClipCacheAvgAggregateOutputType | null
+    _sum: DeviceClipCacheSumAggregateOutputType | null
+    _min: DeviceClipCacheMinAggregateOutputType | null
+    _max: DeviceClipCacheMaxAggregateOutputType | null
+  }
+
+  export type DeviceClipCacheAvgAggregateOutputType = {
+    slot: number | null
+  }
+
+  export type DeviceClipCacheSumAggregateOutputType = {
+    slot: number | null
+  }
+
+  export type DeviceClipCacheMinAggregateOutputType = {
+    deviceId: string | null
+    emotionId: string | null
+    slot: number | null
+    clipId: string | null
+    lastSeenAt: Date | null
+    lastPlayedAt: Date | null
+  }
+
+  export type DeviceClipCacheMaxAggregateOutputType = {
+    deviceId: string | null
+    emotionId: string | null
+    slot: number | null
+    clipId: string | null
+    lastSeenAt: Date | null
+    lastPlayedAt: Date | null
+  }
+
+  export type DeviceClipCacheCountAggregateOutputType = {
+    deviceId: number
+    emotionId: number
+    slot: number
+    clipId: number
+    lastSeenAt: number
+    lastPlayedAt: number
+    _all: number
+  }
+
+
+  export type DeviceClipCacheAvgAggregateInputType = {
+    slot?: true
+  }
+
+  export type DeviceClipCacheSumAggregateInputType = {
+    slot?: true
+  }
+
+  export type DeviceClipCacheMinAggregateInputType = {
+    deviceId?: true
+    emotionId?: true
+    slot?: true
+    clipId?: true
+    lastSeenAt?: true
+    lastPlayedAt?: true
+  }
+
+  export type DeviceClipCacheMaxAggregateInputType = {
+    deviceId?: true
+    emotionId?: true
+    slot?: true
+    clipId?: true
+    lastSeenAt?: true
+    lastPlayedAt?: true
+  }
+
+  export type DeviceClipCacheCountAggregateInputType = {
+    deviceId?: true
+    emotionId?: true
+    slot?: true
+    clipId?: true
+    lastSeenAt?: true
+    lastPlayedAt?: true
+    _all?: true
+  }
+
+  export type DeviceClipCacheAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeviceClipCache to aggregate.
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeviceClipCaches to fetch.
+     */
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeviceClipCacheWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeviceClipCaches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeviceClipCaches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DeviceClipCaches
+    **/
+    _count?: true | DeviceClipCacheCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DeviceClipCacheAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DeviceClipCacheSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeviceClipCacheMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeviceClipCacheMaxAggregateInputType
+  }
+
+  export type GetDeviceClipCacheAggregateType<T extends DeviceClipCacheAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeviceClipCache]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeviceClipCache[P]>
+      : GetScalarType<T[P], AggregateDeviceClipCache[P]>
+  }
+
+
+
+
+  export type DeviceClipCacheGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeviceClipCacheWhereInput
+    orderBy?: DeviceClipCacheOrderByWithAggregationInput | DeviceClipCacheOrderByWithAggregationInput[]
+    by: DeviceClipCacheScalarFieldEnum[] | DeviceClipCacheScalarFieldEnum
+    having?: DeviceClipCacheScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeviceClipCacheCountAggregateInputType | true
+    _avg?: DeviceClipCacheAvgAggregateInputType
+    _sum?: DeviceClipCacheSumAggregateInputType
+    _min?: DeviceClipCacheMinAggregateInputType
+    _max?: DeviceClipCacheMaxAggregateInputType
+  }
+
+  export type DeviceClipCacheGroupByOutputType = {
+    deviceId: string
+    emotionId: string
+    slot: number
+    clipId: string
+    lastSeenAt: Date
+    lastPlayedAt: Date | null
+    _count: DeviceClipCacheCountAggregateOutputType | null
+    _avg: DeviceClipCacheAvgAggregateOutputType | null
+    _sum: DeviceClipCacheSumAggregateOutputType | null
+    _min: DeviceClipCacheMinAggregateOutputType | null
+    _max: DeviceClipCacheMaxAggregateOutputType | null
+  }
+
+  type GetDeviceClipCacheGroupByPayload<T extends DeviceClipCacheGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeviceClipCacheGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeviceClipCacheGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeviceClipCacheGroupByOutputType[P]>
+            : GetScalarType<T[P], DeviceClipCacheGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeviceClipCacheSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    deviceId?: boolean
+    emotionId?: boolean
+    slot?: boolean
+    clipId?: boolean
+    lastSeenAt?: boolean
+    lastPlayedAt?: boolean
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deviceClipCache"]>
+
+  export type DeviceClipCacheSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    deviceId?: boolean
+    emotionId?: boolean
+    slot?: boolean
+    clipId?: boolean
+    lastSeenAt?: boolean
+    lastPlayedAt?: boolean
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deviceClipCache"]>
+
+  export type DeviceClipCacheSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    deviceId?: boolean
+    emotionId?: boolean
+    slot?: boolean
+    clipId?: boolean
+    lastSeenAt?: boolean
+    lastPlayedAt?: boolean
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deviceClipCache"]>
+
+  export type DeviceClipCacheSelectScalar = {
+    deviceId?: boolean
+    emotionId?: boolean
+    slot?: boolean
+    clipId?: boolean
+    lastSeenAt?: boolean
+    lastPlayedAt?: boolean
+  }
+
+  export type DeviceClipCacheOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"deviceId" | "emotionId" | "slot" | "clipId" | "lastSeenAt" | "lastPlayedAt", ExtArgs["result"]["deviceClipCache"]>
+  export type DeviceClipCacheInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type DeviceClipCacheIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type DeviceClipCacheIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+
+  export type $DeviceClipCachePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DeviceClipCache"
+    objects: {
+      device: Prisma.$EmotionDevicePayload<ExtArgs>
+      emotion: Prisma.$EmotionPayload<ExtArgs>
+      clip: Prisma.$ClipPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      deviceId: string
+      emotionId: string
+      slot: number
+      clipId: string
+      lastSeenAt: Date
+      lastPlayedAt: Date | null
+    }, ExtArgs["result"]["deviceClipCache"]>
+    composites: {}
+  }
+
+  type DeviceClipCacheGetPayload<S extends boolean | null | undefined | DeviceClipCacheDefaultArgs> = $Result.GetResult<Prisma.$DeviceClipCachePayload, S>
+
+  type DeviceClipCacheCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DeviceClipCacheFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DeviceClipCacheCountAggregateInputType | true
+    }
+
+  export interface DeviceClipCacheDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DeviceClipCache'], meta: { name: 'DeviceClipCache' } }
+    /**
+     * Find zero or one DeviceClipCache that matches the filter.
+     * @param {DeviceClipCacheFindUniqueArgs} args - Arguments to find a DeviceClipCache
+     * @example
+     * // Get one DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DeviceClipCacheFindUniqueArgs>(args: SelectSubset<T, DeviceClipCacheFindUniqueArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DeviceClipCache that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DeviceClipCacheFindUniqueOrThrowArgs} args - Arguments to find a DeviceClipCache
+     * @example
+     * // Get one DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DeviceClipCacheFindUniqueOrThrowArgs>(args: SelectSubset<T, DeviceClipCacheFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeviceClipCache that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheFindFirstArgs} args - Arguments to find a DeviceClipCache
+     * @example
+     * // Get one DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DeviceClipCacheFindFirstArgs>(args?: SelectSubset<T, DeviceClipCacheFindFirstArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeviceClipCache that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheFindFirstOrThrowArgs} args - Arguments to find a DeviceClipCache
+     * @example
+     * // Get one DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DeviceClipCacheFindFirstOrThrowArgs>(args?: SelectSubset<T, DeviceClipCacheFindFirstOrThrowArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DeviceClipCaches that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DeviceClipCaches
+     * const deviceClipCaches = await prisma.deviceClipCache.findMany()
+     * 
+     * // Get first 10 DeviceClipCaches
+     * const deviceClipCaches = await prisma.deviceClipCache.findMany({ take: 10 })
+     * 
+     * // Only select the `deviceId`
+     * const deviceClipCacheWithDeviceIdOnly = await prisma.deviceClipCache.findMany({ select: { deviceId: true } })
+     * 
+     */
+    findMany<T extends DeviceClipCacheFindManyArgs>(args?: SelectSubset<T, DeviceClipCacheFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DeviceClipCache.
+     * @param {DeviceClipCacheCreateArgs} args - Arguments to create a DeviceClipCache.
+     * @example
+     * // Create one DeviceClipCache
+     * const DeviceClipCache = await prisma.deviceClipCache.create({
+     *   data: {
+     *     // ... data to create a DeviceClipCache
+     *   }
+     * })
+     * 
+     */
+    create<T extends DeviceClipCacheCreateArgs>(args: SelectSubset<T, DeviceClipCacheCreateArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DeviceClipCaches.
+     * @param {DeviceClipCacheCreateManyArgs} args - Arguments to create many DeviceClipCaches.
+     * @example
+     * // Create many DeviceClipCaches
+     * const deviceClipCache = await prisma.deviceClipCache.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DeviceClipCacheCreateManyArgs>(args?: SelectSubset<T, DeviceClipCacheCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DeviceClipCaches and returns the data saved in the database.
+     * @param {DeviceClipCacheCreateManyAndReturnArgs} args - Arguments to create many DeviceClipCaches.
+     * @example
+     * // Create many DeviceClipCaches
+     * const deviceClipCache = await prisma.deviceClipCache.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DeviceClipCaches and only return the `deviceId`
+     * const deviceClipCacheWithDeviceIdOnly = await prisma.deviceClipCache.createManyAndReturn({
+     *   select: { deviceId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DeviceClipCacheCreateManyAndReturnArgs>(args?: SelectSubset<T, DeviceClipCacheCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DeviceClipCache.
+     * @param {DeviceClipCacheDeleteArgs} args - Arguments to delete one DeviceClipCache.
+     * @example
+     * // Delete one DeviceClipCache
+     * const DeviceClipCache = await prisma.deviceClipCache.delete({
+     *   where: {
+     *     // ... filter to delete one DeviceClipCache
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DeviceClipCacheDeleteArgs>(args: SelectSubset<T, DeviceClipCacheDeleteArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DeviceClipCache.
+     * @param {DeviceClipCacheUpdateArgs} args - Arguments to update one DeviceClipCache.
+     * @example
+     * // Update one DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DeviceClipCacheUpdateArgs>(args: SelectSubset<T, DeviceClipCacheUpdateArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DeviceClipCaches.
+     * @param {DeviceClipCacheDeleteManyArgs} args - Arguments to filter DeviceClipCaches to delete.
+     * @example
+     * // Delete a few DeviceClipCaches
+     * const { count } = await prisma.deviceClipCache.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DeviceClipCacheDeleteManyArgs>(args?: SelectSubset<T, DeviceClipCacheDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeviceClipCaches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DeviceClipCaches
+     * const deviceClipCache = await prisma.deviceClipCache.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DeviceClipCacheUpdateManyArgs>(args: SelectSubset<T, DeviceClipCacheUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeviceClipCaches and returns the data updated in the database.
+     * @param {DeviceClipCacheUpdateManyAndReturnArgs} args - Arguments to update many DeviceClipCaches.
+     * @example
+     * // Update many DeviceClipCaches
+     * const deviceClipCache = await prisma.deviceClipCache.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DeviceClipCaches and only return the `deviceId`
+     * const deviceClipCacheWithDeviceIdOnly = await prisma.deviceClipCache.updateManyAndReturn({
+     *   select: { deviceId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DeviceClipCacheUpdateManyAndReturnArgs>(args: SelectSubset<T, DeviceClipCacheUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DeviceClipCache.
+     * @param {DeviceClipCacheUpsertArgs} args - Arguments to update or create a DeviceClipCache.
+     * @example
+     * // Update or create a DeviceClipCache
+     * const deviceClipCache = await prisma.deviceClipCache.upsert({
+     *   create: {
+     *     // ... data to create a DeviceClipCache
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DeviceClipCache we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DeviceClipCacheUpsertArgs>(args: SelectSubset<T, DeviceClipCacheUpsertArgs<ExtArgs>>): Prisma__DeviceClipCacheClient<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DeviceClipCaches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheCountArgs} args - Arguments to filter DeviceClipCaches to count.
+     * @example
+     * // Count the number of DeviceClipCaches
+     * const count = await prisma.deviceClipCache.count({
+     *   where: {
+     *     // ... the filter for the DeviceClipCaches we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeviceClipCacheCountArgs>(
+      args?: Subset<T, DeviceClipCacheCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeviceClipCacheCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DeviceClipCache.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeviceClipCacheAggregateArgs>(args: Subset<T, DeviceClipCacheAggregateArgs>): Prisma.PrismaPromise<GetDeviceClipCacheAggregateType<T>>
+
+    /**
+     * Group by DeviceClipCache.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeviceClipCacheGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeviceClipCacheGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeviceClipCacheGroupByArgs['orderBy'] }
+        : { orderBy?: DeviceClipCacheGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeviceClipCacheGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeviceClipCacheGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DeviceClipCache model
+   */
+  readonly fields: DeviceClipCacheFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DeviceClipCache.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeviceClipCacheClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    device<T extends EmotionDeviceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDeviceDefaultArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    clip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DeviceClipCache model
+   */
+  interface DeviceClipCacheFieldRefs {
+    readonly deviceId: FieldRef<"DeviceClipCache", 'String'>
+    readonly emotionId: FieldRef<"DeviceClipCache", 'String'>
+    readonly slot: FieldRef<"DeviceClipCache", 'Int'>
+    readonly clipId: FieldRef<"DeviceClipCache", 'String'>
+    readonly lastSeenAt: FieldRef<"DeviceClipCache", 'DateTime'>
+    readonly lastPlayedAt: FieldRef<"DeviceClipCache", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DeviceClipCache findUnique
+   */
+  export type DeviceClipCacheFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter, which DeviceClipCache to fetch.
+     */
+    where: DeviceClipCacheWhereUniqueInput
+  }
+
+  /**
+   * DeviceClipCache findUniqueOrThrow
+   */
+  export type DeviceClipCacheFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter, which DeviceClipCache to fetch.
+     */
+    where: DeviceClipCacheWhereUniqueInput
+  }
+
+  /**
+   * DeviceClipCache findFirst
+   */
+  export type DeviceClipCacheFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter, which DeviceClipCache to fetch.
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeviceClipCaches to fetch.
+     */
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeviceClipCaches.
+     */
+    cursor?: DeviceClipCacheWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeviceClipCaches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeviceClipCaches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeviceClipCaches.
+     */
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * DeviceClipCache findFirstOrThrow
+   */
+  export type DeviceClipCacheFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter, which DeviceClipCache to fetch.
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeviceClipCaches to fetch.
+     */
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeviceClipCaches.
+     */
+    cursor?: DeviceClipCacheWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeviceClipCaches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeviceClipCaches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeviceClipCaches.
+     */
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * DeviceClipCache findMany
+   */
+  export type DeviceClipCacheFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter, which DeviceClipCaches to fetch.
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeviceClipCaches to fetch.
+     */
+    orderBy?: DeviceClipCacheOrderByWithRelationInput | DeviceClipCacheOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DeviceClipCaches.
+     */
+    cursor?: DeviceClipCacheWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeviceClipCaches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeviceClipCaches.
+     */
+    skip?: number
+    distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * DeviceClipCache create
+   */
+  export type DeviceClipCacheCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DeviceClipCache.
+     */
+    data: XOR<DeviceClipCacheCreateInput, DeviceClipCacheUncheckedCreateInput>
+  }
+
+  /**
+   * DeviceClipCache createMany
+   */
+  export type DeviceClipCacheCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DeviceClipCaches.
+     */
+    data: DeviceClipCacheCreateManyInput | DeviceClipCacheCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DeviceClipCache createManyAndReturn
+   */
+  export type DeviceClipCacheCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * The data used to create many DeviceClipCaches.
+     */
+    data: DeviceClipCacheCreateManyInput | DeviceClipCacheCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DeviceClipCache update
+   */
+  export type DeviceClipCacheUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DeviceClipCache.
+     */
+    data: XOR<DeviceClipCacheUpdateInput, DeviceClipCacheUncheckedUpdateInput>
+    /**
+     * Choose, which DeviceClipCache to update.
+     */
+    where: DeviceClipCacheWhereUniqueInput
+  }
+
+  /**
+   * DeviceClipCache updateMany
+   */
+  export type DeviceClipCacheUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DeviceClipCaches.
+     */
+    data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyInput>
+    /**
+     * Filter which DeviceClipCaches to update
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * Limit how many DeviceClipCaches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeviceClipCache updateManyAndReturn
+   */
+  export type DeviceClipCacheUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * The data used to update DeviceClipCaches.
+     */
+    data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyInput>
+    /**
+     * Filter which DeviceClipCaches to update
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * Limit how many DeviceClipCaches to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DeviceClipCache upsert
+   */
+  export type DeviceClipCacheUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DeviceClipCache to update in case it exists.
+     */
+    where: DeviceClipCacheWhereUniqueInput
+    /**
+     * In case the DeviceClipCache found by the `where` argument doesn't exist, create a new DeviceClipCache with this data.
+     */
+    create: XOR<DeviceClipCacheCreateInput, DeviceClipCacheUncheckedCreateInput>
+    /**
+     * In case the DeviceClipCache was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeviceClipCacheUpdateInput, DeviceClipCacheUncheckedUpdateInput>
+  }
+
+  /**
+   * DeviceClipCache delete
+   */
+  export type DeviceClipCacheDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+    /**
+     * Filter which DeviceClipCache to delete.
+     */
+    where: DeviceClipCacheWhereUniqueInput
+  }
+
+  /**
+   * DeviceClipCache deleteMany
+   */
+  export type DeviceClipCacheDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeviceClipCaches to delete
+     */
+    where?: DeviceClipCacheWhereInput
+    /**
+     * Limit how many DeviceClipCaches to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeviceClipCache without action
+   */
+  export type DeviceClipCacheDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeviceClipCache
+     */
+    select?: DeviceClipCacheSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeviceClipCache
+     */
+    omit?: DeviceClipCacheOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeviceClipCacheInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Rule
+   */
+
+  export type AggregateRule = {
+    _count: RuleCountAggregateOutputType | null
+    _avg: RuleAvgAggregateOutputType | null
+    _sum: RuleSumAggregateOutputType | null
+    _min: RuleMinAggregateOutputType | null
+    _max: RuleMaxAggregateOutputType | null
+  }
+
+  export type RuleAvgAggregateOutputType = {
+    priority: number | null
+    cooldownMs: number | null
+  }
+
+  export type RuleSumAggregateOutputType = {
+    priority: number | null
+    cooldownMs: number | null
+  }
+
+  export type RuleMinAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    enabled: boolean | null
+    priority: number | null
+    cooldownMs: number | null
+    eventType: $Enums.EventType | null
+    eventKey: $Enums.EventKey | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RuleMaxAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    enabled: boolean | null
+    priority: number | null
+    cooldownMs: number | null
+    eventType: $Enums.EventType | null
+    eventKey: $Enums.EventKey | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RuleCountAggregateOutputType = {
+    id: number
+    characterId: number
+    enabled: number
+    priority: number
+    cooldownMs: number
+    eventType: number
+    eventKey: number
+    conditions: number
+    response: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type RuleAvgAggregateInputType = {
+    priority?: true
+    cooldownMs?: true
+  }
+
+  export type RuleSumAggregateInputType = {
+    priority?: true
+    cooldownMs?: true
+  }
+
+  export type RuleMinAggregateInputType = {
+    id?: true
+    characterId?: true
+    enabled?: true
+    priority?: true
+    cooldownMs?: true
+    eventType?: true
+    eventKey?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RuleMaxAggregateInputType = {
+    id?: true
+    characterId?: true
+    enabled?: true
+    priority?: true
+    cooldownMs?: true
+    eventType?: true
+    eventKey?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RuleCountAggregateInputType = {
+    id?: true
+    characterId?: true
+    enabled?: true
+    priority?: true
+    cooldownMs?: true
+    eventType?: true
+    eventKey?: true
+    conditions?: true
+    response?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type RuleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Rule to aggregate.
+     */
+    where?: RuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rules to fetch.
+     */
+    orderBy?: RuleOrderByWithRelationInput | RuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Rules
+    **/
+    _count?: true | RuleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RuleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RuleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RuleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RuleMaxAggregateInputType
+  }
+
+  export type GetRuleAggregateType<T extends RuleAggregateArgs> = {
+        [P in keyof T & keyof AggregateRule]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRule[P]>
+      : GetScalarType<T[P], AggregateRule[P]>
+  }
+
+
+
+
+  export type RuleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RuleWhereInput
+    orderBy?: RuleOrderByWithAggregationInput | RuleOrderByWithAggregationInput[]
+    by: RuleScalarFieldEnum[] | RuleScalarFieldEnum
+    having?: RuleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RuleCountAggregateInputType | true
+    _avg?: RuleAvgAggregateInputType
+    _sum?: RuleSumAggregateInputType
+    _min?: RuleMinAggregateInputType
+    _max?: RuleMaxAggregateInputType
+  }
+
+  export type RuleGroupByOutputType = {
+    id: string
+    characterId: string | null
+    enabled: boolean
+    priority: number
+    cooldownMs: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions: JsonValue | null
+    response: JsonValue
+    createdAt: Date
+    updatedAt: Date
+    _count: RuleCountAggregateOutputType | null
+    _avg: RuleAvgAggregateOutputType | null
+    _sum: RuleSumAggregateOutputType | null
+    _min: RuleMinAggregateOutputType | null
+    _max: RuleMaxAggregateOutputType | null
+  }
+
+  type GetRuleGroupByPayload<T extends RuleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RuleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RuleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RuleGroupByOutputType[P]>
+            : GetScalarType<T[P], RuleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RuleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    enabled?: boolean
+    priority?: boolean
+    cooldownMs?: boolean
+    eventType?: boolean
+    eventKey?: boolean
+    conditions?: boolean
+    response?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }, ExtArgs["result"]["rule"]>
+
+  export type RuleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    enabled?: boolean
+    priority?: boolean
+    cooldownMs?: boolean
+    eventType?: boolean
+    eventKey?: boolean
+    conditions?: boolean
+    response?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }, ExtArgs["result"]["rule"]>
+
+  export type RuleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    enabled?: boolean
+    priority?: boolean
+    cooldownMs?: boolean
+    eventType?: boolean
+    eventKey?: boolean
+    conditions?: boolean
+    response?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }, ExtArgs["result"]["rule"]>
+
+  export type RuleSelectScalar = {
+    id?: boolean
+    characterId?: boolean
+    enabled?: boolean
+    priority?: boolean
+    cooldownMs?: boolean
+    eventType?: boolean
+    eventKey?: boolean
+    conditions?: boolean
+    response?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type RuleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "enabled" | "priority" | "cooldownMs" | "eventType" | "eventKey" | "conditions" | "response" | "createdAt" | "updatedAt", ExtArgs["result"]["rule"]>
+  export type RuleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }
+  export type RuleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }
+  export type RuleIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | Rule$characterArgs<ExtArgs>
+  }
+
+  export type $RulePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Rule"
+    objects: {
+      character: Prisma.$CharacterPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      characterId: string | null
+      enabled: boolean
+      priority: number
+      cooldownMs: number
+      eventType: $Enums.EventType
+      eventKey: $Enums.EventKey
+      conditions: Prisma.JsonValue | null
+      response: Prisma.JsonValue
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["rule"]>
+    composites: {}
+  }
+
+  type RuleGetPayload<S extends boolean | null | undefined | RuleDefaultArgs> = $Result.GetResult<Prisma.$RulePayload, S>
+
+  type RuleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RuleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RuleCountAggregateInputType | true
+    }
+
+  export interface RuleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Rule'], meta: { name: 'Rule' } }
+    /**
+     * Find zero or one Rule that matches the filter.
+     * @param {RuleFindUniqueArgs} args - Arguments to find a Rule
+     * @example
+     * // Get one Rule
+     * const rule = await prisma.rule.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RuleFindUniqueArgs>(args: SelectSubset<T, RuleFindUniqueArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Rule that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RuleFindUniqueOrThrowArgs} args - Arguments to find a Rule
+     * @example
+     * // Get one Rule
+     * const rule = await prisma.rule.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RuleFindUniqueOrThrowArgs>(args: SelectSubset<T, RuleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Rule that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleFindFirstArgs} args - Arguments to find a Rule
+     * @example
+     * // Get one Rule
+     * const rule = await prisma.rule.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RuleFindFirstArgs>(args?: SelectSubset<T, RuleFindFirstArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Rule that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleFindFirstOrThrowArgs} args - Arguments to find a Rule
+     * @example
+     * // Get one Rule
+     * const rule = await prisma.rule.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RuleFindFirstOrThrowArgs>(args?: SelectSubset<T, RuleFindFirstOrThrowArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Rules that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Rules
+     * const rules = await prisma.rule.findMany()
+     * 
+     * // Get first 10 Rules
+     * const rules = await prisma.rule.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ruleWithIdOnly = await prisma.rule.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RuleFindManyArgs>(args?: SelectSubset<T, RuleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Rule.
+     * @param {RuleCreateArgs} args - Arguments to create a Rule.
+     * @example
+     * // Create one Rule
+     * const Rule = await prisma.rule.create({
+     *   data: {
+     *     // ... data to create a Rule
+     *   }
+     * })
+     * 
+     */
+    create<T extends RuleCreateArgs>(args: SelectSubset<T, RuleCreateArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Rules.
+     * @param {RuleCreateManyArgs} args - Arguments to create many Rules.
+     * @example
+     * // Create many Rules
+     * const rule = await prisma.rule.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RuleCreateManyArgs>(args?: SelectSubset<T, RuleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Rules and returns the data saved in the database.
+     * @param {RuleCreateManyAndReturnArgs} args - Arguments to create many Rules.
+     * @example
+     * // Create many Rules
+     * const rule = await prisma.rule.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Rules and only return the `id`
+     * const ruleWithIdOnly = await prisma.rule.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RuleCreateManyAndReturnArgs>(args?: SelectSubset<T, RuleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Rule.
+     * @param {RuleDeleteArgs} args - Arguments to delete one Rule.
+     * @example
+     * // Delete one Rule
+     * const Rule = await prisma.rule.delete({
+     *   where: {
+     *     // ... filter to delete one Rule
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RuleDeleteArgs>(args: SelectSubset<T, RuleDeleteArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Rule.
+     * @param {RuleUpdateArgs} args - Arguments to update one Rule.
+     * @example
+     * // Update one Rule
+     * const rule = await prisma.rule.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RuleUpdateArgs>(args: SelectSubset<T, RuleUpdateArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Rules.
+     * @param {RuleDeleteManyArgs} args - Arguments to filter Rules to delete.
+     * @example
+     * // Delete a few Rules
+     * const { count } = await prisma.rule.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RuleDeleteManyArgs>(args?: SelectSubset<T, RuleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Rules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Rules
+     * const rule = await prisma.rule.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RuleUpdateManyArgs>(args: SelectSubset<T, RuleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Rules and returns the data updated in the database.
+     * @param {RuleUpdateManyAndReturnArgs} args - Arguments to update many Rules.
+     * @example
+     * // Update many Rules
+     * const rule = await prisma.rule.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Rules and only return the `id`
+     * const ruleWithIdOnly = await prisma.rule.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RuleUpdateManyAndReturnArgs>(args: SelectSubset<T, RuleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Rule.
+     * @param {RuleUpsertArgs} args - Arguments to update or create a Rule.
+     * @example
+     * // Update or create a Rule
+     * const rule = await prisma.rule.upsert({
+     *   create: {
+     *     // ... data to create a Rule
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Rule we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RuleUpsertArgs>(args: SelectSubset<T, RuleUpsertArgs<ExtArgs>>): Prisma__RuleClient<$Result.GetResult<Prisma.$RulePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Rules.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleCountArgs} args - Arguments to filter Rules to count.
+     * @example
+     * // Count the number of Rules
+     * const count = await prisma.rule.count({
+     *   where: {
+     *     // ... the filter for the Rules we want to count
+     *   }
+     * })
+    **/
+    count<T extends RuleCountArgs>(
+      args?: Subset<T, RuleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RuleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Rule.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RuleAggregateArgs>(args: Subset<T, RuleAggregateArgs>): Prisma.PrismaPromise<GetRuleAggregateType<T>>
+
+    /**
+     * Group by Rule.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RuleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RuleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RuleGroupByArgs['orderBy'] }
+        : { orderBy?: RuleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RuleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRuleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Rule model
+   */
+  readonly fields: RuleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Rule.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RuleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    character<T extends Rule$characterArgs<ExtArgs> = {}>(args?: Subset<T, Rule$characterArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Rule model
+   */
+  interface RuleFieldRefs {
+    readonly id: FieldRef<"Rule", 'String'>
+    readonly characterId: FieldRef<"Rule", 'String'>
+    readonly enabled: FieldRef<"Rule", 'Boolean'>
+    readonly priority: FieldRef<"Rule", 'Int'>
+    readonly cooldownMs: FieldRef<"Rule", 'Int'>
+    readonly eventType: FieldRef<"Rule", 'EventType'>
+    readonly eventKey: FieldRef<"Rule", 'EventKey'>
+    readonly conditions: FieldRef<"Rule", 'Json'>
+    readonly response: FieldRef<"Rule", 'Json'>
+    readonly createdAt: FieldRef<"Rule", 'DateTime'>
+    readonly updatedAt: FieldRef<"Rule", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Rule findUnique
+   */
+  export type RuleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Rule to fetch.
+     */
+    where: RuleWhereUniqueInput
+  }
+
+  /**
+   * Rule findUniqueOrThrow
+   */
+  export type RuleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Rule to fetch.
+     */
+    where: RuleWhereUniqueInput
+  }
+
+  /**
+   * Rule findFirst
+   */
+  export type RuleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Rule to fetch.
+     */
+    where?: RuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rules to fetch.
+     */
+    orderBy?: RuleOrderByWithRelationInput | RuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Rules.
+     */
+    cursor?: RuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Rules.
+     */
+    distinct?: RuleScalarFieldEnum | RuleScalarFieldEnum[]
+  }
+
+  /**
+   * Rule findFirstOrThrow
+   */
+  export type RuleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Rule to fetch.
+     */
+    where?: RuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rules to fetch.
+     */
+    orderBy?: RuleOrderByWithRelationInput | RuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Rules.
+     */
+    cursor?: RuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rules.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Rules.
+     */
+    distinct?: RuleScalarFieldEnum | RuleScalarFieldEnum[]
+  }
+
+  /**
+   * Rule findMany
+   */
+  export type RuleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter, which Rules to fetch.
+     */
+    where?: RuleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Rules to fetch.
+     */
+    orderBy?: RuleOrderByWithRelationInput | RuleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Rules.
+     */
+    cursor?: RuleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Rules from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Rules.
+     */
+    skip?: number
+    distinct?: RuleScalarFieldEnum | RuleScalarFieldEnum[]
+  }
+
+  /**
+   * Rule create
+   */
+  export type RuleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Rule.
+     */
+    data: XOR<RuleCreateInput, RuleUncheckedCreateInput>
+  }
+
+  /**
+   * Rule createMany
+   */
+  export type RuleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Rules.
+     */
+    data: RuleCreateManyInput | RuleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Rule createManyAndReturn
+   */
+  export type RuleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * The data used to create many Rules.
+     */
+    data: RuleCreateManyInput | RuleCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Rule update
+   */
+  export type RuleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Rule.
+     */
+    data: XOR<RuleUpdateInput, RuleUncheckedUpdateInput>
+    /**
+     * Choose, which Rule to update.
+     */
+    where: RuleWhereUniqueInput
+  }
+
+  /**
+   * Rule updateMany
+   */
+  export type RuleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Rules.
+     */
+    data: XOR<RuleUpdateManyMutationInput, RuleUncheckedUpdateManyInput>
+    /**
+     * Filter which Rules to update
+     */
+    where?: RuleWhereInput
+    /**
+     * Limit how many Rules to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Rule updateManyAndReturn
+   */
+  export type RuleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * The data used to update Rules.
+     */
+    data: XOR<RuleUpdateManyMutationInput, RuleUncheckedUpdateManyInput>
+    /**
+     * Filter which Rules to update
+     */
+    where?: RuleWhereInput
+    /**
+     * Limit how many Rules to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Rule upsert
+   */
+  export type RuleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Rule to update in case it exists.
+     */
+    where: RuleWhereUniqueInput
+    /**
+     * In case the Rule found by the `where` argument doesn't exist, create a new Rule with this data.
+     */
+    create: XOR<RuleCreateInput, RuleUncheckedCreateInput>
+    /**
+     * In case the Rule was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RuleUpdateInput, RuleUncheckedUpdateInput>
+  }
+
+  /**
+   * Rule delete
+   */
+  export type RuleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+    /**
+     * Filter which Rule to delete.
+     */
+    where: RuleWhereUniqueInput
+  }
+
+  /**
+   * Rule deleteMany
+   */
+  export type RuleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Rules to delete
+     */
+    where?: RuleWhereInput
+    /**
+     * Limit how many Rules to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Rule.character
+   */
+  export type Rule$characterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    where?: CharacterWhereInput
+  }
+
+  /**
+   * Rule without action
+   */
+  export type RuleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Rule
+     */
+    select?: RuleSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Rule
+     */
+    omit?: RuleOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RuleInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ObjectType
+   */
+
+  export type AggregateObjectType = {
+    _count: ObjectTypeCountAggregateOutputType | null
+    _min: ObjectTypeMinAggregateOutputType | null
+    _max: ObjectTypeMaxAggregateOutputType | null
+  }
+
+  export type ObjectTypeMinAggregateOutputType = {
+    id: string | null
+    key: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ObjectTypeMaxAggregateOutputType = {
+    id: string | null
+    key: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ObjectTypeCountAggregateOutputType = {
+    id: number
+    key: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ObjectTypeMinAggregateInputType = {
+    id?: true
+    key?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ObjectTypeMaxAggregateInputType = {
+    id?: true
+    key?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ObjectTypeCountAggregateInputType = {
+    id?: true
+    key?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ObjectTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ObjectType to aggregate.
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ObjectTypes to fetch.
+     */
+    orderBy?: ObjectTypeOrderByWithRelationInput | ObjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ObjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ObjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ObjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ObjectTypes
+    **/
+    _count?: true | ObjectTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ObjectTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ObjectTypeMaxAggregateInputType
+  }
+
+  export type GetObjectTypeAggregateType<T extends ObjectTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateObjectType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateObjectType[P]>
+      : GetScalarType<T[P], AggregateObjectType[P]>
+  }
+
+
+
+
+  export type ObjectTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ObjectTypeWhereInput
+    orderBy?: ObjectTypeOrderByWithAggregationInput | ObjectTypeOrderByWithAggregationInput[]
+    by: ObjectTypeScalarFieldEnum[] | ObjectTypeScalarFieldEnum
+    having?: ObjectTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ObjectTypeCountAggregateInputType | true
+    _min?: ObjectTypeMinAggregateInputType
+    _max?: ObjectTypeMaxAggregateInputType
+  }
+
+  export type ObjectTypeGroupByOutputType = {
+    id: string
+    key: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ObjectTypeCountAggregateOutputType | null
+    _min: ObjectTypeMinAggregateOutputType | null
+    _max: ObjectTypeMaxAggregateOutputType | null
+  }
+
+  type GetObjectTypeGroupByPayload<T extends ObjectTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ObjectTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ObjectTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ObjectTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], ObjectTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ObjectTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    rfidObjects?: boolean | ObjectType$rfidObjectsArgs<ExtArgs>
+    _count?: boolean | ObjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["objectType"]>
+
+  export type ObjectTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["objectType"]>
+
+  export type ObjectTypeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["objectType"]>
+
+  export type ObjectTypeSelectScalar = {
+    id?: boolean
+    key?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ObjectTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "createdAt" | "updatedAt", ExtArgs["result"]["objectType"]>
+  export type ObjectTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    rfidObjects?: boolean | ObjectType$rfidObjectsArgs<ExtArgs>
+    _count?: boolean | ObjectTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ObjectTypeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ObjectTypeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ObjectTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ObjectType"
+    objects: {
+      rfidObjects: Prisma.$RfidObjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      key: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["objectType"]>
+    composites: {}
+  }
+
+  type ObjectTypeGetPayload<S extends boolean | null | undefined | ObjectTypeDefaultArgs> = $Result.GetResult<Prisma.$ObjectTypePayload, S>
+
+  type ObjectTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ObjectTypeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ObjectTypeCountAggregateInputType | true
+    }
+
+  export interface ObjectTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ObjectType'], meta: { name: 'ObjectType' } }
+    /**
+     * Find zero or one ObjectType that matches the filter.
+     * @param {ObjectTypeFindUniqueArgs} args - Arguments to find a ObjectType
+     * @example
+     * // Get one ObjectType
+     * const objectType = await prisma.objectType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ObjectTypeFindUniqueArgs>(args: SelectSubset<T, ObjectTypeFindUniqueArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ObjectType that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ObjectTypeFindUniqueOrThrowArgs} args - Arguments to find a ObjectType
+     * @example
+     * // Get one ObjectType
+     * const objectType = await prisma.objectType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ObjectTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, ObjectTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ObjectType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeFindFirstArgs} args - Arguments to find a ObjectType
+     * @example
+     * // Get one ObjectType
+     * const objectType = await prisma.objectType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ObjectTypeFindFirstArgs>(args?: SelectSubset<T, ObjectTypeFindFirstArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ObjectType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeFindFirstOrThrowArgs} args - Arguments to find a ObjectType
+     * @example
+     * // Get one ObjectType
+     * const objectType = await prisma.objectType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ObjectTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, ObjectTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ObjectTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ObjectTypes
+     * const objectTypes = await prisma.objectType.findMany()
+     * 
+     * // Get first 10 ObjectTypes
+     * const objectTypes = await prisma.objectType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const objectTypeWithIdOnly = await prisma.objectType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ObjectTypeFindManyArgs>(args?: SelectSubset<T, ObjectTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ObjectType.
+     * @param {ObjectTypeCreateArgs} args - Arguments to create a ObjectType.
+     * @example
+     * // Create one ObjectType
+     * const ObjectType = await prisma.objectType.create({
+     *   data: {
+     *     // ... data to create a ObjectType
+     *   }
+     * })
+     * 
+     */
+    create<T extends ObjectTypeCreateArgs>(args: SelectSubset<T, ObjectTypeCreateArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ObjectTypes.
+     * @param {ObjectTypeCreateManyArgs} args - Arguments to create many ObjectTypes.
+     * @example
+     * // Create many ObjectTypes
+     * const objectType = await prisma.objectType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ObjectTypeCreateManyArgs>(args?: SelectSubset<T, ObjectTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ObjectTypes and returns the data saved in the database.
+     * @param {ObjectTypeCreateManyAndReturnArgs} args - Arguments to create many ObjectTypes.
+     * @example
+     * // Create many ObjectTypes
+     * const objectType = await prisma.objectType.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ObjectTypes and only return the `id`
+     * const objectTypeWithIdOnly = await prisma.objectType.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ObjectTypeCreateManyAndReturnArgs>(args?: SelectSubset<T, ObjectTypeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ObjectType.
+     * @param {ObjectTypeDeleteArgs} args - Arguments to delete one ObjectType.
+     * @example
+     * // Delete one ObjectType
+     * const ObjectType = await prisma.objectType.delete({
+     *   where: {
+     *     // ... filter to delete one ObjectType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ObjectTypeDeleteArgs>(args: SelectSubset<T, ObjectTypeDeleteArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ObjectType.
+     * @param {ObjectTypeUpdateArgs} args - Arguments to update one ObjectType.
+     * @example
+     * // Update one ObjectType
+     * const objectType = await prisma.objectType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ObjectTypeUpdateArgs>(args: SelectSubset<T, ObjectTypeUpdateArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ObjectTypes.
+     * @param {ObjectTypeDeleteManyArgs} args - Arguments to filter ObjectTypes to delete.
+     * @example
+     * // Delete a few ObjectTypes
+     * const { count } = await prisma.objectType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ObjectTypeDeleteManyArgs>(args?: SelectSubset<T, ObjectTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ObjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ObjectTypes
+     * const objectType = await prisma.objectType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ObjectTypeUpdateManyArgs>(args: SelectSubset<T, ObjectTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ObjectTypes and returns the data updated in the database.
+     * @param {ObjectTypeUpdateManyAndReturnArgs} args - Arguments to update many ObjectTypes.
+     * @example
+     * // Update many ObjectTypes
+     * const objectType = await prisma.objectType.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ObjectTypes and only return the `id`
+     * const objectTypeWithIdOnly = await prisma.objectType.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ObjectTypeUpdateManyAndReturnArgs>(args: SelectSubset<T, ObjectTypeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ObjectType.
+     * @param {ObjectTypeUpsertArgs} args - Arguments to update or create a ObjectType.
+     * @example
+     * // Update or create a ObjectType
+     * const objectType = await prisma.objectType.upsert({
+     *   create: {
+     *     // ... data to create a ObjectType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ObjectType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ObjectTypeUpsertArgs>(args: SelectSubset<T, ObjectTypeUpsertArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ObjectTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeCountArgs} args - Arguments to filter ObjectTypes to count.
+     * @example
+     * // Count the number of ObjectTypes
+     * const count = await prisma.objectType.count({
+     *   where: {
+     *     // ... the filter for the ObjectTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends ObjectTypeCountArgs>(
+      args?: Subset<T, ObjectTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ObjectTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ObjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ObjectTypeAggregateArgs>(args: Subset<T, ObjectTypeAggregateArgs>): Prisma.PrismaPromise<GetObjectTypeAggregateType<T>>
+
+    /**
+     * Group by ObjectType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ObjectTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ObjectTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ObjectTypeGroupByArgs['orderBy'] }
+        : { orderBy?: ObjectTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ObjectTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetObjectTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ObjectType model
+   */
+  readonly fields: ObjectTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ObjectType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ObjectTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    rfidObjects<T extends ObjectType$rfidObjectsArgs<ExtArgs> = {}>(args?: Subset<T, ObjectType$rfidObjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ObjectType model
+   */
+  interface ObjectTypeFieldRefs {
+    readonly id: FieldRef<"ObjectType", 'String'>
+    readonly key: FieldRef<"ObjectType", 'String'>
+    readonly createdAt: FieldRef<"ObjectType", 'DateTime'>
+    readonly updatedAt: FieldRef<"ObjectType", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ObjectType findUnique
+   */
+  export type ObjectTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ObjectType to fetch.
+     */
+    where: ObjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ObjectType findUniqueOrThrow
+   */
+  export type ObjectTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ObjectType to fetch.
+     */
+    where: ObjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ObjectType findFirst
+   */
+  export type ObjectTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ObjectType to fetch.
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ObjectTypes to fetch.
+     */
+    orderBy?: ObjectTypeOrderByWithRelationInput | ObjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ObjectTypes.
+     */
+    cursor?: ObjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ObjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ObjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ObjectTypes.
+     */
+    distinct?: ObjectTypeScalarFieldEnum | ObjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ObjectType findFirstOrThrow
+   */
+  export type ObjectTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ObjectType to fetch.
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ObjectTypes to fetch.
+     */
+    orderBy?: ObjectTypeOrderByWithRelationInput | ObjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ObjectTypes.
+     */
+    cursor?: ObjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ObjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ObjectTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ObjectTypes.
+     */
+    distinct?: ObjectTypeScalarFieldEnum | ObjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ObjectType findMany
+   */
+  export type ObjectTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which ObjectTypes to fetch.
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ObjectTypes to fetch.
+     */
+    orderBy?: ObjectTypeOrderByWithRelationInput | ObjectTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ObjectTypes.
+     */
+    cursor?: ObjectTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ObjectTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ObjectTypes.
+     */
+    skip?: number
+    distinct?: ObjectTypeScalarFieldEnum | ObjectTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ObjectType create
+   */
+  export type ObjectTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ObjectType.
+     */
+    data: XOR<ObjectTypeCreateInput, ObjectTypeUncheckedCreateInput>
+  }
+
+  /**
+   * ObjectType createMany
+   */
+  export type ObjectTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ObjectTypes.
+     */
+    data: ObjectTypeCreateManyInput | ObjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ObjectType createManyAndReturn
+   */
+  export type ObjectTypeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to create many ObjectTypes.
+     */
+    data: ObjectTypeCreateManyInput | ObjectTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ObjectType update
+   */
+  export type ObjectTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ObjectType.
+     */
+    data: XOR<ObjectTypeUpdateInput, ObjectTypeUncheckedUpdateInput>
+    /**
+     * Choose, which ObjectType to update.
+     */
+    where: ObjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ObjectType updateMany
+   */
+  export type ObjectTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ObjectTypes.
+     */
+    data: XOR<ObjectTypeUpdateManyMutationInput, ObjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which ObjectTypes to update
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * Limit how many ObjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ObjectType updateManyAndReturn
+   */
+  export type ObjectTypeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * The data used to update ObjectTypes.
+     */
+    data: XOR<ObjectTypeUpdateManyMutationInput, ObjectTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which ObjectTypes to update
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * Limit how many ObjectTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ObjectType upsert
+   */
+  export type ObjectTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ObjectType to update in case it exists.
+     */
+    where: ObjectTypeWhereUniqueInput
+    /**
+     * In case the ObjectType found by the `where` argument doesn't exist, create a new ObjectType with this data.
+     */
+    create: XOR<ObjectTypeCreateInput, ObjectTypeUncheckedCreateInput>
+    /**
+     * In case the ObjectType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ObjectTypeUpdateInput, ObjectTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * ObjectType delete
+   */
+  export type ObjectTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+    /**
+     * Filter which ObjectType to delete.
+     */
+    where: ObjectTypeWhereUniqueInput
+  }
+
+  /**
+   * ObjectType deleteMany
+   */
+  export type ObjectTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ObjectTypes to delete
+     */
+    where?: ObjectTypeWhereInput
+    /**
+     * Limit how many ObjectTypes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ObjectType.rfidObjects
+   */
+  export type ObjectType$rfidObjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    where?: RfidObjectWhereInput
+    orderBy?: RfidObjectOrderByWithRelationInput | RfidObjectOrderByWithRelationInput[]
+    cursor?: RfidObjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RfidObjectScalarFieldEnum | RfidObjectScalarFieldEnum[]
+  }
+
+  /**
+   * ObjectType without action
+   */
+  export type ObjectTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ObjectType
+     */
+    select?: ObjectTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ObjectType
+     */
+    omit?: ObjectTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ObjectTypeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model RfidObject
+   */
+
+  export type AggregateRfidObject = {
+    _count: RfidObjectCountAggregateOutputType | null
+    _min: RfidObjectMinAggregateOutputType | null
+    _max: RfidObjectMaxAggregateOutputType | null
+  }
+
+  export type RfidObjectMinAggregateOutputType = {
+    uid: string | null
+    objectTypeId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RfidObjectMaxAggregateOutputType = {
+    uid: string | null
+    objectTypeId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RfidObjectCountAggregateOutputType = {
+    uid: number
+    objectTypeId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type RfidObjectMinAggregateInputType = {
+    uid?: true
+    objectTypeId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RfidObjectMaxAggregateInputType = {
+    uid?: true
+    objectTypeId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RfidObjectCountAggregateInputType = {
+    uid?: true
+    objectTypeId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type RfidObjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RfidObject to aggregate.
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RfidObjects to fetch.
+     */
+    orderBy?: RfidObjectOrderByWithRelationInput | RfidObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RfidObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RfidObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RfidObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RfidObjects
+    **/
+    _count?: true | RfidObjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RfidObjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RfidObjectMaxAggregateInputType
+  }
+
+  export type GetRfidObjectAggregateType<T extends RfidObjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateRfidObject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRfidObject[P]>
+      : GetScalarType<T[P], AggregateRfidObject[P]>
+  }
+
+
+
+
+  export type RfidObjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RfidObjectWhereInput
+    orderBy?: RfidObjectOrderByWithAggregationInput | RfidObjectOrderByWithAggregationInput[]
+    by: RfidObjectScalarFieldEnum[] | RfidObjectScalarFieldEnum
+    having?: RfidObjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RfidObjectCountAggregateInputType | true
+    _min?: RfidObjectMinAggregateInputType
+    _max?: RfidObjectMaxAggregateInputType
+  }
+
+  export type RfidObjectGroupByOutputType = {
+    uid: string
+    objectTypeId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: RfidObjectCountAggregateOutputType | null
+    _min: RfidObjectMinAggregateOutputType | null
+    _max: RfidObjectMaxAggregateOutputType | null
+  }
+
+  type GetRfidObjectGroupByPayload<T extends RfidObjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RfidObjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RfidObjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RfidObjectGroupByOutputType[P]>
+            : GetScalarType<T[P], RfidObjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RfidObjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    uid?: boolean
+    objectTypeId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rfidObject"]>
+
+  export type RfidObjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    uid?: boolean
+    objectTypeId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rfidObject"]>
+
+  export type RfidObjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    uid?: boolean
+    objectTypeId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rfidObject"]>
+
+  export type RfidObjectSelectScalar = {
+    uid?: boolean
+    objectTypeId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type RfidObjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"uid" | "objectTypeId" | "createdAt" | "updatedAt", ExtArgs["result"]["rfidObject"]>
+  export type RfidObjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }
+  export type RfidObjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }
+  export type RfidObjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    objectType?: boolean | ObjectTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $RfidObjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RfidObject"
+    objects: {
+      objectType: Prisma.$ObjectTypePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      uid: string
+      objectTypeId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["rfidObject"]>
+    composites: {}
+  }
+
+  type RfidObjectGetPayload<S extends boolean | null | undefined | RfidObjectDefaultArgs> = $Result.GetResult<Prisma.$RfidObjectPayload, S>
+
+  type RfidObjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RfidObjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RfidObjectCountAggregateInputType | true
+    }
+
+  export interface RfidObjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RfidObject'], meta: { name: 'RfidObject' } }
+    /**
+     * Find zero or one RfidObject that matches the filter.
+     * @param {RfidObjectFindUniqueArgs} args - Arguments to find a RfidObject
+     * @example
+     * // Get one RfidObject
+     * const rfidObject = await prisma.rfidObject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RfidObjectFindUniqueArgs>(args: SelectSubset<T, RfidObjectFindUniqueArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RfidObject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RfidObjectFindUniqueOrThrowArgs} args - Arguments to find a RfidObject
+     * @example
+     * // Get one RfidObject
+     * const rfidObject = await prisma.rfidObject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RfidObjectFindUniqueOrThrowArgs>(args: SelectSubset<T, RfidObjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RfidObject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectFindFirstArgs} args - Arguments to find a RfidObject
+     * @example
+     * // Get one RfidObject
+     * const rfidObject = await prisma.rfidObject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RfidObjectFindFirstArgs>(args?: SelectSubset<T, RfidObjectFindFirstArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RfidObject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectFindFirstOrThrowArgs} args - Arguments to find a RfidObject
+     * @example
+     * // Get one RfidObject
+     * const rfidObject = await prisma.rfidObject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RfidObjectFindFirstOrThrowArgs>(args?: SelectSubset<T, RfidObjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RfidObjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RfidObjects
+     * const rfidObjects = await prisma.rfidObject.findMany()
+     * 
+     * // Get first 10 RfidObjects
+     * const rfidObjects = await prisma.rfidObject.findMany({ take: 10 })
+     * 
+     * // Only select the `uid`
+     * const rfidObjectWithUidOnly = await prisma.rfidObject.findMany({ select: { uid: true } })
+     * 
+     */
+    findMany<T extends RfidObjectFindManyArgs>(args?: SelectSubset<T, RfidObjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RfidObject.
+     * @param {RfidObjectCreateArgs} args - Arguments to create a RfidObject.
+     * @example
+     * // Create one RfidObject
+     * const RfidObject = await prisma.rfidObject.create({
+     *   data: {
+     *     // ... data to create a RfidObject
+     *   }
+     * })
+     * 
+     */
+    create<T extends RfidObjectCreateArgs>(args: SelectSubset<T, RfidObjectCreateArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RfidObjects.
+     * @param {RfidObjectCreateManyArgs} args - Arguments to create many RfidObjects.
+     * @example
+     * // Create many RfidObjects
+     * const rfidObject = await prisma.rfidObject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RfidObjectCreateManyArgs>(args?: SelectSubset<T, RfidObjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RfidObjects and returns the data saved in the database.
+     * @param {RfidObjectCreateManyAndReturnArgs} args - Arguments to create many RfidObjects.
+     * @example
+     * // Create many RfidObjects
+     * const rfidObject = await prisma.rfidObject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RfidObjects and only return the `uid`
+     * const rfidObjectWithUidOnly = await prisma.rfidObject.createManyAndReturn({
+     *   select: { uid: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RfidObjectCreateManyAndReturnArgs>(args?: SelectSubset<T, RfidObjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RfidObject.
+     * @param {RfidObjectDeleteArgs} args - Arguments to delete one RfidObject.
+     * @example
+     * // Delete one RfidObject
+     * const RfidObject = await prisma.rfidObject.delete({
+     *   where: {
+     *     // ... filter to delete one RfidObject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RfidObjectDeleteArgs>(args: SelectSubset<T, RfidObjectDeleteArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RfidObject.
+     * @param {RfidObjectUpdateArgs} args - Arguments to update one RfidObject.
+     * @example
+     * // Update one RfidObject
+     * const rfidObject = await prisma.rfidObject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RfidObjectUpdateArgs>(args: SelectSubset<T, RfidObjectUpdateArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RfidObjects.
+     * @param {RfidObjectDeleteManyArgs} args - Arguments to filter RfidObjects to delete.
+     * @example
+     * // Delete a few RfidObjects
+     * const { count } = await prisma.rfidObject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RfidObjectDeleteManyArgs>(args?: SelectSubset<T, RfidObjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RfidObjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RfidObjects
+     * const rfidObject = await prisma.rfidObject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RfidObjectUpdateManyArgs>(args: SelectSubset<T, RfidObjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RfidObjects and returns the data updated in the database.
+     * @param {RfidObjectUpdateManyAndReturnArgs} args - Arguments to update many RfidObjects.
+     * @example
+     * // Update many RfidObjects
+     * const rfidObject = await prisma.rfidObject.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RfidObjects and only return the `uid`
+     * const rfidObjectWithUidOnly = await prisma.rfidObject.updateManyAndReturn({
+     *   select: { uid: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RfidObjectUpdateManyAndReturnArgs>(args: SelectSubset<T, RfidObjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RfidObject.
+     * @param {RfidObjectUpsertArgs} args - Arguments to update or create a RfidObject.
+     * @example
+     * // Update or create a RfidObject
+     * const rfidObject = await prisma.rfidObject.upsert({
+     *   create: {
+     *     // ... data to create a RfidObject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RfidObject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RfidObjectUpsertArgs>(args: SelectSubset<T, RfidObjectUpsertArgs<ExtArgs>>): Prisma__RfidObjectClient<$Result.GetResult<Prisma.$RfidObjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RfidObjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectCountArgs} args - Arguments to filter RfidObjects to count.
+     * @example
+     * // Count the number of RfidObjects
+     * const count = await prisma.rfidObject.count({
+     *   where: {
+     *     // ... the filter for the RfidObjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends RfidObjectCountArgs>(
+      args?: Subset<T, RfidObjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RfidObjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RfidObject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RfidObjectAggregateArgs>(args: Subset<T, RfidObjectAggregateArgs>): Prisma.PrismaPromise<GetRfidObjectAggregateType<T>>
+
+    /**
+     * Group by RfidObject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RfidObjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RfidObjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RfidObjectGroupByArgs['orderBy'] }
+        : { orderBy?: RfidObjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RfidObjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRfidObjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RfidObject model
+   */
+  readonly fields: RfidObjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RfidObject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RfidObjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    objectType<T extends ObjectTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ObjectTypeDefaultArgs<ExtArgs>>): Prisma__ObjectTypeClient<$Result.GetResult<Prisma.$ObjectTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RfidObject model
+   */
+  interface RfidObjectFieldRefs {
+    readonly uid: FieldRef<"RfidObject", 'String'>
+    readonly objectTypeId: FieldRef<"RfidObject", 'String'>
+    readonly createdAt: FieldRef<"RfidObject", 'DateTime'>
+    readonly updatedAt: FieldRef<"RfidObject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RfidObject findUnique
+   */
+  export type RfidObjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which RfidObject to fetch.
+     */
+    where: RfidObjectWhereUniqueInput
+  }
+
+  /**
+   * RfidObject findUniqueOrThrow
+   */
+  export type RfidObjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which RfidObject to fetch.
+     */
+    where: RfidObjectWhereUniqueInput
+  }
+
+  /**
+   * RfidObject findFirst
+   */
+  export type RfidObjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which RfidObject to fetch.
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RfidObjects to fetch.
+     */
+    orderBy?: RfidObjectOrderByWithRelationInput | RfidObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RfidObjects.
+     */
+    cursor?: RfidObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RfidObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RfidObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RfidObjects.
+     */
+    distinct?: RfidObjectScalarFieldEnum | RfidObjectScalarFieldEnum[]
+  }
+
+  /**
+   * RfidObject findFirstOrThrow
+   */
+  export type RfidObjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which RfidObject to fetch.
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RfidObjects to fetch.
+     */
+    orderBy?: RfidObjectOrderByWithRelationInput | RfidObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RfidObjects.
+     */
+    cursor?: RfidObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RfidObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RfidObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RfidObjects.
+     */
+    distinct?: RfidObjectScalarFieldEnum | RfidObjectScalarFieldEnum[]
+  }
+
+  /**
+   * RfidObject findMany
+   */
+  export type RfidObjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which RfidObjects to fetch.
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RfidObjects to fetch.
+     */
+    orderBy?: RfidObjectOrderByWithRelationInput | RfidObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RfidObjects.
+     */
+    cursor?: RfidObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RfidObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RfidObjects.
+     */
+    skip?: number
+    distinct?: RfidObjectScalarFieldEnum | RfidObjectScalarFieldEnum[]
+  }
+
+  /**
+   * RfidObject create
+   */
+  export type RfidObjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a RfidObject.
+     */
+    data: XOR<RfidObjectCreateInput, RfidObjectUncheckedCreateInput>
+  }
+
+  /**
+   * RfidObject createMany
+   */
+  export type RfidObjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RfidObjects.
+     */
+    data: RfidObjectCreateManyInput | RfidObjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RfidObject createManyAndReturn
+   */
+  export type RfidObjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many RfidObjects.
+     */
+    data: RfidObjectCreateManyInput | RfidObjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RfidObject update
+   */
+  export type RfidObjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a RfidObject.
+     */
+    data: XOR<RfidObjectUpdateInput, RfidObjectUncheckedUpdateInput>
+    /**
+     * Choose, which RfidObject to update.
+     */
+    where: RfidObjectWhereUniqueInput
+  }
+
+  /**
+   * RfidObject updateMany
+   */
+  export type RfidObjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RfidObjects.
+     */
+    data: XOR<RfidObjectUpdateManyMutationInput, RfidObjectUncheckedUpdateManyInput>
+    /**
+     * Filter which RfidObjects to update
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * Limit how many RfidObjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RfidObject updateManyAndReturn
+   */
+  export type RfidObjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * The data used to update RfidObjects.
+     */
+    data: XOR<RfidObjectUpdateManyMutationInput, RfidObjectUncheckedUpdateManyInput>
+    /**
+     * Filter which RfidObjects to update
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * Limit how many RfidObjects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RfidObject upsert
+   */
+  export type RfidObjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the RfidObject to update in case it exists.
+     */
+    where: RfidObjectWhereUniqueInput
+    /**
+     * In case the RfidObject found by the `where` argument doesn't exist, create a new RfidObject with this data.
+     */
+    create: XOR<RfidObjectCreateInput, RfidObjectUncheckedCreateInput>
+    /**
+     * In case the RfidObject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RfidObjectUpdateInput, RfidObjectUncheckedUpdateInput>
+  }
+
+  /**
+   * RfidObject delete
+   */
+  export type RfidObjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+    /**
+     * Filter which RfidObject to delete.
+     */
+    where: RfidObjectWhereUniqueInput
+  }
+
+  /**
+   * RfidObject deleteMany
+   */
+  export type RfidObjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RfidObjects to delete
+     */
+    where?: RfidObjectWhereInput
+    /**
+     * Limit how many RfidObjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RfidObject without action
+   */
+  export type RfidObjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RfidObject
+     */
+    select?: RfidObjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RfidObject
+     */
+    omit?: RfidObjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RfidObjectInclude<ExtArgs> | null
+  }
+
 
   /**
    * Model User
@@ -16100,6 +30416,183 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const CharacterScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    defaultImageUrl: 'defaultImageUrl',
+    stylePrompt: 'stylePrompt',
+    sex: 'sex',
+    personality: 'personality',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
+
+
+  export const EmotionScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    label: 'label',
+    promptCustom: 'promptCustom',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmotionScalarFieldEnum = (typeof EmotionScalarFieldEnum)[keyof typeof EmotionScalarFieldEnum]
+
+
+  export const ClipScalarFieldEnum: {
+    id: 'id',
+    characterId: 'characterId',
+    emotionId: 'emotionId',
+    status: 'status',
+    fileUrl: 'fileUrl',
+    sha256: 'sha256',
+    sizeBytes: 'sizeBytes',
+    width: 'width',
+    height: 'height',
+    fps: 'fps',
+    frames: 'frames',
+    durationS: 'durationS',
+    prompt: 'prompt',
+    modelName: 'modelName',
+    xaiJobId: 'xaiJobId',
+    previewUrl: 'previewUrl',
+    loopStartFrame: 'loopStartFrame',
+    loopEndFrame: 'loopEndFrame',
+    weight: 'weight',
+    tags: 'tags',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClipScalarFieldEnum = (typeof ClipScalarFieldEnum)[keyof typeof ClipScalarFieldEnum]
+
+
+  export const ClipArtifactScalarFieldEnum: {
+    id: 'id',
+    clipId: 'clipId',
+    frameIndex: 'frameIndex',
+    name: 'name',
+    x: 'x',
+    y: 'y',
+    w: 'w',
+    h: 'h',
+    cornerStyle: 'cornerStyle',
+    imageUrl: 'imageUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClipArtifactScalarFieldEnum = (typeof ClipArtifactScalarFieldEnum)[keyof typeof ClipArtifactScalarFieldEnum]
+
+
+  export const ClipFaceRegionScalarFieldEnum: {
+    id: 'id',
+    clipId: 'clipId',
+    regionKey: 'regionKey',
+    frameIndex: 'frameIndex',
+    x: 'x',
+    y: 'y',
+    w: 'w',
+    h: 'h',
+    cornerStyle: 'cornerStyle',
+    imageUrl: 'imageUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClipFaceRegionScalarFieldEnum = (typeof ClipFaceRegionScalarFieldEnum)[keyof typeof ClipFaceRegionScalarFieldEnum]
+
+
+  export const EmotionVideoScalarFieldEnum: {
+    id: 'id',
+    emotionId: 'emotionId',
+    sourceClipId: 'sourceClipId',
+    name: 'name',
+    fps: 'fps',
+    width: 'width',
+    height: 'height',
+    introTimeline: 'introTimeline',
+    loopTimeline: 'loopTimeline',
+    exitTimeline: 'exitTimeline',
+    status: 'status',
+    binUrl: 'binUrl',
+    sha256: 'sha256',
+    sizeBytes: 'sizeBytes',
+    totalFrames: 'totalFrames',
+    durationS: 'durationS',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmotionVideoScalarFieldEnum = (typeof EmotionVideoScalarFieldEnum)[keyof typeof EmotionVideoScalarFieldEnum]
+
+
+  export const EmotionDeviceScalarFieldEnum: {
+    id: 'id',
+    characterId: 'characterId',
+    pubnubChannel: 'pubnubChannel',
+    mode: 'mode',
+    isCharging: 'isCharging',
+    lastSeenAt: 'lastSeenAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmotionDeviceScalarFieldEnum = (typeof EmotionDeviceScalarFieldEnum)[keyof typeof EmotionDeviceScalarFieldEnum]
+
+
+  export const DeviceClipCacheScalarFieldEnum: {
+    deviceId: 'deviceId',
+    emotionId: 'emotionId',
+    slot: 'slot',
+    clipId: 'clipId',
+    lastSeenAt: 'lastSeenAt',
+    lastPlayedAt: 'lastPlayedAt'
+  };
+
+  export type DeviceClipCacheScalarFieldEnum = (typeof DeviceClipCacheScalarFieldEnum)[keyof typeof DeviceClipCacheScalarFieldEnum]
+
+
+  export const RuleScalarFieldEnum: {
+    id: 'id',
+    characterId: 'characterId',
+    enabled: 'enabled',
+    priority: 'priority',
+    cooldownMs: 'cooldownMs',
+    eventType: 'eventType',
+    eventKey: 'eventKey',
+    conditions: 'conditions',
+    response: 'response',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type RuleScalarFieldEnum = (typeof RuleScalarFieldEnum)[keyof typeof RuleScalarFieldEnum]
+
+
+  export const ObjectTypeScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ObjectTypeScalarFieldEnum = (typeof ObjectTypeScalarFieldEnum)[keyof typeof ObjectTypeScalarFieldEnum]
+
+
+  export const RfidObjectScalarFieldEnum: {
+    uid: 'uid',
+    objectTypeId: 'objectTypeId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type RfidObjectScalarFieldEnum = (typeof RfidObjectScalarFieldEnum)[keyof typeof RfidObjectScalarFieldEnum]
+
+
   export const UserScalarFieldEnum: {
     id: 'id',
     email: 'email',
@@ -16300,6 +30793,21 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -16314,6 +30822,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -16336,6 +30853,34 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'CharacterSex'
+   */
+  export type EnumCharacterSexFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacterSex'>
+    
+
+
+  /**
+   * Reference to a field of type 'CharacterSex[]'
+   */
+  export type ListEnumCharacterSexFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacterSex[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CharacterPersonality'
+   */
+  export type EnumCharacterPersonalityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacterPersonality'>
+    
+
+
+  /**
+   * Reference to a field of type 'CharacterPersonality[]'
+   */
+  export type ListEnumCharacterPersonalityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacterPersonality[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -16350,23 +30895,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
+   * Reference to a field of type 'ClipStatus'
    */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+  export type EnumClipStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ClipStatus'>
     
 
 
   /**
-   * Reference to a field of type 'KidooModel'
+   * Reference to a field of type 'ClipStatus[]'
    */
-  export type EnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel'>
-    
-
-
-  /**
-   * Reference to a field of type 'KidooModel[]'
-   */
-  export type ListEnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel[]'>
+  export type ListEnumClipStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ClipStatus[]'>
     
 
 
@@ -16381,6 +30919,125 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CornerStyle'
+   */
+  export type EnumCornerStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CornerStyle'>
+    
+
+
+  /**
+   * Reference to a field of type 'CornerStyle[]'
+   */
+  export type ListEnumCornerStyleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CornerStyle[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'FaceRegionKey'
+   */
+  export type EnumFaceRegionKeyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FaceRegionKey'>
+    
+
+
+  /**
+   * Reference to a field of type 'FaceRegionKey[]'
+   */
+  export type ListEnumFaceRegionKeyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FaceRegionKey[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'EmotionDeviceMode'
+   */
+  export type EnumEmotionDeviceModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EmotionDeviceMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'EmotionDeviceMode[]'
+   */
+  export type ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EmotionDeviceMode[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'EventType'
+   */
+  export type EnumEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventType'>
+    
+
+
+  /**
+   * Reference to a field of type 'EventType[]'
+   */
+  export type ListEnumEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'EventKey'
+   */
+  export type EnumEventKeyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventKey'>
+    
+
+
+  /**
+   * Reference to a field of type 'EventKey[]'
+   */
+  export type ListEnumEventKeyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventKey[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'KidooModel'
+   */
+  export type EnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel'>
+    
+
+
+  /**
+   * Reference to a field of type 'KidooModel[]'
+   */
+  export type ListEnumKidooModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KidooModel[]'>
     
 
 
@@ -16410,24 +31067,948 @@ export namespace Prisma {
    */
   export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
   /**
    * Deep Input Types
    */
 
+
+  export type CharacterWhereInput = {
+    AND?: CharacterWhereInput | CharacterWhereInput[]
+    OR?: CharacterWhereInput[]
+    NOT?: CharacterWhereInput | CharacterWhereInput[]
+    id?: StringFilter<"Character"> | string
+    name?: StringNullableFilter<"Character"> | string | null
+    defaultImageUrl?: StringNullableFilter<"Character"> | string | null
+    stylePrompt?: StringNullableFilter<"Character"> | string | null
+    sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
+    createdAt?: DateTimeFilter<"Character"> | Date | string
+    updatedAt?: DateTimeFilter<"Character"> | Date | string
+    clips?: ClipListRelationFilter
+    emotionDevices?: EmotionDeviceListRelationFilter
+    rules?: RuleListRelationFilter
+  }
+
+  export type CharacterOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    defaultImageUrl?: SortOrderInput | SortOrder
+    stylePrompt?: SortOrderInput | SortOrder
+    sex?: SortOrder
+    personality?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    clips?: ClipOrderByRelationAggregateInput
+    emotionDevices?: EmotionDeviceOrderByRelationAggregateInput
+    rules?: RuleOrderByRelationAggregateInput
+  }
+
+  export type CharacterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CharacterWhereInput | CharacterWhereInput[]
+    OR?: CharacterWhereInput[]
+    NOT?: CharacterWhereInput | CharacterWhereInput[]
+    name?: StringNullableFilter<"Character"> | string | null
+    defaultImageUrl?: StringNullableFilter<"Character"> | string | null
+    stylePrompt?: StringNullableFilter<"Character"> | string | null
+    sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
+    createdAt?: DateTimeFilter<"Character"> | Date | string
+    updatedAt?: DateTimeFilter<"Character"> | Date | string
+    clips?: ClipListRelationFilter
+    emotionDevices?: EmotionDeviceListRelationFilter
+    rules?: RuleListRelationFilter
+  }, "id">
+
+  export type CharacterOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    defaultImageUrl?: SortOrderInput | SortOrder
+    stylePrompt?: SortOrderInput | SortOrder
+    sex?: SortOrder
+    personality?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CharacterCountOrderByAggregateInput
+    _max?: CharacterMaxOrderByAggregateInput
+    _min?: CharacterMinOrderByAggregateInput
+  }
+
+  export type CharacterScalarWhereWithAggregatesInput = {
+    AND?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
+    OR?: CharacterScalarWhereWithAggregatesInput[]
+    NOT?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Character"> | string
+    name?: StringNullableWithAggregatesFilter<"Character"> | string | null
+    defaultImageUrl?: StringNullableWithAggregatesFilter<"Character"> | string | null
+    stylePrompt?: StringNullableWithAggregatesFilter<"Character"> | string | null
+    sex?: EnumCharacterSexWithAggregatesFilter<"Character"> | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityWithAggregatesFilter<"Character"> | $Enums.CharacterPersonality
+    createdAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
+  }
+
+  export type EmotionWhereInput = {
+    AND?: EmotionWhereInput | EmotionWhereInput[]
+    OR?: EmotionWhereInput[]
+    NOT?: EmotionWhereInput | EmotionWhereInput[]
+    id?: StringFilter<"Emotion"> | string
+    key?: StringFilter<"Emotion"> | string
+    label?: StringFilter<"Emotion"> | string
+    promptCustom?: StringNullableFilter<"Emotion"> | string | null
+    createdAt?: DateTimeFilter<"Emotion"> | Date | string
+    updatedAt?: DateTimeFilter<"Emotion"> | Date | string
+    clips?: ClipListRelationFilter
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
+  }
+
+  export type EmotionOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    promptCustom?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    clips?: ClipOrderByRelationAggregateInput
+    deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+    emotionVideos?: EmotionVideoOrderByRelationAggregateInput
+  }
+
+  export type EmotionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    key?: string
+    AND?: EmotionWhereInput | EmotionWhereInput[]
+    OR?: EmotionWhereInput[]
+    NOT?: EmotionWhereInput | EmotionWhereInput[]
+    label?: StringFilter<"Emotion"> | string
+    promptCustom?: StringNullableFilter<"Emotion"> | string | null
+    createdAt?: DateTimeFilter<"Emotion"> | Date | string
+    updatedAt?: DateTimeFilter<"Emotion"> | Date | string
+    clips?: ClipListRelationFilter
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
+  }, "id" | "key">
+
+  export type EmotionOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    promptCustom?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmotionCountOrderByAggregateInput
+    _max?: EmotionMaxOrderByAggregateInput
+    _min?: EmotionMinOrderByAggregateInput
+  }
+
+  export type EmotionScalarWhereWithAggregatesInput = {
+    AND?: EmotionScalarWhereWithAggregatesInput | EmotionScalarWhereWithAggregatesInput[]
+    OR?: EmotionScalarWhereWithAggregatesInput[]
+    NOT?: EmotionScalarWhereWithAggregatesInput | EmotionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Emotion"> | string
+    key?: StringWithAggregatesFilter<"Emotion"> | string
+    label?: StringWithAggregatesFilter<"Emotion"> | string
+    promptCustom?: StringNullableWithAggregatesFilter<"Emotion"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Emotion"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Emotion"> | Date | string
+  }
+
+  export type ClipWhereInput = {
+    AND?: ClipWhereInput | ClipWhereInput[]
+    OR?: ClipWhereInput[]
+    NOT?: ClipWhereInput | ClipWhereInput[]
+    id?: StringFilter<"Clip"> | string
+    characterId?: StringFilter<"Clip"> | string
+    emotionId?: StringFilter<"Clip"> | string
+    status?: EnumClipStatusFilter<"Clip"> | $Enums.ClipStatus
+    fileUrl?: StringNullableFilter<"Clip"> | string | null
+    sha256?: StringNullableFilter<"Clip"> | string | null
+    sizeBytes?: IntNullableFilter<"Clip"> | number | null
+    width?: IntNullableFilter<"Clip"> | number | null
+    height?: IntNullableFilter<"Clip"> | number | null
+    fps?: IntNullableFilter<"Clip"> | number | null
+    frames?: IntNullableFilter<"Clip"> | number | null
+    durationS?: FloatNullableFilter<"Clip"> | number | null
+    prompt?: StringNullableFilter<"Clip"> | string | null
+    modelName?: StringNullableFilter<"Clip"> | string | null
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    previewUrl?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    weight?: IntFilter<"Clip"> | number
+    tags?: StringNullableListFilter<"Clip">
+    createdAt?: DateTimeFilter<"Clip"> | Date | string
+    updatedAt?: DateTimeFilter<"Clip"> | Date | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    faceRegions?: ClipFaceRegionListRelationFilter
+    artifacts?: ClipArtifactListRelationFilter
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
+  }
+
+  export type ClipOrderByWithRelationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    emotionId?: SortOrder
+    status?: SortOrder
+    fileUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    width?: SortOrderInput | SortOrder
+    height?: SortOrderInput | SortOrder
+    fps?: SortOrderInput | SortOrder
+    frames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    prompt?: SortOrderInput | SortOrder
+    modelName?: SortOrderInput | SortOrder
+    xaiJobId?: SortOrderInput | SortOrder
+    previewUrl?: SortOrderInput | SortOrder
+    loopStartFrame?: SortOrderInput | SortOrder
+    loopEndFrame?: SortOrderInput | SortOrder
+    weight?: SortOrder
+    tags?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    character?: CharacterOrderByWithRelationInput
+    emotion?: EmotionOrderByWithRelationInput
+    faceRegions?: ClipFaceRegionOrderByRelationAggregateInput
+    artifacts?: ClipArtifactOrderByRelationAggregateInput
+    deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+    emotionVideos?: EmotionVideoOrderByRelationAggregateInput
+  }
+
+  export type ClipWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ClipWhereInput | ClipWhereInput[]
+    OR?: ClipWhereInput[]
+    NOT?: ClipWhereInput | ClipWhereInput[]
+    characterId?: StringFilter<"Clip"> | string
+    emotionId?: StringFilter<"Clip"> | string
+    status?: EnumClipStatusFilter<"Clip"> | $Enums.ClipStatus
+    fileUrl?: StringNullableFilter<"Clip"> | string | null
+    sha256?: StringNullableFilter<"Clip"> | string | null
+    sizeBytes?: IntNullableFilter<"Clip"> | number | null
+    width?: IntNullableFilter<"Clip"> | number | null
+    height?: IntNullableFilter<"Clip"> | number | null
+    fps?: IntNullableFilter<"Clip"> | number | null
+    frames?: IntNullableFilter<"Clip"> | number | null
+    durationS?: FloatNullableFilter<"Clip"> | number | null
+    prompt?: StringNullableFilter<"Clip"> | string | null
+    modelName?: StringNullableFilter<"Clip"> | string | null
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    previewUrl?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    weight?: IntFilter<"Clip"> | number
+    tags?: StringNullableListFilter<"Clip">
+    createdAt?: DateTimeFilter<"Clip"> | Date | string
+    updatedAt?: DateTimeFilter<"Clip"> | Date | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    faceRegions?: ClipFaceRegionListRelationFilter
+    artifacts?: ClipArtifactListRelationFilter
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
+  }, "id">
+
+  export type ClipOrderByWithAggregationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    emotionId?: SortOrder
+    status?: SortOrder
+    fileUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    width?: SortOrderInput | SortOrder
+    height?: SortOrderInput | SortOrder
+    fps?: SortOrderInput | SortOrder
+    frames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    prompt?: SortOrderInput | SortOrder
+    modelName?: SortOrderInput | SortOrder
+    xaiJobId?: SortOrderInput | SortOrder
+    previewUrl?: SortOrderInput | SortOrder
+    loopStartFrame?: SortOrderInput | SortOrder
+    loopEndFrame?: SortOrderInput | SortOrder
+    weight?: SortOrder
+    tags?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClipCountOrderByAggregateInput
+    _avg?: ClipAvgOrderByAggregateInput
+    _max?: ClipMaxOrderByAggregateInput
+    _min?: ClipMinOrderByAggregateInput
+    _sum?: ClipSumOrderByAggregateInput
+  }
+
+  export type ClipScalarWhereWithAggregatesInput = {
+    AND?: ClipScalarWhereWithAggregatesInput | ClipScalarWhereWithAggregatesInput[]
+    OR?: ClipScalarWhereWithAggregatesInput[]
+    NOT?: ClipScalarWhereWithAggregatesInput | ClipScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Clip"> | string
+    characterId?: StringWithAggregatesFilter<"Clip"> | string
+    emotionId?: StringWithAggregatesFilter<"Clip"> | string
+    status?: EnumClipStatusWithAggregatesFilter<"Clip"> | $Enums.ClipStatus
+    fileUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    sha256?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    sizeBytes?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    width?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    height?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    fps?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    frames?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    durationS?: FloatNullableWithAggregatesFilter<"Clip"> | number | null
+    prompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    modelName?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    xaiJobId?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    previewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    weight?: IntWithAggregatesFilter<"Clip"> | number
+    tags?: StringNullableListFilter<"Clip">
+    createdAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
+  }
+
+  export type ClipArtifactWhereInput = {
+    AND?: ClipArtifactWhereInput | ClipArtifactWhereInput[]
+    OR?: ClipArtifactWhereInput[]
+    NOT?: ClipArtifactWhereInput | ClipArtifactWhereInput[]
+    id?: StringFilter<"ClipArtifact"> | string
+    clipId?: StringFilter<"ClipArtifact"> | string
+    frameIndex?: IntFilter<"ClipArtifact"> | number
+    name?: StringFilter<"ClipArtifact"> | string
+    x?: FloatFilter<"ClipArtifact"> | number
+    y?: FloatFilter<"ClipArtifact"> | number
+    w?: FloatFilter<"ClipArtifact"> | number
+    h?: FloatFilter<"ClipArtifact"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
+    createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }
+
+  export type ClipArtifactOrderByWithRelationInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    frameIndex?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    clip?: ClipOrderByWithRelationInput
+  }
+
+  export type ClipArtifactWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ClipArtifactWhereInput | ClipArtifactWhereInput[]
+    OR?: ClipArtifactWhereInput[]
+    NOT?: ClipArtifactWhereInput | ClipArtifactWhereInput[]
+    clipId?: StringFilter<"ClipArtifact"> | string
+    frameIndex?: IntFilter<"ClipArtifact"> | number
+    name?: StringFilter<"ClipArtifact"> | string
+    x?: FloatFilter<"ClipArtifact"> | number
+    y?: FloatFilter<"ClipArtifact"> | number
+    w?: FloatFilter<"ClipArtifact"> | number
+    h?: FloatFilter<"ClipArtifact"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
+    createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }, "id">
+
+  export type ClipArtifactOrderByWithAggregationInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    frameIndex?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClipArtifactCountOrderByAggregateInput
+    _avg?: ClipArtifactAvgOrderByAggregateInput
+    _max?: ClipArtifactMaxOrderByAggregateInput
+    _min?: ClipArtifactMinOrderByAggregateInput
+    _sum?: ClipArtifactSumOrderByAggregateInput
+  }
+
+  export type ClipArtifactScalarWhereWithAggregatesInput = {
+    AND?: ClipArtifactScalarWhereWithAggregatesInput | ClipArtifactScalarWhereWithAggregatesInput[]
+    OR?: ClipArtifactScalarWhereWithAggregatesInput[]
+    NOT?: ClipArtifactScalarWhereWithAggregatesInput | ClipArtifactScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ClipArtifact"> | string
+    clipId?: StringWithAggregatesFilter<"ClipArtifact"> | string
+    frameIndex?: IntWithAggregatesFilter<"ClipArtifact"> | number
+    name?: StringWithAggregatesFilter<"ClipArtifact"> | string
+    x?: FloatWithAggregatesFilter<"ClipArtifact"> | number
+    y?: FloatWithAggregatesFilter<"ClipArtifact"> | number
+    w?: FloatWithAggregatesFilter<"ClipArtifact"> | number
+    h?: FloatWithAggregatesFilter<"ClipArtifact"> | number
+    cornerStyle?: EnumCornerStyleWithAggregatesFilter<"ClipArtifact"> | $Enums.CornerStyle
+    imageUrl?: StringNullableWithAggregatesFilter<"ClipArtifact"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClipArtifact"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ClipArtifact"> | Date | string
+  }
+
+  export type ClipFaceRegionWhereInput = {
+    AND?: ClipFaceRegionWhereInput | ClipFaceRegionWhereInput[]
+    OR?: ClipFaceRegionWhereInput[]
+    NOT?: ClipFaceRegionWhereInput | ClipFaceRegionWhereInput[]
+    id?: StringFilter<"ClipFaceRegion"> | string
+    clipId?: StringFilter<"ClipFaceRegion"> | string
+    regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    x?: FloatFilter<"ClipFaceRegion"> | number
+    y?: FloatFilter<"ClipFaceRegion"> | number
+    w?: FloatFilter<"ClipFaceRegion"> | number
+    h?: FloatFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
+    createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }
+
+  export type ClipFaceRegionOrderByWithRelationInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    regionKey?: SortOrder
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    clip?: ClipOrderByWithRelationInput
+  }
+
+  export type ClipFaceRegionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    clipId_regionKey_frameIndex?: ClipFaceRegionClipIdRegionKeyFrameIndexCompoundUniqueInput
+    AND?: ClipFaceRegionWhereInput | ClipFaceRegionWhereInput[]
+    OR?: ClipFaceRegionWhereInput[]
+    NOT?: ClipFaceRegionWhereInput | ClipFaceRegionWhereInput[]
+    clipId?: StringFilter<"ClipFaceRegion"> | string
+    regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    x?: FloatFilter<"ClipFaceRegion"> | number
+    y?: FloatFilter<"ClipFaceRegion"> | number
+    w?: FloatFilter<"ClipFaceRegion"> | number
+    h?: FloatFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
+    createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }, "id" | "clipId_regionKey_frameIndex">
+
+  export type ClipFaceRegionOrderByWithAggregationInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    regionKey?: SortOrder
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClipFaceRegionCountOrderByAggregateInput
+    _avg?: ClipFaceRegionAvgOrderByAggregateInput
+    _max?: ClipFaceRegionMaxOrderByAggregateInput
+    _min?: ClipFaceRegionMinOrderByAggregateInput
+    _sum?: ClipFaceRegionSumOrderByAggregateInput
+  }
+
+  export type ClipFaceRegionScalarWhereWithAggregatesInput = {
+    AND?: ClipFaceRegionScalarWhereWithAggregatesInput | ClipFaceRegionScalarWhereWithAggregatesInput[]
+    OR?: ClipFaceRegionScalarWhereWithAggregatesInput[]
+    NOT?: ClipFaceRegionScalarWhereWithAggregatesInput | ClipFaceRegionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ClipFaceRegion"> | string
+    clipId?: StringWithAggregatesFilter<"ClipFaceRegion"> | string
+    regionKey?: EnumFaceRegionKeyWithAggregatesFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
+    frameIndex?: IntWithAggregatesFilter<"ClipFaceRegion"> | number
+    x?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
+    y?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
+    w?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
+    h?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleWithAggregatesFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableWithAggregatesFilter<"ClipFaceRegion"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
+  }
+
+  export type EmotionVideoWhereInput = {
+    AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    OR?: EmotionVideoWhereInput[]
+    NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    id?: StringFilter<"EmotionVideo"> | string
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }
+
+  export type EmotionVideoOrderByWithRelationInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    emotion?: EmotionOrderByWithRelationInput
+    sourceClip?: ClipOrderByWithRelationInput
+  }
+
+  export type EmotionVideoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    OR?: EmotionVideoWhereInput[]
+    NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }, "id">
+
+  export type EmotionVideoOrderByWithAggregationInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmotionVideoCountOrderByAggregateInput
+    _avg?: EmotionVideoAvgOrderByAggregateInput
+    _max?: EmotionVideoMaxOrderByAggregateInput
+    _min?: EmotionVideoMinOrderByAggregateInput
+    _sum?: EmotionVideoSumOrderByAggregateInput
+  }
+
+  export type EmotionVideoScalarWhereWithAggregatesInput = {
+    AND?: EmotionVideoScalarWhereWithAggregatesInput | EmotionVideoScalarWhereWithAggregatesInput[]
+    OR?: EmotionVideoScalarWhereWithAggregatesInput[]
+    NOT?: EmotionVideoScalarWhereWithAggregatesInput | EmotionVideoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    emotionId?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    sourceClipId?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    name?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    fps?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    width?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    height?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    introTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    status?: EnumClipStatusWithAggregatesFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
+  }
+
+  export type EmotionDeviceWhereInput = {
+    AND?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
+    OR?: EmotionDeviceWhereInput[]
+    NOT?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
+    id?: StringFilter<"EmotionDevice"> | string
+    characterId?: StringFilter<"EmotionDevice"> | string
+    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
+    isCharging?: BoolFilter<"EmotionDevice"> | boolean
+    lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
+    createdAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+  }
+
+  export type EmotionDeviceOrderByWithRelationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    pubnubChannel?: SortOrderInput | SortOrder
+    mode?: SortOrder
+    isCharging?: SortOrder
+    lastSeenAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    character?: CharacterOrderByWithRelationInput
+    deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+  }
+
+  export type EmotionDeviceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
+    OR?: EmotionDeviceWhereInput[]
+    NOT?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
+    characterId?: StringFilter<"EmotionDevice"> | string
+    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
+    isCharging?: BoolFilter<"EmotionDevice"> | boolean
+    lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
+    createdAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    deviceClipCaches?: DeviceClipCacheListRelationFilter
+  }, "id">
+
+  export type EmotionDeviceOrderByWithAggregationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    pubnubChannel?: SortOrderInput | SortOrder
+    mode?: SortOrder
+    isCharging?: SortOrder
+    lastSeenAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmotionDeviceCountOrderByAggregateInput
+    _max?: EmotionDeviceMaxOrderByAggregateInput
+    _min?: EmotionDeviceMinOrderByAggregateInput
+  }
+
+  export type EmotionDeviceScalarWhereWithAggregatesInput = {
+    AND?: EmotionDeviceScalarWhereWithAggregatesInput | EmotionDeviceScalarWhereWithAggregatesInput[]
+    OR?: EmotionDeviceScalarWhereWithAggregatesInput[]
+    NOT?: EmotionDeviceScalarWhereWithAggregatesInput | EmotionDeviceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmotionDevice"> | string
+    characterId?: StringWithAggregatesFilter<"EmotionDevice"> | string
+    pubnubChannel?: StringNullableWithAggregatesFilter<"EmotionDevice"> | string | null
+    mode?: EnumEmotionDeviceModeWithAggregatesFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
+    isCharging?: BoolWithAggregatesFilter<"EmotionDevice"> | boolean
+    lastSeenAt?: DateTimeNullableWithAggregatesFilter<"EmotionDevice"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"EmotionDevice"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmotionDevice"> | Date | string
+  }
+
+  export type DeviceClipCacheWhereInput = {
+    AND?: DeviceClipCacheWhereInput | DeviceClipCacheWhereInput[]
+    OR?: DeviceClipCacheWhereInput[]
+    NOT?: DeviceClipCacheWhereInput | DeviceClipCacheWhereInput[]
+    deviceId?: StringFilter<"DeviceClipCache"> | string
+    emotionId?: StringFilter<"DeviceClipCache"> | string
+    slot?: IntFilter<"DeviceClipCache"> | number
+    clipId?: StringFilter<"DeviceClipCache"> | string
+    lastSeenAt?: DateTimeFilter<"DeviceClipCache"> | Date | string
+    lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
+    device?: XOR<EmotionDeviceScalarRelationFilter, EmotionDeviceWhereInput>
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }
+
+  export type DeviceClipCacheOrderByWithRelationInput = {
+    deviceId?: SortOrder
+    emotionId?: SortOrder
+    slot?: SortOrder
+    clipId?: SortOrder
+    lastSeenAt?: SortOrder
+    lastPlayedAt?: SortOrderInput | SortOrder
+    device?: EmotionDeviceOrderByWithRelationInput
+    emotion?: EmotionOrderByWithRelationInput
+    clip?: ClipOrderByWithRelationInput
+  }
+
+  export type DeviceClipCacheWhereUniqueInput = Prisma.AtLeast<{
+    deviceId_emotionId_slot?: DeviceClipCacheDeviceIdEmotionIdSlotCompoundUniqueInput
+    AND?: DeviceClipCacheWhereInput | DeviceClipCacheWhereInput[]
+    OR?: DeviceClipCacheWhereInput[]
+    NOT?: DeviceClipCacheWhereInput | DeviceClipCacheWhereInput[]
+    deviceId?: StringFilter<"DeviceClipCache"> | string
+    emotionId?: StringFilter<"DeviceClipCache"> | string
+    slot?: IntFilter<"DeviceClipCache"> | number
+    clipId?: StringFilter<"DeviceClipCache"> | string
+    lastSeenAt?: DateTimeFilter<"DeviceClipCache"> | Date | string
+    lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
+    device?: XOR<EmotionDeviceScalarRelationFilter, EmotionDeviceWhereInput>
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }, "deviceId_emotionId_slot">
+
+  export type DeviceClipCacheOrderByWithAggregationInput = {
+    deviceId?: SortOrder
+    emotionId?: SortOrder
+    slot?: SortOrder
+    clipId?: SortOrder
+    lastSeenAt?: SortOrder
+    lastPlayedAt?: SortOrderInput | SortOrder
+    _count?: DeviceClipCacheCountOrderByAggregateInput
+    _avg?: DeviceClipCacheAvgOrderByAggregateInput
+    _max?: DeviceClipCacheMaxOrderByAggregateInput
+    _min?: DeviceClipCacheMinOrderByAggregateInput
+    _sum?: DeviceClipCacheSumOrderByAggregateInput
+  }
+
+  export type DeviceClipCacheScalarWhereWithAggregatesInput = {
+    AND?: DeviceClipCacheScalarWhereWithAggregatesInput | DeviceClipCacheScalarWhereWithAggregatesInput[]
+    OR?: DeviceClipCacheScalarWhereWithAggregatesInput[]
+    NOT?: DeviceClipCacheScalarWhereWithAggregatesInput | DeviceClipCacheScalarWhereWithAggregatesInput[]
+    deviceId?: StringWithAggregatesFilter<"DeviceClipCache"> | string
+    emotionId?: StringWithAggregatesFilter<"DeviceClipCache"> | string
+    slot?: IntWithAggregatesFilter<"DeviceClipCache"> | number
+    clipId?: StringWithAggregatesFilter<"DeviceClipCache"> | string
+    lastSeenAt?: DateTimeWithAggregatesFilter<"DeviceClipCache"> | Date | string
+    lastPlayedAt?: DateTimeNullableWithAggregatesFilter<"DeviceClipCache"> | Date | string | null
+  }
+
+  export type RuleWhereInput = {
+    AND?: RuleWhereInput | RuleWhereInput[]
+    OR?: RuleWhereInput[]
+    NOT?: RuleWhereInput | RuleWhereInput[]
+    id?: StringFilter<"Rule"> | string
+    characterId?: StringNullableFilter<"Rule"> | string | null
+    enabled?: BoolFilter<"Rule"> | boolean
+    priority?: IntFilter<"Rule"> | number
+    cooldownMs?: IntFilter<"Rule"> | number
+    eventType?: EnumEventTypeFilter<"Rule"> | $Enums.EventType
+    eventKey?: EnumEventKeyFilter<"Rule"> | $Enums.EventKey
+    conditions?: JsonNullableFilter<"Rule">
+    response?: JsonFilter<"Rule">
+    createdAt?: DateTimeFilter<"Rule"> | Date | string
+    updatedAt?: DateTimeFilter<"Rule"> | Date | string
+    character?: XOR<CharacterNullableScalarRelationFilter, CharacterWhereInput> | null
+  }
+
+  export type RuleOrderByWithRelationInput = {
+    id?: SortOrder
+    characterId?: SortOrderInput | SortOrder
+    enabled?: SortOrder
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+    eventType?: SortOrder
+    eventKey?: SortOrder
+    conditions?: SortOrderInput | SortOrder
+    response?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    character?: CharacterOrderByWithRelationInput
+  }
+
+  export type RuleWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: RuleWhereInput | RuleWhereInput[]
+    OR?: RuleWhereInput[]
+    NOT?: RuleWhereInput | RuleWhereInput[]
+    characterId?: StringNullableFilter<"Rule"> | string | null
+    enabled?: BoolFilter<"Rule"> | boolean
+    priority?: IntFilter<"Rule"> | number
+    cooldownMs?: IntFilter<"Rule"> | number
+    eventType?: EnumEventTypeFilter<"Rule"> | $Enums.EventType
+    eventKey?: EnumEventKeyFilter<"Rule"> | $Enums.EventKey
+    conditions?: JsonNullableFilter<"Rule">
+    response?: JsonFilter<"Rule">
+    createdAt?: DateTimeFilter<"Rule"> | Date | string
+    updatedAt?: DateTimeFilter<"Rule"> | Date | string
+    character?: XOR<CharacterNullableScalarRelationFilter, CharacterWhereInput> | null
+  }, "id">
+
+  export type RuleOrderByWithAggregationInput = {
+    id?: SortOrder
+    characterId?: SortOrderInput | SortOrder
+    enabled?: SortOrder
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+    eventType?: SortOrder
+    eventKey?: SortOrder
+    conditions?: SortOrderInput | SortOrder
+    response?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: RuleCountOrderByAggregateInput
+    _avg?: RuleAvgOrderByAggregateInput
+    _max?: RuleMaxOrderByAggregateInput
+    _min?: RuleMinOrderByAggregateInput
+    _sum?: RuleSumOrderByAggregateInput
+  }
+
+  export type RuleScalarWhereWithAggregatesInput = {
+    AND?: RuleScalarWhereWithAggregatesInput | RuleScalarWhereWithAggregatesInput[]
+    OR?: RuleScalarWhereWithAggregatesInput[]
+    NOT?: RuleScalarWhereWithAggregatesInput | RuleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Rule"> | string
+    characterId?: StringNullableWithAggregatesFilter<"Rule"> | string | null
+    enabled?: BoolWithAggregatesFilter<"Rule"> | boolean
+    priority?: IntWithAggregatesFilter<"Rule"> | number
+    cooldownMs?: IntWithAggregatesFilter<"Rule"> | number
+    eventType?: EnumEventTypeWithAggregatesFilter<"Rule"> | $Enums.EventType
+    eventKey?: EnumEventKeyWithAggregatesFilter<"Rule"> | $Enums.EventKey
+    conditions?: JsonNullableWithAggregatesFilter<"Rule">
+    response?: JsonWithAggregatesFilter<"Rule">
+    createdAt?: DateTimeWithAggregatesFilter<"Rule"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Rule"> | Date | string
+  }
+
+  export type ObjectTypeWhereInput = {
+    AND?: ObjectTypeWhereInput | ObjectTypeWhereInput[]
+    OR?: ObjectTypeWhereInput[]
+    NOT?: ObjectTypeWhereInput | ObjectTypeWhereInput[]
+    id?: StringFilter<"ObjectType"> | string
+    key?: StringFilter<"ObjectType"> | string
+    createdAt?: DateTimeFilter<"ObjectType"> | Date | string
+    updatedAt?: DateTimeFilter<"ObjectType"> | Date | string
+    rfidObjects?: RfidObjectListRelationFilter
+  }
+
+  export type ObjectTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    rfidObjects?: RfidObjectOrderByRelationAggregateInput
+  }
+
+  export type ObjectTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    key?: string
+    AND?: ObjectTypeWhereInput | ObjectTypeWhereInput[]
+    OR?: ObjectTypeWhereInput[]
+    NOT?: ObjectTypeWhereInput | ObjectTypeWhereInput[]
+    createdAt?: DateTimeFilter<"ObjectType"> | Date | string
+    updatedAt?: DateTimeFilter<"ObjectType"> | Date | string
+    rfidObjects?: RfidObjectListRelationFilter
+  }, "id" | "key">
+
+  export type ObjectTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ObjectTypeCountOrderByAggregateInput
+    _max?: ObjectTypeMaxOrderByAggregateInput
+    _min?: ObjectTypeMinOrderByAggregateInput
+  }
+
+  export type ObjectTypeScalarWhereWithAggregatesInput = {
+    AND?: ObjectTypeScalarWhereWithAggregatesInput | ObjectTypeScalarWhereWithAggregatesInput[]
+    OR?: ObjectTypeScalarWhereWithAggregatesInput[]
+    NOT?: ObjectTypeScalarWhereWithAggregatesInput | ObjectTypeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ObjectType"> | string
+    key?: StringWithAggregatesFilter<"ObjectType"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"ObjectType"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ObjectType"> | Date | string
+  }
+
+  export type RfidObjectWhereInput = {
+    AND?: RfidObjectWhereInput | RfidObjectWhereInput[]
+    OR?: RfidObjectWhereInput[]
+    NOT?: RfidObjectWhereInput | RfidObjectWhereInput[]
+    uid?: StringFilter<"RfidObject"> | string
+    objectTypeId?: StringFilter<"RfidObject"> | string
+    createdAt?: DateTimeFilter<"RfidObject"> | Date | string
+    updatedAt?: DateTimeFilter<"RfidObject"> | Date | string
+    objectType?: XOR<ObjectTypeScalarRelationFilter, ObjectTypeWhereInput>
+  }
+
+  export type RfidObjectOrderByWithRelationInput = {
+    uid?: SortOrder
+    objectTypeId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    objectType?: ObjectTypeOrderByWithRelationInput
+  }
+
+  export type RfidObjectWhereUniqueInput = Prisma.AtLeast<{
+    uid?: string
+    AND?: RfidObjectWhereInput | RfidObjectWhereInput[]
+    OR?: RfidObjectWhereInput[]
+    NOT?: RfidObjectWhereInput | RfidObjectWhereInput[]
+    objectTypeId?: StringFilter<"RfidObject"> | string
+    createdAt?: DateTimeFilter<"RfidObject"> | Date | string
+    updatedAt?: DateTimeFilter<"RfidObject"> | Date | string
+    objectType?: XOR<ObjectTypeScalarRelationFilter, ObjectTypeWhereInput>
+  }, "uid">
+
+  export type RfidObjectOrderByWithAggregationInput = {
+    uid?: SortOrder
+    objectTypeId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: RfidObjectCountOrderByAggregateInput
+    _max?: RfidObjectMaxOrderByAggregateInput
+    _min?: RfidObjectMinOrderByAggregateInput
+  }
+
+  export type RfidObjectScalarWhereWithAggregatesInput = {
+    AND?: RfidObjectScalarWhereWithAggregatesInput | RfidObjectScalarWhereWithAggregatesInput[]
+    OR?: RfidObjectScalarWhereWithAggregatesInput[]
+    NOT?: RfidObjectScalarWhereWithAggregatesInput | RfidObjectScalarWhereWithAggregatesInput[]
+    uid?: StringWithAggregatesFilter<"RfidObject"> | string
+    objectTypeId?: StringWithAggregatesFilter<"RfidObject"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"RfidObject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"RfidObject"> | Date | string
+  }
 
   export type UserWhereInput = {
     AND?: UserWhereInput | UserWhereInput[]
@@ -17438,6 +33019,1050 @@ export namespace Prisma {
     activated?: BoolWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
+  }
+
+  export type CharacterCreateInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutCharacterInput
+    emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
+    rules?: RuleCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
+    emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
+    rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutCharacterNestedInput
+    emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
+    emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterCreateManyInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CharacterUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CharacterUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionCreateInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUncheckedCreateInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionCreateManyInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipCreateInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipCreateManyInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactCreateInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clip: ClipCreateNestedOneWithoutArtifactsInput
+  }
+
+  export type ClipArtifactUncheckedCreateInput = {
+    id?: string
+    clipId: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipArtifactUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clip?: ClipUpdateOneRequiredWithoutArtifactsNestedInput
+  }
+
+  export type ClipArtifactUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clipId?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactCreateManyInput = {
+    id?: string
+    clipId: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipArtifactUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clipId?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionCreateInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clip: ClipCreateNestedOneWithoutFaceRegionsInput
+  }
+
+  export type ClipFaceRegionUncheckedCreateInput = {
+    id?: string
+    clipId: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipFaceRegionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clip?: ClipUpdateOneRequiredWithoutFaceRegionsNestedInput
+  }
+
+  export type ClipFaceRegionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clipId?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionCreateManyInput = {
+    id?: string
+    clipId: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipFaceRegionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clipId?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoCreateInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
+    sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateInput = {
+    id?: string
+    emotionId: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
+    sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoCreateManyInput = {
+    id?: string
+    emotionId: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionDeviceCreateInput = {
+    id?: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutEmotionDevicesInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutDeviceInput
+  }
+
+  export type EmotionDeviceUncheckedCreateInput = {
+    id?: string
+    characterId: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutDeviceInput
+  }
+
+  export type EmotionDeviceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutDeviceNestedInput
+  }
+
+  export type EmotionDeviceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutDeviceNestedInput
+  }
+
+  export type EmotionDeviceCreateManyInput = {
+    id?: string
+    characterId: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionDeviceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionDeviceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeviceClipCacheCreateInput = {
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+    device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
+    emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
+    clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
+  }
+
+  export type DeviceClipCacheUncheckedCreateInput = {
+    deviceId: string
+    emotionId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheUpdateInput = {
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+  }
+
+  export type DeviceClipCacheUncheckedUpdateInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DeviceClipCacheCreateManyInput = {
+    deviceId: string
+    emotionId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheUpdateManyMutationInput = {
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RuleCreateInput = {
+    id?: string
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character?: CharacterCreateNestedOneWithoutRulesInput
+  }
+
+  export type RuleUncheckedCreateInput = {
+    id?: string
+    characterId?: string | null
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RuleUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneWithoutRulesNestedInput
+  }
+
+  export type RuleUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: NullableStringFieldUpdateOperationsInput | string | null
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RuleCreateManyInput = {
+    id?: string
+    characterId?: string | null
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RuleUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RuleUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: NullableStringFieldUpdateOperationsInput | string | null
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ObjectTypeCreateInput = {
+    id?: string
+    key: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    rfidObjects?: RfidObjectCreateNestedManyWithoutObjectTypeInput
+  }
+
+  export type ObjectTypeUncheckedCreateInput = {
+    id?: string
+    key: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    rfidObjects?: RfidObjectUncheckedCreateNestedManyWithoutObjectTypeInput
+  }
+
+  export type ObjectTypeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    rfidObjects?: RfidObjectUpdateManyWithoutObjectTypeNestedInput
+  }
+
+  export type ObjectTypeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    rfidObjects?: RfidObjectUncheckedUpdateManyWithoutObjectTypeNestedInput
+  }
+
+  export type ObjectTypeCreateManyInput = {
+    id?: string
+    key: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ObjectTypeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ObjectTypeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RfidObjectCreateInput = {
+    uid: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    objectType: ObjectTypeCreateNestedOneWithoutRfidObjectsInput
+  }
+
+  export type RfidObjectUncheckedCreateInput = {
+    uid: string
+    objectTypeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RfidObjectUpdateInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    objectType?: ObjectTypeUpdateOneRequiredWithoutRfidObjectsNestedInput
+  }
+
+  export type RfidObjectUncheckedUpdateInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    objectTypeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RfidObjectCreateManyInput = {
+    uid: string
+    objectTypeId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RfidObjectUpdateManyMutationInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RfidObjectUncheckedUpdateManyInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    objectTypeId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateInput = {
@@ -18580,17 +35205,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -18606,9 +35220,18 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type EnumCharacterSexFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterSex | EnumCharacterSexFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterSexFilter<$PrismaModel> | $Enums.CharacterSex
+  }
+
+  export type EnumCharacterPersonalityFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterPersonality | EnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -18620,6 +35243,1069 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type ClipListRelationFilter = {
+    every?: ClipWhereInput
+    some?: ClipWhereInput
+    none?: ClipWhereInput
+  }
+
+  export type EmotionDeviceListRelationFilter = {
+    every?: EmotionDeviceWhereInput
+    some?: EmotionDeviceWhereInput
+    none?: EmotionDeviceWhereInput
+  }
+
+  export type RuleListRelationFilter = {
+    every?: RuleWhereInput
+    some?: RuleWhereInput
+    none?: RuleWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ClipOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmotionDeviceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type RuleOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CharacterCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    defaultImageUrl?: SortOrder
+    stylePrompt?: SortOrder
+    sex?: SortOrder
+    personality?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CharacterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    defaultImageUrl?: SortOrder
+    stylePrompt?: SortOrder
+    sex?: SortOrder
+    personality?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CharacterMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    defaultImageUrl?: SortOrder
+    stylePrompt?: SortOrder
+    sex?: SortOrder
+    personality?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCharacterSexWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterSex | EnumCharacterSexFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterSexWithAggregatesFilter<$PrismaModel> | $Enums.CharacterSex
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCharacterSexFilter<$PrismaModel>
+    _max?: NestedEnumCharacterSexFilter<$PrismaModel>
+  }
+
+  export type EnumCharacterPersonalityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterPersonality | EnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterPersonalityWithAggregatesFilter<$PrismaModel> | $Enums.CharacterPersonality
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
+    _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DeviceClipCacheListRelationFilter = {
+    every?: DeviceClipCacheWhereInput
+    some?: DeviceClipCacheWhereInput
+    none?: DeviceClipCacheWhereInput
+  }
+
+  export type EmotionVideoListRelationFilter = {
+    every?: EmotionVideoWhereInput
+    some?: EmotionVideoWhereInput
+    none?: EmotionVideoWhereInput
+  }
+
+  export type DeviceClipCacheOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmotionVideoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmotionCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    promptCustom?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    promptCustom?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    promptCustom?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumClipStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.ClipStatus | EnumClipStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumClipStatusFilter<$PrismaModel> | $Enums.ClipStatus
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type CharacterScalarRelationFilter = {
+    is?: CharacterWhereInput
+    isNot?: CharacterWhereInput
+  }
+
+  export type EmotionScalarRelationFilter = {
+    is?: EmotionWhereInput
+    isNot?: EmotionWhereInput
+  }
+
+  export type ClipFaceRegionListRelationFilter = {
+    every?: ClipFaceRegionWhereInput
+    some?: ClipFaceRegionWhereInput
+    none?: ClipFaceRegionWhereInput
+  }
+
+  export type ClipArtifactListRelationFilter = {
+    every?: ClipArtifactWhereInput
+    some?: ClipArtifactWhereInput
+    none?: ClipArtifactWhereInput
+  }
+
+  export type ClipFaceRegionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClipArtifactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClipCountOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    emotionId?: SortOrder
+    status?: SortOrder
+    fileUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    fps?: SortOrder
+    frames?: SortOrder
+    durationS?: SortOrder
+    prompt?: SortOrder
+    modelName?: SortOrder
+    xaiJobId?: SortOrder
+    previewUrl?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    weight?: SortOrder
+    tags?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipAvgOrderByAggregateInput = {
+    sizeBytes?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    fps?: SortOrder
+    frames?: SortOrder
+    durationS?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    weight?: SortOrder
+  }
+
+  export type ClipMaxOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    emotionId?: SortOrder
+    status?: SortOrder
+    fileUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    fps?: SortOrder
+    frames?: SortOrder
+    durationS?: SortOrder
+    prompt?: SortOrder
+    modelName?: SortOrder
+    xaiJobId?: SortOrder
+    previewUrl?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    weight?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipMinOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    emotionId?: SortOrder
+    status?: SortOrder
+    fileUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    fps?: SortOrder
+    frames?: SortOrder
+    durationS?: SortOrder
+    prompt?: SortOrder
+    modelName?: SortOrder
+    xaiJobId?: SortOrder
+    previewUrl?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    weight?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipSumOrderByAggregateInput = {
+    sizeBytes?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    fps?: SortOrder
+    frames?: SortOrder
+    durationS?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    weight?: SortOrder
+  }
+
+  export type EnumClipStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ClipStatus | EnumClipStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumClipStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClipStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumClipStatusFilter<$PrismaModel>
+    _max?: NestedEnumClipStatusFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type EnumCornerStyleFilter<$PrismaModel = never> = {
+    equals?: $Enums.CornerStyle | EnumCornerStyleFieldRefInput<$PrismaModel>
+    in?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    not?: NestedEnumCornerStyleFilter<$PrismaModel> | $Enums.CornerStyle
+  }
+
+  export type ClipScalarRelationFilter = {
+    is?: ClipWhereInput
+    isNot?: ClipWhereInput
+  }
+
+  export type ClipArtifactCountOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    frameIndex?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipArtifactAvgOrderByAggregateInput = {
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+  }
+
+  export type ClipArtifactMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    frameIndex?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipArtifactMinOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    frameIndex?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipArtifactSumOrderByAggregateInput = {
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EnumCornerStyleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CornerStyle | EnumCornerStyleFieldRefInput<$PrismaModel>
+    in?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    not?: NestedEnumCornerStyleWithAggregatesFilter<$PrismaModel> | $Enums.CornerStyle
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCornerStyleFilter<$PrismaModel>
+    _max?: NestedEnumCornerStyleFilter<$PrismaModel>
+  }
+
+  export type EnumFaceRegionKeyFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaceRegionKey | EnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumFaceRegionKeyFilter<$PrismaModel> | $Enums.FaceRegionKey
+  }
+
+  export type ClipFaceRegionClipIdRegionKeyFrameIndexCompoundUniqueInput = {
+    clipId: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex: number
+  }
+
+  export type ClipFaceRegionCountOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    regionKey?: SortOrder
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipFaceRegionAvgOrderByAggregateInput = {
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+  }
+
+  export type ClipFaceRegionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    regionKey?: SortOrder
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipFaceRegionMinOrderByAggregateInput = {
+    id?: SortOrder
+    clipId?: SortOrder
+    regionKey?: SortOrder
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClipFaceRegionSumOrderByAggregateInput = {
+    frameIndex?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    w?: SortOrder
+    h?: SortOrder
+  }
+
+  export type EnumFaceRegionKeyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaceRegionKey | EnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumFaceRegionKeyWithAggregatesFilter<$PrismaModel> | $Enums.FaceRegionKey
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
+    _max?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
+  }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type EmotionVideoCountOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoAvgOrderByAggregateInput = {
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+  }
+
+  export type EmotionVideoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoMinOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoSumOrderByAggregateInput = {
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type EnumEmotionDeviceModeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEmotionDeviceModeFilter<$PrismaModel> | $Enums.EmotionDeviceMode
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type EmotionDeviceCountOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    pubnubChannel?: SortOrder
+    mode?: SortOrder
+    isCharging?: SortOrder
+    lastSeenAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionDeviceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    pubnubChannel?: SortOrder
+    mode?: SortOrder
+    isCharging?: SortOrder
+    lastSeenAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionDeviceMinOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    pubnubChannel?: SortOrder
+    mode?: SortOrder
+    isCharging?: SortOrder
+    lastSeenAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumEmotionDeviceModeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEmotionDeviceModeWithAggregatesFilter<$PrismaModel> | $Enums.EmotionDeviceMode
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEmotionDeviceModeFilter<$PrismaModel>
+    _max?: NestedEnumEmotionDeviceModeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type EmotionDeviceScalarRelationFilter = {
+    is?: EmotionDeviceWhereInput
+    isNot?: EmotionDeviceWhereInput
+  }
+
+  export type DeviceClipCacheDeviceIdEmotionIdSlotCompoundUniqueInput = {
+    deviceId: string
+    emotionId: string
+    slot: number
+  }
+
+  export type DeviceClipCacheCountOrderByAggregateInput = {
+    deviceId?: SortOrder
+    emotionId?: SortOrder
+    slot?: SortOrder
+    clipId?: SortOrder
+    lastSeenAt?: SortOrder
+    lastPlayedAt?: SortOrder
+  }
+
+  export type DeviceClipCacheAvgOrderByAggregateInput = {
+    slot?: SortOrder
+  }
+
+  export type DeviceClipCacheMaxOrderByAggregateInput = {
+    deviceId?: SortOrder
+    emotionId?: SortOrder
+    slot?: SortOrder
+    clipId?: SortOrder
+    lastSeenAt?: SortOrder
+    lastPlayedAt?: SortOrder
+  }
+
+  export type DeviceClipCacheMinOrderByAggregateInput = {
+    deviceId?: SortOrder
+    emotionId?: SortOrder
+    slot?: SortOrder
+    clipId?: SortOrder
+    lastSeenAt?: SortOrder
+    lastPlayedAt?: SortOrder
+  }
+
+  export type DeviceClipCacheSumOrderByAggregateInput = {
+    slot?: SortOrder
+  }
+
+  export type EnumEventTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventType | EnumEventTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventTypeFilter<$PrismaModel> | $Enums.EventType
+  }
+
+  export type EnumEventKeyFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventKey | EnumEventKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventKeyFilter<$PrismaModel> | $Enums.EventKey
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type CharacterNullableScalarRelationFilter = {
+    is?: CharacterWhereInput | null
+    isNot?: CharacterWhereInput | null
+  }
+
+  export type RuleCountOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    enabled?: SortOrder
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+    eventType?: SortOrder
+    eventKey?: SortOrder
+    conditions?: SortOrder
+    response?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RuleAvgOrderByAggregateInput = {
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+  }
+
+  export type RuleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    enabled?: SortOrder
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+    eventType?: SortOrder
+    eventKey?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RuleMinOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    enabled?: SortOrder
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+    eventType?: SortOrder
+    eventKey?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RuleSumOrderByAggregateInput = {
+    priority?: SortOrder
+    cooldownMs?: SortOrder
+  }
+
+  export type EnumEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventType | EnumEventTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.EventType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEventTypeFilter<$PrismaModel>
+    _max?: NestedEnumEventTypeFilter<$PrismaModel>
+  }
+
+  export type EnumEventKeyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventKey | EnumEventKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventKeyWithAggregatesFilter<$PrismaModel> | $Enums.EventKey
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEventKeyFilter<$PrismaModel>
+    _max?: NestedEnumEventKeyFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type RfidObjectListRelationFilter = {
+    every?: RfidObjectWhereInput
+    some?: RfidObjectWhereInput
+    none?: RfidObjectWhereInput
+  }
+
+  export type RfidObjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ObjectTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ObjectTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ObjectTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ObjectTypeScalarRelationFilter = {
+    is?: ObjectTypeWhereInput
+    isNot?: ObjectTypeWhereInput
+  }
+
+  export type RfidObjectCountOrderByAggregateInput = {
+    uid?: SortOrder
+    objectTypeId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RfidObjectMaxOrderByAggregateInput = {
+    uid?: SortOrder
+    objectTypeId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RfidObjectMinOrderByAggregateInput = {
+    uid?: SortOrder
+    objectTypeId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AccountListRelationFilter = {
@@ -18650,11 +36336,6 @@ export namespace Prisma {
     every?: FileWhereInput
     some?: FileWhereInput
     none?: FileWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type AccountOrderByRelationAggregateInput = {
@@ -18713,105 +36394,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type EnumKidooModelFilter<$PrismaModel = never> = {
     equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
     in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
     notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
     not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -18924,38 +36511,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumKidooModelFilter<$PrismaModel>
     _max?: NestedEnumKidooModelFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type EnumTagTypeNullableFilter<$PrismaModel = never> = {
@@ -19516,6 +37071,773 @@ export namespace Prisma {
     minute?: SortOrder
   }
 
+  export type ClipCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput> | ClipCreateWithoutCharacterInput[] | ClipUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutCharacterInput | ClipCreateOrConnectWithoutCharacterInput[]
+    createMany?: ClipCreateManyCharacterInputEnvelope
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+  }
+
+  export type EmotionDeviceCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput> | EmotionDeviceCreateWithoutCharacterInput[] | EmotionDeviceUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutCharacterInput | EmotionDeviceCreateOrConnectWithoutCharacterInput[]
+    createMany?: EmotionDeviceCreateManyCharacterInputEnvelope
+    connect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+  }
+
+  export type RuleCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput> | RuleCreateWithoutCharacterInput[] | RuleUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: RuleCreateOrConnectWithoutCharacterInput | RuleCreateOrConnectWithoutCharacterInput[]
+    createMany?: RuleCreateManyCharacterInputEnvelope
+    connect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+  }
+
+  export type ClipUncheckedCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput> | ClipCreateWithoutCharacterInput[] | ClipUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutCharacterInput | ClipCreateOrConnectWithoutCharacterInput[]
+    createMany?: ClipCreateManyCharacterInputEnvelope
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+  }
+
+  export type EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput> | EmotionDeviceCreateWithoutCharacterInput[] | EmotionDeviceUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutCharacterInput | EmotionDeviceCreateOrConnectWithoutCharacterInput[]
+    createMany?: EmotionDeviceCreateManyCharacterInputEnvelope
+    connect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+  }
+
+  export type RuleUncheckedCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput> | RuleCreateWithoutCharacterInput[] | RuleUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: RuleCreateOrConnectWithoutCharacterInput | RuleCreateOrConnectWithoutCharacterInput[]
+    createMany?: RuleCreateManyCharacterInputEnvelope
+    connect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type EnumCharacterSexFieldUpdateOperationsInput = {
+    set?: $Enums.CharacterSex
+  }
+
+  export type EnumCharacterPersonalityFieldUpdateOperationsInput = {
+    set?: $Enums.CharacterPersonality
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type ClipUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput> | ClipCreateWithoutCharacterInput[] | ClipUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutCharacterInput | ClipCreateOrConnectWithoutCharacterInput[]
+    upsert?: ClipUpsertWithWhereUniqueWithoutCharacterInput | ClipUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: ClipCreateManyCharacterInputEnvelope
+    set?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    disconnect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    delete?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    update?: ClipUpdateWithWhereUniqueWithoutCharacterInput | ClipUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: ClipUpdateManyWithWhereWithoutCharacterInput | ClipUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: ClipScalarWhereInput | ClipScalarWhereInput[]
+  }
+
+  export type EmotionDeviceUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput> | EmotionDeviceCreateWithoutCharacterInput[] | EmotionDeviceUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutCharacterInput | EmotionDeviceCreateOrConnectWithoutCharacterInput[]
+    upsert?: EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput | EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: EmotionDeviceCreateManyCharacterInputEnvelope
+    set?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    disconnect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    delete?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    connect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    update?: EmotionDeviceUpdateWithWhereUniqueWithoutCharacterInput | EmotionDeviceUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: EmotionDeviceUpdateManyWithWhereWithoutCharacterInput | EmotionDeviceUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: EmotionDeviceScalarWhereInput | EmotionDeviceScalarWhereInput[]
+  }
+
+  export type RuleUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput> | RuleCreateWithoutCharacterInput[] | RuleUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: RuleCreateOrConnectWithoutCharacterInput | RuleCreateOrConnectWithoutCharacterInput[]
+    upsert?: RuleUpsertWithWhereUniqueWithoutCharacterInput | RuleUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: RuleCreateManyCharacterInputEnvelope
+    set?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    disconnect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    delete?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    connect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    update?: RuleUpdateWithWhereUniqueWithoutCharacterInput | RuleUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: RuleUpdateManyWithWhereWithoutCharacterInput | RuleUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: RuleScalarWhereInput | RuleScalarWhereInput[]
+  }
+
+  export type ClipUncheckedUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput> | ClipCreateWithoutCharacterInput[] | ClipUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutCharacterInput | ClipCreateOrConnectWithoutCharacterInput[]
+    upsert?: ClipUpsertWithWhereUniqueWithoutCharacterInput | ClipUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: ClipCreateManyCharacterInputEnvelope
+    set?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    disconnect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    delete?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    update?: ClipUpdateWithWhereUniqueWithoutCharacterInput | ClipUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: ClipUpdateManyWithWhereWithoutCharacterInput | ClipUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: ClipScalarWhereInput | ClipScalarWhereInput[]
+  }
+
+  export type EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput> | EmotionDeviceCreateWithoutCharacterInput[] | EmotionDeviceUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutCharacterInput | EmotionDeviceCreateOrConnectWithoutCharacterInput[]
+    upsert?: EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput | EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: EmotionDeviceCreateManyCharacterInputEnvelope
+    set?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    disconnect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    delete?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    connect?: EmotionDeviceWhereUniqueInput | EmotionDeviceWhereUniqueInput[]
+    update?: EmotionDeviceUpdateWithWhereUniqueWithoutCharacterInput | EmotionDeviceUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: EmotionDeviceUpdateManyWithWhereWithoutCharacterInput | EmotionDeviceUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: EmotionDeviceScalarWhereInput | EmotionDeviceScalarWhereInput[]
+  }
+
+  export type RuleUncheckedUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput> | RuleCreateWithoutCharacterInput[] | RuleUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: RuleCreateOrConnectWithoutCharacterInput | RuleCreateOrConnectWithoutCharacterInput[]
+    upsert?: RuleUpsertWithWhereUniqueWithoutCharacterInput | RuleUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: RuleCreateManyCharacterInputEnvelope
+    set?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    disconnect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    delete?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    connect?: RuleWhereUniqueInput | RuleWhereUniqueInput[]
+    update?: RuleUpdateWithWhereUniqueWithoutCharacterInput | RuleUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: RuleUpdateManyWithWhereWithoutCharacterInput | RuleUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: RuleScalarWhereInput | RuleScalarWhereInput[]
+  }
+
+  export type ClipCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
+    createMany?: ClipCreateManyEmotionInputEnvelope
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+  }
+
+  export type DeviceClipCacheCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput> | DeviceClipCacheCreateWithoutEmotionInput[] | DeviceClipCacheUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutEmotionInput | DeviceClipCacheCreateOrConnectWithoutEmotionInput[]
+    createMany?: DeviceClipCacheCreateManyEmotionInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
+  export type ClipUncheckedCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
+    createMany?: ClipCreateManyEmotionInputEnvelope
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+  }
+
+  export type DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput> | DeviceClipCacheCreateWithoutEmotionInput[] | DeviceClipCacheUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutEmotionInput | DeviceClipCacheCreateOrConnectWithoutEmotionInput[]
+    createMany?: DeviceClipCacheCreateManyEmotionInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
+  export type ClipUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
+    upsert?: ClipUpsertWithWhereUniqueWithoutEmotionInput | ClipUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: ClipCreateManyEmotionInputEnvelope
+    set?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    disconnect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    delete?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    update?: ClipUpdateWithWhereUniqueWithoutEmotionInput | ClipUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: ClipUpdateManyWithWhereWithoutEmotionInput | ClipUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: ClipScalarWhereInput | ClipScalarWhereInput[]
+  }
+
+  export type DeviceClipCacheUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput> | DeviceClipCacheCreateWithoutEmotionInput[] | DeviceClipCacheUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutEmotionInput | DeviceClipCacheCreateOrConnectWithoutEmotionInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutEmotionInput | DeviceClipCacheUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: DeviceClipCacheCreateManyEmotionInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput | DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput | DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput | EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput | EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutEmotionInput | EmotionVideoUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
+  export type ClipUncheckedUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
+    upsert?: ClipUpsertWithWhereUniqueWithoutEmotionInput | ClipUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: ClipCreateManyEmotionInputEnvelope
+    set?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    disconnect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    delete?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    connect?: ClipWhereUniqueInput | ClipWhereUniqueInput[]
+    update?: ClipUpdateWithWhereUniqueWithoutEmotionInput | ClipUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: ClipUpdateManyWithWhereWithoutEmotionInput | ClipUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: ClipScalarWhereInput | ClipScalarWhereInput[]
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput> | DeviceClipCacheCreateWithoutEmotionInput[] | DeviceClipCacheUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutEmotionInput | DeviceClipCacheCreateOrConnectWithoutEmotionInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutEmotionInput | DeviceClipCacheUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: DeviceClipCacheCreateManyEmotionInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput | DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput | DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput | EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput | EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutEmotionInput | EmotionVideoUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
+  export type ClipCreatetagsInput = {
+    set: string[]
+  }
+
+  export type CharacterCreateNestedOneWithoutClipsInput = {
+    create?: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutClipsInput
+    connect?: CharacterWhereUniqueInput
+  }
+
+  export type EmotionCreateNestedOneWithoutClipsInput = {
+    create?: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutClipsInput
+    connect?: EmotionWhereUniqueInput
+  }
+
+  export type ClipFaceRegionCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+  }
+
+  export type ClipArtifactCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+  }
+
+  export type DeviceClipCacheCreateNestedManyWithoutClipInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput> | DeviceClipCacheCreateWithoutClipInput[] | DeviceClipCacheUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutClipInput | DeviceClipCacheCreateOrConnectWithoutClipInput[]
+    createMany?: DeviceClipCacheCreateManyClipInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoCreateNestedManyWithoutSourceClipInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
+  export type ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+  }
+
+  export type ClipArtifactUncheckedCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+  }
+
+  export type DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput> | DeviceClipCacheCreateWithoutClipInput[] | DeviceClipCacheUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutClipInput | DeviceClipCacheCreateOrConnectWithoutClipInput[]
+    createMany?: DeviceClipCacheCreateManyClipInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
+  export type EnumClipStatusFieldUpdateOperationsInput = {
+    set?: $Enums.ClipStatus
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ClipUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type CharacterUpdateOneRequiredWithoutClipsNestedInput = {
+    create?: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutClipsInput
+    upsert?: CharacterUpsertWithoutClipsInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutClipsInput, CharacterUpdateWithoutClipsInput>, CharacterUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type EmotionUpdateOneRequiredWithoutClipsNestedInput = {
+    create?: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutClipsInput
+    upsert?: EmotionUpsertWithoutClipsInput
+    connect?: EmotionWhereUniqueInput
+    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutClipsInput, EmotionUpdateWithoutClipsInput>, EmotionUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type ClipFaceRegionUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    upsert?: ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput | ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    set?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    disconnect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    delete?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    update?: ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput | ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipFaceRegionUpdateManyWithWhereWithoutClipInput | ClipFaceRegionUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+  }
+
+  export type ClipArtifactUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    upsert?: ClipArtifactUpsertWithWhereUniqueWithoutClipInput | ClipArtifactUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    set?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    disconnect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    delete?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    update?: ClipArtifactUpdateWithWhereUniqueWithoutClipInput | ClipArtifactUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipArtifactUpdateManyWithWhereWithoutClipInput | ClipArtifactUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+  }
+
+  export type DeviceClipCacheUpdateManyWithoutClipNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput> | DeviceClipCacheCreateWithoutClipInput[] | DeviceClipCacheUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutClipInput | DeviceClipCacheCreateOrConnectWithoutClipInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput | DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: DeviceClipCacheCreateManyClipInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput | DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutClipInput | DeviceClipCacheUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUpdateManyWithoutSourceClipNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutSourceClipInput | EmotionVideoUpdateManyWithWhereWithoutSourceClipInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
+  export type ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    upsert?: ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput | ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    set?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    disconnect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    delete?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    update?: ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput | ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipFaceRegionUpdateManyWithWhereWithoutClipInput | ClipFaceRegionUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+  }
+
+  export type ClipArtifactUncheckedUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    upsert?: ClipArtifactUpsertWithWhereUniqueWithoutClipInput | ClipArtifactUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    set?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    disconnect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    delete?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    update?: ClipArtifactUpdateWithWhereUniqueWithoutClipInput | ClipArtifactUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipArtifactUpdateManyWithWhereWithoutClipInput | ClipArtifactUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput> | DeviceClipCacheCreateWithoutClipInput[] | DeviceClipCacheUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutClipInput | DeviceClipCacheCreateOrConnectWithoutClipInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput | DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: DeviceClipCacheCreateManyClipInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput | DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutClipInput | DeviceClipCacheUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutSourceClipInput | EmotionVideoUpdateManyWithWhereWithoutSourceClipInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
+  export type ClipCreateNestedOneWithoutArtifactsInput = {
+    create?: XOR<ClipCreateWithoutArtifactsInput, ClipUncheckedCreateWithoutArtifactsInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutArtifactsInput
+    connect?: ClipWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EnumCornerStyleFieldUpdateOperationsInput = {
+    set?: $Enums.CornerStyle
+  }
+
+  export type ClipUpdateOneRequiredWithoutArtifactsNestedInput = {
+    create?: XOR<ClipCreateWithoutArtifactsInput, ClipUncheckedCreateWithoutArtifactsInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutArtifactsInput
+    upsert?: ClipUpsertWithoutArtifactsInput
+    connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutArtifactsInput, ClipUpdateWithoutArtifactsInput>, ClipUncheckedUpdateWithoutArtifactsInput>
+  }
+
+  export type ClipCreateNestedOneWithoutFaceRegionsInput = {
+    create?: XOR<ClipCreateWithoutFaceRegionsInput, ClipUncheckedCreateWithoutFaceRegionsInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutFaceRegionsInput
+    connect?: ClipWhereUniqueInput
+  }
+
+  export type EnumFaceRegionKeyFieldUpdateOperationsInput = {
+    set?: $Enums.FaceRegionKey
+  }
+
+  export type ClipUpdateOneRequiredWithoutFaceRegionsNestedInput = {
+    create?: XOR<ClipCreateWithoutFaceRegionsInput, ClipUncheckedCreateWithoutFaceRegionsInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutFaceRegionsInput
+    upsert?: ClipUpsertWithoutFaceRegionsInput
+    connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutFaceRegionsInput, ClipUpdateWithoutFaceRegionsInput>, ClipUncheckedUpdateWithoutFaceRegionsInput>
+  }
+
+  export type EmotionCreateNestedOneWithoutEmotionVideosInput = {
+    create?: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutEmotionVideosInput
+    connect?: EmotionWhereUniqueInput
+  }
+
+  export type ClipCreateNestedOneWithoutEmotionVideosInput = {
+    create?: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionVideosInput
+    connect?: ClipWhereUniqueInput
+  }
+
+  export type EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput = {
+    create?: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutEmotionVideosInput
+    upsert?: EmotionUpsertWithoutEmotionVideosInput
+    connect?: EmotionWhereUniqueInput
+    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutEmotionVideosInput, EmotionUpdateWithoutEmotionVideosInput>, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type ClipUpdateOneRequiredWithoutEmotionVideosNestedInput = {
+    create?: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionVideosInput
+    upsert?: ClipUpsertWithoutEmotionVideosInput
+    connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutEmotionVideosInput, ClipUpdateWithoutEmotionVideosInput>, ClipUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type CharacterCreateNestedOneWithoutEmotionDevicesInput = {
+    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
+    connect?: CharacterWhereUniqueInput
+  }
+
+  export type DeviceClipCacheCreateNestedManyWithoutDeviceInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
+    createMany?: DeviceClipCacheCreateManyDeviceInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type DeviceClipCacheUncheckedCreateNestedManyWithoutDeviceInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
+    createMany?: DeviceClipCacheCreateManyDeviceInputEnvelope
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EnumEmotionDeviceModeFieldUpdateOperationsInput = {
+    set?: $Enums.EmotionDeviceMode
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput = {
+    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
+    upsert?: CharacterUpsertWithoutEmotionDevicesInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput, CharacterUpdateWithoutEmotionDevicesInput>, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+  }
+
+  export type DeviceClipCacheUpdateManyWithoutDeviceNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput | DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput[]
+    createMany?: DeviceClipCacheCreateManyDeviceInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput | DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput | DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutDeviceNestedInput = {
+    create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
+    connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
+    upsert?: DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput | DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput[]
+    createMany?: DeviceClipCacheCreateManyDeviceInputEnvelope
+    set?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    disconnect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    delete?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+    update?: DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput | DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput[]
+    updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput | DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput[]
+    deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput = {
+    create?: XOR<EmotionDeviceCreateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutDeviceClipCachesInput
+    connect?: EmotionDeviceWhereUniqueInput
+  }
+
+  export type EmotionCreateNestedOneWithoutDeviceClipCachesInput = {
+    create?: XOR<EmotionCreateWithoutDeviceClipCachesInput, EmotionUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutDeviceClipCachesInput
+    connect?: EmotionWhereUniqueInput
+  }
+
+  export type ClipCreateNestedOneWithoutDeviceClipCachesInput = {
+    create?: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutDeviceClipCachesInput
+    connect?: ClipWhereUniqueInput
+  }
+
+  export type EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
+    create?: XOR<EmotionDeviceCreateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: EmotionDeviceCreateOrConnectWithoutDeviceClipCachesInput
+    upsert?: EmotionDeviceUpsertWithoutDeviceClipCachesInput
+    connect?: EmotionDeviceWhereUniqueInput
+    update?: XOR<XOR<EmotionDeviceUpdateToOneWithWhereWithoutDeviceClipCachesInput, EmotionDeviceUpdateWithoutDeviceClipCachesInput>, EmotionDeviceUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
+    create?: XOR<EmotionCreateWithoutDeviceClipCachesInput, EmotionUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutDeviceClipCachesInput
+    upsert?: EmotionUpsertWithoutDeviceClipCachesInput
+    connect?: EmotionWhereUniqueInput
+    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutDeviceClipCachesInput, EmotionUpdateWithoutDeviceClipCachesInput>, EmotionUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
+    create?: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutDeviceClipCachesInput
+    upsert?: ClipUpsertWithoutDeviceClipCachesInput
+    connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput, ClipUpdateWithoutDeviceClipCachesInput>, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type CharacterCreateNestedOneWithoutRulesInput = {
+    create?: XOR<CharacterCreateWithoutRulesInput, CharacterUncheckedCreateWithoutRulesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutRulesInput
+    connect?: CharacterWhereUniqueInput
+  }
+
+  export type EnumEventTypeFieldUpdateOperationsInput = {
+    set?: $Enums.EventType
+  }
+
+  export type EnumEventKeyFieldUpdateOperationsInput = {
+    set?: $Enums.EventKey
+  }
+
+  export type CharacterUpdateOneWithoutRulesNestedInput = {
+    create?: XOR<CharacterCreateWithoutRulesInput, CharacterUncheckedCreateWithoutRulesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutRulesInput
+    upsert?: CharacterUpsertWithoutRulesInput
+    disconnect?: CharacterWhereInput | boolean
+    delete?: CharacterWhereInput | boolean
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutRulesInput, CharacterUpdateWithoutRulesInput>, CharacterUncheckedUpdateWithoutRulesInput>
+  }
+
+  export type RfidObjectCreateNestedManyWithoutObjectTypeInput = {
+    create?: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput> | RfidObjectCreateWithoutObjectTypeInput[] | RfidObjectUncheckedCreateWithoutObjectTypeInput[]
+    connectOrCreate?: RfidObjectCreateOrConnectWithoutObjectTypeInput | RfidObjectCreateOrConnectWithoutObjectTypeInput[]
+    createMany?: RfidObjectCreateManyObjectTypeInputEnvelope
+    connect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+  }
+
+  export type RfidObjectUncheckedCreateNestedManyWithoutObjectTypeInput = {
+    create?: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput> | RfidObjectCreateWithoutObjectTypeInput[] | RfidObjectUncheckedCreateWithoutObjectTypeInput[]
+    connectOrCreate?: RfidObjectCreateOrConnectWithoutObjectTypeInput | RfidObjectCreateOrConnectWithoutObjectTypeInput[]
+    createMany?: RfidObjectCreateManyObjectTypeInputEnvelope
+    connect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+  }
+
+  export type RfidObjectUpdateManyWithoutObjectTypeNestedInput = {
+    create?: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput> | RfidObjectCreateWithoutObjectTypeInput[] | RfidObjectUncheckedCreateWithoutObjectTypeInput[]
+    connectOrCreate?: RfidObjectCreateOrConnectWithoutObjectTypeInput | RfidObjectCreateOrConnectWithoutObjectTypeInput[]
+    upsert?: RfidObjectUpsertWithWhereUniqueWithoutObjectTypeInput | RfidObjectUpsertWithWhereUniqueWithoutObjectTypeInput[]
+    createMany?: RfidObjectCreateManyObjectTypeInputEnvelope
+    set?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    disconnect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    delete?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    connect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    update?: RfidObjectUpdateWithWhereUniqueWithoutObjectTypeInput | RfidObjectUpdateWithWhereUniqueWithoutObjectTypeInput[]
+    updateMany?: RfidObjectUpdateManyWithWhereWithoutObjectTypeInput | RfidObjectUpdateManyWithWhereWithoutObjectTypeInput[]
+    deleteMany?: RfidObjectScalarWhereInput | RfidObjectScalarWhereInput[]
+  }
+
+  export type RfidObjectUncheckedUpdateManyWithoutObjectTypeNestedInput = {
+    create?: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput> | RfidObjectCreateWithoutObjectTypeInput[] | RfidObjectUncheckedCreateWithoutObjectTypeInput[]
+    connectOrCreate?: RfidObjectCreateOrConnectWithoutObjectTypeInput | RfidObjectCreateOrConnectWithoutObjectTypeInput[]
+    upsert?: RfidObjectUpsertWithWhereUniqueWithoutObjectTypeInput | RfidObjectUpsertWithWhereUniqueWithoutObjectTypeInput[]
+    createMany?: RfidObjectCreateManyObjectTypeInputEnvelope
+    set?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    disconnect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    delete?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    connect?: RfidObjectWhereUniqueInput | RfidObjectWhereUniqueInput[]
+    update?: RfidObjectUpdateWithWhereUniqueWithoutObjectTypeInput | RfidObjectUpdateWithWhereUniqueWithoutObjectTypeInput[]
+    updateMany?: RfidObjectUpdateManyWithWhereWithoutObjectTypeInput | RfidObjectUpdateManyWithWhereWithoutObjectTypeInput[]
+    deleteMany?: RfidObjectScalarWhereInput | RfidObjectScalarWhereInput[]
+  }
+
+  export type ObjectTypeCreateNestedOneWithoutRfidObjectsInput = {
+    create?: XOR<ObjectTypeCreateWithoutRfidObjectsInput, ObjectTypeUncheckedCreateWithoutRfidObjectsInput>
+    connectOrCreate?: ObjectTypeCreateOrConnectWithoutRfidObjectsInput
+    connect?: ObjectTypeWhereUniqueInput
+  }
+
+  export type ObjectTypeUpdateOneRequiredWithoutRfidObjectsNestedInput = {
+    create?: XOR<ObjectTypeCreateWithoutRfidObjectsInput, ObjectTypeUncheckedCreateWithoutRfidObjectsInput>
+    connectOrCreate?: ObjectTypeCreateOrConnectWithoutRfidObjectsInput
+    upsert?: ObjectTypeUpsertWithoutRfidObjectsInput
+    connect?: ObjectTypeWhereUniqueInput
+    update?: XOR<XOR<ObjectTypeUpdateToOneWithWhereWithoutRfidObjectsInput, ObjectTypeUpdateWithoutRfidObjectsInput>, ObjectTypeUncheckedUpdateWithoutRfidObjectsInput>
+  }
+
   export type AccountCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -19584,26 +37906,6 @@ export namespace Prisma {
     connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
     createMany?: FileCreateManyUserInputEnvelope
     connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -19792,22 +38094,6 @@ export namespace Prisma {
 
   export type EnumKidooModelFieldUpdateOperationsInput = {
     set?: $Enums.KidooModel
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type UserUpdateOneWithoutKidoosNestedInput = {
@@ -20180,17 +38466,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -20205,9 +38480,18 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedEnumCharacterSexFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterSex | EnumCharacterSexFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterSexFilter<$PrismaModel> | $Enums.CharacterSex
+  }
+
+  export type NestedEnumCharacterPersonalityFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterPersonality | EnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -20249,31 +38533,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -20291,12 +38550,35 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumCharacterSexWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterSex | EnumCharacterSexFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterSex[] | ListEnumCharacterSexFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterSexWithAggregatesFilter<$PrismaModel> | $Enums.CharacterSex
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+    _min?: NestedEnumCharacterSexFilter<$PrismaModel>
+    _max?: NestedEnumCharacterSexFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCharacterPersonalityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CharacterPersonality | EnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    in?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CharacterPersonality[] | ListEnumCharacterPersonalityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCharacterPersonalityWithAggregatesFilter<$PrismaModel> | $Enums.CharacterPersonality
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
+    _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -20313,21 +38595,64 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedEnumKidooModelFilter<$PrismaModel = never> = {
-    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
-    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
-    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
-    not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
+  export type NestedEnumClipStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.ClipStatus | EnumClipStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumClipStatusFilter<$PrismaModel> | $Enums.ClipStatus
   }
 
-  export type NestedEnumKidooModelWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
-    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
-    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
-    not?: NestedEnumKidooModelWithAggregatesFilter<$PrismaModel> | $Enums.KidooModel
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumClipStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ClipStatus | EnumClipStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ClipStatus[] | ListEnumClipStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumClipStatusWithAggregatesFilter<$PrismaModel> | $Enums.ClipStatus
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumKidooModelFilter<$PrismaModel>
-    _max?: NestedEnumKidooModelFilter<$PrismaModel>
+    _min?: NestedEnumClipStatusFilter<$PrismaModel>
+    _max?: NestedEnumClipStatusFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -20357,31 +38682,206 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+  export type NestedEnumCornerStyleFilter<$PrismaModel = never> = {
+    equals?: $Enums.CornerStyle | EnumCornerStyleFieldRefInput<$PrismaModel>
+    in?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    not?: NestedEnumCornerStyleFilter<$PrismaModel> | $Enums.CornerStyle
   }
 
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCornerStyleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CornerStyle | EnumCornerStyleFieldRefInput<$PrismaModel>
+    in?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CornerStyle[] | ListEnumCornerStyleFieldRefInput<$PrismaModel>
+    not?: NestedEnumCornerStyleWithAggregatesFilter<$PrismaModel> | $Enums.CornerStyle
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCornerStyleFilter<$PrismaModel>
+    _max?: NestedEnumCornerStyleFilter<$PrismaModel>
+  }
+
+  export type NestedEnumFaceRegionKeyFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaceRegionKey | EnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumFaceRegionKeyFilter<$PrismaModel> | $Enums.FaceRegionKey
+  }
+
+  export type NestedEnumFaceRegionKeyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaceRegionKey | EnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FaceRegionKey[] | ListEnumFaceRegionKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumFaceRegionKeyWithAggregatesFilter<$PrismaModel> | $Enums.FaceRegionKey
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
+    _max?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumEmotionDeviceModeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEmotionDeviceModeFilter<$PrismaModel> | $Enums.EmotionDeviceMode
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumEmotionDeviceModeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    in?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EmotionDeviceMode[] | ListEnumEmotionDeviceModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEmotionDeviceModeWithAggregatesFilter<$PrismaModel> | $Enums.EmotionDeviceMode
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEmotionDeviceModeFilter<$PrismaModel>
+    _max?: NestedEnumEmotionDeviceModeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEventTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventType | EnumEventTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventTypeFilter<$PrismaModel> | $Enums.EventType
+  }
+
+  export type NestedEnumEventKeyFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventKey | EnumEventKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventKeyFilter<$PrismaModel> | $Enums.EventKey
+  }
+
+  export type NestedEnumEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventType | EnumEventTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventType[] | ListEnumEventTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.EventType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEventTypeFilter<$PrismaModel>
+    _max?: NestedEnumEventTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEventKeyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EventKey | EnumEventKeyFieldRefInput<$PrismaModel>
+    in?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EventKey[] | ListEnumEventKeyFieldRefInput<$PrismaModel>
+    not?: NestedEnumEventKeyWithAggregatesFilter<$PrismaModel> | $Enums.EventKey
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEventKeyFilter<$PrismaModel>
+    _max?: NestedEnumEventKeyFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumKidooModelFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
+  }
+
+  export type NestedEnumKidooModelWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
+    in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
+    not?: NestedEnumKidooModelWithAggregatesFilter<$PrismaModel> | $Enums.KidooModel
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumKidooModelFilter<$PrismaModel>
+    _max?: NestedEnumKidooModelFilter<$PrismaModel>
   }
 
   export type NestedEnumTagTypeNullableFilter<$PrismaModel = never> = {
@@ -20426,6 +38926,1815 @@ export namespace Prisma {
     _sum?: NestedBigIntNullableFilter<$PrismaModel>
     _min?: NestedBigIntNullableFilter<$PrismaModel>
     _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type ClipCreateWithoutCharacterInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutCharacterInput = {
+    id?: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutCharacterInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type ClipCreateManyCharacterInputEnvelope = {
+    data: ClipCreateManyCharacterInput | ClipCreateManyCharacterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmotionDeviceCreateWithoutCharacterInput = {
+    id?: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutDeviceInput
+  }
+
+  export type EmotionDeviceUncheckedCreateWithoutCharacterInput = {
+    id?: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutDeviceInput
+  }
+
+  export type EmotionDeviceCreateOrConnectWithoutCharacterInput = {
+    where: EmotionDeviceWhereUniqueInput
+    create: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type EmotionDeviceCreateManyCharacterInputEnvelope = {
+    data: EmotionDeviceCreateManyCharacterInput | EmotionDeviceCreateManyCharacterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RuleCreateWithoutCharacterInput = {
+    id?: string
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RuleUncheckedCreateWithoutCharacterInput = {
+    id?: string
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RuleCreateOrConnectWithoutCharacterInput = {
+    where: RuleWhereUniqueInput
+    create: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type RuleCreateManyCharacterInputEnvelope = {
+    data: RuleCreateManyCharacterInput | RuleCreateManyCharacterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ClipUpsertWithWhereUniqueWithoutCharacterInput = {
+    where: ClipWhereUniqueInput
+    update: XOR<ClipUpdateWithoutCharacterInput, ClipUncheckedUpdateWithoutCharacterInput>
+    create: XOR<ClipCreateWithoutCharacterInput, ClipUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type ClipUpdateWithWhereUniqueWithoutCharacterInput = {
+    where: ClipWhereUniqueInput
+    data: XOR<ClipUpdateWithoutCharacterInput, ClipUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type ClipUpdateManyWithWhereWithoutCharacterInput = {
+    where: ClipScalarWhereInput
+    data: XOR<ClipUpdateManyMutationInput, ClipUncheckedUpdateManyWithoutCharacterInput>
+  }
+
+  export type ClipScalarWhereInput = {
+    AND?: ClipScalarWhereInput | ClipScalarWhereInput[]
+    OR?: ClipScalarWhereInput[]
+    NOT?: ClipScalarWhereInput | ClipScalarWhereInput[]
+    id?: StringFilter<"Clip"> | string
+    characterId?: StringFilter<"Clip"> | string
+    emotionId?: StringFilter<"Clip"> | string
+    status?: EnumClipStatusFilter<"Clip"> | $Enums.ClipStatus
+    fileUrl?: StringNullableFilter<"Clip"> | string | null
+    sha256?: StringNullableFilter<"Clip"> | string | null
+    sizeBytes?: IntNullableFilter<"Clip"> | number | null
+    width?: IntNullableFilter<"Clip"> | number | null
+    height?: IntNullableFilter<"Clip"> | number | null
+    fps?: IntNullableFilter<"Clip"> | number | null
+    frames?: IntNullableFilter<"Clip"> | number | null
+    durationS?: FloatNullableFilter<"Clip"> | number | null
+    prompt?: StringNullableFilter<"Clip"> | string | null
+    modelName?: StringNullableFilter<"Clip"> | string | null
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    previewUrl?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    weight?: IntFilter<"Clip"> | number
+    tags?: StringNullableListFilter<"Clip">
+    createdAt?: DateTimeFilter<"Clip"> | Date | string
+    updatedAt?: DateTimeFilter<"Clip"> | Date | string
+  }
+
+  export type EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput = {
+    where: EmotionDeviceWhereUniqueInput
+    update: XOR<EmotionDeviceUpdateWithoutCharacterInput, EmotionDeviceUncheckedUpdateWithoutCharacterInput>
+    create: XOR<EmotionDeviceCreateWithoutCharacterInput, EmotionDeviceUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type EmotionDeviceUpdateWithWhereUniqueWithoutCharacterInput = {
+    where: EmotionDeviceWhereUniqueInput
+    data: XOR<EmotionDeviceUpdateWithoutCharacterInput, EmotionDeviceUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type EmotionDeviceUpdateManyWithWhereWithoutCharacterInput = {
+    where: EmotionDeviceScalarWhereInput
+    data: XOR<EmotionDeviceUpdateManyMutationInput, EmotionDeviceUncheckedUpdateManyWithoutCharacterInput>
+  }
+
+  export type EmotionDeviceScalarWhereInput = {
+    AND?: EmotionDeviceScalarWhereInput | EmotionDeviceScalarWhereInput[]
+    OR?: EmotionDeviceScalarWhereInput[]
+    NOT?: EmotionDeviceScalarWhereInput | EmotionDeviceScalarWhereInput[]
+    id?: StringFilter<"EmotionDevice"> | string
+    characterId?: StringFilter<"EmotionDevice"> | string
+    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
+    isCharging?: BoolFilter<"EmotionDevice"> | boolean
+    lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
+    createdAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionDevice"> | Date | string
+  }
+
+  export type RuleUpsertWithWhereUniqueWithoutCharacterInput = {
+    where: RuleWhereUniqueInput
+    update: XOR<RuleUpdateWithoutCharacterInput, RuleUncheckedUpdateWithoutCharacterInput>
+    create: XOR<RuleCreateWithoutCharacterInput, RuleUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type RuleUpdateWithWhereUniqueWithoutCharacterInput = {
+    where: RuleWhereUniqueInput
+    data: XOR<RuleUpdateWithoutCharacterInput, RuleUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type RuleUpdateManyWithWhereWithoutCharacterInput = {
+    where: RuleScalarWhereInput
+    data: XOR<RuleUpdateManyMutationInput, RuleUncheckedUpdateManyWithoutCharacterInput>
+  }
+
+  export type RuleScalarWhereInput = {
+    AND?: RuleScalarWhereInput | RuleScalarWhereInput[]
+    OR?: RuleScalarWhereInput[]
+    NOT?: RuleScalarWhereInput | RuleScalarWhereInput[]
+    id?: StringFilter<"Rule"> | string
+    characterId?: StringNullableFilter<"Rule"> | string | null
+    enabled?: BoolFilter<"Rule"> | boolean
+    priority?: IntFilter<"Rule"> | number
+    cooldownMs?: IntFilter<"Rule"> | number
+    eventType?: EnumEventTypeFilter<"Rule"> | $Enums.EventType
+    eventKey?: EnumEventKeyFilter<"Rule"> | $Enums.EventKey
+    conditions?: JsonNullableFilter<"Rule">
+    response?: JsonFilter<"Rule">
+    createdAt?: DateTimeFilter<"Rule"> | Date | string
+    updatedAt?: DateTimeFilter<"Rule"> | Date | string
+  }
+
+  export type ClipCreateWithoutEmotionInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutEmotionInput = {
+    id?: string
+    characterId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutEmotionInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type ClipCreateManyEmotionInputEnvelope = {
+    data: ClipCreateManyEmotionInput | ClipCreateManyEmotionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DeviceClipCacheCreateWithoutEmotionInput = {
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+    device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
+    clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
+  }
+
+  export type DeviceClipCacheUncheckedCreateWithoutEmotionInput = {
+    deviceId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheCreateOrConnectWithoutEmotionInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    create: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type DeviceClipCacheCreateManyEmotionInputEnvelope = {
+    data: DeviceClipCacheCreateManyEmotionInput | DeviceClipCacheCreateManyEmotionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmotionVideoCreateWithoutEmotionInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateWithoutEmotionInput = {
+    id?: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoCreateOrConnectWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    create: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoCreateManyEmotionInputEnvelope = {
+    data: EmotionVideoCreateManyEmotionInput | EmotionVideoCreateManyEmotionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ClipUpsertWithWhereUniqueWithoutEmotionInput = {
+    where: ClipWhereUniqueInput
+    update: XOR<ClipUpdateWithoutEmotionInput, ClipUncheckedUpdateWithoutEmotionInput>
+    create: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type ClipUpdateWithWhereUniqueWithoutEmotionInput = {
+    where: ClipWhereUniqueInput
+    data: XOR<ClipUpdateWithoutEmotionInput, ClipUncheckedUpdateWithoutEmotionInput>
+  }
+
+  export type ClipUpdateManyWithWhereWithoutEmotionInput = {
+    where: ClipScalarWhereInput
+    data: XOR<ClipUpdateManyMutationInput, ClipUncheckedUpdateManyWithoutEmotionInput>
+  }
+
+  export type DeviceClipCacheUpsertWithWhereUniqueWithoutEmotionInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    update: XOR<DeviceClipCacheUpdateWithoutEmotionInput, DeviceClipCacheUncheckedUpdateWithoutEmotionInput>
+    create: XOR<DeviceClipCacheCreateWithoutEmotionInput, DeviceClipCacheUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    data: XOR<DeviceClipCacheUpdateWithoutEmotionInput, DeviceClipCacheUncheckedUpdateWithoutEmotionInput>
+  }
+
+  export type DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput = {
+    where: DeviceClipCacheScalarWhereInput
+    data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyWithoutEmotionInput>
+  }
+
+  export type DeviceClipCacheScalarWhereInput = {
+    AND?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+    OR?: DeviceClipCacheScalarWhereInput[]
+    NOT?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+    deviceId?: StringFilter<"DeviceClipCache"> | string
+    emotionId?: StringFilter<"DeviceClipCache"> | string
+    slot?: IntFilter<"DeviceClipCache"> | number
+    clipId?: StringFilter<"DeviceClipCache"> | string
+    lastSeenAt?: DateTimeFilter<"DeviceClipCache"> | Date | string
+    lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
+  }
+
+  export type EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    update: XOR<EmotionVideoUpdateWithoutEmotionInput, EmotionVideoUncheckedUpdateWithoutEmotionInput>
+    create: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    data: XOR<EmotionVideoUpdateWithoutEmotionInput, EmotionVideoUncheckedUpdateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoUpdateManyWithWhereWithoutEmotionInput = {
+    where: EmotionVideoScalarWhereInput
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyWithoutEmotionInput>
+  }
+
+  export type EmotionVideoScalarWhereInput = {
+    AND?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+    OR?: EmotionVideoScalarWhereInput[]
+    NOT?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+    id?: StringFilter<"EmotionVideo"> | string
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+  }
+
+  export type CharacterCreateWithoutClipsInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
+    rules?: RuleCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateWithoutClipsInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
+    rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterCreateOrConnectWithoutClipsInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+  }
+
+  export type EmotionCreateWithoutClipsInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUncheckedCreateWithoutClipsInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionCreateOrConnectWithoutClipsInput = {
+    where: EmotionWhereUniqueInput
+    create: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+  }
+
+  export type ClipFaceRegionCreateWithoutClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipFaceRegionUncheckedCreateWithoutClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipFaceRegionCreateOrConnectWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionCreateManyClipInputEnvelope = {
+    data: ClipFaceRegionCreateManyClipInput | ClipFaceRegionCreateManyClipInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ClipArtifactCreateWithoutClipInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipArtifactUncheckedCreateWithoutClipInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipArtifactCreateOrConnectWithoutClipInput = {
+    where: ClipArtifactWhereUniqueInput
+    create: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipArtifactCreateManyClipInputEnvelope = {
+    data: ClipArtifactCreateManyClipInput | ClipArtifactCreateManyClipInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DeviceClipCacheCreateWithoutClipInput = {
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+    device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
+    emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
+  }
+
+  export type DeviceClipCacheUncheckedCreateWithoutClipInput = {
+    deviceId: string
+    emotionId: string
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheCreateOrConnectWithoutClipInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    create: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput>
+  }
+
+  export type DeviceClipCacheCreateManyClipInputEnvelope = {
+    data: DeviceClipCacheCreateManyClipInput | DeviceClipCacheCreateManyClipInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmotionVideoCreateWithoutSourceClipInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateWithoutSourceClipInput = {
+    id?: string
+    emotionId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoCreateOrConnectWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    create: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoCreateManySourceClipInputEnvelope = {
+    data: EmotionVideoCreateManySourceClipInput | EmotionVideoCreateManySourceClipInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CharacterUpsertWithoutClipsInput = {
+    update: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
+    create: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutClipsInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type CharacterUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type EmotionUpsertWithoutClipsInput = {
+    update: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
+    create: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+    where?: EmotionWhereInput
+  }
+
+  export type EmotionUpdateToOneWithWhereWithoutClipsInput = {
+    where?: EmotionWhereInput
+    data: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type EmotionUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    update: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
+    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    data: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionUpdateManyWithWhereWithoutClipInput = {
+    where: ClipFaceRegionScalarWhereInput
+    data: XOR<ClipFaceRegionUpdateManyMutationInput, ClipFaceRegionUncheckedUpdateManyWithoutClipInput>
+  }
+
+  export type ClipFaceRegionScalarWhereInput = {
+    AND?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+    OR?: ClipFaceRegionScalarWhereInput[]
+    NOT?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+    id?: StringFilter<"ClipFaceRegion"> | string
+    clipId?: StringFilter<"ClipFaceRegion"> | string
+    regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    x?: FloatFilter<"ClipFaceRegion"> | number
+    y?: FloatFilter<"ClipFaceRegion"> | number
+    w?: FloatFilter<"ClipFaceRegion"> | number
+    h?: FloatFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
+    createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+  }
+
+  export type ClipArtifactUpsertWithWhereUniqueWithoutClipInput = {
+    where: ClipArtifactWhereUniqueInput
+    update: XOR<ClipArtifactUpdateWithoutClipInput, ClipArtifactUncheckedUpdateWithoutClipInput>
+    create: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipArtifactUpdateWithWhereUniqueWithoutClipInput = {
+    where: ClipArtifactWhereUniqueInput
+    data: XOR<ClipArtifactUpdateWithoutClipInput, ClipArtifactUncheckedUpdateWithoutClipInput>
+  }
+
+  export type ClipArtifactUpdateManyWithWhereWithoutClipInput = {
+    where: ClipArtifactScalarWhereInput
+    data: XOR<ClipArtifactUpdateManyMutationInput, ClipArtifactUncheckedUpdateManyWithoutClipInput>
+  }
+
+  export type ClipArtifactScalarWhereInput = {
+    AND?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+    OR?: ClipArtifactScalarWhereInput[]
+    NOT?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+    id?: StringFilter<"ClipArtifact"> | string
+    clipId?: StringFilter<"ClipArtifact"> | string
+    frameIndex?: IntFilter<"ClipArtifact"> | number
+    name?: StringFilter<"ClipArtifact"> | string
+    x?: FloatFilter<"ClipArtifact"> | number
+    y?: FloatFilter<"ClipArtifact"> | number
+    w?: FloatFilter<"ClipArtifact"> | number
+    h?: FloatFilter<"ClipArtifact"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
+    createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+  }
+
+  export type DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    update: XOR<DeviceClipCacheUpdateWithoutClipInput, DeviceClipCacheUncheckedUpdateWithoutClipInput>
+    create: XOR<DeviceClipCacheCreateWithoutClipInput, DeviceClipCacheUncheckedCreateWithoutClipInput>
+  }
+
+  export type DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    data: XOR<DeviceClipCacheUpdateWithoutClipInput, DeviceClipCacheUncheckedUpdateWithoutClipInput>
+  }
+
+  export type DeviceClipCacheUpdateManyWithWhereWithoutClipInput = {
+    where: DeviceClipCacheScalarWhereInput
+    data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyWithoutClipInput>
+  }
+
+  export type EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    update: XOR<EmotionVideoUpdateWithoutSourceClipInput, EmotionVideoUncheckedUpdateWithoutSourceClipInput>
+    create: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    data: XOR<EmotionVideoUpdateWithoutSourceClipInput, EmotionVideoUncheckedUpdateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoUpdateManyWithWhereWithoutSourceClipInput = {
+    where: EmotionVideoScalarWhereInput
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyWithoutSourceClipInput>
+  }
+
+  export type ClipCreateWithoutArtifactsInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutArtifactsInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutArtifactsInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutArtifactsInput, ClipUncheckedCreateWithoutArtifactsInput>
+  }
+
+  export type ClipUpsertWithoutArtifactsInput = {
+    update: XOR<ClipUpdateWithoutArtifactsInput, ClipUncheckedUpdateWithoutArtifactsInput>
+    create: XOR<ClipCreateWithoutArtifactsInput, ClipUncheckedCreateWithoutArtifactsInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutArtifactsInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutArtifactsInput, ClipUncheckedUpdateWithoutArtifactsInput>
+  }
+
+  export type ClipUpdateWithoutArtifactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutArtifactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipCreateWithoutFaceRegionsInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutFaceRegionsInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutFaceRegionsInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutFaceRegionsInput, ClipUncheckedCreateWithoutFaceRegionsInput>
+  }
+
+  export type ClipUpsertWithoutFaceRegionsInput = {
+    update: XOR<ClipUpdateWithoutFaceRegionsInput, ClipUncheckedUpdateWithoutFaceRegionsInput>
+    create: XOR<ClipCreateWithoutFaceRegionsInput, ClipUncheckedCreateWithoutFaceRegionsInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutFaceRegionsInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutFaceRegionsInput, ClipUncheckedUpdateWithoutFaceRegionsInput>
+  }
+
+  export type ClipUpdateWithoutFaceRegionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutFaceRegionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type EmotionCreateWithoutEmotionVideosInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUncheckedCreateWithoutEmotionVideosInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionCreateOrConnectWithoutEmotionVideosInput = {
+    where: EmotionWhereUniqueInput
+    create: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+  }
+
+  export type ClipCreateWithoutEmotionVideosInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutEmotionVideosInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutEmotionVideosInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+  }
+
+  export type EmotionUpsertWithoutEmotionVideosInput = {
+    update: XOR<EmotionUpdateWithoutEmotionVideosInput, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+    create: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    where?: EmotionWhereInput
+  }
+
+  export type EmotionUpdateToOneWithWhereWithoutEmotionVideosInput = {
+    where?: EmotionWhereInput
+    data: XOR<EmotionUpdateWithoutEmotionVideosInput, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type EmotionUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type ClipUpsertWithoutEmotionVideosInput = {
+    update: XOR<ClipUpdateWithoutEmotionVideosInput, ClipUncheckedUpdateWithoutEmotionVideosInput>
+    create: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutEmotionVideosInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutEmotionVideosInput, ClipUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type ClipUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+  }
+
+  export type CharacterCreateWithoutEmotionDevicesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutCharacterInput
+    rules?: RuleCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateWithoutEmotionDevicesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
+    rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterCreateOrConnectWithoutEmotionDevicesInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+  }
+
+  export type DeviceClipCacheCreateWithoutDeviceInput = {
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+    emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
+    clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
+  }
+
+  export type DeviceClipCacheUncheckedCreateWithoutDeviceInput = {
+    emotionId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheCreateOrConnectWithoutDeviceInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    create: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput>
+  }
+
+  export type DeviceClipCacheCreateManyDeviceInputEnvelope = {
+    data: DeviceClipCacheCreateManyDeviceInput | DeviceClipCacheCreateManyDeviceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CharacterUpsertWithoutEmotionDevicesInput = {
+    update: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+    create: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+  }
+
+  export type CharacterUpdateWithoutEmotionDevicesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutEmotionDevicesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    update: XOR<DeviceClipCacheUpdateWithoutDeviceInput, DeviceClipCacheUncheckedUpdateWithoutDeviceInput>
+    create: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput>
+  }
+
+  export type DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput = {
+    where: DeviceClipCacheWhereUniqueInput
+    data: XOR<DeviceClipCacheUpdateWithoutDeviceInput, DeviceClipCacheUncheckedUpdateWithoutDeviceInput>
+  }
+
+  export type DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput = {
+    where: DeviceClipCacheScalarWhereInput
+    data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyWithoutDeviceInput>
+  }
+
+  export type EmotionDeviceCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutEmotionDevicesInput
+  }
+
+  export type EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    characterId: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionDeviceCreateOrConnectWithoutDeviceClipCachesInput = {
+    where: EmotionDeviceWhereUniqueInput
+    create: XOR<EmotionDeviceCreateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput>
+  }
+
+  export type EmotionCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUncheckedCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionCreateOrConnectWithoutDeviceClipCachesInput = {
+    where: EmotionWhereUniqueInput
+    create: XOR<EmotionCreateWithoutDeviceClipCachesInput, EmotionUncheckedCreateWithoutDeviceClipCachesInput>
+  }
+
+  export type ClipCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutDeviceClipCachesInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+  }
+
+  export type EmotionDeviceUpsertWithoutDeviceClipCachesInput = {
+    update: XOR<EmotionDeviceUpdateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedUpdateWithoutDeviceClipCachesInput>
+    create: XOR<EmotionDeviceCreateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput>
+    where?: EmotionDeviceWhereInput
+  }
+
+  export type EmotionDeviceUpdateToOneWithWhereWithoutDeviceClipCachesInput = {
+    where?: EmotionDeviceWhereInput
+    data: XOR<EmotionDeviceUpdateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type EmotionDeviceUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput
+  }
+
+  export type EmotionDeviceUncheckedUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionUpsertWithoutDeviceClipCachesInput = {
+    update: XOR<EmotionUpdateWithoutDeviceClipCachesInput, EmotionUncheckedUpdateWithoutDeviceClipCachesInput>
+    create: XOR<EmotionCreateWithoutDeviceClipCachesInput, EmotionUncheckedCreateWithoutDeviceClipCachesInput>
+    where?: EmotionWhereInput
+  }
+
+  export type EmotionUpdateToOneWithWhereWithoutDeviceClipCachesInput = {
+    where?: EmotionWhereInput
+    data: XOR<EmotionUpdateWithoutDeviceClipCachesInput, EmotionUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type EmotionUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type ClipUpsertWithoutDeviceClipCachesInput = {
+    update: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
+    create: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type ClipUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type CharacterCreateWithoutRulesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutCharacterInput
+    emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateWithoutRulesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    stylePrompt?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
+    emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterCreateOrConnectWithoutRulesInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutRulesInput, CharacterUncheckedCreateWithoutRulesInput>
+  }
+
+  export type CharacterUpsertWithoutRulesInput = {
+    update: XOR<CharacterUpdateWithoutRulesInput, CharacterUncheckedUpdateWithoutRulesInput>
+    create: XOR<CharacterCreateWithoutRulesInput, CharacterUncheckedCreateWithoutRulesInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutRulesInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutRulesInput, CharacterUncheckedUpdateWithoutRulesInput>
+  }
+
+  export type CharacterUpdateWithoutRulesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutCharacterNestedInput
+    emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutRulesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
+    emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type RfidObjectCreateWithoutObjectTypeInput = {
+    uid: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RfidObjectUncheckedCreateWithoutObjectTypeInput = {
+    uid: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RfidObjectCreateOrConnectWithoutObjectTypeInput = {
+    where: RfidObjectWhereUniqueInput
+    create: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput>
+  }
+
+  export type RfidObjectCreateManyObjectTypeInputEnvelope = {
+    data: RfidObjectCreateManyObjectTypeInput | RfidObjectCreateManyObjectTypeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RfidObjectUpsertWithWhereUniqueWithoutObjectTypeInput = {
+    where: RfidObjectWhereUniqueInput
+    update: XOR<RfidObjectUpdateWithoutObjectTypeInput, RfidObjectUncheckedUpdateWithoutObjectTypeInput>
+    create: XOR<RfidObjectCreateWithoutObjectTypeInput, RfidObjectUncheckedCreateWithoutObjectTypeInput>
+  }
+
+  export type RfidObjectUpdateWithWhereUniqueWithoutObjectTypeInput = {
+    where: RfidObjectWhereUniqueInput
+    data: XOR<RfidObjectUpdateWithoutObjectTypeInput, RfidObjectUncheckedUpdateWithoutObjectTypeInput>
+  }
+
+  export type RfidObjectUpdateManyWithWhereWithoutObjectTypeInput = {
+    where: RfidObjectScalarWhereInput
+    data: XOR<RfidObjectUpdateManyMutationInput, RfidObjectUncheckedUpdateManyWithoutObjectTypeInput>
+  }
+
+  export type RfidObjectScalarWhereInput = {
+    AND?: RfidObjectScalarWhereInput | RfidObjectScalarWhereInput[]
+    OR?: RfidObjectScalarWhereInput[]
+    NOT?: RfidObjectScalarWhereInput | RfidObjectScalarWhereInput[]
+    uid?: StringFilter<"RfidObject"> | string
+    objectTypeId?: StringFilter<"RfidObject"> | string
+    createdAt?: DateTimeFilter<"RfidObject"> | Date | string
+    updatedAt?: DateTimeFilter<"RfidObject"> | Date | string
+  }
+
+  export type ObjectTypeCreateWithoutRfidObjectsInput = {
+    id?: string
+    key: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ObjectTypeUncheckedCreateWithoutRfidObjectsInput = {
+    id?: string
+    key: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ObjectTypeCreateOrConnectWithoutRfidObjectsInput = {
+    where: ObjectTypeWhereUniqueInput
+    create: XOR<ObjectTypeCreateWithoutRfidObjectsInput, ObjectTypeUncheckedCreateWithoutRfidObjectsInput>
+  }
+
+  export type ObjectTypeUpsertWithoutRfidObjectsInput = {
+    update: XOR<ObjectTypeUpdateWithoutRfidObjectsInput, ObjectTypeUncheckedUpdateWithoutRfidObjectsInput>
+    create: XOR<ObjectTypeCreateWithoutRfidObjectsInput, ObjectTypeUncheckedCreateWithoutRfidObjectsInput>
+    where?: ObjectTypeWhereInput
+  }
+
+  export type ObjectTypeUpdateToOneWithWhereWithoutRfidObjectsInput = {
+    where?: ObjectTypeWhereInput
+    data: XOR<ObjectTypeUpdateWithoutRfidObjectsInput, ObjectTypeUncheckedUpdateWithoutRfidObjectsInput>
+  }
+
+  export type ObjectTypeUpdateWithoutRfidObjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ObjectTypeUncheckedUpdateWithoutRfidObjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -22154,6 +42463,700 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
+  }
+
+  export type ClipCreateManyCharacterInput = {
+    id?: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionDeviceCreateManyCharacterInput = {
+    id?: string
+    pubnubChannel?: string | null
+    mode?: $Enums.EmotionDeviceMode
+    isCharging?: boolean
+    lastSeenAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RuleCreateManyCharacterInput = {
+    id?: string
+    enabled?: boolean
+    priority?: number
+    cooldownMs?: number
+    eventType: $Enums.EventType
+    eventKey: $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateManyWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionDeviceUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutDeviceNestedInput
+  }
+
+  export type EmotionDeviceUncheckedUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutDeviceNestedInput
+  }
+
+  export type EmotionDeviceUncheckedUpdateManyWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
+    isCharging?: BoolFieldUpdateOperationsInput | boolean
+    lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RuleUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RuleUncheckedUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RuleUncheckedUpdateManyWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    enabled?: BoolFieldUpdateOperationsInput | boolean
+    priority?: IntFieldUpdateOperationsInput | number
+    cooldownMs?: IntFieldUpdateOperationsInput | number
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    eventKey?: EnumEventKeyFieldUpdateOperationsInput | $Enums.EventKey
+    conditions?: NullableJsonNullValueInput | InputJsonValue
+    response?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipCreateManyEmotionInput = {
+    id?: string
+    characterId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DeviceClipCacheCreateManyEmotionInput = {
+    deviceId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type EmotionVideoCreateManyEmotionInput = {
+    id?: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateManyWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeviceClipCacheUpdateWithoutEmotionInput = {
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+  }
+
+  export type DeviceClipCacheUncheckedUpdateWithoutEmotionInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutEmotionInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmotionVideoUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionCreateManyClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    frameIndex?: number
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipArtifactCreateManyClipInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DeviceClipCacheCreateManyClipInput = {
+    deviceId: string
+    emotionId: string
+    slot: number
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type EmotionVideoCreateManySourceClipInput = {
+    id?: string
+    emotionId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClipFaceRegionUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionUncheckedUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipFaceRegionUncheckedUpdateManyWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactUncheckedUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClipArtifactUncheckedUpdateManyWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeviceClipCacheUpdateWithoutClipInput = {
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+  }
+
+  export type DeviceClipCacheUncheckedUpdateWithoutClipInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutClipInput = {
+    deviceId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmotionVideoUpdateWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DeviceClipCacheCreateManyDeviceInput = {
+    emotionId: string
+    slot: number
+    clipId: string
+    lastSeenAt?: Date | string
+    lastPlayedAt?: Date | string | null
+  }
+
+  export type DeviceClipCacheUpdateWithoutDeviceInput = {
+    slot?: IntFieldUpdateOperationsInput | number
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+  }
+
+  export type DeviceClipCacheUncheckedUpdateWithoutDeviceInput = {
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DeviceClipCacheUncheckedUpdateManyWithoutDeviceInput = {
+    emotionId?: StringFieldUpdateOperationsInput | string
+    slot?: IntFieldUpdateOperationsInput | number
+    clipId?: StringFieldUpdateOperationsInput | string
+    lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RfidObjectCreateManyObjectTypeInput = {
+    uid: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RfidObjectUpdateWithoutObjectTypeInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RfidObjectUncheckedUpdateWithoutObjectTypeInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RfidObjectUncheckedUpdateManyWithoutObjectTypeInput = {
+    uid?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateManyUserInput = {

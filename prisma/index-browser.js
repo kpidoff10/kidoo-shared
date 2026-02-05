@@ -120,6 +120,150 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.CharacterScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  defaultImageUrl: 'defaultImageUrl',
+  stylePrompt: 'stylePrompt',
+  sex: 'sex',
+  personality: 'personality',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmotionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  label: 'label',
+  promptCustom: 'promptCustom',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ClipScalarFieldEnum = {
+  id: 'id',
+  characterId: 'characterId',
+  emotionId: 'emotionId',
+  status: 'status',
+  fileUrl: 'fileUrl',
+  sha256: 'sha256',
+  sizeBytes: 'sizeBytes',
+  width: 'width',
+  height: 'height',
+  fps: 'fps',
+  frames: 'frames',
+  durationS: 'durationS',
+  prompt: 'prompt',
+  modelName: 'modelName',
+  xaiJobId: 'xaiJobId',
+  previewUrl: 'previewUrl',
+  loopStartFrame: 'loopStartFrame',
+  loopEndFrame: 'loopEndFrame',
+  weight: 'weight',
+  tags: 'tags',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ClipArtifactScalarFieldEnum = {
+  id: 'id',
+  clipId: 'clipId',
+  frameIndex: 'frameIndex',
+  name: 'name',
+  x: 'x',
+  y: 'y',
+  w: 'w',
+  h: 'h',
+  cornerStyle: 'cornerStyle',
+  imageUrl: 'imageUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ClipFaceRegionScalarFieldEnum = {
+  id: 'id',
+  clipId: 'clipId',
+  regionKey: 'regionKey',
+  frameIndex: 'frameIndex',
+  x: 'x',
+  y: 'y',
+  w: 'w',
+  h: 'h',
+  cornerStyle: 'cornerStyle',
+  imageUrl: 'imageUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmotionVideoScalarFieldEnum = {
+  id: 'id',
+  emotionId: 'emotionId',
+  sourceClipId: 'sourceClipId',
+  name: 'name',
+  fps: 'fps',
+  width: 'width',
+  height: 'height',
+  introTimeline: 'introTimeline',
+  loopTimeline: 'loopTimeline',
+  exitTimeline: 'exitTimeline',
+  status: 'status',
+  binUrl: 'binUrl',
+  sha256: 'sha256',
+  sizeBytes: 'sizeBytes',
+  totalFrames: 'totalFrames',
+  durationS: 'durationS',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.EmotionDeviceScalarFieldEnum = {
+  id: 'id',
+  characterId: 'characterId',
+  pubnubChannel: 'pubnubChannel',
+  mode: 'mode',
+  isCharging: 'isCharging',
+  lastSeenAt: 'lastSeenAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DeviceClipCacheScalarFieldEnum = {
+  deviceId: 'deviceId',
+  emotionId: 'emotionId',
+  slot: 'slot',
+  clipId: 'clipId',
+  lastSeenAt: 'lastSeenAt',
+  lastPlayedAt: 'lastPlayedAt'
+};
+
+exports.Prisma.RuleScalarFieldEnum = {
+  id: 'id',
+  characterId: 'characterId',
+  enabled: 'enabled',
+  priority: 'priority',
+  cooldownMs: 'cooldownMs',
+  eventType: 'eventType',
+  eventKey: 'eventKey',
+  conditions: 'conditions',
+  response: 'response',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ObjectTypeScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.RfidObjectScalarFieldEnum = {
+  uid: 'uid',
+  objectTypeId: 'objectTypeId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
@@ -281,6 +425,15 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -290,6 +443,76 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+exports.CharacterSex = exports.$Enums.CharacterSex = {
+  FEMALE: 'FEMALE',
+  MALE: 'MALE'
+};
+
+exports.CharacterPersonality = exports.$Enums.CharacterPersonality = {
+  TIMID: 'TIMID',
+  GRUMPY: 'GRUMPY',
+  FUNNY: 'FUNNY',
+  ALWAYS_HUNGRY: 'ALWAYS_HUNGRY',
+  BASIC: 'BASIC'
+};
+
+exports.ClipStatus = exports.$Enums.ClipStatus = {
+  DRAFT: 'DRAFT',
+  GENERATING: 'GENERATING',
+  READY: 'READY',
+  FAILED: 'FAILED',
+  DISABLED: 'DISABLED'
+};
+
+exports.CornerStyle = exports.$Enums.CornerStyle = {
+  ROUNDED: 'ROUNDED',
+  SQUARE: 'SQUARE'
+};
+
+exports.FaceRegionKey = exports.$Enums.FaceRegionKey = {
+  LEFT_EYE: 'LEFT_EYE',
+  RIGHT_EYE: 'RIGHT_EYE',
+  MOUTH: 'MOUTH'
+};
+
+exports.EmotionDeviceMode = exports.$Enums.EmotionDeviceMode = {
+  NORMAL: 'NORMAL',
+  CHARGING: 'CHARGING',
+  SLEEP: 'SLEEP'
+};
+
+exports.EventType = exports.$Enums.EventType = {
+  RFID: 'RFID',
+  TEMP: 'TEMP',
+  IMU: 'IMU',
+  TOUCH: 'TOUCH',
+  POWER: 'POWER',
+  SYSTEM: 'SYSTEM'
+};
+
+exports.EventKey = exports.$Enums.EventKey = {
+  TAG_PRESENT: 'TAG_PRESENT',
+  TAG_ABSENT: 'TAG_ABSENT',
+  TEMP_READING: 'TEMP_READING',
+  TEMP_HOT: 'TEMP_HOT',
+  TEMP_COLD: 'TEMP_COLD',
+  IMU_SHAKE: 'IMU_SHAKE',
+  IMU_TILT: 'IMU_TILT',
+  TOUCH_TAP: 'TOUCH_TAP',
+  TOUCH_LONG: 'TOUCH_LONG',
+  CHARGING_STARTED: 'CHARGING_STARTED',
+  CHARGING_STOPPED: 'CHARGING_STOPPED',
+  SLEEP_ENTER: 'SLEEP_ENTER',
+  SLEEP_EXIT: 'SLEEP_EXIT',
+  CUSTOM: 'CUSTOM'
+};
+
 exports.KidooModel = exports.$Enums.KidooModel = {
   basic: 'basic',
   dream: 'dream'
@@ -302,6 +525,17 @@ exports.TagType = exports.$Enums.TagType = {
 };
 
 exports.Prisma.ModelName = {
+  Character: 'Character',
+  Emotion: 'Emotion',
+  Clip: 'Clip',
+  ClipArtifact: 'ClipArtifact',
+  ClipFaceRegion: 'ClipFaceRegion',
+  EmotionVideo: 'EmotionVideo',
+  EmotionDevice: 'EmotionDevice',
+  DeviceClipCache: 'DeviceClipCache',
+  Rule: 'Rule',
+  ObjectType: 'ObjectType',
+  RfidObject: 'RfidObject',
   User: 'User',
   Kidoo: 'Kidoo',
   Tag: 'Tag',
