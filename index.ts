@@ -24,8 +24,9 @@ export * from './kidoos/config/dream-wakeup';
 // Kidoos - Commands (temps réel)
 export * from './kidoos/commands/get-info';
 export * from './kidoos/commands/reboot';
-export * from './kidoos/commands/firmware-update';
-
-// Firmware - Modèles supportés
+export * from './kidoos/commands/firmware-update';// Firmware - Modèles supportés
 export * from './firmware/models';
 export * from './firmware/schema';
+
+// Characters (admin / TamaBotchi)
+export * from './characters/schema';
