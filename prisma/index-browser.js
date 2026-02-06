@@ -195,6 +195,27 @@ exports.Prisma.ClipFaceRegionScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.EmotionVideoScalarFieldEnum = {
+  id: 'id',
+  emotionId: 'emotionId',
+  sourceClipId: 'sourceClipId',
+  name: 'name',
+  fps: 'fps',
+  width: 'width',
+  height: 'height',
+  introTimeline: 'introTimeline',
+  loopTimeline: 'loopTimeline',
+  exitTimeline: 'exitTimeline',
+  status: 'status',
+  binUrl: 'binUrl',
+  sha256: 'sha256',
+  sizeBytes: 'sizeBytes',
+  totalFrames: 'totalFrames',
+  durationS: 'durationS',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.EmotionDeviceScalarFieldEnum = {
   id: 'id',
   characterId: 'characterId',
@@ -404,12 +425,12 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.NullableJsonNullValueInput = {
-  DbNull: Prisma.DbNull,
+exports.Prisma.JsonNullValueInput = {
   JsonNull: Prisma.JsonNull
 };
 
-exports.Prisma.JsonNullValueInput = {
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 
@@ -509,6 +530,7 @@ exports.Prisma.ModelName = {
   Clip: 'Clip',
   ClipArtifact: 'ClipArtifact',
   ClipFaceRegion: 'ClipFaceRegion',
+  EmotionVideo: 'EmotionVideo',
   EmotionDevice: 'EmotionDevice',
   DeviceClipCache: 'DeviceClipCache',
   Rule: 'Rule',

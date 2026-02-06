@@ -39,6 +39,11 @@ export type ClipArtifact = $Result.DefaultSelection<Prisma.$ClipArtifactPayload>
  */
 export type ClipFaceRegion = $Result.DefaultSelection<Prisma.$ClipFaceRegionPayload>
 /**
+ * Model EmotionVideo
+ * 
+ */
+export type EmotionVideo = $Result.DefaultSelection<Prisma.$EmotionVideoPayload>
+/**
  * Model EmotionDevice
  * 
  */
@@ -440,6 +445,16 @@ export class PrismaClient<
     * ```
     */
   get clipFaceRegion(): Prisma.ClipFaceRegionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.emotionVideo`: Exposes CRUD operations for the **EmotionVideo** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more EmotionVideos
+    * const emotionVideos = await prisma.emotionVideo.findMany()
+    * ```
+    */
+  get emotionVideo(): Prisma.EmotionVideoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.emotionDevice`: Exposes CRUD operations for the **EmotionDevice** model.
@@ -1049,6 +1064,7 @@ export namespace Prisma {
     Clip: 'Clip',
     ClipArtifact: 'ClipArtifact',
     ClipFaceRegion: 'ClipFaceRegion',
+    EmotionVideo: 'EmotionVideo',
     EmotionDevice: 'EmotionDevice',
     DeviceClipCache: 'DeviceClipCache',
     Rule: 'Rule',
@@ -1081,7 +1097,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
+      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1452,6 +1468,80 @@ export namespace Prisma {
           count: {
             args: Prisma.ClipFaceRegionCountArgs<ExtArgs>
             result: $Utils.Optional<ClipFaceRegionCountAggregateOutputType> | number
+          }
+        }
+      }
+      EmotionVideo: {
+        payload: Prisma.$EmotionVideoPayload<ExtArgs>
+        fields: Prisma.EmotionVideoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EmotionVideoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EmotionVideoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          findFirst: {
+            args: Prisma.EmotionVideoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EmotionVideoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          findMany: {
+            args: Prisma.EmotionVideoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          create: {
+            args: Prisma.EmotionVideoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          createMany: {
+            args: Prisma.EmotionVideoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EmotionVideoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          delete: {
+            args: Prisma.EmotionVideoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          update: {
+            args: Prisma.EmotionVideoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          deleteMany: {
+            args: Prisma.EmotionVideoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EmotionVideoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EmotionVideoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>[]
+          }
+          upsert: {
+            args: Prisma.EmotionVideoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmotionVideoPayload>
+          }
+          aggregate: {
+            args: Prisma.EmotionVideoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmotionVideo>
+          }
+          groupBy: {
+            args: Prisma.EmotionVideoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmotionVideoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EmotionVideoCountArgs<ExtArgs>
+            result: $Utils.Optional<EmotionVideoCountAggregateOutputType> | number
           }
         }
       }
@@ -2826,6 +2916,7 @@ export namespace Prisma {
     clip?: ClipOmit
     clipArtifact?: ClipArtifactOmit
     clipFaceRegion?: ClipFaceRegionOmit
+    emotionVideo?: EmotionVideoOmit
     emotionDevice?: EmotionDeviceOmit
     deviceClipCache?: DeviceClipCacheOmit
     rule?: RuleOmit
@@ -2974,11 +3065,13 @@ export namespace Prisma {
   export type EmotionCountOutputType = {
     clips: number
     deviceClipCaches: number
+    emotionVideos: number
   }
 
   export type EmotionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clips?: boolean | EmotionCountOutputTypeCountClipsArgs
     deviceClipCaches?: boolean | EmotionCountOutputTypeCountDeviceClipCachesArgs
+    emotionVideos?: boolean | EmotionCountOutputTypeCountEmotionVideosArgs
   }
 
   // Custom InputTypes
@@ -3006,6 +3099,13 @@ export namespace Prisma {
     where?: DeviceClipCacheWhereInput
   }
 
+  /**
+   * EmotionCountOutputType without action
+   */
+  export type EmotionCountOutputTypeCountEmotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
+  }
+
 
   /**
    * Count Type ClipCountOutputType
@@ -3015,12 +3115,14 @@ export namespace Prisma {
     faceRegions: number
     artifacts: number
     deviceClipCaches: number
+    emotionVideos: number
   }
 
   export type ClipCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     faceRegions?: boolean | ClipCountOutputTypeCountFaceRegionsArgs
     artifacts?: boolean | ClipCountOutputTypeCountArtifactsArgs
     deviceClipCaches?: boolean | ClipCountOutputTypeCountDeviceClipCachesArgs
+    emotionVideos?: boolean | ClipCountOutputTypeCountEmotionVideosArgs
   }
 
   // Custom InputTypes
@@ -3053,6 +3155,13 @@ export namespace Prisma {
    */
   export type ClipCountOutputTypeCountDeviceClipCachesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DeviceClipCacheWhereInput
+  }
+
+  /**
+   * ClipCountOutputType without action
+   */
+  export type ClipCountOutputTypeCountEmotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
   }
 
 
@@ -4630,6 +4739,7 @@ export namespace Prisma {
     updatedAt?: boolean
     clips?: boolean | Emotion$clipsArgs<ExtArgs>
     deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Emotion$emotionVideosArgs<ExtArgs>
     _count?: boolean | EmotionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotion"]>
 
@@ -4664,6 +4774,7 @@ export namespace Prisma {
   export type EmotionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clips?: boolean | Emotion$clipsArgs<ExtArgs>
     deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Emotion$emotionVideosArgs<ExtArgs>
     _count?: boolean | EmotionCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EmotionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4674,6 +4785,7 @@ export namespace Prisma {
     objects: {
       clips: Prisma.$ClipPayload<ExtArgs>[]
       deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+      emotionVideos: Prisma.$EmotionVideoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5078,6 +5190,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     clips<T extends Emotion$clipsArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$clipsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     deviceClipCaches<T extends Emotion$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emotionVideos<T extends Emotion$emotionVideosArgs<ExtArgs> = {}>(args?: Subset<T, Emotion$emotionVideosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5549,6 +5662,30 @@ export namespace Prisma {
   }
 
   /**
+   * Emotion.emotionVideos
+   */
+  export type Emotion$emotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    cursor?: EmotionVideoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
    * Emotion without action
    */
   export type EmotionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5934,6 +6071,7 @@ export namespace Prisma {
     faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
     artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
     deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
     _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clip"]>
 
@@ -6023,6 +6161,7 @@ export namespace Prisma {
     faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
     artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
     deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
+    emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
     _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClipIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6042,6 +6181,7 @@ export namespace Prisma {
       faceRegions: Prisma.$ClipFaceRegionPayload<ExtArgs>[]
       artifacts: Prisma.$ClipArtifactPayload<ExtArgs>[]
       deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+      emotionVideos: Prisma.$EmotionVideoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6465,6 +6605,7 @@ export namespace Prisma {
     faceRegions<T extends Clip$faceRegionsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$faceRegionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     artifacts<T extends Clip$artifactsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$artifactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     deviceClipCaches<T extends Clip$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, Clip$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    emotionVideos<T extends Clip$emotionVideosArgs<ExtArgs> = {}>(args?: Subset<T, Clip$emotionVideosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6981,6 +7122,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DeviceClipCacheScalarFieldEnum | DeviceClipCacheScalarFieldEnum[]
+  }
+
+  /**
+   * Clip.emotionVideos
+   */
+  export type Clip$emotionVideosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    cursor?: EmotionVideoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
   }
 
   /**
@@ -9397,6 +9562,1283 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ClipFaceRegionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model EmotionVideo
+   */
+
+  export type AggregateEmotionVideo = {
+    _count: EmotionVideoCountAggregateOutputType | null
+    _avg: EmotionVideoAvgAggregateOutputType | null
+    _sum: EmotionVideoSumAggregateOutputType | null
+    _min: EmotionVideoMinAggregateOutputType | null
+    _max: EmotionVideoMaxAggregateOutputType | null
+  }
+
+  export type EmotionVideoAvgAggregateOutputType = {
+    fps: number | null
+    width: number | null
+    height: number | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+  }
+
+  export type EmotionVideoSumAggregateOutputType = {
+    fps: number | null
+    width: number | null
+    height: number | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+  }
+
+  export type EmotionVideoMinAggregateOutputType = {
+    id: string | null
+    emotionId: string | null
+    sourceClipId: string | null
+    name: string | null
+    fps: number | null
+    width: number | null
+    height: number | null
+    status: $Enums.ClipStatus | null
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionVideoMaxAggregateOutputType = {
+    id: string | null
+    emotionId: string | null
+    sourceClipId: string | null
+    name: string | null
+    fps: number | null
+    width: number | null
+    height: number | null
+    status: $Enums.ClipStatus | null
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type EmotionVideoCountAggregateOutputType = {
+    id: number
+    emotionId: number
+    sourceClipId: number
+    name: number
+    fps: number
+    width: number
+    height: number
+    introTimeline: number
+    loopTimeline: number
+    exitTimeline: number
+    status: number
+    binUrl: number
+    sha256: number
+    sizeBytes: number
+    totalFrames: number
+    durationS: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type EmotionVideoAvgAggregateInputType = {
+    fps?: true
+    width?: true
+    height?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+  }
+
+  export type EmotionVideoSumAggregateInputType = {
+    fps?: true
+    width?: true
+    height?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+  }
+
+  export type EmotionVideoMinAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionVideoMaxAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type EmotionVideoCountAggregateInputType = {
+    id?: true
+    emotionId?: true
+    sourceClipId?: true
+    name?: true
+    fps?: true
+    width?: true
+    height?: true
+    introTimeline?: true
+    loopTimeline?: true
+    exitTimeline?: true
+    status?: true
+    binUrl?: true
+    sha256?: true
+    sizeBytes?: true
+    totalFrames?: true
+    durationS?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type EmotionVideoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionVideo to aggregate.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned EmotionVideos
+    **/
+    _count?: true | EmotionVideoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EmotionVideoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EmotionVideoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EmotionVideoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EmotionVideoMaxAggregateInputType
+  }
+
+  export type GetEmotionVideoAggregateType<T extends EmotionVideoAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmotionVideo]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEmotionVideo[P]>
+      : GetScalarType<T[P], AggregateEmotionVideo[P]>
+  }
+
+
+
+
+  export type EmotionVideoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmotionVideoWhereInput
+    orderBy?: EmotionVideoOrderByWithAggregationInput | EmotionVideoOrderByWithAggregationInput[]
+    by: EmotionVideoScalarFieldEnum[] | EmotionVideoScalarFieldEnum
+    having?: EmotionVideoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EmotionVideoCountAggregateInputType | true
+    _avg?: EmotionVideoAvgAggregateInputType
+    _sum?: EmotionVideoSumAggregateInputType
+    _min?: EmotionVideoMinAggregateInputType
+    _max?: EmotionVideoMaxAggregateInputType
+  }
+
+  export type EmotionVideoGroupByOutputType = {
+    id: string
+    emotionId: string
+    sourceClipId: string
+    name: string | null
+    fps: number
+    width: number
+    height: number
+    introTimeline: JsonValue
+    loopTimeline: JsonValue
+    exitTimeline: JsonValue
+    status: $Enums.ClipStatus
+    binUrl: string | null
+    sha256: string | null
+    sizeBytes: number | null
+    totalFrames: number | null
+    durationS: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: EmotionVideoCountAggregateOutputType | null
+    _avg: EmotionVideoAvgAggregateOutputType | null
+    _sum: EmotionVideoSumAggregateOutputType | null
+    _min: EmotionVideoMinAggregateOutputType | null
+    _max: EmotionVideoMaxAggregateOutputType | null
+  }
+
+  type GetEmotionVideoGroupByPayload<T extends EmotionVideoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EmotionVideoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EmotionVideoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EmotionVideoGroupByOutputType[P]>
+            : GetScalarType<T[P], EmotionVideoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EmotionVideoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["emotionVideo"]>
+
+  export type EmotionVideoSelectScalar = {
+    id?: boolean
+    emotionId?: boolean
+    sourceClipId?: boolean
+    name?: boolean
+    fps?: boolean
+    width?: boolean
+    height?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    exitTimeline?: boolean
+    status?: boolean
+    binUrl?: boolean
+    sha256?: boolean
+    sizeBytes?: boolean
+    totalFrames?: boolean
+    durationS?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "status" | "binUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type EmotionVideoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+  export type EmotionVideoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    emotion?: boolean | EmotionDefaultArgs<ExtArgs>
+    sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
+  }
+
+  export type $EmotionVideoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EmotionVideo"
+    objects: {
+      emotion: Prisma.$EmotionPayload<ExtArgs>
+      sourceClip: Prisma.$ClipPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      emotionId: string
+      sourceClipId: string
+      name: string | null
+      fps: number
+      width: number
+      height: number
+      introTimeline: Prisma.JsonValue
+      loopTimeline: Prisma.JsonValue
+      exitTimeline: Prisma.JsonValue
+      status: $Enums.ClipStatus
+      binUrl: string | null
+      sha256: string | null
+      sizeBytes: number | null
+      totalFrames: number | null
+      durationS: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["emotionVideo"]>
+    composites: {}
+  }
+
+  type EmotionVideoGetPayload<S extends boolean | null | undefined | EmotionVideoDefaultArgs> = $Result.GetResult<Prisma.$EmotionVideoPayload, S>
+
+  type EmotionVideoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmotionVideoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmotionVideoCountAggregateInputType | true
+    }
+
+  export interface EmotionVideoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmotionVideo'], meta: { name: 'EmotionVideo' } }
+    /**
+     * Find zero or one EmotionVideo that matches the filter.
+     * @param {EmotionVideoFindUniqueArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EmotionVideoFindUniqueArgs>(args: SelectSubset<T, EmotionVideoFindUniqueArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one EmotionVideo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EmotionVideoFindUniqueOrThrowArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EmotionVideoFindUniqueOrThrowArgs>(args: SelectSubset<T, EmotionVideoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionVideo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindFirstArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EmotionVideoFindFirstArgs>(args?: SelectSubset<T, EmotionVideoFindFirstArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first EmotionVideo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindFirstOrThrowArgs} args - Arguments to find a EmotionVideo
+     * @example
+     * // Get one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EmotionVideoFindFirstOrThrowArgs>(args?: SelectSubset<T, EmotionVideoFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more EmotionVideos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all EmotionVideos
+     * const emotionVideos = await prisma.emotionVideo.findMany()
+     * 
+     * // Get first 10 EmotionVideos
+     * const emotionVideos = await prisma.emotionVideo.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EmotionVideoFindManyArgs>(args?: SelectSubset<T, EmotionVideoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a EmotionVideo.
+     * @param {EmotionVideoCreateArgs} args - Arguments to create a EmotionVideo.
+     * @example
+     * // Create one EmotionVideo
+     * const EmotionVideo = await prisma.emotionVideo.create({
+     *   data: {
+     *     // ... data to create a EmotionVideo
+     *   }
+     * })
+     * 
+     */
+    create<T extends EmotionVideoCreateArgs>(args: SelectSubset<T, EmotionVideoCreateArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many EmotionVideos.
+     * @param {EmotionVideoCreateManyArgs} args - Arguments to create many EmotionVideos.
+     * @example
+     * // Create many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EmotionVideoCreateManyArgs>(args?: SelectSubset<T, EmotionVideoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many EmotionVideos and returns the data saved in the database.
+     * @param {EmotionVideoCreateManyAndReturnArgs} args - Arguments to create many EmotionVideos.
+     * @example
+     * // Create many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many EmotionVideos and only return the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EmotionVideoCreateManyAndReturnArgs>(args?: SelectSubset<T, EmotionVideoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a EmotionVideo.
+     * @param {EmotionVideoDeleteArgs} args - Arguments to delete one EmotionVideo.
+     * @example
+     * // Delete one EmotionVideo
+     * const EmotionVideo = await prisma.emotionVideo.delete({
+     *   where: {
+     *     // ... filter to delete one EmotionVideo
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EmotionVideoDeleteArgs>(args: SelectSubset<T, EmotionVideoDeleteArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one EmotionVideo.
+     * @param {EmotionVideoUpdateArgs} args - Arguments to update one EmotionVideo.
+     * @example
+     * // Update one EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EmotionVideoUpdateArgs>(args: SelectSubset<T, EmotionVideoUpdateArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more EmotionVideos.
+     * @param {EmotionVideoDeleteManyArgs} args - Arguments to filter EmotionVideos to delete.
+     * @example
+     * // Delete a few EmotionVideos
+     * const { count } = await prisma.emotionVideo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EmotionVideoDeleteManyArgs>(args?: SelectSubset<T, EmotionVideoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionVideos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EmotionVideoUpdateManyArgs>(args: SelectSubset<T, EmotionVideoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more EmotionVideos and returns the data updated in the database.
+     * @param {EmotionVideoUpdateManyAndReturnArgs} args - Arguments to update many EmotionVideos.
+     * @example
+     * // Update many EmotionVideos
+     * const emotionVideo = await prisma.emotionVideo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more EmotionVideos and only return the `id`
+     * const emotionVideoWithIdOnly = await prisma.emotionVideo.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EmotionVideoUpdateManyAndReturnArgs>(args: SelectSubset<T, EmotionVideoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one EmotionVideo.
+     * @param {EmotionVideoUpsertArgs} args - Arguments to update or create a EmotionVideo.
+     * @example
+     * // Update or create a EmotionVideo
+     * const emotionVideo = await prisma.emotionVideo.upsert({
+     *   create: {
+     *     // ... data to create a EmotionVideo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the EmotionVideo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EmotionVideoUpsertArgs>(args: SelectSubset<T, EmotionVideoUpsertArgs<ExtArgs>>): Prisma__EmotionVideoClient<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of EmotionVideos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoCountArgs} args - Arguments to filter EmotionVideos to count.
+     * @example
+     * // Count the number of EmotionVideos
+     * const count = await prisma.emotionVideo.count({
+     *   where: {
+     *     // ... the filter for the EmotionVideos we want to count
+     *   }
+     * })
+    **/
+    count<T extends EmotionVideoCountArgs>(
+      args?: Subset<T, EmotionVideoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EmotionVideoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a EmotionVideo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EmotionVideoAggregateArgs>(args: Subset<T, EmotionVideoAggregateArgs>): Prisma.PrismaPromise<GetEmotionVideoAggregateType<T>>
+
+    /**
+     * Group by EmotionVideo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EmotionVideoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EmotionVideoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EmotionVideoGroupByArgs['orderBy'] }
+        : { orderBy?: EmotionVideoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EmotionVideoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmotionVideoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the EmotionVideo model
+   */
+  readonly fields: EmotionVideoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for EmotionVideo.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EmotionVideoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sourceClip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the EmotionVideo model
+   */
+  interface EmotionVideoFieldRefs {
+    readonly id: FieldRef<"EmotionVideo", 'String'>
+    readonly emotionId: FieldRef<"EmotionVideo", 'String'>
+    readonly sourceClipId: FieldRef<"EmotionVideo", 'String'>
+    readonly name: FieldRef<"EmotionVideo", 'String'>
+    readonly fps: FieldRef<"EmotionVideo", 'Int'>
+    readonly width: FieldRef<"EmotionVideo", 'Int'>
+    readonly height: FieldRef<"EmotionVideo", 'Int'>
+    readonly introTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly status: FieldRef<"EmotionVideo", 'ClipStatus'>
+    readonly binUrl: FieldRef<"EmotionVideo", 'String'>
+    readonly sha256: FieldRef<"EmotionVideo", 'String'>
+    readonly sizeBytes: FieldRef<"EmotionVideo", 'Int'>
+    readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
+    readonly durationS: FieldRef<"EmotionVideo", 'Float'>
+    readonly createdAt: FieldRef<"EmotionVideo", 'DateTime'>
+    readonly updatedAt: FieldRef<"EmotionVideo", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * EmotionVideo findUnique
+   */
+  export type EmotionVideoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo findUniqueOrThrow
+   */
+  export type EmotionVideoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo findFirst
+   */
+  export type EmotionVideoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionVideos.
+     */
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo findFirstOrThrow
+   */
+  export type EmotionVideoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideo to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of EmotionVideos.
+     */
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo findMany
+   */
+  export type EmotionVideoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter, which EmotionVideos to fetch.
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of EmotionVideos to fetch.
+     */
+    orderBy?: EmotionVideoOrderByWithRelationInput | EmotionVideoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing EmotionVideos.
+     */
+    cursor?: EmotionVideoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` EmotionVideos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` EmotionVideos.
+     */
+    skip?: number
+    distinct?: EmotionVideoScalarFieldEnum | EmotionVideoScalarFieldEnum[]
+  }
+
+  /**
+   * EmotionVideo create
+   */
+  export type EmotionVideoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a EmotionVideo.
+     */
+    data: XOR<EmotionVideoCreateInput, EmotionVideoUncheckedCreateInput>
+  }
+
+  /**
+   * EmotionVideo createMany
+   */
+  export type EmotionVideoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many EmotionVideos.
+     */
+    data: EmotionVideoCreateManyInput | EmotionVideoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * EmotionVideo createManyAndReturn
+   */
+  export type EmotionVideoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * The data used to create many EmotionVideos.
+     */
+    data: EmotionVideoCreateManyInput | EmotionVideoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionVideo update
+   */
+  export type EmotionVideoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a EmotionVideo.
+     */
+    data: XOR<EmotionVideoUpdateInput, EmotionVideoUncheckedUpdateInput>
+    /**
+     * Choose, which EmotionVideo to update.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo updateMany
+   */
+  export type EmotionVideoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update EmotionVideos.
+     */
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionVideos to update
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionVideo updateManyAndReturn
+   */
+  export type EmotionVideoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * The data used to update EmotionVideos.
+     */
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyInput>
+    /**
+     * Filter which EmotionVideos to update
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * EmotionVideo upsert
+   */
+  export type EmotionVideoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the EmotionVideo to update in case it exists.
+     */
+    where: EmotionVideoWhereUniqueInput
+    /**
+     * In case the EmotionVideo found by the `where` argument doesn't exist, create a new EmotionVideo with this data.
+     */
+    create: XOR<EmotionVideoCreateInput, EmotionVideoUncheckedCreateInput>
+    /**
+     * In case the EmotionVideo was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EmotionVideoUpdateInput, EmotionVideoUncheckedUpdateInput>
+  }
+
+  /**
+   * EmotionVideo delete
+   */
+  export type EmotionVideoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
+    /**
+     * Filter which EmotionVideo to delete.
+     */
+    where: EmotionVideoWhereUniqueInput
+  }
+
+  /**
+   * EmotionVideo deleteMany
+   */
+  export type EmotionVideoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which EmotionVideos to delete
+     */
+    where?: EmotionVideoWhereInput
+    /**
+     * Limit how many EmotionVideos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * EmotionVideo without action
+   */
+  export type EmotionVideoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EmotionVideo
+     */
+    select?: EmotionVideoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EmotionVideo
+     */
+    omit?: EmotionVideoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmotionVideoInclude<ExtArgs> | null
   }
 
 
@@ -29064,6 +30506,30 @@ export namespace Prisma {
   export type ClipFaceRegionScalarFieldEnum = (typeof ClipFaceRegionScalarFieldEnum)[keyof typeof ClipFaceRegionScalarFieldEnum]
 
 
+  export const EmotionVideoScalarFieldEnum: {
+    id: 'id',
+    emotionId: 'emotionId',
+    sourceClipId: 'sourceClipId',
+    name: 'name',
+    fps: 'fps',
+    width: 'width',
+    height: 'height',
+    introTimeline: 'introTimeline',
+    loopTimeline: 'loopTimeline',
+    exitTimeline: 'exitTimeline',
+    status: 'status',
+    binUrl: 'binUrl',
+    sha256: 'sha256',
+    sizeBytes: 'sizeBytes',
+    totalFrames: 'totalFrames',
+    durationS: 'durationS',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type EmotionVideoScalarFieldEnum = (typeof EmotionVideoScalarFieldEnum)[keyof typeof EmotionVideoScalarFieldEnum]
+
+
   export const EmotionDeviceScalarFieldEnum: {
     id: 'id',
     characterId: 'characterId',
@@ -29327,19 +30793,19 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
   export const NullableJsonNullValueInput: {
     DbNull: typeof DbNull,
     JsonNull: typeof JsonNull
   };
 
   export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -29499,6 +30965,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
    * Reference to a field of type 'EmotionDeviceMode'
    */
   export type EnumEmotionDeviceModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EmotionDeviceMode'>
@@ -29544,20 +31024,6 @@ export namespace Prisma {
    * Reference to a field of type 'EventKey[]'
    */
   export type ListEnumEventKeyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EventKey[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -29694,6 +31160,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Emotion"> | Date | string
     clips?: ClipListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
   }
 
   export type EmotionOrderByWithRelationInput = {
@@ -29705,6 +31172,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     clips?: ClipOrderByRelationAggregateInput
     deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+    emotionVideos?: EmotionVideoOrderByRelationAggregateInput
   }
 
   export type EmotionWhereUniqueInput = Prisma.AtLeast<{
@@ -29719,6 +31187,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Emotion"> | Date | string
     clips?: ClipListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
   }, "id" | "key">
 
   export type EmotionOrderByWithAggregationInput = {
@@ -29776,6 +31245,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionListRelationFilter
     artifacts?: ClipArtifactListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
   }
 
   export type ClipOrderByWithRelationInput = {
@@ -29806,6 +31276,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionOrderByRelationAggregateInput
     artifacts?: ClipArtifactOrderByRelationAggregateInput
     deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+    emotionVideos?: EmotionVideoOrderByRelationAggregateInput
   }
 
   export type ClipWhereUniqueInput = Prisma.AtLeast<{
@@ -29839,6 +31310,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionListRelationFilter
     artifacts?: ClipArtifactListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    emotionVideos?: EmotionVideoListRelationFilter
   }, "id">
 
   export type ClipOrderByWithAggregationInput = {
@@ -30082,6 +31554,131 @@ export namespace Prisma {
     imageUrl?: StringNullableWithAggregatesFilter<"ClipFaceRegion"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
+  }
+
+  export type EmotionVideoWhereInput = {
+    AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    OR?: EmotionVideoWhereInput[]
+    NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    id?: StringFilter<"EmotionVideo"> | string
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }
+
+  export type EmotionVideoOrderByWithRelationInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    emotion?: EmotionOrderByWithRelationInput
+    sourceClip?: ClipOrderByWithRelationInput
+  }
+
+  export type EmotionVideoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    OR?: EmotionVideoWhereInput[]
+    NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
+    sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
+  }, "id">
+
+  export type EmotionVideoOrderByWithAggregationInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrderInput | SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrderInput | SortOrder
+    sha256?: SortOrderInput | SortOrder
+    sizeBytes?: SortOrderInput | SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    durationS?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: EmotionVideoCountOrderByAggregateInput
+    _avg?: EmotionVideoAvgOrderByAggregateInput
+    _max?: EmotionVideoMaxOrderByAggregateInput
+    _min?: EmotionVideoMinOrderByAggregateInput
+    _sum?: EmotionVideoSumOrderByAggregateInput
+  }
+
+  export type EmotionVideoScalarWhereWithAggregatesInput = {
+    AND?: EmotionVideoScalarWhereWithAggregatesInput | EmotionVideoScalarWhereWithAggregatesInput[]
+    OR?: EmotionVideoScalarWhereWithAggregatesInput[]
+    NOT?: EmotionVideoScalarWhereWithAggregatesInput | EmotionVideoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    emotionId?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    sourceClipId?: StringWithAggregatesFilter<"EmotionVideo"> | string
+    name?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    fps?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    width?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    height?: IntWithAggregatesFilter<"EmotionVideo"> | number
+    introTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    status?: EnumClipStatusWithAggregatesFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
   }
 
   export type EmotionDeviceWhereInput = {
@@ -31522,6 +33119,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clips?: ClipCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionUncheckedCreateInput = {
@@ -31533,6 +33131,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionUpdateInput = {
@@ -31544,6 +33143,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
   }
 
   export type EmotionUncheckedUpdateInput = {
@@ -31555,6 +33155,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
   }
 
   export type EmotionCreateManyInput = {
@@ -31610,6 +33211,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateInput = {
@@ -31638,6 +33240,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUpdateInput = {
@@ -31666,6 +33269,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateInput = {
@@ -31694,6 +33298,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipCreateManyInput = {
@@ -31973,6 +33578,151 @@ export namespace Prisma {
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoCreateInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
+    sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateInput = {
+    id?: string
+    emotionId: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
+    sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoCreateManyInput = {
+    id?: string
+    emotionId: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -33639,7 +35389,17 @@ export namespace Prisma {
     none?: DeviceClipCacheWhereInput
   }
 
+  export type EmotionVideoListRelationFilter = {
+    every?: EmotionVideoWhereInput
+    some?: EmotionVideoWhereInput
+    none?: EmotionVideoWhereInput
+  }
+
   export type DeviceClipCacheOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmotionVideoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -34096,6 +35856,130 @@ export namespace Prisma {
     _min?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
     _max?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type EmotionVideoCountOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    exitTimeline?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoAvgOrderByAggregateInput = {
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+  }
+
+  export type EmotionVideoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoMinOrderByAggregateInput = {
+    id?: SortOrder
+    emotionId?: SortOrder
+    sourceClipId?: SortOrder
+    name?: SortOrder
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    status?: SortOrder
+    binUrl?: SortOrder
+    sha256?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EmotionVideoSumOrderByAggregateInput = {
+    fps?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    sizeBytes?: SortOrder
+    totalFrames?: SortOrder
+    durationS?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
 
   export type EnumEmotionDeviceModeFilter<$PrismaModel = never> = {
     equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
@@ -34267,29 +36151,6 @@ export namespace Prisma {
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
-  export type JsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type CharacterNullableScalarRelationFilter = {
     is?: CharacterWhereInput | null
@@ -34388,32 +36249,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
-  }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type RfidObjectListRelationFilter = {
@@ -35396,6 +37231,13 @@ export namespace Prisma {
     connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
   }
 
+  export type EmotionVideoCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
   export type ClipUncheckedCreateNestedManyWithoutEmotionInput = {
     create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
     connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
@@ -35408,6 +37250,13 @@ export namespace Prisma {
     connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutEmotionInput | DeviceClipCacheCreateOrConnectWithoutEmotionInput[]
     createMany?: DeviceClipCacheCreateManyEmotionInputEnvelope
     connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
   }
 
   export type ClipUpdateManyWithoutEmotionNestedInput = {
@@ -35438,6 +37287,20 @@ export namespace Prisma {
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
   }
 
+  export type EmotionVideoUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput | EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput | EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutEmotionInput | EmotionVideoUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
   export type ClipUncheckedUpdateManyWithoutEmotionNestedInput = {
     create?: XOR<ClipCreateWithoutEmotionInput, ClipUncheckedCreateWithoutEmotionInput> | ClipCreateWithoutEmotionInput[] | ClipUncheckedCreateWithoutEmotionInput[]
     connectOrCreate?: ClipCreateOrConnectWithoutEmotionInput | ClipCreateOrConnectWithoutEmotionInput[]
@@ -35464,6 +37327,20 @@ export namespace Prisma {
     update?: DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput | DeviceClipCacheUpdateWithWhereUniqueWithoutEmotionInput[]
     updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput | DeviceClipCacheUpdateManyWithWhereWithoutEmotionInput[]
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput> | EmotionVideoCreateWithoutEmotionInput[] | EmotionVideoUncheckedCreateWithoutEmotionInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutEmotionInput | EmotionVideoCreateOrConnectWithoutEmotionInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput | EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput[]
+    createMany?: EmotionVideoCreateManyEmotionInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput | EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutEmotionInput | EmotionVideoUpdateManyWithWhereWithoutEmotionInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
   }
 
   export type ClipCreatetagsInput = {
@@ -35503,6 +37380,13 @@ export namespace Prisma {
     connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
   }
 
+  export type EmotionVideoCreateNestedManyWithoutSourceClipInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+  }
+
   export type ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput = {
     create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
     connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
@@ -35522,6 +37406,13 @@ export namespace Prisma {
     connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutClipInput | DeviceClipCacheCreateOrConnectWithoutClipInput[]
     createMany?: DeviceClipCacheCreateManyClipInputEnvelope
     connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
   }
 
   export type EnumClipStatusFieldUpdateOperationsInput = {
@@ -35615,6 +37506,20 @@ export namespace Prisma {
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
   }
 
+  export type EmotionVideoUpdateManyWithoutSourceClipNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutSourceClipInput | EmotionVideoUpdateManyWithWhereWithoutSourceClipInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+  }
+
   export type ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput = {
     create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
     connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
@@ -35655,6 +37560,20 @@ export namespace Prisma {
     update?: DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput | DeviceClipCacheUpdateWithWhereUniqueWithoutClipInput[]
     updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutClipInput | DeviceClipCacheUpdateManyWithWhereWithoutClipInput[]
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput = {
+    create?: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput> | EmotionVideoCreateWithoutSourceClipInput[] | EmotionVideoUncheckedCreateWithoutSourceClipInput[]
+    connectOrCreate?: EmotionVideoCreateOrConnectWithoutSourceClipInput | EmotionVideoCreateOrConnectWithoutSourceClipInput[]
+    upsert?: EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput[]
+    createMany?: EmotionVideoCreateManySourceClipInputEnvelope
+    set?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    disconnect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    delete?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
+    update?: EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput | EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput[]
+    updateMany?: EmotionVideoUpdateManyWithWhereWithoutSourceClipInput | EmotionVideoUpdateManyWithWhereWithoutSourceClipInput[]
+    deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
   }
 
   export type ClipCreateNestedOneWithoutArtifactsInput = {
@@ -35699,6 +37618,34 @@ export namespace Prisma {
     upsert?: ClipUpsertWithoutFaceRegionsInput
     connect?: ClipWhereUniqueInput
     update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutFaceRegionsInput, ClipUpdateWithoutFaceRegionsInput>, ClipUncheckedUpdateWithoutFaceRegionsInput>
+  }
+
+  export type EmotionCreateNestedOneWithoutEmotionVideosInput = {
+    create?: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutEmotionVideosInput
+    connect?: EmotionWhereUniqueInput
+  }
+
+  export type ClipCreateNestedOneWithoutEmotionVideosInput = {
+    create?: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionVideosInput
+    connect?: ClipWhereUniqueInput
+  }
+
+  export type EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput = {
+    create?: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutEmotionVideosInput
+    upsert?: EmotionUpsertWithoutEmotionVideosInput
+    connect?: EmotionWhereUniqueInput
+    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutEmotionVideosInput, EmotionUpdateWithoutEmotionVideosInput>, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type ClipUpdateOneRequiredWithoutEmotionVideosNestedInput = {
+    create?: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutEmotionVideosInput
+    upsert?: ClipUpsertWithoutEmotionVideosInput
+    connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutEmotionVideosInput, ClipUpdateWithoutEmotionVideosInput>, ClipUncheckedUpdateWithoutEmotionVideosInput>
   }
 
   export type CharacterCreateNestedOneWithoutEmotionDevicesInput = {
@@ -36784,6 +38731,29 @@ export namespace Prisma {
     _min?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
     _max?: NestedEnumFaceRegionKeyFilter<$PrismaModel>
   }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type NestedEnumEmotionDeviceModeFilter<$PrismaModel = never> = {
     equals?: $Enums.EmotionDeviceMode | EnumEmotionDeviceModeFieldRefInput<$PrismaModel>
@@ -36896,29 +38866,6 @@ export namespace Prisma {
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
-  export type NestedJsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedEnumKidooModelFilter<$PrismaModel = never> = {
     equals?: $Enums.KidooModel | EnumKidooModelFieldRefInput<$PrismaModel>
@@ -37006,6 +38953,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateWithoutCharacterInput = {
@@ -37033,6 +38981,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipCreateOrConnectWithoutCharacterInput = {
@@ -37245,6 +39194,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateWithoutEmotionInput = {
@@ -37272,6 +39222,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipCreateOrConnectWithoutEmotionInput = {
@@ -37307,6 +39258,56 @@ export namespace Prisma {
 
   export type DeviceClipCacheCreateManyEmotionInputEnvelope = {
     data: DeviceClipCacheCreateManyEmotionInput | DeviceClipCacheCreateManyEmotionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmotionVideoCreateWithoutEmotionInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateWithoutEmotionInput = {
+    id?: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoCreateOrConnectWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    create: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoCreateManyEmotionInputEnvelope = {
+    data: EmotionVideoCreateManyEmotionInput | EmotionVideoCreateManyEmotionInput[]
     skipDuplicates?: boolean
   }
 
@@ -37354,6 +39355,46 @@ export namespace Prisma {
     lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
   }
 
+  export type EmotionVideoUpsertWithWhereUniqueWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    update: XOR<EmotionVideoUpdateWithoutEmotionInput, EmotionVideoUncheckedUpdateWithoutEmotionInput>
+    create: XOR<EmotionVideoCreateWithoutEmotionInput, EmotionVideoUncheckedCreateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoUpdateWithWhereUniqueWithoutEmotionInput = {
+    where: EmotionVideoWhereUniqueInput
+    data: XOR<EmotionVideoUpdateWithoutEmotionInput, EmotionVideoUncheckedUpdateWithoutEmotionInput>
+  }
+
+  export type EmotionVideoUpdateManyWithWhereWithoutEmotionInput = {
+    where: EmotionVideoScalarWhereInput
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyWithoutEmotionInput>
+  }
+
+  export type EmotionVideoScalarWhereInput = {
+    AND?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+    OR?: EmotionVideoScalarWhereInput[]
+    NOT?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
+    id?: StringFilter<"EmotionVideo"> | string
+    emotionId?: StringFilter<"EmotionVideo"> | string
+    sourceClipId?: StringFilter<"EmotionVideo"> | string
+    name?: StringNullableFilter<"EmotionVideo"> | string | null
+    fps?: IntFilter<"EmotionVideo"> | number
+    width?: IntFilter<"EmotionVideo"> | number
+    height?: IntFilter<"EmotionVideo"> | number
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
+    binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    sha256?: StringNullableFilter<"EmotionVideo"> | string | null
+    sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
+    createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+  }
+
   export type CharacterCreateWithoutClipsInput = {
     id?: string
     name?: string | null
@@ -37393,6 +39434,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionUncheckedCreateWithoutClipsInput = {
@@ -37403,6 +39445,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionCreateOrConnectWithoutClipsInput = {
@@ -37512,6 +39555,56 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EmotionVideoCreateWithoutSourceClipInput = {
+    id?: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
+  }
+
+  export type EmotionVideoUncheckedCreateWithoutSourceClipInput = {
+    id?: string
+    emotionId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type EmotionVideoCreateOrConnectWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    create: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoCreateManySourceClipInputEnvelope = {
+    data: EmotionVideoCreateManySourceClipInput | EmotionVideoCreateManySourceClipInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CharacterUpsertWithoutClipsInput = {
     update: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
     create: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
@@ -37568,6 +39661,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
   }
 
   export type EmotionUncheckedUpdateWithoutClipsInput = {
@@ -37578,6 +39672,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
   }
 
   export type ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput = {
@@ -37664,6 +39759,22 @@ export namespace Prisma {
     data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyWithoutClipInput>
   }
 
+  export type EmotionVideoUpsertWithWhereUniqueWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    update: XOR<EmotionVideoUpdateWithoutSourceClipInput, EmotionVideoUncheckedUpdateWithoutSourceClipInput>
+    create: XOR<EmotionVideoCreateWithoutSourceClipInput, EmotionVideoUncheckedCreateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoUpdateWithWhereUniqueWithoutSourceClipInput = {
+    where: EmotionVideoWhereUniqueInput
+    data: XOR<EmotionVideoUpdateWithoutSourceClipInput, EmotionVideoUncheckedUpdateWithoutSourceClipInput>
+  }
+
+  export type EmotionVideoUpdateManyWithWhereWithoutSourceClipInput = {
+    where: EmotionVideoScalarWhereInput
+    data: XOR<EmotionVideoUpdateManyMutationInput, EmotionVideoUncheckedUpdateManyWithoutSourceClipInput>
+  }
+
   export type ClipCreateWithoutArtifactsInput = {
     id?: string
     status?: $Enums.ClipStatus
@@ -37689,6 +39800,7 @@ export namespace Prisma {
     emotion: EmotionCreateNestedOneWithoutClipsInput
     faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateWithoutArtifactsInput = {
@@ -37716,6 +39828,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipCreateOrConnectWithoutArtifactsInput = {
@@ -37759,6 +39872,7 @@ export namespace Prisma {
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
     faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateWithoutArtifactsInput = {
@@ -37786,6 +39900,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipCreateWithoutFaceRegionsInput = {
@@ -37813,6 +39928,7 @@ export namespace Prisma {
     emotion: EmotionCreateNestedOneWithoutClipsInput
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateWithoutFaceRegionsInput = {
@@ -37840,6 +39956,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipCreateOrConnectWithoutFaceRegionsInput = {
@@ -37883,6 +40000,7 @@ export namespace Prisma {
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateWithoutFaceRegionsInput = {
@@ -37908,6 +40026,195 @@ export namespace Prisma {
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type EmotionCreateWithoutEmotionVideosInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionUncheckedCreateWithoutEmotionVideosInput = {
+    id?: string
+    key: string
+    label: string
+    promptCustom?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
+  }
+
+  export type EmotionCreateOrConnectWithoutEmotionVideosInput = {
+    where: EmotionWhereUniqueInput
+    create: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+  }
+
+  export type ClipCreateWithoutEmotionVideosInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutEmotionVideosInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    xaiJobId?: string | null
+    previewUrl?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutEmotionVideosInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+  }
+
+  export type EmotionUpsertWithoutEmotionVideosInput = {
+    update: XOR<EmotionUpdateWithoutEmotionVideosInput, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+    create: XOR<EmotionCreateWithoutEmotionVideosInput, EmotionUncheckedCreateWithoutEmotionVideosInput>
+    where?: EmotionWhereInput
+  }
+
+  export type EmotionUpdateToOneWithWhereWithoutEmotionVideosInput = {
+    where?: EmotionWhereInput
+    data: XOR<EmotionUpdateWithoutEmotionVideosInput, EmotionUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type EmotionUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type ClipUpsertWithoutEmotionVideosInput = {
+    update: XOR<ClipUpdateWithoutEmotionVideosInput, ClipUncheckedUpdateWithoutEmotionVideosInput>
+    create: XOR<ClipCreateWithoutEmotionVideosInput, ClipUncheckedCreateWithoutEmotionVideosInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutEmotionVideosInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutEmotionVideosInput, ClipUncheckedUpdateWithoutEmotionVideosInput>
+  }
+
+  export type ClipUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutEmotionVideosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
   }
@@ -38057,6 +40364,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionUncheckedCreateWithoutDeviceClipCachesInput = {
@@ -38067,6 +40375,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
   }
 
   export type EmotionCreateOrConnectWithoutDeviceClipCachesInput = {
@@ -38099,6 +40408,7 @@ export namespace Prisma {
     emotion: EmotionCreateNestedOneWithoutClipsInput
     faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipUncheckedCreateWithoutDeviceClipCachesInput = {
@@ -38126,6 +40436,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
 
   export type ClipCreateOrConnectWithoutDeviceClipCachesInput = {
@@ -38185,6 +40496,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
   }
 
   export type EmotionUncheckedUpdateWithoutDeviceClipCachesInput = {
@@ -38195,6 +40507,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
   }
 
   export type ClipUpsertWithoutDeviceClipCachesInput = {
@@ -38233,6 +40546,7 @@ export namespace Prisma {
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
     faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateWithoutDeviceClipCachesInput = {
@@ -38260,6 +40574,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type CharacterCreateWithoutRulesInput = {
@@ -40222,6 +42537,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateWithoutCharacterInput = {
@@ -40249,6 +42565,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateManyWithoutCharacterInput = {
@@ -40378,6 +42695,26 @@ export namespace Prisma {
     lastPlayedAt?: Date | string | null
   }
 
+  export type EmotionVideoCreateManyEmotionInput = {
+    id?: string
+    sourceClipId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type ClipUpdateWithoutEmotionInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
@@ -40403,6 +42740,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateWithoutEmotionInput = {
@@ -40430,6 +42768,7 @@ export namespace Prisma {
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type ClipUncheckedUpdateManyWithoutEmotionInput = {
@@ -40480,6 +42819,66 @@ export namespace Prisma {
     lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type EmotionVideoUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutEmotionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sourceClipId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type ClipFaceRegionCreateManyClipInput = {
     id?: string
     regionKey: $Enums.FaceRegionKey
@@ -40514,6 +42913,26 @@ export namespace Prisma {
     slot: number
     lastSeenAt?: Date | string
     lastPlayedAt?: Date | string | null
+  }
+
+  export type EmotionVideoCreateManySourceClipInput = {
+    id?: string
+    emotionId: string
+    name?: string | null
+    fps?: number
+    width?: number
+    height?: number
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    status?: $Enums.ClipStatus
+    binUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    totalFrames?: number | null
+    durationS?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ClipFaceRegionUpdateWithoutClipInput = {
@@ -40622,6 +43041,66 @@ export namespace Prisma {
     slot?: IntFieldUpdateOperationsInput | number
     lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmotionVideoUpdateWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
+  }
+
+  export type EmotionVideoUncheckedUpdateWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EmotionVideoUncheckedUpdateManyWithoutSourceClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    fps?: IntFieldUpdateOperationsInput | number
+    width?: IntFieldUpdateOperationsInput | number
+    height?: IntFieldUpdateOperationsInput | number
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DeviceClipCacheCreateManyDeviceInput = {
