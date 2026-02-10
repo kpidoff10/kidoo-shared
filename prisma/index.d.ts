@@ -3406,8 +3406,20 @@ export namespace Prisma {
 
   export type AggregateCharacter = {
     _count: CharacterCountAggregateOutputType | null
+    _avg: CharacterAvgAggregateOutputType | null
+    _sum: CharacterSumAggregateOutputType | null
     _min: CharacterMinAggregateOutputType | null
     _max: CharacterMaxAggregateOutputType | null
+  }
+
+  export type CharacterAvgAggregateOutputType = {
+    imageWidth: number | null
+    imageHeight: number | null
+  }
+
+  export type CharacterSumAggregateOutputType = {
+    imageWidth: number | null
+    imageHeight: number | null
   }
 
   export type CharacterMinAggregateOutputType = {
@@ -3415,8 +3427,11 @@ export namespace Prisma {
     name: string | null
     defaultImageUrl: string | null
     stylePrompt: string | null
+    characterContext: string | null
     sex: $Enums.CharacterSex | null
     personality: $Enums.CharacterPersonality | null
+    imageWidth: number | null
+    imageHeight: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3426,8 +3441,11 @@ export namespace Prisma {
     name: string | null
     defaultImageUrl: string | null
     stylePrompt: string | null
+    characterContext: string | null
     sex: $Enums.CharacterSex | null
     personality: $Enums.CharacterPersonality | null
+    imageWidth: number | null
+    imageHeight: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3437,21 +3455,37 @@ export namespace Prisma {
     name: number
     defaultImageUrl: number
     stylePrompt: number
+    characterContext: number
     sex: number
     personality: number
+    imageWidth: number
+    imageHeight: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
+  export type CharacterAvgAggregateInputType = {
+    imageWidth?: true
+    imageHeight?: true
+  }
+
+  export type CharacterSumAggregateInputType = {
+    imageWidth?: true
+    imageHeight?: true
+  }
+
   export type CharacterMinAggregateInputType = {
     id?: true
     name?: true
     defaultImageUrl?: true
     stylePrompt?: true
+    characterContext?: true
     sex?: true
     personality?: true
+    imageWidth?: true
+    imageHeight?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3461,8 +3495,11 @@ export namespace Prisma {
     name?: true
     defaultImageUrl?: true
     stylePrompt?: true
+    characterContext?: true
     sex?: true
     personality?: true
+    imageWidth?: true
+    imageHeight?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3472,8 +3509,11 @@ export namespace Prisma {
     name?: true
     defaultImageUrl?: true
     stylePrompt?: true
+    characterContext?: true
     sex?: true
     personality?: true
+    imageWidth?: true
+    imageHeight?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3517,6 +3557,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: CharacterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CharacterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: CharacterMinAggregateInputType
@@ -3547,6 +3599,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CharacterCountAggregateInputType | true
+    _avg?: CharacterAvgAggregateInputType
+    _sum?: CharacterSumAggregateInputType
     _min?: CharacterMinAggregateInputType
     _max?: CharacterMaxAggregateInputType
   }
@@ -3556,11 +3610,16 @@ export namespace Prisma {
     name: string | null
     defaultImageUrl: string | null
     stylePrompt: string | null
+    characterContext: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth: number
+    imageHeight: number
     createdAt: Date
     updatedAt: Date
     _count: CharacterCountAggregateOutputType | null
+    _avg: CharacterAvgAggregateOutputType | null
+    _sum: CharacterSumAggregateOutputType | null
     _min: CharacterMinAggregateOutputType | null
     _max: CharacterMaxAggregateOutputType | null
   }
@@ -3584,8 +3643,11 @@ export namespace Prisma {
     name?: boolean
     defaultImageUrl?: boolean
     stylePrompt?: boolean
+    characterContext?: boolean
     sex?: boolean
     personality?: boolean
+    imageWidth?: boolean
+    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     clips?: boolean | Character$clipsArgs<ExtArgs>
@@ -3599,8 +3661,11 @@ export namespace Prisma {
     name?: boolean
     defaultImageUrl?: boolean
     stylePrompt?: boolean
+    characterContext?: boolean
     sex?: boolean
     personality?: boolean
+    imageWidth?: boolean
+    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["character"]>
@@ -3610,8 +3675,11 @@ export namespace Prisma {
     name?: boolean
     defaultImageUrl?: boolean
     stylePrompt?: boolean
+    characterContext?: boolean
     sex?: boolean
     personality?: boolean
+    imageWidth?: boolean
+    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["character"]>
@@ -3621,13 +3689,16 @@ export namespace Prisma {
     name?: boolean
     defaultImageUrl?: boolean
     stylePrompt?: boolean
+    characterContext?: boolean
     sex?: boolean
     personality?: boolean
+    imageWidth?: boolean
+    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "defaultImageUrl" | "stylePrompt" | "sex" | "personality" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "defaultImageUrl" | "stylePrompt" | "characterContext" | "sex" | "personality" | "imageWidth" | "imageHeight" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
   export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clips?: boolean | Character$clipsArgs<ExtArgs>
     emotionDevices?: boolean | Character$emotionDevicesArgs<ExtArgs>
@@ -3649,8 +3720,11 @@ export namespace Prisma {
       name: string | null
       defaultImageUrl: string | null
       stylePrompt: string | null
+      characterContext: string | null
       sex: $Enums.CharacterSex
       personality: $Enums.CharacterPersonality
+      imageWidth: number
+      imageHeight: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["character"]>
@@ -4083,8 +4157,11 @@ export namespace Prisma {
     readonly name: FieldRef<"Character", 'String'>
     readonly defaultImageUrl: FieldRef<"Character", 'String'>
     readonly stylePrompt: FieldRef<"Character", 'String'>
+    readonly characterContext: FieldRef<"Character", 'String'>
     readonly sex: FieldRef<"Character", 'CharacterSex'>
     readonly personality: FieldRef<"Character", 'CharacterPersonality'>
+    readonly imageWidth: FieldRef<"Character", 'Int'>
+    readonly imageHeight: FieldRef<"Character", 'Int'>
     readonly createdAt: FieldRef<"Character", 'DateTime'>
     readonly updatedAt: FieldRef<"Character", 'DateTime'>
   }
@@ -5754,9 +5831,11 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
+    variantPrompt: string | null
     modelName: string | null
     xaiJobId: string | null
     previewUrl: string | null
+    workingPreviewUrl: string | null
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
@@ -5778,9 +5857,11 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
+    variantPrompt: string | null
     modelName: string | null
     xaiJobId: string | null
     previewUrl: string | null
+    workingPreviewUrl: string | null
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
@@ -5802,9 +5883,11 @@ export namespace Prisma {
     frames: number
     durationS: number
     prompt: number
+    variantPrompt: number
     modelName: number
     xaiJobId: number
     previewUrl: number
+    workingPreviewUrl: number
     loopStartFrame: number
     loopEndFrame: number
     weight: number
@@ -5853,9 +5936,11 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
+    variantPrompt?: true
     modelName?: true
     xaiJobId?: true
     previewUrl?: true
+    workingPreviewUrl?: true
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
@@ -5877,9 +5962,11 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
+    variantPrompt?: true
     modelName?: true
     xaiJobId?: true
     previewUrl?: true
+    workingPreviewUrl?: true
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
@@ -5901,9 +5988,11 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
+    variantPrompt?: true
     modelName?: true
     xaiJobId?: true
     previewUrl?: true
+    workingPreviewUrl?: true
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
@@ -6013,9 +6102,11 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
+    variantPrompt: string | null
     modelName: string | null
     xaiJobId: string | null
     previewUrl: string | null
+    workingPreviewUrl: string | null
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number
@@ -6057,9 +6148,11 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
+    variantPrompt?: boolean
     modelName?: boolean
     xaiJobId?: boolean
     previewUrl?: boolean
+    workingPreviewUrl?: boolean
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
@@ -6089,9 +6182,11 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
+    variantPrompt?: boolean
     modelName?: boolean
     xaiJobId?: boolean
     previewUrl?: boolean
+    workingPreviewUrl?: boolean
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
@@ -6116,9 +6211,11 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
+    variantPrompt?: boolean
     modelName?: boolean
     xaiJobId?: boolean
     previewUrl?: boolean
+    workingPreviewUrl?: boolean
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
@@ -6143,9 +6240,11 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
+    variantPrompt?: boolean
     modelName?: boolean
     xaiJobId?: boolean
     previewUrl?: boolean
+    workingPreviewUrl?: boolean
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
@@ -6154,7 +6253,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "modelName" | "xaiJobId" | "previewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
+  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
   export type ClipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
@@ -6197,9 +6296,11 @@ export namespace Prisma {
       frames: number | null
       durationS: number | null
       prompt: string | null
+      variantPrompt: string | null
       modelName: string | null
       xaiJobId: string | null
       previewUrl: string | null
+      workingPreviewUrl: string | null
       loopStartFrame: number | null
       loopEndFrame: number | null
       weight: number
@@ -6648,9 +6749,11 @@ export namespace Prisma {
     readonly frames: FieldRef<"Clip", 'Int'>
     readonly durationS: FieldRef<"Clip", 'Float'>
     readonly prompt: FieldRef<"Clip", 'String'>
+    readonly variantPrompt: FieldRef<"Clip", 'String'>
     readonly modelName: FieldRef<"Clip", 'String'>
     readonly xaiJobId: FieldRef<"Clip", 'String'>
     readonly previewUrl: FieldRef<"Clip", 'String'>
+    readonly workingPreviewUrl: FieldRef<"Clip", 'String'>
     readonly loopStartFrame: FieldRef<"Clip", 'Int'>
     readonly loopEndFrame: FieldRef<"Clip", 'Int'>
     readonly weight: FieldRef<"Clip", 'Int'>
@@ -9605,6 +9708,7 @@ export namespace Prisma {
     height: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
+    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
     totalFrames: number | null
@@ -9623,6 +9727,7 @@ export namespace Prisma {
     height: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
+    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
     totalFrames: number | null
@@ -9644,6 +9749,7 @@ export namespace Prisma {
     exitTimeline: number
     status: number
     binUrl: number
+    idxUrl: number
     sha256: number
     sizeBytes: number
     totalFrames: number
@@ -9682,6 +9788,7 @@ export namespace Prisma {
     height?: true
     status?: true
     binUrl?: true
+    idxUrl?: true
     sha256?: true
     sizeBytes?: true
     totalFrames?: true
@@ -9700,6 +9807,7 @@ export namespace Prisma {
     height?: true
     status?: true
     binUrl?: true
+    idxUrl?: true
     sha256?: true
     sizeBytes?: true
     totalFrames?: true
@@ -9721,6 +9829,7 @@ export namespace Prisma {
     exitTimeline?: true
     status?: true
     binUrl?: true
+    idxUrl?: true
     sha256?: true
     sizeBytes?: true
     totalFrames?: true
@@ -9829,6 +9938,7 @@ export namespace Prisma {
     exitTimeline: JsonValue
     status: $Enums.ClipStatus
     binUrl: string | null
+    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
     totalFrames: number | null
@@ -9869,6 +9979,7 @@ export namespace Prisma {
     exitTimeline?: boolean
     status?: boolean
     binUrl?: boolean
+    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
     totalFrames?: boolean
@@ -9892,6 +10003,7 @@ export namespace Prisma {
     exitTimeline?: boolean
     status?: boolean
     binUrl?: boolean
+    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
     totalFrames?: boolean
@@ -9915,6 +10027,7 @@ export namespace Prisma {
     exitTimeline?: boolean
     status?: boolean
     binUrl?: boolean
+    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
     totalFrames?: boolean
@@ -9938,6 +10051,7 @@ export namespace Prisma {
     exitTimeline?: boolean
     status?: boolean
     binUrl?: boolean
+    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
     totalFrames?: boolean
@@ -9946,7 +10060,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "status" | "binUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "status" | "binUrl" | "idxUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
   export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
@@ -9979,6 +10093,7 @@ export namespace Prisma {
       exitTimeline: Prisma.JsonValue
       status: $Enums.ClipStatus
       binUrl: string | null
+      idxUrl: string | null
       sha256: string | null
       sizeBytes: number | null
       totalFrames: number | null
@@ -10422,6 +10537,7 @@ export namespace Prisma {
     readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
     readonly status: FieldRef<"EmotionVideo", 'ClipStatus'>
     readonly binUrl: FieldRef<"EmotionVideo", 'String'>
+    readonly idxUrl: FieldRef<"EmotionVideo", 'String'>
     readonly sha256: FieldRef<"EmotionVideo", 'String'>
     readonly sizeBytes: FieldRef<"EmotionVideo", 'Int'>
     readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
@@ -30421,8 +30537,11 @@ export namespace Prisma {
     name: 'name',
     defaultImageUrl: 'defaultImageUrl',
     stylePrompt: 'stylePrompt',
+    characterContext: 'characterContext',
     sex: 'sex',
     personality: 'personality',
+    imageWidth: 'imageWidth',
+    imageHeight: 'imageHeight',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -30456,9 +30575,11 @@ export namespace Prisma {
     frames: 'frames',
     durationS: 'durationS',
     prompt: 'prompt',
+    variantPrompt: 'variantPrompt',
     modelName: 'modelName',
     xaiJobId: 'xaiJobId',
     previewUrl: 'previewUrl',
+    workingPreviewUrl: 'workingPreviewUrl',
     loopStartFrame: 'loopStartFrame',
     loopEndFrame: 'loopEndFrame',
     weight: 'weight',
@@ -30519,6 +30640,7 @@ export namespace Prisma {
     exitTimeline: 'exitTimeline',
     status: 'status',
     binUrl: 'binUrl',
+    idxUrl: 'idxUrl',
     sha256: 'sha256',
     sizeBytes: 'sizeBytes',
     totalFrames: 'totalFrames',
@@ -30881,6 +31003,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -30905,20 +31041,6 @@ export namespace Prisma {
    * Reference to a field of type 'ClipStatus[]'
    */
   export type ListEnumClipStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ClipStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -31080,8 +31202,11 @@ export namespace Prisma {
     name?: StringNullableFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableFilter<"Character"> | string | null
     stylePrompt?: StringNullableFilter<"Character"> | string | null
+    characterContext?: StringNullableFilter<"Character"> | string | null
     sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
+    imageWidth?: IntFilter<"Character"> | number
+    imageHeight?: IntFilter<"Character"> | number
     createdAt?: DateTimeFilter<"Character"> | Date | string
     updatedAt?: DateTimeFilter<"Character"> | Date | string
     clips?: ClipListRelationFilter
@@ -31094,8 +31219,11 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     defaultImageUrl?: SortOrderInput | SortOrder
     stylePrompt?: SortOrderInput | SortOrder
+    characterContext?: SortOrderInput | SortOrder
     sex?: SortOrder
     personality?: SortOrder
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     clips?: ClipOrderByRelationAggregateInput
@@ -31111,8 +31239,11 @@ export namespace Prisma {
     name?: StringNullableFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableFilter<"Character"> | string | null
     stylePrompt?: StringNullableFilter<"Character"> | string | null
+    characterContext?: StringNullableFilter<"Character"> | string | null
     sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
+    imageWidth?: IntFilter<"Character"> | number
+    imageHeight?: IntFilter<"Character"> | number
     createdAt?: DateTimeFilter<"Character"> | Date | string
     updatedAt?: DateTimeFilter<"Character"> | Date | string
     clips?: ClipListRelationFilter
@@ -31125,13 +31256,18 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     defaultImageUrl?: SortOrderInput | SortOrder
     stylePrompt?: SortOrderInput | SortOrder
+    characterContext?: SortOrderInput | SortOrder
     sex?: SortOrder
     personality?: SortOrder
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: CharacterCountOrderByAggregateInput
+    _avg?: CharacterAvgOrderByAggregateInput
     _max?: CharacterMaxOrderByAggregateInput
     _min?: CharacterMinOrderByAggregateInput
+    _sum?: CharacterSumOrderByAggregateInput
   }
 
   export type CharacterScalarWhereWithAggregatesInput = {
@@ -31142,8 +31278,11 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableWithAggregatesFilter<"Character"> | string | null
     stylePrompt?: StringNullableWithAggregatesFilter<"Character"> | string | null
+    characterContext?: StringNullableWithAggregatesFilter<"Character"> | string | null
     sex?: EnumCharacterSexWithAggregatesFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityWithAggregatesFilter<"Character"> | $Enums.CharacterPersonality
+    imageWidth?: IntWithAggregatesFilter<"Character"> | number
+    imageHeight?: IntWithAggregatesFilter<"Character"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
   }
@@ -31231,9 +31370,11 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
     xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
@@ -31262,9 +31403,11 @@ export namespace Prisma {
     frames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     prompt?: SortOrderInput | SortOrder
+    variantPrompt?: SortOrderInput | SortOrder
     modelName?: SortOrderInput | SortOrder
     xaiJobId?: SortOrderInput | SortOrder
     previewUrl?: SortOrderInput | SortOrder
+    workingPreviewUrl?: SortOrderInput | SortOrder
     loopStartFrame?: SortOrderInput | SortOrder
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
@@ -31296,9 +31439,11 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
     xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
@@ -31327,9 +31472,11 @@ export namespace Prisma {
     frames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     prompt?: SortOrderInput | SortOrder
+    variantPrompt?: SortOrderInput | SortOrder
     modelName?: SortOrderInput | SortOrder
     xaiJobId?: SortOrderInput | SortOrder
     previewUrl?: SortOrderInput | SortOrder
+    workingPreviewUrl?: SortOrderInput | SortOrder
     loopStartFrame?: SortOrderInput | SortOrder
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
@@ -31360,9 +31507,11 @@ export namespace Prisma {
     frames?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     durationS?: FloatNullableWithAggregatesFilter<"Clip"> | number | null
     prompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     modelName?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     xaiJobId?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     previewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    workingPreviewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     loopStartFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     weight?: IntWithAggregatesFilter<"Clip"> | number
@@ -31572,6 +31721,7 @@ export namespace Prisma {
     exitTimeline?: JsonFilter<"EmotionVideo">
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
@@ -31595,6 +31745,7 @@ export namespace Prisma {
     exitTimeline?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
+    idxUrl?: SortOrderInput | SortOrder
     sha256?: SortOrderInput | SortOrder
     sizeBytes?: SortOrderInput | SortOrder
     totalFrames?: SortOrderInput | SortOrder
@@ -31607,6 +31758,7 @@ export namespace Prisma {
 
   export type EmotionVideoWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    sourceClipId_emotionId?: EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput
     AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
     OR?: EmotionVideoWhereInput[]
     NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
@@ -31621,6 +31773,7 @@ export namespace Prisma {
     exitTimeline?: JsonFilter<"EmotionVideo">
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
@@ -31629,7 +31782,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
-  }, "id">
+  }, "id" | "sourceClipId_emotionId">
 
   export type EmotionVideoOrderByWithAggregationInput = {
     id?: SortOrder
@@ -31644,6 +31797,7 @@ export namespace Prisma {
     exitTimeline?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
+    idxUrl?: SortOrderInput | SortOrder
     sha256?: SortOrderInput | SortOrder
     sizeBytes?: SortOrderInput | SortOrder
     totalFrames?: SortOrderInput | SortOrder
@@ -31673,6 +31827,7 @@ export namespace Prisma {
     exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
     status?: EnumClipStatusWithAggregatesFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    idxUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
     totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
@@ -33026,8 +33181,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipCreateNestedManyWithoutCharacterInput
@@ -33040,8 +33198,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
@@ -33054,8 +33215,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUpdateManyWithoutCharacterNestedInput
@@ -33068,8 +33232,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
@@ -33082,8 +33249,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -33093,8 +33263,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -33104,8 +33277,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -33197,9 +33373,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -33228,9 +33406,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -33255,9 +33435,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -33286,9 +33468,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -33315,9 +33499,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -33338,9 +33524,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -33363,9 +33551,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -33593,6 +33783,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -33616,6 +33807,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -33635,6 +33827,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -33658,6 +33851,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -33679,6 +33873,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -33698,6 +33893,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -33719,6 +33915,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35234,6 +35431,17 @@ export namespace Prisma {
     not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -35285,10 +35493,18 @@ export namespace Prisma {
     name?: SortOrder
     defaultImageUrl?: SortOrder
     stylePrompt?: SortOrder
+    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type CharacterAvgOrderByAggregateInput = {
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
   }
 
   export type CharacterMaxOrderByAggregateInput = {
@@ -35296,8 +35512,11 @@ export namespace Prisma {
     name?: SortOrder
     defaultImageUrl?: SortOrder
     stylePrompt?: SortOrder
+    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -35307,10 +35526,18 @@ export namespace Prisma {
     name?: SortOrder
     defaultImageUrl?: SortOrder
     stylePrompt?: SortOrder
+    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type CharacterSumOrderByAggregateInput = {
+    imageWidth?: SortOrder
+    imageHeight?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -35367,6 +35594,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
     _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -35459,17 +35702,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type StringNullableListFilter<$PrismaModel = never> = {
     equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     has?: string | StringFieldRefInput<$PrismaModel> | null
@@ -35522,9 +35754,11 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
+    variantPrompt?: SortOrder
     modelName?: SortOrder
     xaiJobId?: SortOrder
     previewUrl?: SortOrder
+    workingPreviewUrl?: SortOrder
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
@@ -35559,9 +35793,11 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
+    variantPrompt?: SortOrder
     modelName?: SortOrder
     xaiJobId?: SortOrder
     previewUrl?: SortOrder
+    workingPreviewUrl?: SortOrder
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
@@ -35583,9 +35819,11 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
+    variantPrompt?: SortOrder
     modelName?: SortOrder
     xaiJobId?: SortOrder
     previewUrl?: SortOrder
+    workingPreviewUrl?: SortOrder
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
@@ -35645,22 +35883,6 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -35880,6 +36102,11 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput = {
+    sourceClipId: string
+    emotionId: string
+  }
+
   export type EmotionVideoCountOrderByAggregateInput = {
     id?: SortOrder
     emotionId?: SortOrder
@@ -35893,6 +36120,7 @@ export namespace Prisma {
     exitTimeline?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
+    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
     totalFrames?: SortOrder
@@ -35920,6 +36148,7 @@ export namespace Prisma {
     height?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
+    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
     totalFrames?: SortOrder
@@ -35938,6 +36167,7 @@ export namespace Prisma {
     height?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
+    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
     totalFrames?: SortOrder
@@ -37129,6 +37359,14 @@ export namespace Prisma {
     set?: $Enums.CharacterPersonality
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -37429,14 +37667,6 @@ export namespace Prisma {
 
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
     increment?: number
     decrement?: number
     multiply?: number
@@ -38494,6 +38724,17 @@ export namespace Prisma {
     not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -38520,17 +38761,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -38579,6 +38809,33 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
     _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -38653,33 +38910,6 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedEnumCornerStyleFilter<$PrismaModel = never> = {
@@ -38940,9 +39170,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -38969,9 +39201,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39095,9 +39329,11 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
     xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
@@ -39181,9 +39417,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39210,9 +39448,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39272,6 +39512,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -39293,6 +39534,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -39387,6 +39629,7 @@ export namespace Prisma {
     exitTimeline?: JsonFilter<"EmotionVideo">
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
@@ -39400,8 +39643,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
@@ -39413,8 +39659,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
@@ -39566,6 +39815,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -39587,6 +39837,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -39621,8 +39872,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
@@ -39634,8 +39888,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
@@ -39787,9 +40044,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39817,9 +40076,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39859,9 +40120,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -39889,9 +40152,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -39915,9 +40180,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39945,9 +40212,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -39987,9 +40256,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40017,9 +40288,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40070,9 +40343,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -40100,9 +40375,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -40175,9 +40452,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40205,9 +40484,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40224,8 +40505,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipCreateNestedManyWithoutCharacterInput
@@ -40237,8 +40521,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
@@ -40292,8 +40579,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUpdateManyWithoutCharacterNestedInput
@@ -40305,8 +40595,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
@@ -40395,9 +40688,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -40425,9 +40720,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -40533,9 +40830,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40563,9 +40862,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -40582,8 +40883,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipCreateNestedManyWithoutCharacterInput
@@ -40595,8 +40899,11 @@ export namespace Prisma {
     name?: string | null
     defaultImageUrl?: string | null
     stylePrompt?: string | null
+    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
+    imageWidth?: number
+    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
     clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
@@ -40624,8 +40931,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUpdateManyWithoutCharacterNestedInput
@@ -40637,8 +40947,11 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
@@ -42478,9 +42791,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -42524,9 +42839,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42553,9 +42870,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42581,9 +42900,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42676,9 +42997,11 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
+    variantPrompt?: string | null
     modelName?: string | null
     xaiJobId?: string | null
     previewUrl?: string | null
+    workingPreviewUrl?: string | null
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
@@ -42707,6 +43030,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -42727,9 +43051,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42756,9 +43082,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42784,9 +43112,11 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
     xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
@@ -42830,6 +43160,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42851,6 +43182,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42871,6 +43203,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42927,6 +43260,7 @@ export namespace Prisma {
     exitTimeline: JsonNullValueInput | InputJsonValue
     status?: $Enums.ClipStatus
     binUrl?: string | null
+    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
     totalFrames?: number | null
@@ -43054,6 +43388,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43075,6 +43410,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43095,6 +43431,7 @@ export namespace Prisma {
     exitTimeline?: JsonNullValueInput | InputJsonValue
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
