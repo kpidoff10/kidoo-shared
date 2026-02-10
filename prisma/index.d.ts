@@ -5839,6 +5839,7 @@ export namespace Prisma {
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
+    trigger: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5865,6 +5866,7 @@ export namespace Prisma {
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
+    trigger: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5891,6 +5893,7 @@ export namespace Prisma {
     loopStartFrame: number
     loopEndFrame: number
     weight: number
+    trigger: number
     tags: number
     createdAt: number
     updatedAt: number
@@ -5944,6 +5947,7 @@ export namespace Prisma {
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
+    trigger?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5970,6 +5974,7 @@ export namespace Prisma {
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
+    trigger?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5996,6 +6001,7 @@ export namespace Prisma {
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
+    trigger?: true
     tags?: true
     createdAt?: true
     updatedAt?: true
@@ -6110,6 +6116,7 @@ export namespace Prisma {
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number
+    trigger: string | null
     tags: string[]
     createdAt: Date
     updatedAt: Date
@@ -6156,6 +6163,7 @@ export namespace Prisma {
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
+    trigger?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6190,6 +6198,7 @@ export namespace Prisma {
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
+    trigger?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6219,6 +6228,7 @@ export namespace Prisma {
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
+    trigger?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6248,12 +6258,13 @@ export namespace Prisma {
     loopStartFrame?: boolean
     loopEndFrame?: boolean
     weight?: boolean
+    trigger?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
+  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "trigger" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
   export type ClipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
@@ -6304,6 +6315,7 @@ export namespace Prisma {
       loopStartFrame: number | null
       loopEndFrame: number | null
       weight: number
+      trigger: string | null
       tags: string[]
       createdAt: Date
       updatedAt: Date
@@ -6757,6 +6769,7 @@ export namespace Prisma {
     readonly loopStartFrame: FieldRef<"Clip", 'Int'>
     readonly loopEndFrame: FieldRef<"Clip", 'Int'>
     readonly weight: FieldRef<"Clip", 'Int'>
+    readonly trigger: FieldRef<"Clip", 'String'>
     readonly tags: FieldRef<"Clip", 'String[]'>
     readonly createdAt: FieldRef<"Clip", 'DateTime'>
     readonly updatedAt: FieldRef<"Clip", 'DateTime'>
@@ -30583,6 +30596,7 @@ export namespace Prisma {
     loopStartFrame: 'loopStartFrame',
     loopEndFrame: 'loopEndFrame',
     weight: 'weight',
+    trigger: 'trigger',
     tags: 'tags',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -31378,6 +31392,7 @@ export namespace Prisma {
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
+    trigger?: StringNullableFilter<"Clip"> | string | null
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -31411,6 +31426,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrderInput | SortOrder
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
+    trigger?: SortOrderInput | SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -31447,6 +31463,7 @@ export namespace Prisma {
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
+    trigger?: StringNullableFilter<"Clip"> | string | null
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -31480,6 +31497,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrderInput | SortOrder
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
+    trigger?: SortOrderInput | SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -31515,6 +31533,7 @@ export namespace Prisma {
     loopStartFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     weight?: IntWithAggregatesFilter<"Clip"> | number
+    trigger?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
@@ -33381,6 +33400,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33414,6 +33434,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33443,6 +33464,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33476,6 +33498,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33507,6 +33530,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33532,6 +33556,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33559,6 +33584,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35762,6 +35788,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
+    trigger?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -35801,6 +35828,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
+    trigger?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -35827,6 +35855,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
+    trigger?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -39178,6 +39207,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39209,6 +39239,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39337,6 +39368,7 @@ export namespace Prisma {
     loopStartFrame?: IntNullableFilter<"Clip"> | number | null
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
+    trigger?: StringNullableFilter<"Clip"> | string | null
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -39425,6 +39457,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39456,6 +39489,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40052,6 +40086,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40084,6 +40119,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40128,6 +40164,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40160,6 +40197,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40188,6 +40226,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40220,6 +40259,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40264,6 +40304,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40296,6 +40337,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40351,6 +40393,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40383,6 +40426,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40460,6 +40504,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40492,6 +40537,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40696,6 +40742,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40728,6 +40775,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40838,6 +40886,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40870,6 +40919,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42799,6 +42849,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -42847,6 +42898,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42878,6 +42930,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42908,6 +42961,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43005,6 +43059,7 @@ export namespace Prisma {
     loopStartFrame?: number | null
     loopEndFrame?: number | null
     weight?: number
+    trigger?: string | null
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43059,6 +43114,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43090,6 +43146,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43120,6 +43177,7 @@ export namespace Prisma {
     loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

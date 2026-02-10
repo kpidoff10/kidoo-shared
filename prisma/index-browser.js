@@ -165,6 +165,7 @@ exports.Prisma.ClipScalarFieldEnum = {
   loopStartFrame: 'loopStartFrame',
   loopEndFrame: 'loopEndFrame',
   weight: 'weight',
+  trigger: 'trigger',
   tags: 'tags',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
