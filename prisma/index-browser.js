@@ -165,6 +165,8 @@ exports.Prisma.ClipScalarFieldEnum = {
   loopStartFrame: 'loopStartFrame',
   loopEndFrame: 'loopEndFrame',
   weight: 'weight',
+  trigger: 'trigger',
+  variant: 'variant',
   tags: 'tags',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -211,6 +213,8 @@ exports.Prisma.EmotionVideoScalarFieldEnum = {
   introTimeline: 'introTimeline',
   loopTimeline: 'loopTimeline',
   exitTimeline: 'exitTimeline',
+  trigger: 'trigger',
+  variant: 'variant',
   status: 'status',
   binUrl: 'binUrl',
   idxUrl: 'idxUrl',
