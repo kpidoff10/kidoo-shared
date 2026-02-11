@@ -5803,6 +5803,7 @@ export namespace Prisma {
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
+    variant: number | null
   }
 
   export type ClipSumAggregateOutputType = {
@@ -5815,6 +5816,7 @@ export namespace Prisma {
     loopStartFrame: number | null
     loopEndFrame: number | null
     weight: number | null
+    variant: number | null
   }
 
   export type ClipMinAggregateOutputType = {
@@ -5840,6 +5842,7 @@ export namespace Prisma {
     loopEndFrame: number | null
     weight: number | null
     trigger: string | null
+    variant: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5867,6 +5870,7 @@ export namespace Prisma {
     loopEndFrame: number | null
     weight: number | null
     trigger: string | null
+    variant: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5894,6 +5898,7 @@ export namespace Prisma {
     loopEndFrame: number
     weight: number
     trigger: number
+    variant: number
     tags: number
     createdAt: number
     updatedAt: number
@@ -5911,6 +5916,7 @@ export namespace Prisma {
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
+    variant?: true
   }
 
   export type ClipSumAggregateInputType = {
@@ -5923,6 +5929,7 @@ export namespace Prisma {
     loopStartFrame?: true
     loopEndFrame?: true
     weight?: true
+    variant?: true
   }
 
   export type ClipMinAggregateInputType = {
@@ -5948,6 +5955,7 @@ export namespace Prisma {
     loopEndFrame?: true
     weight?: true
     trigger?: true
+    variant?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5975,6 +5983,7 @@ export namespace Prisma {
     loopEndFrame?: true
     weight?: true
     trigger?: true
+    variant?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6002,6 +6011,7 @@ export namespace Prisma {
     loopEndFrame?: true
     weight?: true
     trigger?: true
+    variant?: true
     tags?: true
     createdAt?: true
     updatedAt?: true
@@ -6117,6 +6127,7 @@ export namespace Prisma {
     loopEndFrame: number | null
     weight: number
     trigger: string | null
+    variant: number
     tags: string[]
     createdAt: Date
     updatedAt: Date
@@ -6164,6 +6175,7 @@ export namespace Prisma {
     loopEndFrame?: boolean
     weight?: boolean
     trigger?: boolean
+    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6199,6 +6211,7 @@ export namespace Prisma {
     loopEndFrame?: boolean
     weight?: boolean
     trigger?: boolean
+    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6229,6 +6242,7 @@ export namespace Prisma {
     loopEndFrame?: boolean
     weight?: boolean
     trigger?: boolean
+    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -6259,12 +6273,13 @@ export namespace Prisma {
     loopEndFrame?: boolean
     weight?: boolean
     trigger?: boolean
+    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "trigger" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
+  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "trigger" | "variant" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
   export type ClipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
@@ -6316,6 +6331,7 @@ export namespace Prisma {
       loopEndFrame: number | null
       weight: number
       trigger: string | null
+      variant: number
       tags: string[]
       createdAt: Date
       updatedAt: Date
@@ -6770,6 +6786,7 @@ export namespace Prisma {
     readonly loopEndFrame: FieldRef<"Clip", 'Int'>
     readonly weight: FieldRef<"Clip", 'Int'>
     readonly trigger: FieldRef<"Clip", 'String'>
+    readonly variant: FieldRef<"Clip", 'Int'>
     readonly tags: FieldRef<"Clip", 'String[]'>
     readonly createdAt: FieldRef<"Clip", 'DateTime'>
     readonly updatedAt: FieldRef<"Clip", 'DateTime'>
@@ -9697,6 +9714,7 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
+    variant: number | null
     sizeBytes: number | null
     totalFrames: number | null
     durationS: number | null
@@ -9706,6 +9724,7 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
+    variant: number | null
     sizeBytes: number | null
     totalFrames: number | null
     durationS: number | null
@@ -9719,6 +9738,8 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
+    trigger: string | null
+    variant: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
     idxUrl: string | null
@@ -9738,6 +9759,8 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
+    trigger: string | null
+    variant: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
     idxUrl: string | null
@@ -9760,6 +9783,8 @@ export namespace Prisma {
     introTimeline: number
     loopTimeline: number
     exitTimeline: number
+    trigger: number
+    variant: number
     status: number
     binUrl: number
     idxUrl: number
@@ -9777,6 +9802,7 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
+    variant?: true
     sizeBytes?: true
     totalFrames?: true
     durationS?: true
@@ -9786,6 +9812,7 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
+    variant?: true
     sizeBytes?: true
     totalFrames?: true
     durationS?: true
@@ -9799,6 +9826,8 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
+    trigger?: true
+    variant?: true
     status?: true
     binUrl?: true
     idxUrl?: true
@@ -9818,6 +9847,8 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
+    trigger?: true
+    variant?: true
     status?: true
     binUrl?: true
     idxUrl?: true
@@ -9840,6 +9871,8 @@ export namespace Prisma {
     introTimeline?: true
     loopTimeline?: true
     exitTimeline?: true
+    trigger?: true
+    variant?: true
     status?: true
     binUrl?: true
     idxUrl?: true
@@ -9949,6 +9982,8 @@ export namespace Prisma {
     introTimeline: JsonValue
     loopTimeline: JsonValue
     exitTimeline: JsonValue
+    trigger: string | null
+    variant: number
     status: $Enums.ClipStatus
     binUrl: string | null
     idxUrl: string | null
@@ -9990,6 +10025,8 @@ export namespace Prisma {
     introTimeline?: boolean
     loopTimeline?: boolean
     exitTimeline?: boolean
+    trigger?: boolean
+    variant?: boolean
     status?: boolean
     binUrl?: boolean
     idxUrl?: boolean
@@ -10014,6 +10051,8 @@ export namespace Prisma {
     introTimeline?: boolean
     loopTimeline?: boolean
     exitTimeline?: boolean
+    trigger?: boolean
+    variant?: boolean
     status?: boolean
     binUrl?: boolean
     idxUrl?: boolean
@@ -10038,6 +10077,8 @@ export namespace Prisma {
     introTimeline?: boolean
     loopTimeline?: boolean
     exitTimeline?: boolean
+    trigger?: boolean
+    variant?: boolean
     status?: boolean
     binUrl?: boolean
     idxUrl?: boolean
@@ -10062,6 +10103,8 @@ export namespace Prisma {
     introTimeline?: boolean
     loopTimeline?: boolean
     exitTimeline?: boolean
+    trigger?: boolean
+    variant?: boolean
     status?: boolean
     binUrl?: boolean
     idxUrl?: boolean
@@ -10073,7 +10116,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "status" | "binUrl" | "idxUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "trigger" | "variant" | "status" | "binUrl" | "idxUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
   export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
@@ -10104,6 +10147,8 @@ export namespace Prisma {
       introTimeline: Prisma.JsonValue
       loopTimeline: Prisma.JsonValue
       exitTimeline: Prisma.JsonValue
+      trigger: string | null
+      variant: number
       status: $Enums.ClipStatus
       binUrl: string | null
       idxUrl: string | null
@@ -10548,6 +10593,8 @@ export namespace Prisma {
     readonly introTimeline: FieldRef<"EmotionVideo", 'Json'>
     readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
     readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly trigger: FieldRef<"EmotionVideo", 'String'>
+    readonly variant: FieldRef<"EmotionVideo", 'Int'>
     readonly status: FieldRef<"EmotionVideo", 'ClipStatus'>
     readonly binUrl: FieldRef<"EmotionVideo", 'String'>
     readonly idxUrl: FieldRef<"EmotionVideo", 'String'>
@@ -30597,6 +30644,7 @@ export namespace Prisma {
     loopEndFrame: 'loopEndFrame',
     weight: 'weight',
     trigger: 'trigger',
+    variant: 'variant',
     tags: 'tags',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -30652,6 +30700,8 @@ export namespace Prisma {
     introTimeline: 'introTimeline',
     loopTimeline: 'loopTimeline',
     exitTimeline: 'exitTimeline',
+    trigger: 'trigger',
+    variant: 'variant',
     status: 'status',
     binUrl: 'binUrl',
     idxUrl: 'idxUrl',
@@ -31393,6 +31443,7 @@ export namespace Prisma {
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
     trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -31427,6 +31478,7 @@ export namespace Prisma {
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
     trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -31464,6 +31516,7 @@ export namespace Prisma {
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
     trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -31498,6 +31551,7 @@ export namespace Prisma {
     loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
     trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -31534,6 +31588,7 @@ export namespace Prisma {
     loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     weight?: IntWithAggregatesFilter<"Clip"> | number
     trigger?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    variant?: IntWithAggregatesFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
@@ -31738,6 +31793,8 @@ export namespace Prisma {
     introTimeline?: JsonFilter<"EmotionVideo">
     loopTimeline?: JsonFilter<"EmotionVideo">
     exitTimeline?: JsonFilter<"EmotionVideo">
+    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
+    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
@@ -31762,6 +31819,8 @@ export namespace Prisma {
     introTimeline?: SortOrder
     loopTimeline?: SortOrder
     exitTimeline?: SortOrder
+    trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
     idxUrl?: SortOrderInput | SortOrder
@@ -31777,7 +31836,7 @@ export namespace Prisma {
 
   export type EmotionVideoWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    sourceClipId_emotionId?: EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput
+    sourceClipId_emotionId_variant?: EmotionVideoSourceClipIdEmotionIdVariantCompoundUniqueInput
     AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
     OR?: EmotionVideoWhereInput[]
     NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
@@ -31790,6 +31849,8 @@ export namespace Prisma {
     introTimeline?: JsonFilter<"EmotionVideo">
     loopTimeline?: JsonFilter<"EmotionVideo">
     exitTimeline?: JsonFilter<"EmotionVideo">
+    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
+    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
@@ -31801,7 +31862,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
-  }, "id" | "sourceClipId_emotionId">
+  }, "id" | "sourceClipId_emotionId_variant">
 
   export type EmotionVideoOrderByWithAggregationInput = {
     id?: SortOrder
@@ -31814,6 +31875,8 @@ export namespace Prisma {
     introTimeline?: SortOrder
     loopTimeline?: SortOrder
     exitTimeline?: SortOrder
+    trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
     idxUrl?: SortOrderInput | SortOrder
@@ -31844,6 +31907,8 @@ export namespace Prisma {
     introTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
     loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
     exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    trigger?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    variant?: IntWithAggregatesFilter<"EmotionVideo"> | number
     status?: EnumClipStatusWithAggregatesFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
     idxUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
@@ -33401,6 +33466,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33435,6 +33501,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33465,6 +33532,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33499,6 +33567,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33531,6 +33600,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -33557,6 +33627,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33585,6 +33656,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33807,6 +33879,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -33831,6 +33905,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -33851,6 +33927,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33875,6 +33953,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33897,6 +33977,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -33917,6 +33999,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33939,6 +34023,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35789,6 +35875,7 @@ export namespace Prisma {
     loopEndFrame?: SortOrder
     weight?: SortOrder
     trigger?: SortOrder
+    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -35804,6 +35891,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
+    variant?: SortOrder
   }
 
   export type ClipMaxOrderByAggregateInput = {
@@ -35829,6 +35917,7 @@ export namespace Prisma {
     loopEndFrame?: SortOrder
     weight?: SortOrder
     trigger?: SortOrder
+    variant?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -35856,6 +35945,7 @@ export namespace Prisma {
     loopEndFrame?: SortOrder
     weight?: SortOrder
     trigger?: SortOrder
+    variant?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -35870,6 +35960,7 @@ export namespace Prisma {
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
     weight?: SortOrder
+    variant?: SortOrder
   }
 
   export type EnumClipStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -36131,9 +36222,10 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput = {
+  export type EmotionVideoSourceClipIdEmotionIdVariantCompoundUniqueInput = {
     sourceClipId: string
     emotionId: string
+    variant: number
   }
 
   export type EmotionVideoCountOrderByAggregateInput = {
@@ -36147,6 +36239,8 @@ export namespace Prisma {
     introTimeline?: SortOrder
     loopTimeline?: SortOrder
     exitTimeline?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
     idxUrl?: SortOrder
@@ -36162,6 +36256,7 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    variant?: SortOrder
     sizeBytes?: SortOrder
     totalFrames?: SortOrder
     durationS?: SortOrder
@@ -36175,6 +36270,8 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
     idxUrl?: SortOrder
@@ -36194,6 +36291,8 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
     idxUrl?: SortOrder
@@ -36209,6 +36308,7 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    variant?: SortOrder
     sizeBytes?: SortOrder
     totalFrames?: SortOrder
     durationS?: SortOrder
@@ -39208,6 +39308,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39240,6 +39341,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39369,6 +39471,7 @@ export namespace Prisma {
     loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
     trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
@@ -39458,6 +39561,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39490,6 +39594,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -39544,6 +39649,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -39566,6 +39673,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -39661,6 +39770,8 @@ export namespace Prisma {
     introTimeline?: JsonFilter<"EmotionVideo">
     loopTimeline?: JsonFilter<"EmotionVideo">
     exitTimeline?: JsonFilter<"EmotionVideo">
+    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
+    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
@@ -39847,6 +39958,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -39869,6 +39982,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -40087,6 +40202,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40120,6 +40236,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40165,6 +40282,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40198,6 +40316,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40227,6 +40346,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40260,6 +40380,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40305,6 +40426,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40338,6 +40460,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40394,6 +40517,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40427,6 +40551,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40505,6 +40630,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40538,6 +40664,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40743,6 +40870,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40776,6 +40904,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -40887,6 +41016,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -40920,6 +41050,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42850,6 +42981,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -42899,6 +43031,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42931,6 +43064,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42962,6 +43096,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43060,6 +43195,7 @@ export namespace Prisma {
     loopEndFrame?: number | null
     weight?: number
     trigger?: string | null
+    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -43083,6 +43219,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -43115,6 +43253,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43147,6 +43286,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43178,6 +43318,7 @@ export namespace Prisma {
     loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
     trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43216,6 +43357,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43238,6 +43381,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43259,6 +43404,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43316,6 +43463,8 @@ export namespace Prisma {
     introTimeline: JsonNullValueInput | InputJsonValue
     loopTimeline: JsonNullValueInput | InputJsonValue
     exitTimeline: JsonNullValueInput | InputJsonValue
+    trigger?: string | null
+    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
     idxUrl?: string | null
@@ -43444,6 +43593,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43466,6 +43617,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -43487,6 +43640,8 @@ export namespace Prisma {
     introTimeline?: JsonNullValueInput | InputJsonValue
     loopTimeline?: JsonNullValueInput | InputJsonValue
     exitTimeline?: JsonNullValueInput | InputJsonValue
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
