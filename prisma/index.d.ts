@@ -3112,15 +3112,15 @@ export namespace Prisma {
    */
 
   export type ClipCountOutputType = {
-    faceRegions: number
     artifacts: number
+    faceRegions: number
     deviceClipCaches: number
     emotionVideos: number
   }
 
   export type ClipCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    faceRegions?: boolean | ClipCountOutputTypeCountFaceRegionsArgs
     artifacts?: boolean | ClipCountOutputTypeCountArtifactsArgs
+    faceRegions?: boolean | ClipCountOutputTypeCountFaceRegionsArgs
     deviceClipCaches?: boolean | ClipCountOutputTypeCountDeviceClipCachesArgs
     emotionVideos?: boolean | ClipCountOutputTypeCountEmotionVideosArgs
   }
@@ -3139,15 +3139,15 @@ export namespace Prisma {
   /**
    * ClipCountOutputType without action
    */
-  export type ClipCountOutputTypeCountFaceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ClipFaceRegionWhereInput
+  export type ClipCountOutputTypeCountArtifactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipArtifactWhereInput
   }
 
   /**
    * ClipCountOutputType without action
    */
-  export type ClipCountOutputTypeCountArtifactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ClipArtifactWhereInput
+  export type ClipCountOutputTypeCountFaceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClipFaceRegionWhereInput
   }
 
   /**
@@ -3233,18 +3233,18 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     accounts: number
-    sessions: number
-    kidoos: number
-    tags: number
     files: number
+    kidoos: number
+    sessions: number
+    tags: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
-    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
-    kidoos?: boolean | UserCountOutputTypeCountKidoosArgs
-    tags?: boolean | UserCountOutputTypeCountTagsArgs
     files?: boolean | UserCountOutputTypeCountFilesArgs
+    kidoos?: boolean | UserCountOutputTypeCountKidoosArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    tags?: boolean | UserCountOutputTypeCountTagsArgs
   }
 
   // Custom InputTypes
@@ -3268,8 +3268,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SessionWhereInput
+  export type UserCountOutputTypeCountFilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FileWhereInput
   }
 
   /**
@@ -3282,15 +3282,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TagWhereInput
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountFilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FileWhereInput
+  export type UserCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TagWhereInput
   }
 
 
@@ -3413,109 +3413,109 @@ export namespace Prisma {
   }
 
   export type CharacterAvgAggregateOutputType = {
-    imageWidth: number | null
     imageHeight: number | null
+    imageWidth: number | null
   }
 
   export type CharacterSumAggregateOutputType = {
-    imageWidth: number | null
     imageHeight: number | null
+    imageWidth: number | null
   }
 
   export type CharacterMinAggregateOutputType = {
     id: string | null
     name: string | null
     defaultImageUrl: string | null
-    stylePrompt: string | null
-    characterContext: string | null
     sex: $Enums.CharacterSex | null
     personality: $Enums.CharacterPersonality | null
-    imageWidth: number | null
-    imageHeight: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    stylePrompt: string | null
+    imageHeight: number | null
+    imageWidth: number | null
+    characterContext: string | null
   }
 
   export type CharacterMaxAggregateOutputType = {
     id: string | null
     name: string | null
     defaultImageUrl: string | null
-    stylePrompt: string | null
-    characterContext: string | null
     sex: $Enums.CharacterSex | null
     personality: $Enums.CharacterPersonality | null
-    imageWidth: number | null
-    imageHeight: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    stylePrompt: string | null
+    imageHeight: number | null
+    imageWidth: number | null
+    characterContext: string | null
   }
 
   export type CharacterCountAggregateOutputType = {
     id: number
     name: number
     defaultImageUrl: number
-    stylePrompt: number
-    characterContext: number
     sex: number
     personality: number
-    imageWidth: number
-    imageHeight: number
     createdAt: number
     updatedAt: number
+    stylePrompt: number
+    imageHeight: number
+    imageWidth: number
+    characterContext: number
     _all: number
   }
 
 
   export type CharacterAvgAggregateInputType = {
-    imageWidth?: true
     imageHeight?: true
+    imageWidth?: true
   }
 
   export type CharacterSumAggregateInputType = {
-    imageWidth?: true
     imageHeight?: true
+    imageWidth?: true
   }
 
   export type CharacterMinAggregateInputType = {
     id?: true
     name?: true
     defaultImageUrl?: true
-    stylePrompt?: true
-    characterContext?: true
     sex?: true
     personality?: true
-    imageWidth?: true
-    imageHeight?: true
     createdAt?: true
     updatedAt?: true
+    stylePrompt?: true
+    imageHeight?: true
+    imageWidth?: true
+    characterContext?: true
   }
 
   export type CharacterMaxAggregateInputType = {
     id?: true
     name?: true
     defaultImageUrl?: true
-    stylePrompt?: true
-    characterContext?: true
     sex?: true
     personality?: true
-    imageWidth?: true
-    imageHeight?: true
     createdAt?: true
     updatedAt?: true
+    stylePrompt?: true
+    imageHeight?: true
+    imageWidth?: true
+    characterContext?: true
   }
 
   export type CharacterCountAggregateInputType = {
     id?: true
     name?: true
     defaultImageUrl?: true
-    stylePrompt?: true
-    characterContext?: true
     sex?: true
     personality?: true
-    imageWidth?: true
-    imageHeight?: true
     createdAt?: true
     updatedAt?: true
+    stylePrompt?: true
+    imageHeight?: true
+    imageWidth?: true
+    characterContext?: true
     _all?: true
   }
 
@@ -3609,14 +3609,14 @@ export namespace Prisma {
     id: string
     name: string | null
     defaultImageUrl: string | null
-    stylePrompt: string | null
-    characterContext: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth: number
-    imageHeight: number
     createdAt: Date
     updatedAt: Date
+    stylePrompt: string | null
+    imageHeight: number
+    imageWidth: number
+    characterContext: string | null
     _count: CharacterCountAggregateOutputType | null
     _avg: CharacterAvgAggregateOutputType | null
     _sum: CharacterSumAggregateOutputType | null
@@ -3642,14 +3642,14 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     defaultImageUrl?: boolean
-    stylePrompt?: boolean
-    characterContext?: boolean
     sex?: boolean
     personality?: boolean
-    imageWidth?: boolean
-    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    stylePrompt?: boolean
+    imageHeight?: boolean
+    imageWidth?: boolean
+    characterContext?: boolean
     clips?: boolean | Character$clipsArgs<ExtArgs>
     emotionDevices?: boolean | Character$emotionDevicesArgs<ExtArgs>
     rules?: boolean | Character$rulesArgs<ExtArgs>
@@ -3660,45 +3660,45 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     defaultImageUrl?: boolean
-    stylePrompt?: boolean
-    characterContext?: boolean
     sex?: boolean
     personality?: boolean
-    imageWidth?: boolean
-    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    stylePrompt?: boolean
+    imageHeight?: boolean
+    imageWidth?: boolean
+    characterContext?: boolean
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     defaultImageUrl?: boolean
-    stylePrompt?: boolean
-    characterContext?: boolean
     sex?: boolean
     personality?: boolean
-    imageWidth?: boolean
-    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    stylePrompt?: boolean
+    imageHeight?: boolean
+    imageWidth?: boolean
+    characterContext?: boolean
   }, ExtArgs["result"]["character"]>
 
   export type CharacterSelectScalar = {
     id?: boolean
     name?: boolean
     defaultImageUrl?: boolean
-    stylePrompt?: boolean
-    characterContext?: boolean
     sex?: boolean
     personality?: boolean
-    imageWidth?: boolean
-    imageHeight?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    stylePrompt?: boolean
+    imageHeight?: boolean
+    imageWidth?: boolean
+    characterContext?: boolean
   }
 
-  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "defaultImageUrl" | "stylePrompt" | "characterContext" | "sex" | "personality" | "imageWidth" | "imageHeight" | "createdAt" | "updatedAt", ExtArgs["result"]["character"]>
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "defaultImageUrl" | "sex" | "personality" | "createdAt" | "updatedAt" | "stylePrompt" | "imageHeight" | "imageWidth" | "characterContext", ExtArgs["result"]["character"]>
   export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clips?: boolean | Character$clipsArgs<ExtArgs>
     emotionDevices?: boolean | Character$emotionDevicesArgs<ExtArgs>
@@ -3719,14 +3719,14 @@ export namespace Prisma {
       id: string
       name: string | null
       defaultImageUrl: string | null
-      stylePrompt: string | null
-      characterContext: string | null
       sex: $Enums.CharacterSex
       personality: $Enums.CharacterPersonality
-      imageWidth: number
-      imageHeight: number
       createdAt: Date
       updatedAt: Date
+      stylePrompt: string | null
+      imageHeight: number
+      imageWidth: number
+      characterContext: string | null
     }, ExtArgs["result"]["character"]>
     composites: {}
   }
@@ -4156,14 +4156,14 @@ export namespace Prisma {
     readonly id: FieldRef<"Character", 'String'>
     readonly name: FieldRef<"Character", 'String'>
     readonly defaultImageUrl: FieldRef<"Character", 'String'>
-    readonly stylePrompt: FieldRef<"Character", 'String'>
-    readonly characterContext: FieldRef<"Character", 'String'>
     readonly sex: FieldRef<"Character", 'CharacterSex'>
     readonly personality: FieldRef<"Character", 'CharacterPersonality'>
-    readonly imageWidth: FieldRef<"Character", 'Int'>
-    readonly imageHeight: FieldRef<"Character", 'Int'>
     readonly createdAt: FieldRef<"Character", 'DateTime'>
     readonly updatedAt: FieldRef<"Character", 'DateTime'>
+    readonly stylePrompt: FieldRef<"Character", 'String'>
+    readonly imageHeight: FieldRef<"Character", 'Int'>
+    readonly imageWidth: FieldRef<"Character", 'Int'>
+    readonly characterContext: FieldRef<"Character", 'String'>
   }
     
 
@@ -4656,27 +4656,27 @@ export namespace Prisma {
     id: string | null
     key: string | null
     label: string | null
-    promptCustom: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    promptCustom: string | null
   }
 
   export type EmotionMaxAggregateOutputType = {
     id: string | null
     key: string | null
     label: string | null
-    promptCustom: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    promptCustom: string | null
   }
 
   export type EmotionCountAggregateOutputType = {
     id: number
     key: number
     label: number
-    promptCustom: number
     createdAt: number
     updatedAt: number
+    promptCustom: number
     _all: number
   }
 
@@ -4685,27 +4685,27 @@ export namespace Prisma {
     id?: true
     key?: true
     label?: true
-    promptCustom?: true
     createdAt?: true
     updatedAt?: true
+    promptCustom?: true
   }
 
   export type EmotionMaxAggregateInputType = {
     id?: true
     key?: true
     label?: true
-    promptCustom?: true
     createdAt?: true
     updatedAt?: true
+    promptCustom?: true
   }
 
   export type EmotionCountAggregateInputType = {
     id?: true
     key?: true
     label?: true
-    promptCustom?: true
     createdAt?: true
     updatedAt?: true
+    promptCustom?: true
     _all?: true
   }
 
@@ -4785,9 +4785,9 @@ export namespace Prisma {
     id: string
     key: string
     label: string
-    promptCustom: string | null
     createdAt: Date
     updatedAt: Date
+    promptCustom: string | null
     _count: EmotionCountAggregateOutputType | null
     _min: EmotionMinAggregateOutputType | null
     _max: EmotionMaxAggregateOutputType | null
@@ -4811,9 +4811,9 @@ export namespace Prisma {
     id?: boolean
     key?: boolean
     label?: boolean
-    promptCustom?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    promptCustom?: boolean
     clips?: boolean | Emotion$clipsArgs<ExtArgs>
     deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
     emotionVideos?: boolean | Emotion$emotionVideosArgs<ExtArgs>
@@ -4824,30 +4824,30 @@ export namespace Prisma {
     id?: boolean
     key?: boolean
     label?: boolean
-    promptCustom?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    promptCustom?: boolean
   }, ExtArgs["result"]["emotion"]>
 
   export type EmotionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     key?: boolean
     label?: boolean
-    promptCustom?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    promptCustom?: boolean
   }, ExtArgs["result"]["emotion"]>
 
   export type EmotionSelectScalar = {
     id?: boolean
     key?: boolean
     label?: boolean
-    promptCustom?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    promptCustom?: boolean
   }
 
-  export type EmotionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "label" | "promptCustom" | "createdAt" | "updatedAt", ExtArgs["result"]["emotion"]>
+  export type EmotionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "label" | "createdAt" | "updatedAt" | "promptCustom", ExtArgs["result"]["emotion"]>
   export type EmotionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clips?: boolean | Emotion$clipsArgs<ExtArgs>
     deviceClipCaches?: boolean | Emotion$deviceClipCachesArgs<ExtArgs>
@@ -4868,9 +4868,9 @@ export namespace Prisma {
       id: string
       key: string
       label: string
-      promptCustom: string | null
       createdAt: Date
       updatedAt: Date
+      promptCustom: string | null
     }, ExtArgs["result"]["emotion"]>
     composites: {}
   }
@@ -5300,9 +5300,9 @@ export namespace Prisma {
     readonly id: FieldRef<"Emotion", 'String'>
     readonly key: FieldRef<"Emotion", 'String'>
     readonly label: FieldRef<"Emotion", 'String'>
-    readonly promptCustom: FieldRef<"Emotion", 'String'>
     readonly createdAt: FieldRef<"Emotion", 'DateTime'>
     readonly updatedAt: FieldRef<"Emotion", 'DateTime'>
+    readonly promptCustom: FieldRef<"Emotion", 'String'>
   }
     
 
@@ -5800,9 +5800,9 @@ export namespace Prisma {
     fps: number | null
     frames: number | null
     durationS: number | null
+    weight: number | null
     loopStartFrame: number | null
     loopEndFrame: number | null
-    weight: number | null
     variant: number | null
   }
 
@@ -5813,9 +5813,9 @@ export namespace Prisma {
     fps: number | null
     frames: number | null
     durationS: number | null
+    weight: number | null
     loopStartFrame: number | null
     loopEndFrame: number | null
-    weight: number | null
     variant: number | null
   }
 
@@ -5833,18 +5833,18 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
-    variantPrompt: string | null
     modelName: string | null
-    xaiJobId: string | null
     previewUrl: string | null
-    workingPreviewUrl: string | null
-    loopStartFrame: number | null
-    loopEndFrame: number | null
     weight: number | null
-    trigger: string | null
-    variant: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    xaiJobId: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    workingPreviewUrl: string | null
+    variantPrompt: string | null
+    trigger: string | null
+    variant: number | null
   }
 
   export type ClipMaxAggregateOutputType = {
@@ -5861,18 +5861,18 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
-    variantPrompt: string | null
     modelName: string | null
-    xaiJobId: string | null
     previewUrl: string | null
-    workingPreviewUrl: string | null
-    loopStartFrame: number | null
-    loopEndFrame: number | null
     weight: number | null
-    trigger: string | null
-    variant: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    xaiJobId: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    workingPreviewUrl: string | null
+    variantPrompt: string | null
+    trigger: string | null
+    variant: number | null
   }
 
   export type ClipCountAggregateOutputType = {
@@ -5889,19 +5889,19 @@ export namespace Prisma {
     frames: number
     durationS: number
     prompt: number
-    variantPrompt: number
     modelName: number
-    xaiJobId: number
     previewUrl: number
-    workingPreviewUrl: number
-    loopStartFrame: number
-    loopEndFrame: number
     weight: number
-    trigger: number
-    variant: number
     tags: number
     createdAt: number
     updatedAt: number
+    xaiJobId: number
+    loopStartFrame: number
+    loopEndFrame: number
+    workingPreviewUrl: number
+    variantPrompt: number
+    trigger: number
+    variant: number
     _all: number
   }
 
@@ -5913,9 +5913,9 @@ export namespace Prisma {
     fps?: true
     frames?: true
     durationS?: true
+    weight?: true
     loopStartFrame?: true
     loopEndFrame?: true
-    weight?: true
     variant?: true
   }
 
@@ -5926,9 +5926,9 @@ export namespace Prisma {
     fps?: true
     frames?: true
     durationS?: true
+    weight?: true
     loopStartFrame?: true
     loopEndFrame?: true
-    weight?: true
     variant?: true
   }
 
@@ -5946,18 +5946,18 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
-    variantPrompt?: true
     modelName?: true
-    xaiJobId?: true
     previewUrl?: true
-    workingPreviewUrl?: true
-    loopStartFrame?: true
-    loopEndFrame?: true
     weight?: true
-    trigger?: true
-    variant?: true
     createdAt?: true
     updatedAt?: true
+    xaiJobId?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    workingPreviewUrl?: true
+    variantPrompt?: true
+    trigger?: true
+    variant?: true
   }
 
   export type ClipMaxAggregateInputType = {
@@ -5974,18 +5974,18 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
-    variantPrompt?: true
     modelName?: true
-    xaiJobId?: true
     previewUrl?: true
-    workingPreviewUrl?: true
-    loopStartFrame?: true
-    loopEndFrame?: true
     weight?: true
-    trigger?: true
-    variant?: true
     createdAt?: true
     updatedAt?: true
+    xaiJobId?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    workingPreviewUrl?: true
+    variantPrompt?: true
+    trigger?: true
+    variant?: true
   }
 
   export type ClipCountAggregateInputType = {
@@ -6002,19 +6002,19 @@ export namespace Prisma {
     frames?: true
     durationS?: true
     prompt?: true
-    variantPrompt?: true
     modelName?: true
-    xaiJobId?: true
     previewUrl?: true
-    workingPreviewUrl?: true
-    loopStartFrame?: true
-    loopEndFrame?: true
     weight?: true
-    trigger?: true
-    variant?: true
     tags?: true
     createdAt?: true
     updatedAt?: true
+    xaiJobId?: true
+    loopStartFrame?: true
+    loopEndFrame?: true
+    workingPreviewUrl?: true
+    variantPrompt?: true
+    trigger?: true
+    variant?: true
     _all?: true
   }
 
@@ -6118,19 +6118,19 @@ export namespace Prisma {
     frames: number | null
     durationS: number | null
     prompt: string | null
-    variantPrompt: string | null
     modelName: string | null
-    xaiJobId: string | null
     previewUrl: string | null
-    workingPreviewUrl: string | null
-    loopStartFrame: number | null
-    loopEndFrame: number | null
     weight: number
-    trigger: string | null
-    variant: number
     tags: string[]
     createdAt: Date
     updatedAt: Date
+    xaiJobId: string | null
+    loopStartFrame: number | null
+    loopEndFrame: number | null
+    workingPreviewUrl: string | null
+    variantPrompt: string | null
+    trigger: string | null
+    variant: number
     _count: ClipCountAggregateOutputType | null
     _avg: ClipAvgAggregateOutputType | null
     _sum: ClipSumAggregateOutputType | null
@@ -6166,23 +6166,23 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
-    variantPrompt?: boolean
     modelName?: boolean
-    xaiJobId?: boolean
     previewUrl?: boolean
-    workingPreviewUrl?: boolean
-    loopStartFrame?: boolean
-    loopEndFrame?: boolean
     weight?: boolean
-    trigger?: boolean
-    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xaiJobId?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    workingPreviewUrl?: boolean
+    variantPrompt?: boolean
+    trigger?: boolean
+    variant?: boolean
+    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
+    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
-    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
     deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
     emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
     _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
@@ -6202,19 +6202,19 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
-    variantPrompt?: boolean
     modelName?: boolean
-    xaiJobId?: boolean
     previewUrl?: boolean
-    workingPreviewUrl?: boolean
-    loopStartFrame?: boolean
-    loopEndFrame?: boolean
     weight?: boolean
-    trigger?: boolean
-    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xaiJobId?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    workingPreviewUrl?: boolean
+    variantPrompt?: boolean
+    trigger?: boolean
+    variant?: boolean
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clip"]>
@@ -6233,19 +6233,19 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
-    variantPrompt?: boolean
     modelName?: boolean
-    xaiJobId?: boolean
     previewUrl?: boolean
-    workingPreviewUrl?: boolean
-    loopStartFrame?: boolean
-    loopEndFrame?: boolean
     weight?: boolean
-    trigger?: boolean
-    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xaiJobId?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    workingPreviewUrl?: boolean
+    variantPrompt?: boolean
+    trigger?: boolean
+    variant?: boolean
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clip"]>
@@ -6264,27 +6264,27 @@ export namespace Prisma {
     frames?: boolean
     durationS?: boolean
     prompt?: boolean
-    variantPrompt?: boolean
     modelName?: boolean
-    xaiJobId?: boolean
     previewUrl?: boolean
-    workingPreviewUrl?: boolean
-    loopStartFrame?: boolean
-    loopEndFrame?: boolean
     weight?: boolean
-    trigger?: boolean
-    variant?: boolean
     tags?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xaiJobId?: boolean
+    loopStartFrame?: boolean
+    loopEndFrame?: boolean
+    workingPreviewUrl?: boolean
+    variantPrompt?: boolean
+    trigger?: boolean
+    variant?: boolean
   }
 
-  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "variantPrompt" | "modelName" | "xaiJobId" | "previewUrl" | "workingPreviewUrl" | "loopStartFrame" | "loopEndFrame" | "weight" | "trigger" | "variant" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["clip"]>
+  export type ClipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "emotionId" | "status" | "fileUrl" | "sha256" | "sizeBytes" | "width" | "height" | "fps" | "frames" | "durationS" | "prompt" | "modelName" | "previewUrl" | "weight" | "tags" | "createdAt" | "updatedAt" | "xaiJobId" | "loopStartFrame" | "loopEndFrame" | "workingPreviewUrl" | "variantPrompt" | "trigger" | "variant", ExtArgs["result"]["clip"]>
   export type ClipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
+    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
     character?: boolean | CharacterDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    faceRegions?: boolean | Clip$faceRegionsArgs<ExtArgs>
-    artifacts?: boolean | Clip$artifactsArgs<ExtArgs>
     deviceClipCaches?: boolean | Clip$deviceClipCachesArgs<ExtArgs>
     emotionVideos?: boolean | Clip$emotionVideosArgs<ExtArgs>
     _count?: boolean | ClipCountOutputTypeDefaultArgs<ExtArgs>
@@ -6301,10 +6301,10 @@ export namespace Prisma {
   export type $ClipPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Clip"
     objects: {
+      artifacts: Prisma.$ClipArtifactPayload<ExtArgs>[]
+      faceRegions: Prisma.$ClipFaceRegionPayload<ExtArgs>[]
       character: Prisma.$CharacterPayload<ExtArgs>
       emotion: Prisma.$EmotionPayload<ExtArgs>
-      faceRegions: Prisma.$ClipFaceRegionPayload<ExtArgs>[]
-      artifacts: Prisma.$ClipArtifactPayload<ExtArgs>[]
       deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
       emotionVideos: Prisma.$EmotionVideoPayload<ExtArgs>[]
     }
@@ -6322,19 +6322,19 @@ export namespace Prisma {
       frames: number | null
       durationS: number | null
       prompt: string | null
-      variantPrompt: string | null
       modelName: string | null
-      xaiJobId: string | null
       previewUrl: string | null
-      workingPreviewUrl: string | null
-      loopStartFrame: number | null
-      loopEndFrame: number | null
       weight: number
-      trigger: string | null
-      variant: number
       tags: string[]
       createdAt: Date
       updatedAt: Date
+      xaiJobId: string | null
+      loopStartFrame: number | null
+      loopEndFrame: number | null
+      workingPreviewUrl: string | null
+      variantPrompt: string | null
+      trigger: string | null
+      variant: number
     }, ExtArgs["result"]["clip"]>
     composites: {}
   }
@@ -6729,10 +6729,10 @@ export namespace Prisma {
    */
   export interface Prisma__ClipClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    artifacts<T extends Clip$artifactsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$artifactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    faceRegions<T extends Clip$faceRegionsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$faceRegionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    faceRegions<T extends Clip$faceRegionsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$faceRegionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipFaceRegionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    artifacts<T extends Clip$artifactsArgs<ExtArgs> = {}>(args?: Subset<T, Clip$artifactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClipArtifactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     deviceClipCaches<T extends Clip$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, Clip$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     emotionVideos<T extends Clip$emotionVideosArgs<ExtArgs> = {}>(args?: Subset<T, Clip$emotionVideosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmotionVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -6777,19 +6777,19 @@ export namespace Prisma {
     readonly frames: FieldRef<"Clip", 'Int'>
     readonly durationS: FieldRef<"Clip", 'Float'>
     readonly prompt: FieldRef<"Clip", 'String'>
-    readonly variantPrompt: FieldRef<"Clip", 'String'>
     readonly modelName: FieldRef<"Clip", 'String'>
-    readonly xaiJobId: FieldRef<"Clip", 'String'>
     readonly previewUrl: FieldRef<"Clip", 'String'>
-    readonly workingPreviewUrl: FieldRef<"Clip", 'String'>
-    readonly loopStartFrame: FieldRef<"Clip", 'Int'>
-    readonly loopEndFrame: FieldRef<"Clip", 'Int'>
     readonly weight: FieldRef<"Clip", 'Int'>
-    readonly trigger: FieldRef<"Clip", 'String'>
-    readonly variant: FieldRef<"Clip", 'Int'>
     readonly tags: FieldRef<"Clip", 'String[]'>
     readonly createdAt: FieldRef<"Clip", 'DateTime'>
     readonly updatedAt: FieldRef<"Clip", 'DateTime'>
+    readonly xaiJobId: FieldRef<"Clip", 'String'>
+    readonly loopStartFrame: FieldRef<"Clip", 'Int'>
+    readonly loopEndFrame: FieldRef<"Clip", 'Int'>
+    readonly workingPreviewUrl: FieldRef<"Clip", 'String'>
+    readonly variantPrompt: FieldRef<"Clip", 'String'>
+    readonly trigger: FieldRef<"Clip", 'String'>
+    readonly variant: FieldRef<"Clip", 'Int'>
   }
     
 
@@ -7186,30 +7186,6 @@ export namespace Prisma {
   }
 
   /**
-   * Clip.faceRegions
-   */
-  export type Clip$faceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ClipFaceRegion
-     */
-    select?: ClipFaceRegionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ClipFaceRegion
-     */
-    omit?: ClipFaceRegionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ClipFaceRegionInclude<ExtArgs> | null
-    where?: ClipFaceRegionWhereInput
-    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
-    cursor?: ClipFaceRegionWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
-  }
-
-  /**
    * Clip.artifacts
    */
   export type Clip$artifactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7231,6 +7207,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ClipArtifactScalarFieldEnum | ClipArtifactScalarFieldEnum[]
+  }
+
+  /**
+   * Clip.faceRegions
+   */
+  export type Clip$faceRegionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClipFaceRegion
+     */
+    select?: ClipFaceRegionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClipFaceRegion
+     */
+    omit?: ClipFaceRegionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClipFaceRegionInclude<ExtArgs> | null
+    where?: ClipFaceRegionWhereInput
+    orderBy?: ClipFaceRegionOrderByWithRelationInput | ClipFaceRegionOrderByWithRelationInput[]
+    cursor?: ClipFaceRegionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClipFaceRegionScalarFieldEnum | ClipFaceRegionScalarFieldEnum[]
   }
 
   /**
@@ -7338,9 +7338,9 @@ export namespace Prisma {
     w: number | null
     h: number | null
     cornerStyle: $Enums.CornerStyle | null
-    imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    imageUrl: string | null
   }
 
   export type ClipArtifactMaxAggregateOutputType = {
@@ -7353,9 +7353,9 @@ export namespace Prisma {
     w: number | null
     h: number | null
     cornerStyle: $Enums.CornerStyle | null
-    imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    imageUrl: string | null
   }
 
   export type ClipArtifactCountAggregateOutputType = {
@@ -7368,9 +7368,9 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle: number
-    imageUrl: number
     createdAt: number
     updatedAt: number
+    imageUrl: number
     _all: number
   }
 
@@ -7401,9 +7401,9 @@ export namespace Prisma {
     w?: true
     h?: true
     cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    imageUrl?: true
   }
 
   export type ClipArtifactMaxAggregateInputType = {
@@ -7416,9 +7416,9 @@ export namespace Prisma {
     w?: true
     h?: true
     cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    imageUrl?: true
   }
 
   export type ClipArtifactCountAggregateInputType = {
@@ -7431,9 +7431,9 @@ export namespace Prisma {
     w?: true
     h?: true
     cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    imageUrl?: true
     _all?: true
   }
 
@@ -7533,9 +7533,9 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle: $Enums.CornerStyle
-    imageUrl: string | null
     createdAt: Date
     updatedAt: Date
+    imageUrl: string | null
     _count: ClipArtifactCountAggregateOutputType | null
     _avg: ClipArtifactAvgAggregateOutputType | null
     _sum: ClipArtifactSumAggregateOutputType | null
@@ -7567,9 +7567,9 @@ export namespace Prisma {
     w?: boolean
     h?: boolean
     cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipArtifact"]>
 
@@ -7583,9 +7583,9 @@ export namespace Prisma {
     w?: boolean
     h?: boolean
     cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipArtifact"]>
 
@@ -7599,9 +7599,9 @@ export namespace Prisma {
     w?: boolean
     h?: boolean
     cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipArtifact"]>
 
@@ -7615,12 +7615,12 @@ export namespace Prisma {
     w?: boolean
     h?: boolean
     cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    imageUrl?: boolean
   }
 
-  export type ClipArtifactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "frameIndex" | "name" | "x" | "y" | "w" | "h" | "cornerStyle" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["clipArtifact"]>
+  export type ClipArtifactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "frameIndex" | "name" | "x" | "y" | "w" | "h" | "cornerStyle" | "createdAt" | "updatedAt" | "imageUrl", ExtArgs["result"]["clipArtifact"]>
   export type ClipArtifactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }
@@ -7646,9 +7646,9 @@ export namespace Prisma {
       w: number
       h: number
       cornerStyle: $Enums.CornerStyle
-      imageUrl: string | null
       createdAt: Date
       updatedAt: Date
+      imageUrl: string | null
     }, ExtArgs["result"]["clipArtifact"]>
     composites: {}
   }
@@ -8082,9 +8082,9 @@ export namespace Prisma {
     readonly w: FieldRef<"ClipArtifact", 'Float'>
     readonly h: FieldRef<"ClipArtifact", 'Float'>
     readonly cornerStyle: FieldRef<"ClipArtifact", 'CornerStyle'>
-    readonly imageUrl: FieldRef<"ClipArtifact", 'String'>
     readonly createdAt: FieldRef<"ClipArtifact", 'DateTime'>
     readonly updatedAt: FieldRef<"ClipArtifact", 'DateTime'>
+    readonly imageUrl: FieldRef<"ClipArtifact", 'String'>
   }
     
 
@@ -8512,127 +8512,127 @@ export namespace Prisma {
   }
 
   export type ClipFaceRegionAvgAggregateOutputType = {
-    frameIndex: number | null
     x: number | null
     y: number | null
     w: number | null
     h: number | null
+    frameIndex: number | null
   }
 
   export type ClipFaceRegionSumAggregateOutputType = {
-    frameIndex: number | null
     x: number | null
     y: number | null
     w: number | null
     h: number | null
+    frameIndex: number | null
   }
 
   export type ClipFaceRegionMinAggregateOutputType = {
     id: string | null
     clipId: string | null
     regionKey: $Enums.FaceRegionKey | null
-    frameIndex: number | null
     x: number | null
     y: number | null
     w: number | null
     h: number | null
-    cornerStyle: $Enums.CornerStyle | null
-    imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    frameIndex: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
   }
 
   export type ClipFaceRegionMaxAggregateOutputType = {
     id: string | null
     clipId: string | null
     regionKey: $Enums.FaceRegionKey | null
-    frameIndex: number | null
     x: number | null
     y: number | null
     w: number | null
     h: number | null
-    cornerStyle: $Enums.CornerStyle | null
-    imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    frameIndex: number | null
+    cornerStyle: $Enums.CornerStyle | null
+    imageUrl: string | null
   }
 
   export type ClipFaceRegionCountAggregateOutputType = {
     id: number
     clipId: number
     regionKey: number
-    frameIndex: number
     x: number
     y: number
     w: number
     h: number
-    cornerStyle: number
-    imageUrl: number
     createdAt: number
     updatedAt: number
+    frameIndex: number
+    cornerStyle: number
+    imageUrl: number
     _all: number
   }
 
 
   export type ClipFaceRegionAvgAggregateInputType = {
-    frameIndex?: true
     x?: true
     y?: true
     w?: true
     h?: true
+    frameIndex?: true
   }
 
   export type ClipFaceRegionSumAggregateInputType = {
-    frameIndex?: true
     x?: true
     y?: true
     w?: true
     h?: true
+    frameIndex?: true
   }
 
   export type ClipFaceRegionMinAggregateInputType = {
     id?: true
     clipId?: true
     regionKey?: true
-    frameIndex?: true
     x?: true
     y?: true
     w?: true
     h?: true
-    cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    frameIndex?: true
+    cornerStyle?: true
+    imageUrl?: true
   }
 
   export type ClipFaceRegionMaxAggregateInputType = {
     id?: true
     clipId?: true
     regionKey?: true
-    frameIndex?: true
     x?: true
     y?: true
     w?: true
     h?: true
-    cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    frameIndex?: true
+    cornerStyle?: true
+    imageUrl?: true
   }
 
   export type ClipFaceRegionCountAggregateInputType = {
     id?: true
     clipId?: true
     regionKey?: true
-    frameIndex?: true
     x?: true
     y?: true
     w?: true
     h?: true
-    cornerStyle?: true
-    imageUrl?: true
     createdAt?: true
     updatedAt?: true
+    frameIndex?: true
+    cornerStyle?: true
+    imageUrl?: true
     _all?: true
   }
 
@@ -8726,15 +8726,15 @@ export namespace Prisma {
     id: string
     clipId: string
     regionKey: $Enums.FaceRegionKey
-    frameIndex: number
     x: number
     y: number
     w: number
     h: number
-    cornerStyle: $Enums.CornerStyle
-    imageUrl: string | null
     createdAt: Date
     updatedAt: Date
+    frameIndex: number
+    cornerStyle: $Enums.CornerStyle
+    imageUrl: string | null
     _count: ClipFaceRegionCountAggregateOutputType | null
     _avg: ClipFaceRegionAvgAggregateOutputType | null
     _sum: ClipFaceRegionSumAggregateOutputType | null
@@ -8760,15 +8760,15 @@ export namespace Prisma {
     id?: boolean
     clipId?: boolean
     regionKey?: boolean
-    frameIndex?: boolean
     x?: boolean
     y?: boolean
     w?: boolean
     h?: boolean
-    cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    frameIndex?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipFaceRegion"]>
 
@@ -8776,15 +8776,15 @@ export namespace Prisma {
     id?: boolean
     clipId?: boolean
     regionKey?: boolean
-    frameIndex?: boolean
     x?: boolean
     y?: boolean
     w?: boolean
     h?: boolean
-    cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    frameIndex?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipFaceRegion"]>
 
@@ -8792,15 +8792,15 @@ export namespace Prisma {
     id?: boolean
     clipId?: boolean
     regionKey?: boolean
-    frameIndex?: boolean
     x?: boolean
     y?: boolean
     w?: boolean
     h?: boolean
-    cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    frameIndex?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clipFaceRegion"]>
 
@@ -8808,18 +8808,18 @@ export namespace Prisma {
     id?: boolean
     clipId?: boolean
     regionKey?: boolean
-    frameIndex?: boolean
     x?: boolean
     y?: boolean
     w?: boolean
     h?: boolean
-    cornerStyle?: boolean
-    imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    frameIndex?: boolean
+    cornerStyle?: boolean
+    imageUrl?: boolean
   }
 
-  export type ClipFaceRegionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "regionKey" | "frameIndex" | "x" | "y" | "w" | "h" | "cornerStyle" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["clipFaceRegion"]>
+  export type ClipFaceRegionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clipId" | "regionKey" | "x" | "y" | "w" | "h" | "createdAt" | "updatedAt" | "frameIndex" | "cornerStyle" | "imageUrl", ExtArgs["result"]["clipFaceRegion"]>
   export type ClipFaceRegionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     clip?: boolean | ClipDefaultArgs<ExtArgs>
   }
@@ -8839,15 +8839,15 @@ export namespace Prisma {
       id: string
       clipId: string
       regionKey: $Enums.FaceRegionKey
-      frameIndex: number
       x: number
       y: number
       w: number
       h: number
-      cornerStyle: $Enums.CornerStyle
-      imageUrl: string | null
       createdAt: Date
       updatedAt: Date
+      frameIndex: number
+      cornerStyle: $Enums.CornerStyle
+      imageUrl: string | null
     }, ExtArgs["result"]["clipFaceRegion"]>
     composites: {}
   }
@@ -9275,15 +9275,15 @@ export namespace Prisma {
     readonly id: FieldRef<"ClipFaceRegion", 'String'>
     readonly clipId: FieldRef<"ClipFaceRegion", 'String'>
     readonly regionKey: FieldRef<"ClipFaceRegion", 'FaceRegionKey'>
-    readonly frameIndex: FieldRef<"ClipFaceRegion", 'Int'>
     readonly x: FieldRef<"ClipFaceRegion", 'Float'>
     readonly y: FieldRef<"ClipFaceRegion", 'Float'>
     readonly w: FieldRef<"ClipFaceRegion", 'Float'>
     readonly h: FieldRef<"ClipFaceRegion", 'Float'>
-    readonly cornerStyle: FieldRef<"ClipFaceRegion", 'CornerStyle'>
-    readonly imageUrl: FieldRef<"ClipFaceRegion", 'String'>
     readonly createdAt: FieldRef<"ClipFaceRegion", 'DateTime'>
     readonly updatedAt: FieldRef<"ClipFaceRegion", 'DateTime'>
+    readonly frameIndex: FieldRef<"ClipFaceRegion", 'Int'>
+    readonly cornerStyle: FieldRef<"ClipFaceRegion", 'CornerStyle'>
+    readonly imageUrl: FieldRef<"ClipFaceRegion", 'String'>
   }
     
 
@@ -9714,20 +9714,18 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
-    variant: number | null
     sizeBytes: number | null
-    totalFrames: number | null
     durationS: number | null
+    totalFrames: number | null
   }
 
   export type EmotionVideoSumAggregateOutputType = {
     fps: number | null
     width: number | null
     height: number | null
-    variant: number | null
     sizeBytes: number | null
-    totalFrames: number | null
     durationS: number | null
+    totalFrames: number | null
   }
 
   export type EmotionVideoMinAggregateOutputType = {
@@ -9738,17 +9736,15 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
-    trigger: string | null
-    variant: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
-    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
-    totalFrames: number | null
     durationS: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    totalFrames: number | null
+    idxUrl: string | null
   }
 
   export type EmotionVideoMaxAggregateOutputType = {
@@ -9759,17 +9755,15 @@ export namespace Prisma {
     fps: number | null
     width: number | null
     height: number | null
-    trigger: string | null
-    variant: number | null
     status: $Enums.ClipStatus | null
     binUrl: string | null
-    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
-    totalFrames: number | null
     durationS: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    totalFrames: number | null
+    idxUrl: string | null
   }
 
   export type EmotionVideoCountAggregateOutputType = {
@@ -9780,20 +9774,18 @@ export namespace Prisma {
     fps: number
     width: number
     height: number
-    introTimeline: number
-    loopTimeline: number
-    exitTimeline: number
-    trigger: number
-    variant: number
     status: number
     binUrl: number
-    idxUrl: number
     sha256: number
     sizeBytes: number
-    totalFrames: number
     durationS: number
     createdAt: number
     updatedAt: number
+    exitTimeline: number
+    introTimeline: number
+    loopTimeline: number
+    totalFrames: number
+    idxUrl: number
     _all: number
   }
 
@@ -9802,20 +9794,18 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
-    variant?: true
     sizeBytes?: true
-    totalFrames?: true
     durationS?: true
+    totalFrames?: true
   }
 
   export type EmotionVideoSumAggregateInputType = {
     fps?: true
     width?: true
     height?: true
-    variant?: true
     sizeBytes?: true
-    totalFrames?: true
     durationS?: true
+    totalFrames?: true
   }
 
   export type EmotionVideoMinAggregateInputType = {
@@ -9826,17 +9816,15 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
-    trigger?: true
-    variant?: true
     status?: true
     binUrl?: true
-    idxUrl?: true
     sha256?: true
     sizeBytes?: true
-    totalFrames?: true
     durationS?: true
     createdAt?: true
     updatedAt?: true
+    totalFrames?: true
+    idxUrl?: true
   }
 
   export type EmotionVideoMaxAggregateInputType = {
@@ -9847,17 +9835,15 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
-    trigger?: true
-    variant?: true
     status?: true
     binUrl?: true
-    idxUrl?: true
     sha256?: true
     sizeBytes?: true
-    totalFrames?: true
     durationS?: true
     createdAt?: true
     updatedAt?: true
+    totalFrames?: true
+    idxUrl?: true
   }
 
   export type EmotionVideoCountAggregateInputType = {
@@ -9868,20 +9854,18 @@ export namespace Prisma {
     fps?: true
     width?: true
     height?: true
-    introTimeline?: true
-    loopTimeline?: true
-    exitTimeline?: true
-    trigger?: true
-    variant?: true
     status?: true
     binUrl?: true
-    idxUrl?: true
     sha256?: true
     sizeBytes?: true
-    totalFrames?: true
     durationS?: true
     createdAt?: true
     updatedAt?: true
+    exitTimeline?: true
+    introTimeline?: true
+    loopTimeline?: true
+    totalFrames?: true
+    idxUrl?: true
     _all?: true
   }
 
@@ -9979,20 +9963,18 @@ export namespace Prisma {
     fps: number
     width: number
     height: number
-    introTimeline: JsonValue
-    loopTimeline: JsonValue
-    exitTimeline: JsonValue
-    trigger: string | null
-    variant: number
     status: $Enums.ClipStatus
     binUrl: string | null
-    idxUrl: string | null
     sha256: string | null
     sizeBytes: number | null
-    totalFrames: number | null
     durationS: number | null
     createdAt: Date
     updatedAt: Date
+    exitTimeline: JsonValue
+    introTimeline: JsonValue
+    loopTimeline: JsonValue
+    totalFrames: number | null
+    idxUrl: string | null
     _count: EmotionVideoCountAggregateOutputType | null
     _avg: EmotionVideoAvgAggregateOutputType | null
     _sum: EmotionVideoSumAggregateOutputType | null
@@ -10022,20 +10004,18 @@ export namespace Prisma {
     fps?: boolean
     width?: boolean
     height?: boolean
-    introTimeline?: boolean
-    loopTimeline?: boolean
-    exitTimeline?: boolean
-    trigger?: boolean
-    variant?: boolean
     status?: boolean
     binUrl?: boolean
-    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
-    totalFrames?: boolean
     durationS?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    exitTimeline?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    totalFrames?: boolean
+    idxUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10048,20 +10028,18 @@ export namespace Prisma {
     fps?: boolean
     width?: boolean
     height?: boolean
-    introTimeline?: boolean
-    loopTimeline?: boolean
-    exitTimeline?: boolean
-    trigger?: boolean
-    variant?: boolean
     status?: boolean
     binUrl?: boolean
-    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
-    totalFrames?: boolean
     durationS?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    exitTimeline?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    totalFrames?: boolean
+    idxUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10074,20 +10052,18 @@ export namespace Prisma {
     fps?: boolean
     width?: boolean
     height?: boolean
-    introTimeline?: boolean
-    loopTimeline?: boolean
-    exitTimeline?: boolean
-    trigger?: boolean
-    variant?: boolean
     status?: boolean
     binUrl?: boolean
-    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
-    totalFrames?: boolean
     durationS?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    exitTimeline?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    totalFrames?: boolean
+    idxUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10100,23 +10076,21 @@ export namespace Prisma {
     fps?: boolean
     width?: boolean
     height?: boolean
-    introTimeline?: boolean
-    loopTimeline?: boolean
-    exitTimeline?: boolean
-    trigger?: boolean
-    variant?: boolean
     status?: boolean
     binUrl?: boolean
-    idxUrl?: boolean
     sha256?: boolean
     sizeBytes?: boolean
-    totalFrames?: boolean
     durationS?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    exitTimeline?: boolean
+    introTimeline?: boolean
+    loopTimeline?: boolean
+    totalFrames?: boolean
+    idxUrl?: boolean
   }
 
-  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "introTimeline" | "loopTimeline" | "exitTimeline" | "trigger" | "variant" | "status" | "binUrl" | "idxUrl" | "sha256" | "sizeBytes" | "totalFrames" | "durationS" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "status" | "binUrl" | "sha256" | "sizeBytes" | "durationS" | "createdAt" | "updatedAt" | "exitTimeline" | "introTimeline" | "loopTimeline" | "totalFrames" | "idxUrl", ExtArgs["result"]["emotionVideo"]>
   export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
@@ -10144,20 +10118,18 @@ export namespace Prisma {
       fps: number
       width: number
       height: number
-      introTimeline: Prisma.JsonValue
-      loopTimeline: Prisma.JsonValue
-      exitTimeline: Prisma.JsonValue
-      trigger: string | null
-      variant: number
       status: $Enums.ClipStatus
       binUrl: string | null
-      idxUrl: string | null
       sha256: string | null
       sizeBytes: number | null
-      totalFrames: number | null
       durationS: number | null
       createdAt: Date
       updatedAt: Date
+      exitTimeline: Prisma.JsonValue
+      introTimeline: Prisma.JsonValue
+      loopTimeline: Prisma.JsonValue
+      totalFrames: number | null
+      idxUrl: string | null
     }, ExtArgs["result"]["emotionVideo"]>
     composites: {}
   }
@@ -10590,20 +10562,18 @@ export namespace Prisma {
     readonly fps: FieldRef<"EmotionVideo", 'Int'>
     readonly width: FieldRef<"EmotionVideo", 'Int'>
     readonly height: FieldRef<"EmotionVideo", 'Int'>
-    readonly introTimeline: FieldRef<"EmotionVideo", 'Json'>
-    readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
-    readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
-    readonly trigger: FieldRef<"EmotionVideo", 'String'>
-    readonly variant: FieldRef<"EmotionVideo", 'Int'>
     readonly status: FieldRef<"EmotionVideo", 'ClipStatus'>
     readonly binUrl: FieldRef<"EmotionVideo", 'String'>
-    readonly idxUrl: FieldRef<"EmotionVideo", 'String'>
     readonly sha256: FieldRef<"EmotionVideo", 'String'>
     readonly sizeBytes: FieldRef<"EmotionVideo", 'Int'>
-    readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
     readonly durationS: FieldRef<"EmotionVideo", 'Float'>
     readonly createdAt: FieldRef<"EmotionVideo", 'DateTime'>
     readonly updatedAt: FieldRef<"EmotionVideo", 'DateTime'>
+    readonly exitTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly introTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
+    readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
+    readonly idxUrl: FieldRef<"EmotionVideo", 'String'>
   }
     
 
@@ -11206,8 +11176,8 @@ export namespace Prisma {
     lastSeenAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    character?: boolean | CharacterDefaultArgs<ExtArgs>
     deviceClipCaches?: boolean | EmotionDevice$deviceClipCachesArgs<ExtArgs>
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
     _count?: boolean | EmotionDeviceCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionDevice"]>
 
@@ -11248,8 +11218,8 @@ export namespace Prisma {
 
   export type EmotionDeviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "pubnubChannel" | "mode" | "isCharging" | "lastSeenAt" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionDevice"]>
   export type EmotionDeviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    character?: boolean | CharacterDefaultArgs<ExtArgs>
     deviceClipCaches?: boolean | EmotionDevice$deviceClipCachesArgs<ExtArgs>
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
     _count?: boolean | EmotionDeviceCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EmotionDeviceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11262,8 +11232,8 @@ export namespace Prisma {
   export type $EmotionDevicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "EmotionDevice"
     objects: {
-      character: Prisma.$CharacterPayload<ExtArgs>
       deviceClipCaches: Prisma.$DeviceClipCachePayload<ExtArgs>[]
+      character: Prisma.$CharacterPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11668,8 +11638,8 @@ export namespace Prisma {
    */
   export interface Prisma__EmotionDeviceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     deviceClipCaches<T extends EmotionDevice$deviceClipCachesArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDevice$deviceClipCachesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeviceClipCachePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12351,9 +12321,9 @@ export namespace Prisma {
     clipId?: boolean
     lastSeenAt?: boolean
     lastPlayedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["deviceClipCache"]>
 
   export type DeviceClipCacheSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12363,9 +12333,9 @@ export namespace Prisma {
     clipId?: boolean
     lastSeenAt?: boolean
     lastPlayedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["deviceClipCache"]>
 
   export type DeviceClipCacheSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12375,9 +12345,9 @@ export namespace Prisma {
     clipId?: boolean
     lastSeenAt?: boolean
     lastPlayedAt?: boolean
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["deviceClipCache"]>
 
   export type DeviceClipCacheSelectScalar = {
@@ -12391,27 +12361,27 @@ export namespace Prisma {
 
   export type DeviceClipCacheOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"deviceId" | "emotionId" | "slot" | "clipId" | "lastSeenAt" | "lastPlayedAt", ExtArgs["result"]["deviceClipCache"]>
   export type DeviceClipCacheInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }
   export type DeviceClipCacheIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }
   export type DeviceClipCacheIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    clip?: boolean | ClipDefaultArgs<ExtArgs>
     device?: boolean | EmotionDeviceDefaultArgs<ExtArgs>
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
-    clip?: boolean | ClipDefaultArgs<ExtArgs>
   }
 
   export type $DeviceClipCachePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "DeviceClipCache"
     objects: {
+      clip: Prisma.$ClipPayload<ExtArgs>
       device: Prisma.$EmotionDevicePayload<ExtArgs>
       emotion: Prisma.$EmotionPayload<ExtArgs>
-      clip: Prisma.$ClipPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       deviceId: string
@@ -12814,9 +12784,9 @@ export namespace Prisma {
    */
   export interface Prisma__DeviceClipCacheClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    clip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     device<T extends EmotionDeviceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDeviceDefaultArgs<ExtArgs>>): Prisma__EmotionDeviceClient<$Result.GetResult<Prisma.$EmotionDevicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     emotion<T extends EmotionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmotionDefaultArgs<ExtArgs>>): Prisma__EmotionClient<$Result.GetResult<Prisma.$EmotionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    clip<T extends ClipDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClipDefaultArgs<ExtArgs>>): Prisma__ClipClient<$Result.GetResult<Prisma.$ClipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16570,9 +16540,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    isAdmin: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    isAdmin: boolean | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -16582,9 +16552,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    isAdmin: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    isAdmin: boolean | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -16594,9 +16564,9 @@ export namespace Prisma {
     name: number
     avatar: number
     password: number
-    isAdmin: number
     createdAt: number
     updatedAt: number
+    isAdmin: number
     _all: number
   }
 
@@ -16608,9 +16578,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    isAdmin?: true
     createdAt?: true
     updatedAt?: true
+    isAdmin?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -16620,9 +16590,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    isAdmin?: true
     createdAt?: true
     updatedAt?: true
+    isAdmin?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -16632,9 +16602,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    isAdmin?: true
     createdAt?: true
     updatedAt?: true
+    isAdmin?: true
     _all?: true
   }
 
@@ -16717,9 +16687,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    isAdmin: boolean
     createdAt: Date
     updatedAt: Date
+    isAdmin: boolean
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -16746,14 +16716,14 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    isAdmin?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isAdmin?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
-    kidoos?: boolean | User$kidoosArgs<ExtArgs>
-    tags?: boolean | User$tagsArgs<ExtArgs>
     files?: boolean | User$filesArgs<ExtArgs>
+    kidoos?: boolean | User$kidoosArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    tags?: boolean | User$tagsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -16764,9 +16734,9 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    isAdmin?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isAdmin?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -16776,9 +16746,9 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    isAdmin?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isAdmin?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -16788,18 +16758,18 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    isAdmin?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isAdmin?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "isAdmin" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "createdAt" | "updatedAt" | "isAdmin", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
-    sessions?: boolean | User$sessionsArgs<ExtArgs>
-    kidoos?: boolean | User$kidoosArgs<ExtArgs>
-    tags?: boolean | User$tagsArgs<ExtArgs>
     files?: boolean | User$filesArgs<ExtArgs>
+    kidoos?: boolean | User$kidoosArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    tags?: boolean | User$tagsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -16809,10 +16779,10 @@ export namespace Prisma {
     name: "User"
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
-      sessions: Prisma.$SessionPayload<ExtArgs>[]
-      kidoos: Prisma.$KidooPayload<ExtArgs>[]
-      tags: Prisma.$TagPayload<ExtArgs>[]
       files: Prisma.$FilePayload<ExtArgs>[]
+      kidoos: Prisma.$KidooPayload<ExtArgs>[]
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
+      tags: Prisma.$TagPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -16821,9 +16791,9 @@ export namespace Prisma {
       name: string | null
       avatar: string | null
       password: string | null
-      isAdmin: boolean
       createdAt: Date
       updatedAt: Date
+      isAdmin: boolean
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -17219,10 +17189,10 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    kidoos<T extends User$kidoosArgs<ExtArgs> = {}>(args?: Subset<T, User$kidoosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tags<T extends User$tagsArgs<ExtArgs> = {}>(args?: Subset<T, User$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     files<T extends User$filesArgs<ExtArgs> = {}>(args?: Subset<T, User$filesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    kidoos<T extends User$kidoosArgs<ExtArgs> = {}>(args?: Subset<T, User$kidoosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tags<T extends User$tagsArgs<ExtArgs> = {}>(args?: Subset<T, User$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17258,9 +17228,9 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly isAdmin: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly isAdmin: FieldRef<"User", 'Boolean'>
   }
     
 
@@ -17673,27 +17643,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.sessions
+   * User.files
    */
-  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$filesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Session
+     * Select specific fields to fetch from the File
      */
-    select?: SessionSelect<ExtArgs> | null
+    select?: FileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Session
+     * Omit specific fields from the File
      */
-    omit?: SessionOmit<ExtArgs> | null
+    omit?: FileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SessionInclude<ExtArgs> | null
-    where?: SessionWhereInput
-    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
-    cursor?: SessionWhereUniqueInput
+    include?: FileInclude<ExtArgs> | null
+    where?: FileWhereInput
+    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
+    cursor?: FileWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+    distinct?: FileScalarFieldEnum | FileScalarFieldEnum[]
   }
 
   /**
@@ -17721,6 +17691,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.sessions
+   */
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
    * User.tags
    */
   export type User$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17742,30 +17736,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * User.files
-   */
-  export type User$filesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the File
-     */
-    select?: FileSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the File
-     */
-    omit?: FileOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FileInclude<ExtArgs> | null
-    where?: FileWhereInput
-    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
-    cursor?: FileWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: FileScalarFieldEnum | FileScalarFieldEnum[]
   }
 
   /**
@@ -17801,20 +17771,20 @@ export namespace Prisma {
 
   export type KidooAvgAggregateOutputType = {
     brightness: number | null
-    sleepTimeout: number | null
-    sleepColorR: number | null
-    sleepColorG: number | null
     sleepColorB: number | null
+    sleepColorG: number | null
+    sleepColorR: number | null
     sleepEffect: number | null
+    sleepTimeout: number | null
   }
 
   export type KidooSumAggregateOutputType = {
     brightness: number | null
-    sleepTimeout: number | null
-    sleepColorR: number | null
-    sleepColorG: number | null
     sleepColorB: number | null
+    sleepColorG: number | null
+    sleepColorR: number | null
     sleepEffect: number | null
+    sleepTimeout: number | null
   }
 
   export type KidooMinAggregateOutputType = {
@@ -17822,7 +17792,6 @@ export namespace Prisma {
     name: string | null
     model: $Enums.KidooModel | null
     macAddress: string | null
-    bluetoothMacAddress: string | null
     deviceId: string | null
     firmwareVersion: string | null
     lastConnected: Date | null
@@ -17832,12 +17801,13 @@ export namespace Prisma {
     isSynced: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    bluetoothMacAddress: string | null
     brightness: number | null
-    sleepTimeout: number | null
-    sleepColorR: number | null
-    sleepColorG: number | null
     sleepColorB: number | null
+    sleepColorG: number | null
+    sleepColorR: number | null
     sleepEffect: number | null
+    sleepTimeout: number | null
   }
 
   export type KidooMaxAggregateOutputType = {
@@ -17845,7 +17815,6 @@ export namespace Prisma {
     name: string | null
     model: $Enums.KidooModel | null
     macAddress: string | null
-    bluetoothMacAddress: string | null
     deviceId: string | null
     firmwareVersion: string | null
     lastConnected: Date | null
@@ -17855,12 +17824,13 @@ export namespace Prisma {
     isSynced: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    bluetoothMacAddress: string | null
     brightness: number | null
-    sleepTimeout: number | null
-    sleepColorR: number | null
-    sleepColorG: number | null
     sleepColorB: number | null
+    sleepColorG: number | null
+    sleepColorR: number | null
     sleepEffect: number | null
+    sleepTimeout: number | null
   }
 
   export type KidooCountAggregateOutputType = {
@@ -17868,7 +17838,6 @@ export namespace Prisma {
     name: number
     model: number
     macAddress: number
-    bluetoothMacAddress: number
     deviceId: number
     firmwareVersion: number
     lastConnected: number
@@ -17878,32 +17847,33 @@ export namespace Prisma {
     isSynced: number
     createdAt: number
     updatedAt: number
+    bluetoothMacAddress: number
     brightness: number
-    sleepTimeout: number
-    sleepColorR: number
-    sleepColorG: number
     sleepColorB: number
+    sleepColorG: number
+    sleepColorR: number
     sleepEffect: number
+    sleepTimeout: number
     _all: number
   }
 
 
   export type KidooAvgAggregateInputType = {
     brightness?: true
-    sleepTimeout?: true
-    sleepColorR?: true
-    sleepColorG?: true
     sleepColorB?: true
+    sleepColorG?: true
+    sleepColorR?: true
     sleepEffect?: true
+    sleepTimeout?: true
   }
 
   export type KidooSumAggregateInputType = {
     brightness?: true
-    sleepTimeout?: true
-    sleepColorR?: true
-    sleepColorG?: true
     sleepColorB?: true
+    sleepColorG?: true
+    sleepColorR?: true
     sleepEffect?: true
+    sleepTimeout?: true
   }
 
   export type KidooMinAggregateInputType = {
@@ -17911,7 +17881,6 @@ export namespace Prisma {
     name?: true
     model?: true
     macAddress?: true
-    bluetoothMacAddress?: true
     deviceId?: true
     firmwareVersion?: true
     lastConnected?: true
@@ -17921,12 +17890,13 @@ export namespace Prisma {
     isSynced?: true
     createdAt?: true
     updatedAt?: true
+    bluetoothMacAddress?: true
     brightness?: true
-    sleepTimeout?: true
-    sleepColorR?: true
-    sleepColorG?: true
     sleepColorB?: true
+    sleepColorG?: true
+    sleepColorR?: true
     sleepEffect?: true
+    sleepTimeout?: true
   }
 
   export type KidooMaxAggregateInputType = {
@@ -17934,7 +17904,6 @@ export namespace Prisma {
     name?: true
     model?: true
     macAddress?: true
-    bluetoothMacAddress?: true
     deviceId?: true
     firmwareVersion?: true
     lastConnected?: true
@@ -17944,12 +17913,13 @@ export namespace Prisma {
     isSynced?: true
     createdAt?: true
     updatedAt?: true
+    bluetoothMacAddress?: true
     brightness?: true
-    sleepTimeout?: true
-    sleepColorR?: true
-    sleepColorG?: true
     sleepColorB?: true
+    sleepColorG?: true
+    sleepColorR?: true
     sleepEffect?: true
+    sleepTimeout?: true
   }
 
   export type KidooCountAggregateInputType = {
@@ -17957,7 +17927,6 @@ export namespace Prisma {
     name?: true
     model?: true
     macAddress?: true
-    bluetoothMacAddress?: true
     deviceId?: true
     firmwareVersion?: true
     lastConnected?: true
@@ -17967,12 +17936,13 @@ export namespace Prisma {
     isSynced?: true
     createdAt?: true
     updatedAt?: true
+    bluetoothMacAddress?: true
     brightness?: true
-    sleepTimeout?: true
-    sleepColorR?: true
-    sleepColorG?: true
     sleepColorB?: true
+    sleepColorG?: true
+    sleepColorR?: true
     sleepEffect?: true
+    sleepTimeout?: true
     _all?: true
   }
 
@@ -18067,7 +18037,6 @@ export namespace Prisma {
     name: string
     model: $Enums.KidooModel
     macAddress: string | null
-    bluetoothMacAddress: string | null
     deviceId: string
     firmwareVersion: string | null
     lastConnected: Date | null
@@ -18077,12 +18046,13 @@ export namespace Prisma {
     isSynced: boolean
     createdAt: Date
     updatedAt: Date
+    bluetoothMacAddress: string | null
     brightness: number
-    sleepTimeout: number
-    sleepColorR: number | null
-    sleepColorG: number | null
     sleepColorB: number | null
+    sleepColorG: number | null
+    sleepColorR: number | null
     sleepEffect: number | null
+    sleepTimeout: number
     _count: KidooCountAggregateOutputType | null
     _avg: KidooAvgAggregateOutputType | null
     _sum: KidooSumAggregateOutputType | null
@@ -18109,7 +18079,6 @@ export namespace Prisma {
     name?: boolean
     model?: boolean
     macAddress?: boolean
-    bluetoothMacAddress?: boolean
     deviceId?: boolean
     firmwareVersion?: boolean
     lastConnected?: boolean
@@ -18119,16 +18088,17 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    bluetoothMacAddress?: boolean
     brightness?: boolean
-    sleepTimeout?: boolean
-    sleepColorR?: boolean
-    sleepColorG?: boolean
     sleepColorB?: boolean
+    sleepColorG?: boolean
+    sleepColorR?: boolean
     sleepEffect?: boolean
-    user?: boolean | Kidoo$userArgs<ExtArgs>
-    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
+    sleepTimeout?: boolean
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    user?: boolean | Kidoo$userArgs<ExtArgs>
+    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18137,7 +18107,6 @@ export namespace Prisma {
     name?: boolean
     model?: boolean
     macAddress?: boolean
-    bluetoothMacAddress?: boolean
     deviceId?: boolean
     firmwareVersion?: boolean
     lastConnected?: boolean
@@ -18147,12 +18116,13 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    bluetoothMacAddress?: boolean
     brightness?: boolean
-    sleepTimeout?: boolean
-    sleepColorR?: boolean
-    sleepColorG?: boolean
     sleepColorB?: boolean
+    sleepColorG?: boolean
+    sleepColorR?: boolean
     sleepEffect?: boolean
+    sleepTimeout?: boolean
     user?: boolean | Kidoo$userArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18161,7 +18131,6 @@ export namespace Prisma {
     name?: boolean
     model?: boolean
     macAddress?: boolean
-    bluetoothMacAddress?: boolean
     deviceId?: boolean
     firmwareVersion?: boolean
     lastConnected?: boolean
@@ -18171,12 +18140,13 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    bluetoothMacAddress?: boolean
     brightness?: boolean
-    sleepTimeout?: boolean
-    sleepColorR?: boolean
-    sleepColorG?: boolean
     sleepColorB?: boolean
+    sleepColorG?: boolean
+    sleepColorR?: boolean
     sleepEffect?: boolean
+    sleepTimeout?: boolean
     user?: boolean | Kidoo$userArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18185,7 +18155,6 @@ export namespace Prisma {
     name?: boolean
     model?: boolean
     macAddress?: boolean
-    bluetoothMacAddress?: boolean
     deviceId?: boolean
     firmwareVersion?: boolean
     lastConnected?: boolean
@@ -18195,20 +18164,21 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    bluetoothMacAddress?: boolean
     brightness?: boolean
-    sleepTimeout?: boolean
-    sleepColorR?: boolean
-    sleepColorG?: boolean
     sleepColorB?: boolean
+    sleepColorG?: boolean
+    sleepColorR?: boolean
     sleepEffect?: boolean
+    sleepTimeout?: boolean
   }
 
-  export type KidooOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "model" | "macAddress" | "bluetoothMacAddress" | "deviceId" | "firmwareVersion" | "lastConnected" | "isConnected" | "wifiSSID" | "userId" | "isSynced" | "createdAt" | "updatedAt" | "brightness" | "sleepTimeout" | "sleepColorR" | "sleepColorG" | "sleepColorB" | "sleepEffect", ExtArgs["result"]["kidoo"]>
+  export type KidooOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "model" | "macAddress" | "deviceId" | "firmwareVersion" | "lastConnected" | "isConnected" | "wifiSSID" | "userId" | "isSynced" | "createdAt" | "updatedAt" | "bluetoothMacAddress" | "brightness" | "sleepColorB" | "sleepColorG" | "sleepColorR" | "sleepEffect" | "sleepTimeout", ExtArgs["result"]["kidoo"]>
   export type KidooInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | Kidoo$userArgs<ExtArgs>
-    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    user?: boolean | Kidoo$userArgs<ExtArgs>
+    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KidooIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18221,17 +18191,16 @@ export namespace Prisma {
   export type $KidooPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Kidoo"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs> | null
-      tags: Prisma.$TagPayload<ExtArgs>[]
       configBasic: Prisma.$KidooConfigBasicPayload<ExtArgs> | null
       configDream: Prisma.$KidooConfigDreamPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs> | null
+      tags: Prisma.$TagPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       model: $Enums.KidooModel
       macAddress: string | null
-      bluetoothMacAddress: string | null
       deviceId: string
       firmwareVersion: string | null
       lastConnected: Date | null
@@ -18241,12 +18210,13 @@ export namespace Prisma {
       isSynced: boolean
       createdAt: Date
       updatedAt: Date
+      bluetoothMacAddress: string | null
       brightness: number
-      sleepTimeout: number
-      sleepColorR: number | null
-      sleepColorG: number | null
       sleepColorB: number | null
+      sleepColorG: number | null
+      sleepColorR: number | null
       sleepEffect: number | null
+      sleepTimeout: number
     }, ExtArgs["result"]["kidoo"]>
     composites: {}
   }
@@ -18641,10 +18611,10 @@ export namespace Prisma {
    */
   export interface Prisma__KidooClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends Kidoo$userArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     configBasic<T extends Kidoo$configBasicArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configBasicArgs<ExtArgs>>): Prisma__KidooConfigBasicClient<$Result.GetResult<Prisma.$KidooConfigBasicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     configDream<T extends Kidoo$configDreamArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configDreamArgs<ExtArgs>>): Prisma__KidooConfigDreamClient<$Result.GetResult<Prisma.$KidooConfigDreamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends Kidoo$userArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18678,7 +18648,6 @@ export namespace Prisma {
     readonly name: FieldRef<"Kidoo", 'String'>
     readonly model: FieldRef<"Kidoo", 'KidooModel'>
     readonly macAddress: FieldRef<"Kidoo", 'String'>
-    readonly bluetoothMacAddress: FieldRef<"Kidoo", 'String'>
     readonly deviceId: FieldRef<"Kidoo", 'String'>
     readonly firmwareVersion: FieldRef<"Kidoo", 'String'>
     readonly lastConnected: FieldRef<"Kidoo", 'DateTime'>
@@ -18688,12 +18657,13 @@ export namespace Prisma {
     readonly isSynced: FieldRef<"Kidoo", 'Boolean'>
     readonly createdAt: FieldRef<"Kidoo", 'DateTime'>
     readonly updatedAt: FieldRef<"Kidoo", 'DateTime'>
+    readonly bluetoothMacAddress: FieldRef<"Kidoo", 'String'>
     readonly brightness: FieldRef<"Kidoo", 'Int'>
-    readonly sleepTimeout: FieldRef<"Kidoo", 'Int'>
-    readonly sleepColorR: FieldRef<"Kidoo", 'Int'>
-    readonly sleepColorG: FieldRef<"Kidoo", 'Int'>
     readonly sleepColorB: FieldRef<"Kidoo", 'Int'>
+    readonly sleepColorG: FieldRef<"Kidoo", 'Int'>
+    readonly sleepColorR: FieldRef<"Kidoo", 'Int'>
     readonly sleepEffect: FieldRef<"Kidoo", 'Int'>
+    readonly sleepTimeout: FieldRef<"Kidoo", 'Int'>
   }
     
 
@@ -19090,6 +19060,44 @@ export namespace Prisma {
   }
 
   /**
+   * Kidoo.configBasic
+   */
+  export type Kidoo$configBasicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigBasic
+     */
+    select?: KidooConfigBasicSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigBasic
+     */
+    omit?: KidooConfigBasicOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigBasicInclude<ExtArgs> | null
+    where?: KidooConfigBasicWhereInput
+  }
+
+  /**
+   * Kidoo.configDream
+   */
+  export type Kidoo$configDreamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigDream
+     */
+    select?: KidooConfigDreamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigDream
+     */
+    omit?: KidooConfigDreamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigDreamInclude<ExtArgs> | null
+    where?: KidooConfigDreamWhereInput
+  }
+
+  /**
    * Kidoo.user
    */
   export type Kidoo$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19133,44 +19141,6 @@ export namespace Prisma {
   }
 
   /**
-   * Kidoo.configBasic
-   */
-  export type Kidoo$configBasicArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidooConfigBasic
-     */
-    select?: KidooConfigBasicSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidooConfigBasic
-     */
-    omit?: KidooConfigBasicOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidooConfigBasicInclude<ExtArgs> | null
-    where?: KidooConfigBasicWhereInput
-  }
-
-  /**
-   * Kidoo.configDream
-   */
-  export type Kidoo$configDreamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the KidooConfigDream
-     */
-    select?: KidooConfigDreamSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the KidooConfigDream
-     */
-    omit?: KidooConfigDreamOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KidooConfigDreamInclude<ExtArgs> | null
-    where?: KidooConfigDreamWhereInput
-  }
-
-  /**
    * Kidoo without action
    */
   export type KidooDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19201,76 +19171,76 @@ export namespace Prisma {
 
   export type TagMinAggregateOutputType = {
     id: string | null
-    tagId: string | null
     uid: string | null
     name: string | null
-    type: $Enums.TagType | null
     kidooId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    tagId: string | null
+    type: $Enums.TagType | null
   }
 
   export type TagMaxAggregateOutputType = {
     id: string | null
-    tagId: string | null
     uid: string | null
     name: string | null
-    type: $Enums.TagType | null
     kidooId: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    tagId: string | null
+    type: $Enums.TagType | null
   }
 
   export type TagCountAggregateOutputType = {
     id: number
-    tagId: number
     uid: number
     name: number
-    type: number
     kidooId: number
     userId: number
     createdAt: number
     updatedAt: number
+    tagId: number
+    type: number
     _all: number
   }
 
 
   export type TagMinAggregateInputType = {
     id?: true
-    tagId?: true
     uid?: true
     name?: true
-    type?: true
     kidooId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    tagId?: true
+    type?: true
   }
 
   export type TagMaxAggregateInputType = {
     id?: true
-    tagId?: true
     uid?: true
     name?: true
-    type?: true
     kidooId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    tagId?: true
+    type?: true
   }
 
   export type TagCountAggregateInputType = {
     id?: true
-    tagId?: true
     uid?: true
     name?: true
-    type?: true
     kidooId?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
+    tagId?: true
+    type?: true
     _all?: true
   }
 
@@ -19348,14 +19318,14 @@ export namespace Prisma {
 
   export type TagGroupByOutputType = {
     id: string
-    tagId: string | null
     uid: string | null
     name: string | null
-    type: $Enums.TagType | null
     kidooId: string
     userId: string
     createdAt: Date
     updatedAt: Date
+    tagId: string | null
+    type: $Enums.TagType | null
     _count: TagCountAggregateOutputType | null
     _min: TagMinAggregateOutputType | null
     _max: TagMaxAggregateOutputType | null
@@ -19377,65 +19347,65 @@ export namespace Prisma {
 
   export type TagSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    tagId?: boolean
     uid?: boolean
     name?: boolean
-    type?: boolean
     kidooId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    tagId?: boolean
+    type?: boolean
+    multimediaFiles?: boolean | Tag$multimediaFilesArgs<ExtArgs>
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    multimediaFiles?: boolean | Tag$multimediaFilesArgs<ExtArgs>
     _count?: boolean | TagCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tag"]>
 
   export type TagSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    tagId?: boolean
     uid?: boolean
     name?: boolean
-    type?: boolean
     kidooId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    tagId?: boolean
+    type?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tag"]>
 
   export type TagSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    tagId?: boolean
     uid?: boolean
     name?: boolean
-    type?: boolean
     kidooId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    tagId?: boolean
+    type?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tag"]>
 
   export type TagSelectScalar = {
     id?: boolean
-    tagId?: boolean
     uid?: boolean
     name?: boolean
-    type?: boolean
     kidooId?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    tagId?: boolean
+    type?: boolean
   }
 
-  export type TagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tagId" | "uid" | "name" | "type" | "kidooId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["tag"]>
+  export type TagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uid" | "name" | "kidooId" | "userId" | "createdAt" | "updatedAt" | "tagId" | "type", ExtArgs["result"]["tag"]>
   export type TagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    multimediaFiles?: boolean | Tag$multimediaFilesArgs<ExtArgs>
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    multimediaFiles?: boolean | Tag$multimediaFilesArgs<ExtArgs>
     _count?: boolean | TagCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TagIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19450,20 +19420,20 @@ export namespace Prisma {
   export type $TagPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Tag"
     objects: {
+      multimediaFiles: Prisma.$FilePayload<ExtArgs>[]
       kidoo: Prisma.$KidooPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
-      multimediaFiles: Prisma.$FilePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      tagId: string | null
       uid: string | null
       name: string | null
-      type: $Enums.TagType | null
       kidooId: string
       userId: string
       createdAt: Date
       updatedAt: Date
+      tagId: string | null
+      type: $Enums.TagType | null
     }, ExtArgs["result"]["tag"]>
     composites: {}
   }
@@ -19858,9 +19828,9 @@ export namespace Prisma {
    */
   export interface Prisma__TagClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    multimediaFiles<T extends Tag$multimediaFilesArgs<ExtArgs> = {}>(args?: Subset<T, Tag$multimediaFilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     kidoo<T extends KidooDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KidooDefaultArgs<ExtArgs>>): Prisma__KidooClient<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    multimediaFiles<T extends Tag$multimediaFilesArgs<ExtArgs> = {}>(args?: Subset<T, Tag$multimediaFilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19891,14 +19861,14 @@ export namespace Prisma {
    */
   interface TagFieldRefs {
     readonly id: FieldRef<"Tag", 'String'>
-    readonly tagId: FieldRef<"Tag", 'String'>
     readonly uid: FieldRef<"Tag", 'String'>
     readonly name: FieldRef<"Tag", 'String'>
-    readonly type: FieldRef<"Tag", 'TagType'>
     readonly kidooId: FieldRef<"Tag", 'String'>
     readonly userId: FieldRef<"Tag", 'String'>
     readonly createdAt: FieldRef<"Tag", 'DateTime'>
     readonly updatedAt: FieldRef<"Tag", 'DateTime'>
+    readonly tagId: FieldRef<"Tag", 'String'>
+    readonly type: FieldRef<"Tag", 'TagType'>
   }
     
 
@@ -23564,9 +23534,9 @@ export namespace Prisma {
     path: string | null
     fileName: string | null
     fileSize: number | null
-    partCount: number | null
-    changelog: string | null
     createdAt: Date | null
+    changelog: string | null
+    partCount: number | null
   }
 
   export type FirmwareMaxAggregateOutputType = {
@@ -23577,9 +23547,9 @@ export namespace Prisma {
     path: string | null
     fileName: string | null
     fileSize: number | null
-    partCount: number | null
-    changelog: string | null
     createdAt: Date | null
+    changelog: string | null
+    partCount: number | null
   }
 
   export type FirmwareCountAggregateOutputType = {
@@ -23590,9 +23560,9 @@ export namespace Prisma {
     path: number
     fileName: number
     fileSize: number
-    partCount: number
-    changelog: number
     createdAt: number
+    changelog: number
+    partCount: number
     _all: number
   }
 
@@ -23615,9 +23585,9 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
-    partCount?: true
-    changelog?: true
     createdAt?: true
+    changelog?: true
+    partCount?: true
   }
 
   export type FirmwareMaxAggregateInputType = {
@@ -23628,9 +23598,9 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
-    partCount?: true
-    changelog?: true
     createdAt?: true
+    changelog?: true
+    partCount?: true
   }
 
   export type FirmwareCountAggregateInputType = {
@@ -23641,9 +23611,9 @@ export namespace Prisma {
     path?: true
     fileName?: true
     fileSize?: true
-    partCount?: true
-    changelog?: true
     createdAt?: true
+    changelog?: true
+    partCount?: true
     _all?: true
   }
 
@@ -23741,9 +23711,9 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
-    partCount: number
-    changelog: string | null
     createdAt: Date
+    changelog: string | null
+    partCount: number
     _count: FirmwareCountAggregateOutputType | null
     _avg: FirmwareAvgAggregateOutputType | null
     _sum: FirmwareSumAggregateOutputType | null
@@ -23773,9 +23743,9 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
-    partCount?: boolean
-    changelog?: boolean
     createdAt?: boolean
+    changelog?: boolean
+    partCount?: boolean
   }, ExtArgs["result"]["firmware"]>
 
   export type FirmwareSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23786,9 +23756,9 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
-    partCount?: boolean
-    changelog?: boolean
     createdAt?: boolean
+    changelog?: boolean
+    partCount?: boolean
   }, ExtArgs["result"]["firmware"]>
 
   export type FirmwareSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23799,9 +23769,9 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
-    partCount?: boolean
-    changelog?: boolean
     createdAt?: boolean
+    changelog?: boolean
+    partCount?: boolean
   }, ExtArgs["result"]["firmware"]>
 
   export type FirmwareSelectScalar = {
@@ -23812,12 +23782,12 @@ export namespace Prisma {
     path?: boolean
     fileName?: boolean
     fileSize?: boolean
-    partCount?: boolean
-    changelog?: boolean
     createdAt?: boolean
+    changelog?: boolean
+    partCount?: boolean
   }
 
-  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "partCount" | "changelog" | "createdAt", ExtArgs["result"]["firmware"]>
+  export type FirmwareOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "model" | "version" | "url" | "path" | "fileName" | "fileSize" | "createdAt" | "changelog" | "partCount", ExtArgs["result"]["firmware"]>
 
   export type $FirmwarePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Firmware"
@@ -23830,9 +23800,9 @@ export namespace Prisma {
       path: string
       fileName: string
       fileSize: number
-      partCount: number
-      changelog: string | null
       createdAt: Date
+      changelog: string | null
+      partCount: number
     }, ExtArgs["result"]["firmware"]>
     composites: {}
   }
@@ -24263,9 +24233,9 @@ export namespace Prisma {
     readonly path: FieldRef<"Firmware", 'String'>
     readonly fileName: FieldRef<"Firmware", 'String'>
     readonly fileSize: FieldRef<"Firmware", 'Int'>
-    readonly partCount: FieldRef<"Firmware", 'Int'>
-    readonly changelog: FieldRef<"Firmware", 'String'>
     readonly createdAt: FieldRef<"Firmware", 'DateTime'>
+    readonly changelog: FieldRef<"Firmware", 'String'>
+    readonly partCount: FieldRef<"Firmware", 'Int'>
   }
     
 
@@ -30596,14 +30566,14 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     defaultImageUrl: 'defaultImageUrl',
-    stylePrompt: 'stylePrompt',
-    characterContext: 'characterContext',
     sex: 'sex',
     personality: 'personality',
-    imageWidth: 'imageWidth',
-    imageHeight: 'imageHeight',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    stylePrompt: 'stylePrompt',
+    imageHeight: 'imageHeight',
+    imageWidth: 'imageWidth',
+    characterContext: 'characterContext'
   };
 
   export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
@@ -30613,9 +30583,9 @@ export namespace Prisma {
     id: 'id',
     key: 'key',
     label: 'label',
-    promptCustom: 'promptCustom',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    promptCustom: 'promptCustom'
   };
 
   export type EmotionScalarFieldEnum = (typeof EmotionScalarFieldEnum)[keyof typeof EmotionScalarFieldEnum]
@@ -30635,19 +30605,19 @@ export namespace Prisma {
     frames: 'frames',
     durationS: 'durationS',
     prompt: 'prompt',
-    variantPrompt: 'variantPrompt',
     modelName: 'modelName',
-    xaiJobId: 'xaiJobId',
     previewUrl: 'previewUrl',
-    workingPreviewUrl: 'workingPreviewUrl',
-    loopStartFrame: 'loopStartFrame',
-    loopEndFrame: 'loopEndFrame',
     weight: 'weight',
-    trigger: 'trigger',
-    variant: 'variant',
     tags: 'tags',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    xaiJobId: 'xaiJobId',
+    loopStartFrame: 'loopStartFrame',
+    loopEndFrame: 'loopEndFrame',
+    workingPreviewUrl: 'workingPreviewUrl',
+    variantPrompt: 'variantPrompt',
+    trigger: 'trigger',
+    variant: 'variant'
   };
 
   export type ClipScalarFieldEnum = (typeof ClipScalarFieldEnum)[keyof typeof ClipScalarFieldEnum]
@@ -30663,9 +30633,9 @@ export namespace Prisma {
     w: 'w',
     h: 'h',
     cornerStyle: 'cornerStyle',
-    imageUrl: 'imageUrl',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    imageUrl: 'imageUrl'
   };
 
   export type ClipArtifactScalarFieldEnum = (typeof ClipArtifactScalarFieldEnum)[keyof typeof ClipArtifactScalarFieldEnum]
@@ -30675,15 +30645,15 @@ export namespace Prisma {
     id: 'id',
     clipId: 'clipId',
     regionKey: 'regionKey',
-    frameIndex: 'frameIndex',
     x: 'x',
     y: 'y',
     w: 'w',
     h: 'h',
-    cornerStyle: 'cornerStyle',
-    imageUrl: 'imageUrl',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    frameIndex: 'frameIndex',
+    cornerStyle: 'cornerStyle',
+    imageUrl: 'imageUrl'
   };
 
   export type ClipFaceRegionScalarFieldEnum = (typeof ClipFaceRegionScalarFieldEnum)[keyof typeof ClipFaceRegionScalarFieldEnum]
@@ -30697,20 +30667,18 @@ export namespace Prisma {
     fps: 'fps',
     width: 'width',
     height: 'height',
-    introTimeline: 'introTimeline',
-    loopTimeline: 'loopTimeline',
-    exitTimeline: 'exitTimeline',
-    trigger: 'trigger',
-    variant: 'variant',
     status: 'status',
     binUrl: 'binUrl',
-    idxUrl: 'idxUrl',
     sha256: 'sha256',
     sizeBytes: 'sizeBytes',
-    totalFrames: 'totalFrames',
     durationS: 'durationS',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    exitTimeline: 'exitTimeline',
+    introTimeline: 'introTimeline',
+    loopTimeline: 'loopTimeline',
+    totalFrames: 'totalFrames',
+    idxUrl: 'idxUrl'
   };
 
   export type EmotionVideoScalarFieldEnum = (typeof EmotionVideoScalarFieldEnum)[keyof typeof EmotionVideoScalarFieldEnum]
@@ -30786,9 +30754,9 @@ export namespace Prisma {
     name: 'name',
     avatar: 'avatar',
     password: 'password',
-    isAdmin: 'isAdmin',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    isAdmin: 'isAdmin'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -30799,7 +30767,6 @@ export namespace Prisma {
     name: 'name',
     model: 'model',
     macAddress: 'macAddress',
-    bluetoothMacAddress: 'bluetoothMacAddress',
     deviceId: 'deviceId',
     firmwareVersion: 'firmwareVersion',
     lastConnected: 'lastConnected',
@@ -30809,12 +30776,13 @@ export namespace Prisma {
     isSynced: 'isSynced',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
+    bluetoothMacAddress: 'bluetoothMacAddress',
     brightness: 'brightness',
-    sleepTimeout: 'sleepTimeout',
-    sleepColorR: 'sleepColorR',
-    sleepColorG: 'sleepColorG',
     sleepColorB: 'sleepColorB',
-    sleepEffect: 'sleepEffect'
+    sleepColorG: 'sleepColorG',
+    sleepColorR: 'sleepColorR',
+    sleepEffect: 'sleepEffect',
+    sleepTimeout: 'sleepTimeout'
   };
 
   export type KidooScalarFieldEnum = (typeof KidooScalarFieldEnum)[keyof typeof KidooScalarFieldEnum]
@@ -30822,14 +30790,14 @@ export namespace Prisma {
 
   export const TagScalarFieldEnum: {
     id: 'id',
-    tagId: 'tagId',
     uid: 'uid',
     name: 'name',
-    type: 'type',
     kidooId: 'kidooId',
     userId: 'userId',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    tagId: 'tagId',
+    type: 'type'
   };
 
   export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
@@ -30880,9 +30848,9 @@ export namespace Prisma {
     path: 'path',
     fileName: 'fileName',
     fileSize: 'fileSize',
-    partCount: 'partCount',
+    createdAt: 'createdAt',
     changelog: 'changelog',
-    createdAt: 'createdAt'
+    partCount: 'partCount'
   };
 
   export type FirmwareScalarFieldEnum = (typeof FirmwareScalarFieldEnum)[keyof typeof FirmwareScalarFieldEnum]
@@ -31067,20 +31035,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -31091,6 +31045,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -31265,14 +31233,14 @@ export namespace Prisma {
     id?: StringFilter<"Character"> | string
     name?: StringNullableFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableFilter<"Character"> | string | null
-    stylePrompt?: StringNullableFilter<"Character"> | string | null
-    characterContext?: StringNullableFilter<"Character"> | string | null
     sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
-    imageWidth?: IntFilter<"Character"> | number
-    imageHeight?: IntFilter<"Character"> | number
     createdAt?: DateTimeFilter<"Character"> | Date | string
     updatedAt?: DateTimeFilter<"Character"> | Date | string
+    stylePrompt?: StringNullableFilter<"Character"> | string | null
+    imageHeight?: IntFilter<"Character"> | number
+    imageWidth?: IntFilter<"Character"> | number
+    characterContext?: StringNullableFilter<"Character"> | string | null
     clips?: ClipListRelationFilter
     emotionDevices?: EmotionDeviceListRelationFilter
     rules?: RuleListRelationFilter
@@ -31282,14 +31250,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     defaultImageUrl?: SortOrderInput | SortOrder
-    stylePrompt?: SortOrderInput | SortOrder
-    characterContext?: SortOrderInput | SortOrder
     sex?: SortOrder
     personality?: SortOrder
-    imageWidth?: SortOrder
-    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    stylePrompt?: SortOrderInput | SortOrder
+    imageHeight?: SortOrder
+    imageWidth?: SortOrder
+    characterContext?: SortOrderInput | SortOrder
     clips?: ClipOrderByRelationAggregateInput
     emotionDevices?: EmotionDeviceOrderByRelationAggregateInput
     rules?: RuleOrderByRelationAggregateInput
@@ -31302,14 +31270,14 @@ export namespace Prisma {
     NOT?: CharacterWhereInput | CharacterWhereInput[]
     name?: StringNullableFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableFilter<"Character"> | string | null
-    stylePrompt?: StringNullableFilter<"Character"> | string | null
-    characterContext?: StringNullableFilter<"Character"> | string | null
     sex?: EnumCharacterSexFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFilter<"Character"> | $Enums.CharacterPersonality
-    imageWidth?: IntFilter<"Character"> | number
-    imageHeight?: IntFilter<"Character"> | number
     createdAt?: DateTimeFilter<"Character"> | Date | string
     updatedAt?: DateTimeFilter<"Character"> | Date | string
+    stylePrompt?: StringNullableFilter<"Character"> | string | null
+    imageHeight?: IntFilter<"Character"> | number
+    imageWidth?: IntFilter<"Character"> | number
+    characterContext?: StringNullableFilter<"Character"> | string | null
     clips?: ClipListRelationFilter
     emotionDevices?: EmotionDeviceListRelationFilter
     rules?: RuleListRelationFilter
@@ -31319,14 +31287,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrderInput | SortOrder
     defaultImageUrl?: SortOrderInput | SortOrder
-    stylePrompt?: SortOrderInput | SortOrder
-    characterContext?: SortOrderInput | SortOrder
     sex?: SortOrder
     personality?: SortOrder
-    imageWidth?: SortOrder
-    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    stylePrompt?: SortOrderInput | SortOrder
+    imageHeight?: SortOrder
+    imageWidth?: SortOrder
+    characterContext?: SortOrderInput | SortOrder
     _count?: CharacterCountOrderByAggregateInput
     _avg?: CharacterAvgOrderByAggregateInput
     _max?: CharacterMaxOrderByAggregateInput
@@ -31341,14 +31309,14 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Character"> | string
     name?: StringNullableWithAggregatesFilter<"Character"> | string | null
     defaultImageUrl?: StringNullableWithAggregatesFilter<"Character"> | string | null
-    stylePrompt?: StringNullableWithAggregatesFilter<"Character"> | string | null
-    characterContext?: StringNullableWithAggregatesFilter<"Character"> | string | null
     sex?: EnumCharacterSexWithAggregatesFilter<"Character"> | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityWithAggregatesFilter<"Character"> | $Enums.CharacterPersonality
-    imageWidth?: IntWithAggregatesFilter<"Character"> | number
-    imageHeight?: IntWithAggregatesFilter<"Character"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
+    stylePrompt?: StringNullableWithAggregatesFilter<"Character"> | string | null
+    imageHeight?: IntWithAggregatesFilter<"Character"> | number
+    imageWidth?: IntWithAggregatesFilter<"Character"> | number
+    characterContext?: StringNullableWithAggregatesFilter<"Character"> | string | null
   }
 
   export type EmotionWhereInput = {
@@ -31358,9 +31326,9 @@ export namespace Prisma {
     id?: StringFilter<"Emotion"> | string
     key?: StringFilter<"Emotion"> | string
     label?: StringFilter<"Emotion"> | string
-    promptCustom?: StringNullableFilter<"Emotion"> | string | null
     createdAt?: DateTimeFilter<"Emotion"> | Date | string
     updatedAt?: DateTimeFilter<"Emotion"> | Date | string
+    promptCustom?: StringNullableFilter<"Emotion"> | string | null
     clips?: ClipListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
     emotionVideos?: EmotionVideoListRelationFilter
@@ -31370,9 +31338,9 @@ export namespace Prisma {
     id?: SortOrder
     key?: SortOrder
     label?: SortOrder
-    promptCustom?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    promptCustom?: SortOrderInput | SortOrder
     clips?: ClipOrderByRelationAggregateInput
     deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
     emotionVideos?: EmotionVideoOrderByRelationAggregateInput
@@ -31385,9 +31353,9 @@ export namespace Prisma {
     OR?: EmotionWhereInput[]
     NOT?: EmotionWhereInput | EmotionWhereInput[]
     label?: StringFilter<"Emotion"> | string
-    promptCustom?: StringNullableFilter<"Emotion"> | string | null
     createdAt?: DateTimeFilter<"Emotion"> | Date | string
     updatedAt?: DateTimeFilter<"Emotion"> | Date | string
+    promptCustom?: StringNullableFilter<"Emotion"> | string | null
     clips?: ClipListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
     emotionVideos?: EmotionVideoListRelationFilter
@@ -31397,9 +31365,9 @@ export namespace Prisma {
     id?: SortOrder
     key?: SortOrder
     label?: SortOrder
-    promptCustom?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    promptCustom?: SortOrderInput | SortOrder
     _count?: EmotionCountOrderByAggregateInput
     _max?: EmotionMaxOrderByAggregateInput
     _min?: EmotionMinOrderByAggregateInput
@@ -31412,9 +31380,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Emotion"> | string
     key?: StringWithAggregatesFilter<"Emotion"> | string
     label?: StringWithAggregatesFilter<"Emotion"> | string
-    promptCustom?: StringNullableWithAggregatesFilter<"Emotion"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Emotion"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Emotion"> | Date | string
+    promptCustom?: StringNullableWithAggregatesFilter<"Emotion"> | string | null
   }
 
   export type ClipWhereInput = {
@@ -31434,23 +31402,23 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
-    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
-    xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
-    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
-    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
-    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
-    trigger?: StringNullableFilter<"Clip"> | string | null
-    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
+    trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
+    artifacts?: ClipArtifactListRelationFilter
+    faceRegions?: ClipFaceRegionListRelationFilter
     character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
-    faceRegions?: ClipFaceRegionListRelationFilter
-    artifacts?: ClipArtifactListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
     emotionVideos?: EmotionVideoListRelationFilter
   }
@@ -31469,23 +31437,23 @@ export namespace Prisma {
     frames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     prompt?: SortOrderInput | SortOrder
-    variantPrompt?: SortOrderInput | SortOrder
     modelName?: SortOrderInput | SortOrder
-    xaiJobId?: SortOrderInput | SortOrder
     previewUrl?: SortOrderInput | SortOrder
-    workingPreviewUrl?: SortOrderInput | SortOrder
-    loopStartFrame?: SortOrderInput | SortOrder
-    loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
-    trigger?: SortOrderInput | SortOrder
-    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xaiJobId?: SortOrderInput | SortOrder
+    loopStartFrame?: SortOrderInput | SortOrder
+    loopEndFrame?: SortOrderInput | SortOrder
+    workingPreviewUrl?: SortOrderInput | SortOrder
+    variantPrompt?: SortOrderInput | SortOrder
+    trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
+    artifacts?: ClipArtifactOrderByRelationAggregateInput
+    faceRegions?: ClipFaceRegionOrderByRelationAggregateInput
     character?: CharacterOrderByWithRelationInput
     emotion?: EmotionOrderByWithRelationInput
-    faceRegions?: ClipFaceRegionOrderByRelationAggregateInput
-    artifacts?: ClipArtifactOrderByRelationAggregateInput
     deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
     emotionVideos?: EmotionVideoOrderByRelationAggregateInput
   }
@@ -31507,23 +31475,23 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
-    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
-    xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
-    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
-    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
-    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
-    trigger?: StringNullableFilter<"Clip"> | string | null
-    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
+    trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
+    artifacts?: ClipArtifactListRelationFilter
+    faceRegions?: ClipFaceRegionListRelationFilter
     character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
-    faceRegions?: ClipFaceRegionListRelationFilter
-    artifacts?: ClipArtifactListRelationFilter
     deviceClipCaches?: DeviceClipCacheListRelationFilter
     emotionVideos?: EmotionVideoListRelationFilter
   }, "id">
@@ -31542,19 +31510,19 @@ export namespace Prisma {
     frames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     prompt?: SortOrderInput | SortOrder
-    variantPrompt?: SortOrderInput | SortOrder
     modelName?: SortOrderInput | SortOrder
-    xaiJobId?: SortOrderInput | SortOrder
     previewUrl?: SortOrderInput | SortOrder
-    workingPreviewUrl?: SortOrderInput | SortOrder
-    loopStartFrame?: SortOrderInput | SortOrder
-    loopEndFrame?: SortOrderInput | SortOrder
     weight?: SortOrder
-    trigger?: SortOrderInput | SortOrder
-    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xaiJobId?: SortOrderInput | SortOrder
+    loopStartFrame?: SortOrderInput | SortOrder
+    loopEndFrame?: SortOrderInput | SortOrder
+    workingPreviewUrl?: SortOrderInput | SortOrder
+    variantPrompt?: SortOrderInput | SortOrder
+    trigger?: SortOrderInput | SortOrder
+    variant?: SortOrder
     _count?: ClipCountOrderByAggregateInput
     _avg?: ClipAvgOrderByAggregateInput
     _max?: ClipMaxOrderByAggregateInput
@@ -31579,19 +31547,19 @@ export namespace Prisma {
     frames?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     durationS?: FloatNullableWithAggregatesFilter<"Clip"> | number | null
     prompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
-    variantPrompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     modelName?: StringNullableWithAggregatesFilter<"Clip"> | string | null
-    xaiJobId?: StringNullableWithAggregatesFilter<"Clip"> | string | null
     previewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
-    workingPreviewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
-    loopStartFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
-    loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
     weight?: IntWithAggregatesFilter<"Clip"> | number
-    trigger?: StringNullableWithAggregatesFilter<"Clip"> | string | null
-    variant?: IntWithAggregatesFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Clip"> | Date | string
+    xaiJobId?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableWithAggregatesFilter<"Clip"> | number | null
+    workingPreviewUrl?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    trigger?: StringNullableWithAggregatesFilter<"Clip"> | string | null
+    variant?: IntWithAggregatesFilter<"Clip"> | number
   }
 
   export type ClipArtifactWhereInput = {
@@ -31607,9 +31575,9 @@ export namespace Prisma {
     w?: FloatFilter<"ClipArtifact"> | number
     h?: FloatFilter<"ClipArtifact"> | number
     cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
     createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
     updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
     clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }
 
@@ -31623,9 +31591,9 @@ export namespace Prisma {
     w?: SortOrder
     h?: SortOrder
     cornerStyle?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     clip?: ClipOrderByWithRelationInput
   }
 
@@ -31642,9 +31610,9 @@ export namespace Prisma {
     w?: FloatFilter<"ClipArtifact"> | number
     h?: FloatFilter<"ClipArtifact"> | number
     cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
     createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
     updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
     clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }, "id">
 
@@ -31658,9 +31626,9 @@ export namespace Prisma {
     w?: SortOrder
     h?: SortOrder
     cornerStyle?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     _count?: ClipArtifactCountOrderByAggregateInput
     _avg?: ClipArtifactAvgOrderByAggregateInput
     _max?: ClipArtifactMaxOrderByAggregateInput
@@ -31681,9 +31649,9 @@ export namespace Prisma {
     w?: FloatWithAggregatesFilter<"ClipArtifact"> | number
     h?: FloatWithAggregatesFilter<"ClipArtifact"> | number
     cornerStyle?: EnumCornerStyleWithAggregatesFilter<"ClipArtifact"> | $Enums.CornerStyle
-    imageUrl?: StringNullableWithAggregatesFilter<"ClipArtifact"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ClipArtifact"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ClipArtifact"> | Date | string
+    imageUrl?: StringNullableWithAggregatesFilter<"ClipArtifact"> | string | null
   }
 
   export type ClipFaceRegionWhereInput = {
@@ -31693,15 +31661,15 @@ export namespace Prisma {
     id?: StringFilter<"ClipFaceRegion"> | string
     clipId?: StringFilter<"ClipFaceRegion"> | string
     regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
-    frameIndex?: IntFilter<"ClipFaceRegion"> | number
     x?: FloatFilter<"ClipFaceRegion"> | number
     y?: FloatFilter<"ClipFaceRegion"> | number
     w?: FloatFilter<"ClipFaceRegion"> | number
     h?: FloatFilter<"ClipFaceRegion"> | number
-    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
     createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
     updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
     clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }
 
@@ -31709,15 +31677,15 @@ export namespace Prisma {
     id?: SortOrder
     clipId?: SortOrder
     regionKey?: SortOrder
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
-    cornerStyle?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    frameIndex?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     clip?: ClipOrderByWithRelationInput
   }
 
@@ -31729,15 +31697,15 @@ export namespace Prisma {
     NOT?: ClipFaceRegionWhereInput | ClipFaceRegionWhereInput[]
     clipId?: StringFilter<"ClipFaceRegion"> | string
     regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
-    frameIndex?: IntFilter<"ClipFaceRegion"> | number
     x?: FloatFilter<"ClipFaceRegion"> | number
     y?: FloatFilter<"ClipFaceRegion"> | number
     w?: FloatFilter<"ClipFaceRegion"> | number
     h?: FloatFilter<"ClipFaceRegion"> | number
-    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
     createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
     updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
     clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }, "id" | "clipId_regionKey_frameIndex">
 
@@ -31745,15 +31713,15 @@ export namespace Prisma {
     id?: SortOrder
     clipId?: SortOrder
     regionKey?: SortOrder
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
-    cornerStyle?: SortOrder
-    imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    frameIndex?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     _count?: ClipFaceRegionCountOrderByAggregateInput
     _avg?: ClipFaceRegionAvgOrderByAggregateInput
     _max?: ClipFaceRegionMaxOrderByAggregateInput
@@ -31768,15 +31736,15 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"ClipFaceRegion"> | string
     clipId?: StringWithAggregatesFilter<"ClipFaceRegion"> | string
     regionKey?: EnumFaceRegionKeyWithAggregatesFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
-    frameIndex?: IntWithAggregatesFilter<"ClipFaceRegion"> | number
     x?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
     y?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
     w?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
     h?: FloatWithAggregatesFilter<"ClipFaceRegion"> | number
-    cornerStyle?: EnumCornerStyleWithAggregatesFilter<"ClipFaceRegion"> | $Enums.CornerStyle
-    imageUrl?: StringNullableWithAggregatesFilter<"ClipFaceRegion"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ClipFaceRegion"> | Date | string
+    frameIndex?: IntWithAggregatesFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleWithAggregatesFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableWithAggregatesFilter<"ClipFaceRegion"> | string | null
   }
 
   export type EmotionVideoWhereInput = {
@@ -31790,20 +31758,18 @@ export namespace Prisma {
     fps?: IntFilter<"EmotionVideo"> | number
     width?: IntFilter<"EmotionVideo"> | number
     height?: IntFilter<"EmotionVideo"> | number
-    introTimeline?: JsonFilter<"EmotionVideo">
-    loopTimeline?: JsonFilter<"EmotionVideo">
-    exitTimeline?: JsonFilter<"EmotionVideo">
-    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
-    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
-    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
-    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
     createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
     updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }
@@ -31816,27 +31782,25 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    introTimeline?: SortOrder
-    loopTimeline?: SortOrder
-    exitTimeline?: SortOrder
-    trigger?: SortOrderInput | SortOrder
-    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
-    idxUrl?: SortOrderInput | SortOrder
     sha256?: SortOrderInput | SortOrder
     sizeBytes?: SortOrderInput | SortOrder
-    totalFrames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    exitTimeline?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    idxUrl?: SortOrderInput | SortOrder
     emotion?: EmotionOrderByWithRelationInput
     sourceClip?: ClipOrderByWithRelationInput
   }
 
   export type EmotionVideoWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    sourceClipId_emotionId_variant?: EmotionVideoSourceClipIdEmotionIdVariantCompoundUniqueInput
+    sourceClipId_emotionId?: EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput
     AND?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
     OR?: EmotionVideoWhereInput[]
     NOT?: EmotionVideoWhereInput | EmotionVideoWhereInput[]
@@ -31846,23 +31810,21 @@ export namespace Prisma {
     fps?: IntFilter<"EmotionVideo"> | number
     width?: IntFilter<"EmotionVideo"> | number
     height?: IntFilter<"EmotionVideo"> | number
-    introTimeline?: JsonFilter<"EmotionVideo">
-    loopTimeline?: JsonFilter<"EmotionVideo">
-    exitTimeline?: JsonFilter<"EmotionVideo">
-    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
-    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
-    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
-    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
     createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
     updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
-  }, "id" | "sourceClipId_emotionId_variant">
+  }, "id" | "sourceClipId_emotionId">
 
   export type EmotionVideoOrderByWithAggregationInput = {
     id?: SortOrder
@@ -31872,20 +31834,18 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    introTimeline?: SortOrder
-    loopTimeline?: SortOrder
-    exitTimeline?: SortOrder
-    trigger?: SortOrderInput | SortOrder
-    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrderInput | SortOrder
-    idxUrl?: SortOrderInput | SortOrder
     sha256?: SortOrderInput | SortOrder
     sizeBytes?: SortOrderInput | SortOrder
-    totalFrames?: SortOrderInput | SortOrder
     durationS?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    exitTimeline?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    totalFrames?: SortOrderInput | SortOrder
+    idxUrl?: SortOrderInput | SortOrder
     _count?: EmotionVideoCountOrderByAggregateInput
     _avg?: EmotionVideoAvgOrderByAggregateInput
     _max?: EmotionVideoMaxOrderByAggregateInput
@@ -31904,20 +31864,18 @@ export namespace Prisma {
     fps?: IntWithAggregatesFilter<"EmotionVideo"> | number
     width?: IntWithAggregatesFilter<"EmotionVideo"> | number
     height?: IntWithAggregatesFilter<"EmotionVideo"> | number
-    introTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
-    loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
-    exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
-    trigger?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
-    variant?: IntWithAggregatesFilter<"EmotionVideo"> | number
     status?: EnumClipStatusWithAggregatesFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
-    idxUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
-    totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
     durationS?: FloatNullableWithAggregatesFilter<"EmotionVideo"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"EmotionVideo"> | Date | string
+    exitTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    introTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
+    totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
+    idxUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
   }
 
   export type EmotionDeviceWhereInput = {
@@ -31932,8 +31890,8 @@ export namespace Prisma {
     lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
     createdAt?: DateTimeFilter<"EmotionDevice"> | Date | string
     updatedAt?: DateTimeFilter<"EmotionDevice"> | Date | string
-    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
   }
 
   export type EmotionDeviceOrderByWithRelationInput = {
@@ -31945,8 +31903,8 @@ export namespace Prisma {
     lastSeenAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    character?: CharacterOrderByWithRelationInput
     deviceClipCaches?: DeviceClipCacheOrderByRelationAggregateInput
+    character?: CharacterOrderByWithRelationInput
   }
 
   export type EmotionDeviceWhereUniqueInput = Prisma.AtLeast<{
@@ -31961,8 +31919,8 @@ export namespace Prisma {
     lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
     createdAt?: DateTimeFilter<"EmotionDevice"> | Date | string
     updatedAt?: DateTimeFilter<"EmotionDevice"> | Date | string
-    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
     deviceClipCaches?: DeviceClipCacheListRelationFilter
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
   }, "id">
 
   export type EmotionDeviceOrderByWithAggregationInput = {
@@ -32003,9 +31961,9 @@ export namespace Prisma {
     clipId?: StringFilter<"DeviceClipCache"> | string
     lastSeenAt?: DateTimeFilter<"DeviceClipCache"> | Date | string
     lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
     device?: XOR<EmotionDeviceScalarRelationFilter, EmotionDeviceWhereInput>
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
-    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }
 
   export type DeviceClipCacheOrderByWithRelationInput = {
@@ -32015,9 +31973,9 @@ export namespace Prisma {
     clipId?: SortOrder
     lastSeenAt?: SortOrder
     lastPlayedAt?: SortOrderInput | SortOrder
+    clip?: ClipOrderByWithRelationInput
     device?: EmotionDeviceOrderByWithRelationInput
     emotion?: EmotionOrderByWithRelationInput
-    clip?: ClipOrderByWithRelationInput
   }
 
   export type DeviceClipCacheWhereUniqueInput = Prisma.AtLeast<{
@@ -32031,9 +31989,9 @@ export namespace Prisma {
     clipId?: StringFilter<"DeviceClipCache"> | string
     lastSeenAt?: DateTimeFilter<"DeviceClipCache"> | Date | string
     lastPlayedAt?: DateTimeNullableFilter<"DeviceClipCache"> | Date | string | null
+    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
     device?: XOR<EmotionDeviceScalarRelationFilter, EmotionDeviceWhereInput>
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
-    clip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }, "deviceId_emotionId_slot">
 
   export type DeviceClipCacheOrderByWithAggregationInput = {
@@ -32259,14 +32217,14 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    isAdmin?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    isAdmin?: BoolFilter<"User"> | boolean
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
-    kidoos?: KidooListRelationFilter
-    tags?: TagListRelationFilter
     files?: FileListRelationFilter
+    kidoos?: KidooListRelationFilter
+    sessions?: SessionListRelationFilter
+    tags?: TagListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -32276,14 +32234,14 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    isAdmin?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isAdmin?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
-    sessions?: SessionOrderByRelationAggregateInput
-    kidoos?: KidooOrderByRelationAggregateInput
-    tags?: TagOrderByRelationAggregateInput
     files?: FileOrderByRelationAggregateInput
+    kidoos?: KidooOrderByRelationAggregateInput
+    sessions?: SessionOrderByRelationAggregateInput
+    tags?: TagOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -32296,14 +32254,14 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    isAdmin?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
+    isAdmin?: BoolFilter<"User"> | boolean
     accounts?: AccountListRelationFilter
-    sessions?: SessionListRelationFilter
-    kidoos?: KidooListRelationFilter
-    tags?: TagListRelationFilter
     files?: FileListRelationFilter
+    kidoos?: KidooListRelationFilter
+    sessions?: SessionListRelationFilter
+    tags?: TagListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -32313,9 +32271,9 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    isAdmin?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isAdmin?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -32331,9 +32289,9 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
-    isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
   }
 
   export type KidooWhereInput = {
@@ -32344,7 +32302,6 @@ export namespace Prisma {
     name?: StringFilter<"Kidoo"> | string
     model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableFilter<"Kidoo"> | string | null
-    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     deviceId?: StringFilter<"Kidoo"> | string
     firmwareVersion?: StringNullableFilter<"Kidoo"> | string | null
     lastConnected?: DateTimeNullableFilter<"Kidoo"> | Date | string | null
@@ -32354,16 +32311,17 @@ export namespace Prisma {
     isSynced?: BoolFilter<"Kidoo"> | boolean
     createdAt?: DateTimeFilter<"Kidoo"> | Date | string
     updatedAt?: DateTimeFilter<"Kidoo"> | Date | string
+    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     brightness?: IntFilter<"Kidoo"> | number
-    sleepTimeout?: IntFilter<"Kidoo"> | number
-    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
-    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
     sleepColorB?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    tags?: TagListRelationFilter
+    sleepTimeout?: IntFilter<"Kidoo"> | number
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    tags?: TagListRelationFilter
   }
 
   export type KidooOrderByWithRelationInput = {
@@ -32371,7 +32329,6 @@ export namespace Prisma {
     name?: SortOrder
     model?: SortOrder
     macAddress?: SortOrderInput | SortOrder
-    bluetoothMacAddress?: SortOrderInput | SortOrder
     deviceId?: SortOrder
     firmwareVersion?: SortOrderInput | SortOrder
     lastConnected?: SortOrderInput | SortOrder
@@ -32381,16 +32338,17 @@ export namespace Prisma {
     isSynced?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bluetoothMacAddress?: SortOrderInput | SortOrder
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrderInput | SortOrder
-    sleepColorG?: SortOrderInput | SortOrder
     sleepColorB?: SortOrderInput | SortOrder
+    sleepColorG?: SortOrderInput | SortOrder
+    sleepColorR?: SortOrderInput | SortOrder
     sleepEffect?: SortOrderInput | SortOrder
-    user?: UserOrderByWithRelationInput
-    tags?: TagOrderByRelationAggregateInput
+    sleepTimeout?: SortOrder
     configBasic?: KidooConfigBasicOrderByWithRelationInput
     configDream?: KidooConfigDreamOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    tags?: TagOrderByRelationAggregateInput
   }
 
   export type KidooWhereUniqueInput = Prisma.AtLeast<{
@@ -32402,7 +32360,6 @@ export namespace Prisma {
     name?: StringFilter<"Kidoo"> | string
     model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableFilter<"Kidoo"> | string | null
-    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     firmwareVersion?: StringNullableFilter<"Kidoo"> | string | null
     lastConnected?: DateTimeNullableFilter<"Kidoo"> | Date | string | null
     isConnected?: BoolFilter<"Kidoo"> | boolean
@@ -32411,16 +32368,17 @@ export namespace Prisma {
     isSynced?: BoolFilter<"Kidoo"> | boolean
     createdAt?: DateTimeFilter<"Kidoo"> | Date | string
     updatedAt?: DateTimeFilter<"Kidoo"> | Date | string
+    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
     brightness?: IntFilter<"Kidoo"> | number
-    sleepTimeout?: IntFilter<"Kidoo"> | number
-    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
-    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
     sleepColorB?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
-    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    tags?: TagListRelationFilter
+    sleepTimeout?: IntFilter<"Kidoo"> | number
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    tags?: TagListRelationFilter
   }, "id" | "deviceId">
 
   export type KidooOrderByWithAggregationInput = {
@@ -32428,7 +32386,6 @@ export namespace Prisma {
     name?: SortOrder
     model?: SortOrder
     macAddress?: SortOrderInput | SortOrder
-    bluetoothMacAddress?: SortOrderInput | SortOrder
     deviceId?: SortOrder
     firmwareVersion?: SortOrderInput | SortOrder
     lastConnected?: SortOrderInput | SortOrder
@@ -32438,12 +32395,13 @@ export namespace Prisma {
     isSynced?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bluetoothMacAddress?: SortOrderInput | SortOrder
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrderInput | SortOrder
-    sleepColorG?: SortOrderInput | SortOrder
     sleepColorB?: SortOrderInput | SortOrder
+    sleepColorG?: SortOrderInput | SortOrder
+    sleepColorR?: SortOrderInput | SortOrder
     sleepEffect?: SortOrderInput | SortOrder
+    sleepTimeout?: SortOrder
     _count?: KidooCountOrderByAggregateInput
     _avg?: KidooAvgOrderByAggregateInput
     _max?: KidooMaxOrderByAggregateInput
@@ -32459,7 +32417,6 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Kidoo"> | string
     model?: EnumKidooModelWithAggregatesFilter<"Kidoo"> | $Enums.KidooModel
     macAddress?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
-    bluetoothMacAddress?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
     deviceId?: StringWithAggregatesFilter<"Kidoo"> | string
     firmwareVersion?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
     lastConnected?: DateTimeNullableWithAggregatesFilter<"Kidoo"> | Date | string | null
@@ -32469,12 +32426,13 @@ export namespace Prisma {
     isSynced?: BoolWithAggregatesFilter<"Kidoo"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Kidoo"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Kidoo"> | Date | string
+    bluetoothMacAddress?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
     brightness?: IntWithAggregatesFilter<"Kidoo"> | number
-    sleepTimeout?: IntWithAggregatesFilter<"Kidoo"> | number
-    sleepColorR?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
-    sleepColorG?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
     sleepColorB?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
+    sleepColorG?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
+    sleepColorR?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
+    sleepTimeout?: IntWithAggregatesFilter<"Kidoo"> | number
   }
 
   export type TagWhereInput = {
@@ -32482,32 +32440,32 @@ export namespace Prisma {
     OR?: TagWhereInput[]
     NOT?: TagWhereInput | TagWhereInput[]
     id?: StringFilter<"Tag"> | string
-    tagId?: StringNullableFilter<"Tag"> | string | null
     uid?: StringNullableFilter<"Tag"> | string | null
     name?: StringNullableFilter<"Tag"> | string | null
-    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
     kidooId?: StringFilter<"Tag"> | string
     userId?: StringFilter<"Tag"> | string
     createdAt?: DateTimeFilter<"Tag"> | Date | string
     updatedAt?: DateTimeFilter<"Tag"> | Date | string
+    tagId?: StringNullableFilter<"Tag"> | string | null
+    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
+    multimediaFiles?: FileListRelationFilter
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    multimediaFiles?: FileListRelationFilter
   }
 
   export type TagOrderByWithRelationInput = {
     id?: SortOrder
-    tagId?: SortOrderInput | SortOrder
     uid?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
     kidooId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    tagId?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
+    multimediaFiles?: FileOrderByRelationAggregateInput
     kidoo?: KidooOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    multimediaFiles?: FileOrderByRelationAggregateInput
   }
 
   export type TagWhereUniqueInput = Prisma.AtLeast<{
@@ -32518,26 +32476,26 @@ export namespace Prisma {
     NOT?: TagWhereInput | TagWhereInput[]
     uid?: StringNullableFilter<"Tag"> | string | null
     name?: StringNullableFilter<"Tag"> | string | null
-    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
     kidooId?: StringFilter<"Tag"> | string
     userId?: StringFilter<"Tag"> | string
     createdAt?: DateTimeFilter<"Tag"> | Date | string
     updatedAt?: DateTimeFilter<"Tag"> | Date | string
+    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
+    multimediaFiles?: FileListRelationFilter
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    multimediaFiles?: FileListRelationFilter
   }, "id" | "tagId">
 
   export type TagOrderByWithAggregationInput = {
     id?: SortOrder
-    tagId?: SortOrderInput | SortOrder
     uid?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
-    type?: SortOrderInput | SortOrder
     kidooId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    tagId?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
     _count?: TagCountOrderByAggregateInput
     _max?: TagMaxOrderByAggregateInput
     _min?: TagMinOrderByAggregateInput
@@ -32548,14 +32506,14 @@ export namespace Prisma {
     OR?: TagScalarWhereWithAggregatesInput[]
     NOT?: TagScalarWhereWithAggregatesInput | TagScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Tag"> | string
-    tagId?: StringNullableWithAggregatesFilter<"Tag"> | string | null
     uid?: StringNullableWithAggregatesFilter<"Tag"> | string | null
     name?: StringNullableWithAggregatesFilter<"Tag"> | string | null
-    type?: EnumTagTypeNullableWithAggregatesFilter<"Tag"> | $Enums.TagType | null
     kidooId?: StringWithAggregatesFilter<"Tag"> | string
     userId?: StringWithAggregatesFilter<"Tag"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Tag"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Tag"> | Date | string
+    tagId?: StringNullableWithAggregatesFilter<"Tag"> | string | null
+    type?: EnumTagTypeNullableWithAggregatesFilter<"Tag"> | $Enums.TagType | null
   }
 
   export type AccountWhereInput = {
@@ -32755,9 +32713,9 @@ export namespace Prisma {
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
-    partCount?: IntFilter<"Firmware"> | number
-    changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
+    changelog?: StringNullableFilter<"Firmware"> | string | null
+    partCount?: IntFilter<"Firmware"> | number
   }
 
   export type FirmwareOrderByWithRelationInput = {
@@ -32768,9 +32726,9 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
-    partCount?: SortOrder
-    changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    changelog?: SortOrderInput | SortOrder
+    partCount?: SortOrder
   }
 
   export type FirmwareWhereUniqueInput = Prisma.AtLeast<{
@@ -32785,9 +32743,9 @@ export namespace Prisma {
     path?: StringFilter<"Firmware"> | string
     fileName?: StringFilter<"Firmware"> | string
     fileSize?: IntFilter<"Firmware"> | number
-    partCount?: IntFilter<"Firmware"> | number
-    changelog?: StringNullableFilter<"Firmware"> | string | null
     createdAt?: DateTimeFilter<"Firmware"> | Date | string
+    changelog?: StringNullableFilter<"Firmware"> | string | null
+    partCount?: IntFilter<"Firmware"> | number
   }, "id" | "model_version">
 
   export type FirmwareOrderByWithAggregationInput = {
@@ -32798,9 +32756,9 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
-    partCount?: SortOrder
-    changelog?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    changelog?: SortOrderInput | SortOrder
+    partCount?: SortOrder
     _count?: FirmwareCountOrderByAggregateInput
     _avg?: FirmwareAvgOrderByAggregateInput
     _max?: FirmwareMaxOrderByAggregateInput
@@ -32819,9 +32777,9 @@ export namespace Prisma {
     path?: StringWithAggregatesFilter<"Firmware"> | string
     fileName?: StringWithAggregatesFilter<"Firmware"> | string
     fileSize?: IntWithAggregatesFilter<"Firmware"> | number
-    partCount?: IntWithAggregatesFilter<"Firmware"> | number
-    changelog?: StringNullableWithAggregatesFilter<"Firmware"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Firmware"> | Date | string
+    changelog?: StringNullableWithAggregatesFilter<"Firmware"> | string | null
+    partCount?: IntWithAggregatesFilter<"Firmware"> | number
   }
 
   export type FileWhereInput = {
@@ -33264,14 +33222,14 @@ export namespace Prisma {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     clips?: ClipCreateNestedManyWithoutCharacterInput
     emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
     rules?: RuleCreateNestedManyWithoutCharacterInput
@@ -33281,14 +33239,14 @@ export namespace Prisma {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
     emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
     rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
@@ -33298,14 +33256,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUpdateManyWithoutCharacterNestedInput
     emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
     rules?: RuleUpdateManyWithoutCharacterNestedInput
@@ -33315,14 +33273,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
     emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
     rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
@@ -33332,51 +33290,51 @@ export namespace Prisma {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
   }
 
   export type CharacterUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CharacterUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionCreateInput = {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
@@ -33386,9 +33344,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
@@ -33398,9 +33356,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
@@ -33410,9 +33368,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
@@ -33422,27 +33380,27 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
   }
 
   export type EmotionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipCreateInput = {
@@ -33457,23 +33415,23 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     character: CharacterCreateNestedOneWithoutClipsInput
     emotion: EmotionCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
-    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
@@ -33492,21 +33450,21 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
@@ -33523,23 +33481,23 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
-    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
@@ -33558,21 +33516,21 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
@@ -33591,19 +33549,19 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
   }
 
   export type ClipUpdateManyMutationInput = {
@@ -33618,19 +33576,19 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
   }
 
   export type ClipUncheckedUpdateManyInput = {
@@ -33647,19 +33605,19 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
   }
 
   export type ClipArtifactCreateInput = {
@@ -33671,9 +33629,9 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    imageUrl?: string | null
     clip: ClipCreateNestedOneWithoutArtifactsInput
   }
 
@@ -33687,9 +33645,9 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    imageUrl?: string | null
   }
 
   export type ClipArtifactUpdateInput = {
@@ -33701,9 +33659,9 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     clip?: ClipUpdateOneRequiredWithoutArtifactsNestedInput
   }
 
@@ -33717,9 +33675,9 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactCreateManyInput = {
@@ -33732,9 +33690,9 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    imageUrl?: string | null
   }
 
   export type ClipArtifactUpdateManyMutationInput = {
@@ -33746,9 +33704,9 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactUncheckedUpdateManyInput = {
@@ -33761,23 +33719,23 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipFaceRegionCreateInput = {
     id?: string
     regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
     x: number
     y: number
     w: number
     h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
     clip: ClipCreateNestedOneWithoutFaceRegionsInput
   }
 
@@ -33785,29 +33743,29 @@ export namespace Prisma {
     id?: string
     clipId: string
     regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
     x: number
     y: number
     w: number
     h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
   }
 
   export type ClipFaceRegionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
     x?: FloatFieldUpdateOperationsInput | number
     y?: FloatFieldUpdateOperationsInput | number
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     clip?: ClipUpdateOneRequiredWithoutFaceRegionsNestedInput
   }
 
@@ -33815,59 +33773,59 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     clipId?: StringFieldUpdateOperationsInput | string
     regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
     x?: FloatFieldUpdateOperationsInput | number
     y?: FloatFieldUpdateOperationsInput | number
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipFaceRegionCreateManyInput = {
     id?: string
     clipId: string
     regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
     x: number
     y: number
     w: number
     h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
   }
 
   export type ClipFaceRegionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
     x?: FloatFieldUpdateOperationsInput | number
     y?: FloatFieldUpdateOperationsInput | number
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipFaceRegionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     clipId?: StringFieldUpdateOperationsInput | string
     regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
     x?: FloatFieldUpdateOperationsInput | number
     y?: FloatFieldUpdateOperationsInput | number
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoCreateInput = {
@@ -33876,20 +33834,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
     emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
     sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
   }
@@ -33902,20 +33858,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type EmotionVideoUpdateInput = {
@@ -33924,20 +33878,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
     sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
@@ -33950,20 +33902,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoCreateManyInput = {
@@ -33974,20 +33924,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type EmotionVideoUpdateManyMutationInput = {
@@ -33996,20 +33944,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyInput = {
@@ -34020,20 +33966,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionDeviceCreateInput = {
@@ -34044,8 +33988,8 @@ export namespace Prisma {
     lastSeenAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    character: CharacterCreateNestedOneWithoutEmotionDevicesInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutDeviceInput
+    character: CharacterCreateNestedOneWithoutEmotionDevicesInput
   }
 
   export type EmotionDeviceUncheckedCreateInput = {
@@ -34068,8 +34012,8 @@ export namespace Prisma {
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    character?: CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutDeviceNestedInput
+    character?: CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput
   }
 
   export type EmotionDeviceUncheckedUpdateInput = {
@@ -34120,9 +34064,9 @@ export namespace Prisma {
     slot: number
     lastSeenAt?: Date | string
     lastPlayedAt?: Date | string | null
+    clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
     device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
     emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
-    clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
   }
 
   export type DeviceClipCacheUncheckedCreateInput = {
@@ -34138,9 +34082,9 @@ export namespace Prisma {
     slot?: IntFieldUpdateOperationsInput | number
     lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
     device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
     emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
-    clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
   }
 
   export type DeviceClipCacheUncheckedUpdateInput = {
@@ -34381,14 +34325,14 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    kidoos?: KidooCreateNestedManyWithoutUserInput
-    tags?: TagCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -34398,14 +34342,14 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    tags?: TagUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -34415,14 +34359,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUpdateManyWithoutUserNestedInput
-    tags?: TagUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -34432,14 +34376,14 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
-    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -34449,9 +34393,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
   }
 
   export type UserUpdateManyMutationInput = {
@@ -34461,9 +34405,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -34473,9 +34417,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type KidooCreateInput = {
@@ -34483,7 +34427,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -34492,16 +34435,17 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
-    user?: UserCreateNestedOneWithoutKidoosInput
-    tags?: TagCreateNestedManyWithoutKidooInput
+    sleepTimeout?: number
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    user?: UserCreateNestedOneWithoutKidoosInput
+    tags?: TagCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateInput = {
@@ -34509,7 +34453,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -34519,15 +34462,16 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    sleepTimeout?: number
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUpdateInput = {
@@ -34535,7 +34479,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34544,16 +34487,17 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    user?: UserUpdateOneWithoutKidoosNestedInput
-    tags?: TagUpdateManyWithoutKidooNestedInput
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    user?: UserUpdateOneWithoutKidoosNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateInput = {
@@ -34561,7 +34505,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34571,15 +34514,16 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateManyInput = {
@@ -34587,7 +34531,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -34597,12 +34540,13 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
+    sleepTimeout?: number
   }
 
   export type KidooUpdateManyMutationInput = {
@@ -34610,7 +34554,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34619,12 +34562,13 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
   }
 
   export type KidooUncheckedUpdateManyInput = {
@@ -34632,7 +34576,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34642,98 +34585,99 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
   }
 
   export type TagCreateInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
+    multimediaFiles?: FileCreateNestedManyWithoutTagInput
     kidoo: KidooCreateNestedOneWithoutTagsInput
     user: UserCreateNestedOneWithoutTagsInput
-    multimediaFiles?: FileCreateNestedManyWithoutTagInput
   }
 
   export type TagUncheckedCreateInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     kidooId: string
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
     multimediaFiles?: FileUncheckedCreateNestedManyWithoutTagInput
   }
 
   export type TagUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
+    multimediaFiles?: FileUpdateManyWithoutTagNestedInput
     kidoo?: KidooUpdateOneRequiredWithoutTagsNestedInput
     user?: UserUpdateOneRequiredWithoutTagsNestedInput
-    multimediaFiles?: FileUpdateManyWithoutTagNestedInput
   }
 
   export type TagUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     kidooId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     multimediaFiles?: FileUncheckedUpdateManyWithoutTagNestedInput
   }
 
   export type TagCreateManyInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     kidooId: string
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
   }
 
   export type TagUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
   export type TagUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     kidooId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
   export type AccountCreateInput = {
@@ -34938,9 +34882,9 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
-    partCount?: number
-    changelog?: string | null
     createdAt?: Date | string
+    changelog?: string | null
+    partCount?: number
   }
 
   export type FirmwareUncheckedCreateInput = {
@@ -34951,9 +34895,9 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
-    partCount?: number
-    changelog?: string | null
     createdAt?: Date | string
+    changelog?: string | null
+    partCount?: number
   }
 
   export type FirmwareUpdateInput = {
@@ -34964,9 +34908,9 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
-    partCount?: IntFieldUpdateOperationsInput | number
-    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    partCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type FirmwareUncheckedUpdateInput = {
@@ -34977,9 +34921,9 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
-    partCount?: IntFieldUpdateOperationsInput | number
-    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    partCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type FirmwareCreateManyInput = {
@@ -34990,9 +34934,9 @@ export namespace Prisma {
     path: string
     fileName: string
     fileSize: number
-    partCount?: number
-    changelog?: string | null
     createdAt?: Date | string
+    changelog?: string | null
+    partCount?: number
   }
 
   export type FirmwareUpdateManyMutationInput = {
@@ -35003,9 +34947,9 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
-    partCount?: IntFieldUpdateOperationsInput | number
-    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    partCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type FirmwareUncheckedUpdateManyInput = {
@@ -35016,9 +34960,9 @@ export namespace Prisma {
     path?: StringFieldUpdateOperationsInput | string
     fileName?: StringFieldUpdateOperationsInput | string
     fileSize?: IntFieldUpdateOperationsInput | number
-    partCount?: IntFieldUpdateOperationsInput | number
-    changelog?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    changelog?: NullableStringFieldUpdateOperationsInput | string | null
+    partCount?: IntFieldUpdateOperationsInput | number
   }
 
   export type FileCreateInput = {
@@ -35543,17 +35487,6 @@ export namespace Prisma {
     not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -35563,6 +35496,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type ClipListRelationFilter = {
@@ -35604,52 +35548,52 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     defaultImageUrl?: SortOrder
-    stylePrompt?: SortOrder
-    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
-    imageWidth?: SortOrder
-    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    stylePrompt?: SortOrder
+    imageHeight?: SortOrder
+    imageWidth?: SortOrder
+    characterContext?: SortOrder
   }
 
   export type CharacterAvgOrderByAggregateInput = {
-    imageWidth?: SortOrder
     imageHeight?: SortOrder
+    imageWidth?: SortOrder
   }
 
   export type CharacterMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     defaultImageUrl?: SortOrder
-    stylePrompt?: SortOrder
-    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
-    imageWidth?: SortOrder
-    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    stylePrompt?: SortOrder
+    imageHeight?: SortOrder
+    imageWidth?: SortOrder
+    characterContext?: SortOrder
   }
 
   export type CharacterMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     defaultImageUrl?: SortOrder
-    stylePrompt?: SortOrder
-    characterContext?: SortOrder
     sex?: SortOrder
     personality?: SortOrder
-    imageWidth?: SortOrder
-    imageHeight?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    stylePrompt?: SortOrder
+    imageHeight?: SortOrder
+    imageWidth?: SortOrder
+    characterContext?: SortOrder
   }
 
   export type CharacterSumOrderByAggregateInput = {
-    imageWidth?: SortOrder
     imageHeight?: SortOrder
+    imageWidth?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -35708,6 +35652,20 @@ export namespace Prisma {
     _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -35722,20 +35680,6 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type DeviceClipCacheListRelationFilter = {
@@ -35762,27 +35706,27 @@ export namespace Prisma {
     id?: SortOrder
     key?: SortOrder
     label?: SortOrder
-    promptCustom?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    promptCustom?: SortOrder
   }
 
   export type EmotionMaxOrderByAggregateInput = {
     id?: SortOrder
     key?: SortOrder
     label?: SortOrder
-    promptCustom?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    promptCustom?: SortOrder
   }
 
   export type EmotionMinOrderByAggregateInput = {
     id?: SortOrder
     key?: SortOrder
     label?: SortOrder
-    promptCustom?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    promptCustom?: SortOrder
   }
 
   export type EnumClipStatusFilter<$PrismaModel = never> = {
@@ -35822,6 +35766,18 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type ClipArtifactListRelationFilter = {
+    every?: ClipArtifactWhereInput
+    some?: ClipArtifactWhereInput
+    none?: ClipArtifactWhereInput
+  }
+
+  export type ClipFaceRegionListRelationFilter = {
+    every?: ClipFaceRegionWhereInput
+    some?: ClipFaceRegionWhereInput
+    none?: ClipFaceRegionWhereInput
+  }
+
   export type CharacterScalarRelationFilter = {
     is?: CharacterWhereInput
     isNot?: CharacterWhereInput
@@ -35832,23 +35788,11 @@ export namespace Prisma {
     isNot?: EmotionWhereInput
   }
 
-  export type ClipFaceRegionListRelationFilter = {
-    every?: ClipFaceRegionWhereInput
-    some?: ClipFaceRegionWhereInput
-    none?: ClipFaceRegionWhereInput
-  }
-
-  export type ClipArtifactListRelationFilter = {
-    every?: ClipArtifactWhereInput
-    some?: ClipArtifactWhereInput
-    none?: ClipArtifactWhereInput
-  }
-
-  export type ClipFaceRegionOrderByRelationAggregateInput = {
+  export type ClipArtifactOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type ClipArtifactOrderByRelationAggregateInput = {
+  export type ClipFaceRegionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -35866,19 +35810,19 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
-    variantPrompt?: SortOrder
     modelName?: SortOrder
-    xaiJobId?: SortOrder
     previewUrl?: SortOrder
-    workingPreviewUrl?: SortOrder
-    loopStartFrame?: SortOrder
-    loopEndFrame?: SortOrder
     weight?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     tags?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xaiJobId?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    workingPreviewUrl?: SortOrder
+    variantPrompt?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
   }
 
   export type ClipAvgOrderByAggregateInput = {
@@ -35888,9 +35832,9 @@ export namespace Prisma {
     fps?: SortOrder
     frames?: SortOrder
     durationS?: SortOrder
+    weight?: SortOrder
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
-    weight?: SortOrder
     variant?: SortOrder
   }
 
@@ -35908,18 +35852,18 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
-    variantPrompt?: SortOrder
     modelName?: SortOrder
-    xaiJobId?: SortOrder
     previewUrl?: SortOrder
-    workingPreviewUrl?: SortOrder
-    loopStartFrame?: SortOrder
-    loopEndFrame?: SortOrder
     weight?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xaiJobId?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    workingPreviewUrl?: SortOrder
+    variantPrompt?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
   }
 
   export type ClipMinOrderByAggregateInput = {
@@ -35936,18 +35880,18 @@ export namespace Prisma {
     frames?: SortOrder
     durationS?: SortOrder
     prompt?: SortOrder
-    variantPrompt?: SortOrder
     modelName?: SortOrder
-    xaiJobId?: SortOrder
     previewUrl?: SortOrder
-    workingPreviewUrl?: SortOrder
-    loopStartFrame?: SortOrder
-    loopEndFrame?: SortOrder
     weight?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xaiJobId?: SortOrder
+    loopStartFrame?: SortOrder
+    loopEndFrame?: SortOrder
+    workingPreviewUrl?: SortOrder
+    variantPrompt?: SortOrder
+    trigger?: SortOrder
+    variant?: SortOrder
   }
 
   export type ClipSumOrderByAggregateInput = {
@@ -35957,9 +35901,9 @@ export namespace Prisma {
     fps?: SortOrder
     frames?: SortOrder
     durationS?: SortOrder
+    weight?: SortOrder
     loopStartFrame?: SortOrder
     loopEndFrame?: SortOrder
-    weight?: SortOrder
     variant?: SortOrder
   }
 
@@ -36038,9 +35982,9 @@ export namespace Prisma {
     w?: SortOrder
     h?: SortOrder
     cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipArtifactAvgOrderByAggregateInput = {
@@ -36061,9 +36005,9 @@ export namespace Prisma {
     w?: SortOrder
     h?: SortOrder
     cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipArtifactMinOrderByAggregateInput = {
@@ -36076,9 +36020,9 @@ export namespace Prisma {
     w?: SortOrder
     h?: SortOrder
     cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipArtifactSumOrderByAggregateInput = {
@@ -36132,61 +36076,61 @@ export namespace Prisma {
     id?: SortOrder
     clipId?: SortOrder
     regionKey?: SortOrder
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
-    cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    frameIndex?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipFaceRegionAvgOrderByAggregateInput = {
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
+    frameIndex?: SortOrder
   }
 
   export type ClipFaceRegionMaxOrderByAggregateInput = {
     id?: SortOrder
     clipId?: SortOrder
     regionKey?: SortOrder
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
-    cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    frameIndex?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipFaceRegionMinOrderByAggregateInput = {
     id?: SortOrder
     clipId?: SortOrder
     regionKey?: SortOrder
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
-    cornerStyle?: SortOrder
-    imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    frameIndex?: SortOrder
+    cornerStyle?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type ClipFaceRegionSumOrderByAggregateInput = {
-    frameIndex?: SortOrder
     x?: SortOrder
     y?: SortOrder
     w?: SortOrder
     h?: SortOrder
+    frameIndex?: SortOrder
   }
 
   export type EnumFaceRegionKeyWithAggregatesFilter<$PrismaModel = never> = {
@@ -36222,10 +36166,9 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type EmotionVideoSourceClipIdEmotionIdVariantCompoundUniqueInput = {
+  export type EmotionVideoSourceClipIdEmotionIdCompoundUniqueInput = {
     sourceClipId: string
     emotionId: string
-    variant: number
   }
 
   export type EmotionVideoCountOrderByAggregateInput = {
@@ -36236,30 +36179,27 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    introTimeline?: SortOrder
-    loopTimeline?: SortOrder
-    exitTimeline?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
-    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
-    totalFrames?: SortOrder
     durationS?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    exitTimeline?: SortOrder
+    introTimeline?: SortOrder
+    loopTimeline?: SortOrder
+    totalFrames?: SortOrder
+    idxUrl?: SortOrder
   }
 
   export type EmotionVideoAvgOrderByAggregateInput = {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    variant?: SortOrder
     sizeBytes?: SortOrder
-    totalFrames?: SortOrder
     durationS?: SortOrder
+    totalFrames?: SortOrder
   }
 
   export type EmotionVideoMaxOrderByAggregateInput = {
@@ -36270,17 +36210,15 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
-    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
-    totalFrames?: SortOrder
     durationS?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    totalFrames?: SortOrder
+    idxUrl?: SortOrder
   }
 
   export type EmotionVideoMinOrderByAggregateInput = {
@@ -36291,27 +36229,24 @@ export namespace Prisma {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    trigger?: SortOrder
-    variant?: SortOrder
     status?: SortOrder
     binUrl?: SortOrder
-    idxUrl?: SortOrder
     sha256?: SortOrder
     sizeBytes?: SortOrder
-    totalFrames?: SortOrder
     durationS?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    totalFrames?: SortOrder
+    idxUrl?: SortOrder
   }
 
   export type EmotionVideoSumOrderByAggregateInput = {
     fps?: SortOrder
     width?: SortOrder
     height?: SortOrder
-    variant?: SortOrder
     sizeBytes?: SortOrder
-    totalFrames?: SortOrder
     durationS?: SortOrder
+    totalFrames?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -36673,10 +36608,10 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
-  export type SessionListRelationFilter = {
-    every?: SessionWhereInput
-    some?: SessionWhereInput
-    none?: SessionWhereInput
+  export type FileListRelationFilter = {
+    every?: FileWhereInput
+    some?: FileWhereInput
+    none?: FileWhereInput
   }
 
   export type KidooListRelationFilter = {
@@ -36685,23 +36620,23 @@ export namespace Prisma {
     none?: KidooWhereInput
   }
 
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
+  }
+
   export type TagListRelationFilter = {
     every?: TagWhereInput
     some?: TagWhereInput
     none?: TagWhereInput
   }
 
-  export type FileListRelationFilter = {
-    every?: FileWhereInput
-    some?: FileWhereInput
-    none?: FileWhereInput
-  }
-
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type SessionOrderByRelationAggregateInput = {
+  export type FileOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -36709,11 +36644,11 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type TagOrderByRelationAggregateInput = {
+  export type SessionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type FileOrderByRelationAggregateInput = {
+  export type TagOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -36724,9 +36659,9 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    isAdmin?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isAdmin?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -36736,9 +36671,9 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    isAdmin?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isAdmin?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -36748,9 +36683,9 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    isAdmin?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isAdmin?: SortOrder
   }
 
   export type EnumKidooModelFilter<$PrismaModel = never> = {
@@ -36758,11 +36693,6 @@ export namespace Prisma {
     in?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
     notIn?: $Enums.KidooModel[] | ListEnumKidooModelFieldRefInput<$PrismaModel>
     not?: NestedEnumKidooModelFilter<$PrismaModel> | $Enums.KidooModel
-  }
-
-  export type UserNullableScalarRelationFilter = {
-    is?: UserWhereInput | null
-    isNot?: UserWhereInput | null
   }
 
   export type KidooConfigBasicNullableScalarRelationFilter = {
@@ -36775,12 +36705,16 @@ export namespace Prisma {
     isNot?: KidooConfigDreamWhereInput | null
   }
 
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type KidooCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     model?: SortOrder
     macAddress?: SortOrder
-    bluetoothMacAddress?: SortOrder
     deviceId?: SortOrder
     firmwareVersion?: SortOrder
     lastConnected?: SortOrder
@@ -36790,21 +36724,22 @@ export namespace Prisma {
     isSynced?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bluetoothMacAddress?: SortOrder
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrder
-    sleepColorG?: SortOrder
     sleepColorB?: SortOrder
+    sleepColorG?: SortOrder
+    sleepColorR?: SortOrder
     sleepEffect?: SortOrder
+    sleepTimeout?: SortOrder
   }
 
   export type KidooAvgOrderByAggregateInput = {
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrder
-    sleepColorG?: SortOrder
     sleepColorB?: SortOrder
+    sleepColorG?: SortOrder
+    sleepColorR?: SortOrder
     sleepEffect?: SortOrder
+    sleepTimeout?: SortOrder
   }
 
   export type KidooMaxOrderByAggregateInput = {
@@ -36812,7 +36747,6 @@ export namespace Prisma {
     name?: SortOrder
     model?: SortOrder
     macAddress?: SortOrder
-    bluetoothMacAddress?: SortOrder
     deviceId?: SortOrder
     firmwareVersion?: SortOrder
     lastConnected?: SortOrder
@@ -36822,12 +36756,13 @@ export namespace Prisma {
     isSynced?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bluetoothMacAddress?: SortOrder
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrder
-    sleepColorG?: SortOrder
     sleepColorB?: SortOrder
+    sleepColorG?: SortOrder
+    sleepColorR?: SortOrder
     sleepEffect?: SortOrder
+    sleepTimeout?: SortOrder
   }
 
   export type KidooMinOrderByAggregateInput = {
@@ -36835,7 +36770,6 @@ export namespace Prisma {
     name?: SortOrder
     model?: SortOrder
     macAddress?: SortOrder
-    bluetoothMacAddress?: SortOrder
     deviceId?: SortOrder
     firmwareVersion?: SortOrder
     lastConnected?: SortOrder
@@ -36845,21 +36779,22 @@ export namespace Prisma {
     isSynced?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    bluetoothMacAddress?: SortOrder
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrder
-    sleepColorG?: SortOrder
     sleepColorB?: SortOrder
+    sleepColorG?: SortOrder
+    sleepColorR?: SortOrder
     sleepEffect?: SortOrder
+    sleepTimeout?: SortOrder
   }
 
   export type KidooSumOrderByAggregateInput = {
     brightness?: SortOrder
-    sleepTimeout?: SortOrder
-    sleepColorR?: SortOrder
-    sleepColorG?: SortOrder
     sleepColorB?: SortOrder
+    sleepColorG?: SortOrder
+    sleepColorR?: SortOrder
     sleepEffect?: SortOrder
+    sleepTimeout?: SortOrder
   }
 
   export type EnumKidooModelWithAggregatesFilter<$PrismaModel = never> = {
@@ -36891,38 +36826,38 @@ export namespace Prisma {
 
   export type TagCountOrderByAggregateInput = {
     id?: SortOrder
-    tagId?: SortOrder
     uid?: SortOrder
     name?: SortOrder
-    type?: SortOrder
     kidooId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    tagId?: SortOrder
+    type?: SortOrder
   }
 
   export type TagMaxOrderByAggregateInput = {
     id?: SortOrder
-    tagId?: SortOrder
     uid?: SortOrder
     name?: SortOrder
-    type?: SortOrder
     kidooId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    tagId?: SortOrder
+    type?: SortOrder
   }
 
   export type TagMinOrderByAggregateInput = {
     id?: SortOrder
-    tagId?: SortOrder
     uid?: SortOrder
     name?: SortOrder
-    type?: SortOrder
     kidooId?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    tagId?: SortOrder
+    type?: SortOrder
   }
 
   export type EnumTagTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -37050,9 +36985,9 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
-    partCount?: SortOrder
-    changelog?: SortOrder
     createdAt?: SortOrder
+    changelog?: SortOrder
+    partCount?: SortOrder
   }
 
   export type FirmwareAvgOrderByAggregateInput = {
@@ -37068,9 +37003,9 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
-    partCount?: SortOrder
-    changelog?: SortOrder
     createdAt?: SortOrder
+    changelog?: SortOrder
+    partCount?: SortOrder
   }
 
   export type FirmwareMinOrderByAggregateInput = {
@@ -37081,9 +37016,9 @@ export namespace Prisma {
     path?: SortOrder
     fileName?: SortOrder
     fileSize?: SortOrder
-    partCount?: SortOrder
-    changelog?: SortOrder
     createdAt?: SortOrder
+    changelog?: SortOrder
+    partCount?: SortOrder
   }
 
   export type FirmwareSumOrderByAggregateInput = {
@@ -37488,16 +37423,16 @@ export namespace Prisma {
     set?: $Enums.CharacterPersonality
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type ClipUpdateManyWithoutCharacterNestedInput = {
@@ -37714,6 +37649,20 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type ClipArtifactCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+  }
+
+  export type ClipFaceRegionCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+  }
+
   export type CharacterCreateNestedOneWithoutClipsInput = {
     create?: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
     connectOrCreate?: CharacterCreateOrConnectWithoutClipsInput
@@ -37724,20 +37673,6 @@ export namespace Prisma {
     create?: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
     connectOrCreate?: EmotionCreateOrConnectWithoutClipsInput
     connect?: EmotionWhereUniqueInput
-  }
-
-  export type ClipFaceRegionCreateNestedManyWithoutClipInput = {
-    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
-    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
-    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
-    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-  }
-
-  export type ClipArtifactCreateNestedManyWithoutClipInput = {
-    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
-    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
-    createMany?: ClipArtifactCreateManyClipInputEnvelope
-    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
   }
 
   export type DeviceClipCacheCreateNestedManyWithoutClipInput = {
@@ -37754,18 +37689,18 @@ export namespace Prisma {
     connect?: EmotionVideoWhereUniqueInput | EmotionVideoWhereUniqueInput[]
   }
 
-  export type ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput = {
-    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
-    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
-    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
-    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-  }
-
   export type ClipArtifactUncheckedCreateNestedManyWithoutClipInput = {
     create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
     connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
     createMany?: ClipArtifactCreateManyClipInputEnvelope
     connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+  }
+
+  export type ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
   }
 
   export type DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput = {
@@ -37807,20 +37742,18 @@ export namespace Prisma {
     push?: string | string[]
   }
 
-  export type CharacterUpdateOneRequiredWithoutClipsNestedInput = {
-    create?: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
-    connectOrCreate?: CharacterCreateOrConnectWithoutClipsInput
-    upsert?: CharacterUpsertWithoutClipsInput
-    connect?: CharacterWhereUniqueInput
-    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutClipsInput, CharacterUpdateWithoutClipsInput>, CharacterUncheckedUpdateWithoutClipsInput>
-  }
-
-  export type EmotionUpdateOneRequiredWithoutClipsNestedInput = {
-    create?: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
-    connectOrCreate?: EmotionCreateOrConnectWithoutClipsInput
-    upsert?: EmotionUpsertWithoutClipsInput
-    connect?: EmotionWhereUniqueInput
-    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutClipsInput, EmotionUpdateWithoutClipsInput>, EmotionUncheckedUpdateWithoutClipsInput>
+  export type ClipArtifactUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
+    upsert?: ClipArtifactUpsertWithWhereUniqueWithoutClipInput | ClipArtifactUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipArtifactCreateManyClipInputEnvelope
+    set?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    disconnect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    delete?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
+    update?: ClipArtifactUpdateWithWhereUniqueWithoutClipInput | ClipArtifactUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipArtifactUpdateManyWithWhereWithoutClipInput | ClipArtifactUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
   }
 
   export type ClipFaceRegionUpdateManyWithoutClipNestedInput = {
@@ -37837,18 +37770,20 @@ export namespace Prisma {
     deleteMany?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
   }
 
-  export type ClipArtifactUpdateManyWithoutClipNestedInput = {
-    create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
-    connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
-    upsert?: ClipArtifactUpsertWithWhereUniqueWithoutClipInput | ClipArtifactUpsertWithWhereUniqueWithoutClipInput[]
-    createMany?: ClipArtifactCreateManyClipInputEnvelope
-    set?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
-    disconnect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
-    delete?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
-    connect?: ClipArtifactWhereUniqueInput | ClipArtifactWhereUniqueInput[]
-    update?: ClipArtifactUpdateWithWhereUniqueWithoutClipInput | ClipArtifactUpdateWithWhereUniqueWithoutClipInput[]
-    updateMany?: ClipArtifactUpdateManyWithWhereWithoutClipInput | ClipArtifactUpdateManyWithWhereWithoutClipInput[]
-    deleteMany?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+  export type CharacterUpdateOneRequiredWithoutClipsNestedInput = {
+    create?: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutClipsInput
+    upsert?: CharacterUpsertWithoutClipsInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutClipsInput, CharacterUpdateWithoutClipsInput>, CharacterUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type EmotionUpdateOneRequiredWithoutClipsNestedInput = {
+    create?: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+    connectOrCreate?: EmotionCreateOrConnectWithoutClipsInput
+    upsert?: EmotionUpsertWithoutClipsInput
+    connect?: EmotionWhereUniqueInput
+    update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutClipsInput, EmotionUpdateWithoutClipsInput>, EmotionUncheckedUpdateWithoutClipsInput>
   }
 
   export type DeviceClipCacheUpdateManyWithoutClipNestedInput = {
@@ -37879,20 +37814,6 @@ export namespace Prisma {
     deleteMany?: EmotionVideoScalarWhereInput | EmotionVideoScalarWhereInput[]
   }
 
-  export type ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput = {
-    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
-    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
-    upsert?: ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput | ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput[]
-    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
-    set?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-    disconnect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-    delete?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
-    update?: ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput | ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput[]
-    updateMany?: ClipFaceRegionUpdateManyWithWhereWithoutClipInput | ClipFaceRegionUpdateManyWithWhereWithoutClipInput[]
-    deleteMany?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
-  }
-
   export type ClipArtifactUncheckedUpdateManyWithoutClipNestedInput = {
     create?: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput> | ClipArtifactCreateWithoutClipInput[] | ClipArtifactUncheckedCreateWithoutClipInput[]
     connectOrCreate?: ClipArtifactCreateOrConnectWithoutClipInput | ClipArtifactCreateOrConnectWithoutClipInput[]
@@ -37905,6 +37826,20 @@ export namespace Prisma {
     update?: ClipArtifactUpdateWithWhereUniqueWithoutClipInput | ClipArtifactUpdateWithWhereUniqueWithoutClipInput[]
     updateMany?: ClipArtifactUpdateManyWithWhereWithoutClipInput | ClipArtifactUpdateManyWithWhereWithoutClipInput[]
     deleteMany?: ClipArtifactScalarWhereInput | ClipArtifactScalarWhereInput[]
+  }
+
+  export type ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput = {
+    create?: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput> | ClipFaceRegionCreateWithoutClipInput[] | ClipFaceRegionUncheckedCreateWithoutClipInput[]
+    connectOrCreate?: ClipFaceRegionCreateOrConnectWithoutClipInput | ClipFaceRegionCreateOrConnectWithoutClipInput[]
+    upsert?: ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput | ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput[]
+    createMany?: ClipFaceRegionCreateManyClipInputEnvelope
+    set?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    disconnect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    delete?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    connect?: ClipFaceRegionWhereUniqueInput | ClipFaceRegionWhereUniqueInput[]
+    update?: ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput | ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput[]
+    updateMany?: ClipFaceRegionUpdateManyWithWhereWithoutClipInput | ClipFaceRegionUpdateManyWithWhereWithoutClipInput[]
+    deleteMany?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
   }
 
   export type DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput = {
@@ -38007,17 +37942,17 @@ export namespace Prisma {
     update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutEmotionVideosInput, ClipUpdateWithoutEmotionVideosInput>, ClipUncheckedUpdateWithoutEmotionVideosInput>
   }
 
-  export type CharacterCreateNestedOneWithoutEmotionDevicesInput = {
-    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
-    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
-    connect?: CharacterWhereUniqueInput
-  }
-
   export type DeviceClipCacheCreateNestedManyWithoutDeviceInput = {
     create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
     connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
     createMany?: DeviceClipCacheCreateManyDeviceInputEnvelope
     connect?: DeviceClipCacheWhereUniqueInput | DeviceClipCacheWhereUniqueInput[]
+  }
+
+  export type CharacterCreateNestedOneWithoutEmotionDevicesInput = {
+    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
+    connect?: CharacterWhereUniqueInput
   }
 
   export type DeviceClipCacheUncheckedCreateNestedManyWithoutDeviceInput = {
@@ -38039,14 +37974,6 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
-  export type CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput = {
-    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
-    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
-    upsert?: CharacterUpsertWithoutEmotionDevicesInput
-    connect?: CharacterWhereUniqueInput
-    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput, CharacterUpdateWithoutEmotionDevicesInput>, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
-  }
-
   export type DeviceClipCacheUpdateManyWithoutDeviceNestedInput = {
     create?: XOR<DeviceClipCacheCreateWithoutDeviceInput, DeviceClipCacheUncheckedCreateWithoutDeviceInput> | DeviceClipCacheCreateWithoutDeviceInput[] | DeviceClipCacheUncheckedCreateWithoutDeviceInput[]
     connectOrCreate?: DeviceClipCacheCreateOrConnectWithoutDeviceInput | DeviceClipCacheCreateOrConnectWithoutDeviceInput[]
@@ -38059,6 +37986,14 @@ export namespace Prisma {
     update?: DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput | DeviceClipCacheUpdateWithWhereUniqueWithoutDeviceInput[]
     updateMany?: DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput | DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput[]
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
+  }
+
+  export type CharacterUpdateOneRequiredWithoutEmotionDevicesNestedInput = {
+    create?: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutEmotionDevicesInput
+    upsert?: CharacterUpsertWithoutEmotionDevicesInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput, CharacterUpdateWithoutEmotionDevicesInput>, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
   }
 
   export type DeviceClipCacheUncheckedUpdateManyWithoutDeviceNestedInput = {
@@ -38075,6 +38010,12 @@ export namespace Prisma {
     deleteMany?: DeviceClipCacheScalarWhereInput | DeviceClipCacheScalarWhereInput[]
   }
 
+  export type ClipCreateNestedOneWithoutDeviceClipCachesInput = {
+    create?: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+    connectOrCreate?: ClipCreateOrConnectWithoutDeviceClipCachesInput
+    connect?: ClipWhereUniqueInput
+  }
+
   export type EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput = {
     create?: XOR<EmotionDeviceCreateWithoutDeviceClipCachesInput, EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput>
     connectOrCreate?: EmotionDeviceCreateOrConnectWithoutDeviceClipCachesInput
@@ -38087,10 +38028,12 @@ export namespace Prisma {
     connect?: EmotionWhereUniqueInput
   }
 
-  export type ClipCreateNestedOneWithoutDeviceClipCachesInput = {
+  export type ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
     create?: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
     connectOrCreate?: ClipCreateOrConnectWithoutDeviceClipCachesInput
+    upsert?: ClipUpsertWithoutDeviceClipCachesInput
     connect?: ClipWhereUniqueInput
+    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput, ClipUpdateWithoutDeviceClipCachesInput>, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
   }
 
   export type EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
@@ -38107,14 +38050,6 @@ export namespace Prisma {
     upsert?: EmotionUpsertWithoutDeviceClipCachesInput
     connect?: EmotionWhereUniqueInput
     update?: XOR<XOR<EmotionUpdateToOneWithWhereWithoutDeviceClipCachesInput, EmotionUpdateWithoutDeviceClipCachesInput>, EmotionUncheckedUpdateWithoutDeviceClipCachesInput>
-  }
-
-  export type ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput = {
-    create?: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
-    connectOrCreate?: ClipCreateOrConnectWithoutDeviceClipCachesInput
-    upsert?: ClipUpsertWithoutDeviceClipCachesInput
-    connect?: ClipWhereUniqueInput
-    update?: XOR<XOR<ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput, ClipUpdateWithoutDeviceClipCachesInput>, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
   }
 
   export type CharacterCreateNestedOneWithoutRulesInput = {
@@ -38204,11 +38139,11 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type FileCreateNestedManyWithoutUserInput = {
+    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
+    createMany?: FileCreateManyUserInputEnvelope
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
   }
 
   export type KidooCreateNestedManyWithoutUserInput = {
@@ -38218,18 +38153,18 @@ export namespace Prisma {
     connect?: KidooWhereUniqueInput | KidooWhereUniqueInput[]
   }
 
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
   export type TagCreateNestedManyWithoutUserInput = {
     create?: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput> | TagCreateWithoutUserInput[] | TagUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
     createMany?: TagCreateManyUserInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type FileCreateNestedManyWithoutUserInput = {
-    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
-    createMany?: FileCreateManyUserInputEnvelope
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -38239,11 +38174,11 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
-  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  export type FileUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
+    createMany?: FileCreateManyUserInputEnvelope
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
   }
 
   export type KidooUncheckedCreateNestedManyWithoutUserInput = {
@@ -38253,18 +38188,18 @@ export namespace Prisma {
     connect?: KidooWhereUniqueInput | KidooWhereUniqueInput[]
   }
 
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
   export type TagUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput> | TagCreateWithoutUserInput[] | TagUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
     createMany?: TagCreateManyUserInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type FileUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
-    createMany?: FileCreateManyUserInputEnvelope
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -38281,18 +38216,18 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  export type FileUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
+    upsert?: FileUpsertWithWhereUniqueWithoutUserInput | FileUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FileCreateManyUserInputEnvelope
+    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    update?: FileUpdateWithWhereUniqueWithoutUserInput | FileUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FileUpdateManyWithWhereWithoutUserInput | FileUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
   }
 
   export type KidooUpdateManyWithoutUserNestedInput = {
@@ -38309,6 +38244,20 @@ export namespace Prisma {
     deleteMany?: KidooScalarWhereInput | KidooScalarWhereInput[]
   }
 
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
   export type TagUpdateManyWithoutUserNestedInput = {
     create?: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput> | TagCreateWithoutUserInput[] | TagUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
@@ -38321,20 +38270,6 @@ export namespace Prisma {
     update?: TagUpdateWithWhereUniqueWithoutUserInput | TagUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: TagUpdateManyWithWhereWithoutUserInput | TagUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
-  }
-
-  export type FileUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
-    upsert?: FileUpsertWithWhereUniqueWithoutUserInput | FileUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FileCreateManyUserInputEnvelope
-    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    update?: FileUpdateWithWhereUniqueWithoutUserInput | FileUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FileUpdateManyWithWhereWithoutUserInput | FileUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -38351,18 +38286,18 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
-  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
-    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: SessionCreateManyUserInputEnvelope
-    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
-    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  export type FileUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
+    upsert?: FileUpsertWithWhereUniqueWithoutUserInput | FileUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FileCreateManyUserInputEnvelope
+    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    update?: FileUpdateWithWhereUniqueWithoutUserInput | FileUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FileUpdateManyWithWhereWithoutUserInput | FileUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
   }
 
   export type KidooUncheckedUpdateManyWithoutUserNestedInput = {
@@ -38379,6 +38314,20 @@ export namespace Prisma {
     deleteMany?: KidooScalarWhereInput | KidooScalarWhereInput[]
   }
 
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
   export type TagUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput> | TagCreateWithoutUserInput[] | TagUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
@@ -38393,33 +38342,6 @@ export namespace Prisma {
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
-  export type FileUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FileCreateWithoutUserInput, FileUncheckedCreateWithoutUserInput> | FileCreateWithoutUserInput[] | FileUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutUserInput | FileCreateOrConnectWithoutUserInput[]
-    upsert?: FileUpsertWithWhereUniqueWithoutUserInput | FileUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FileCreateManyUserInputEnvelope
-    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    update?: FileUpdateWithWhereUniqueWithoutUserInput | FileUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FileUpdateManyWithWhereWithoutUserInput | FileUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutKidoosInput = {
-    create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type TagCreateNestedManyWithoutKidooInput = {
-    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    createMany?: TagCreateManyKidooInputEnvelope
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
   export type KidooConfigBasicCreateNestedOneWithoutKidooInput = {
     create?: XOR<KidooConfigBasicCreateWithoutKidooInput, KidooConfigBasicUncheckedCreateWithoutKidooInput>
     connectOrCreate?: KidooConfigBasicCreateOrConnectWithoutKidooInput
@@ -38432,7 +38354,13 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
-  export type TagUncheckedCreateNestedManyWithoutKidooInput = {
+  export type UserCreateNestedOneWithoutKidoosInput = {
+    create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
+    connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TagCreateNestedManyWithoutKidooInput = {
     create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
     createMany?: TagCreateManyKidooInputEnvelope
@@ -38451,32 +38379,15 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
-  export type EnumKidooModelFieldUpdateOperationsInput = {
-    set?: $Enums.KidooModel
-  }
-
-  export type UserUpdateOneWithoutKidoosNestedInput = {
-    create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
-    connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
-    upsert?: UserUpsertWithoutKidoosInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKidoosInput, UserUpdateWithoutKidoosInput>, UserUncheckedUpdateWithoutKidoosInput>
-  }
-
-  export type TagUpdateManyWithoutKidooNestedInput = {
+  export type TagUncheckedCreateNestedManyWithoutKidooInput = {
     create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
     createMany?: TagCreateManyKidooInputEnvelope
-    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
-    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
-    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
+  }
+
+  export type EnumKidooModelFieldUpdateOperationsInput = {
+    set?: $Enums.KidooModel
   }
 
   export type KidooConfigBasicUpdateOneWithoutKidooNestedInput = {
@@ -38499,7 +38410,17 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
   }
 
-  export type TagUncheckedUpdateManyWithoutKidooNestedInput = {
+  export type UserUpdateOneWithoutKidoosNestedInput = {
+    create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
+    connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
+    upsert?: UserUpsertWithoutKidoosInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKidoosInput, UserUpdateWithoutKidoosInput>, UserUncheckedUpdateWithoutKidoosInput>
+  }
+
+  export type TagUpdateManyWithoutKidooNestedInput = {
     create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
     upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
@@ -38533,6 +38454,27 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
   }
 
+  export type TagUncheckedUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
+    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: TagCreateManyKidooInputEnvelope
+    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
+  }
+
+  export type FileCreateNestedManyWithoutTagInput = {
+    create?: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput> | FileCreateWithoutTagInput[] | FileUncheckedCreateWithoutTagInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutTagInput | FileCreateOrConnectWithoutTagInput[]
+    createMany?: FileCreateManyTagInputEnvelope
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+  }
+
   export type KidooCreateNestedOneWithoutTagsInput = {
     create?: XOR<KidooCreateWithoutTagsInput, KidooUncheckedCreateWithoutTagsInput>
     connectOrCreate?: KidooCreateOrConnectWithoutTagsInput
@@ -38545,13 +38487,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type FileCreateNestedManyWithoutTagInput = {
-    create?: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput> | FileCreateWithoutTagInput[] | FileUncheckedCreateWithoutTagInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutTagInput | FileCreateOrConnectWithoutTagInput[]
-    createMany?: FileCreateManyTagInputEnvelope
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-  }
-
   export type FileUncheckedCreateNestedManyWithoutTagInput = {
     create?: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput> | FileCreateWithoutTagInput[] | FileUncheckedCreateWithoutTagInput[]
     connectOrCreate?: FileCreateOrConnectWithoutTagInput | FileCreateOrConnectWithoutTagInput[]
@@ -38561,6 +38496,20 @@ export namespace Prisma {
 
   export type NullableEnumTagTypeFieldUpdateOperationsInput = {
     set?: $Enums.TagType | null
+  }
+
+  export type FileUpdateManyWithoutTagNestedInput = {
+    create?: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput> | FileCreateWithoutTagInput[] | FileUncheckedCreateWithoutTagInput[]
+    connectOrCreate?: FileCreateOrConnectWithoutTagInput | FileCreateOrConnectWithoutTagInput[]
+    upsert?: FileUpsertWithWhereUniqueWithoutTagInput | FileUpsertWithWhereUniqueWithoutTagInput[]
+    createMany?: FileCreateManyTagInputEnvelope
+    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
+    update?: FileUpdateWithWhereUniqueWithoutTagInput | FileUpdateWithWhereUniqueWithoutTagInput[]
+    updateMany?: FileUpdateManyWithWhereWithoutTagInput | FileUpdateManyWithWhereWithoutTagInput[]
+    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
   }
 
   export type KidooUpdateOneRequiredWithoutTagsNestedInput = {
@@ -38577,20 +38526,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutTagsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTagsInput, UserUpdateWithoutTagsInput>, UserUncheckedUpdateWithoutTagsInput>
-  }
-
-  export type FileUpdateManyWithoutTagNestedInput = {
-    create?: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput> | FileCreateWithoutTagInput[] | FileUncheckedCreateWithoutTagInput[]
-    connectOrCreate?: FileCreateOrConnectWithoutTagInput | FileCreateOrConnectWithoutTagInput[]
-    upsert?: FileUpsertWithWhereUniqueWithoutTagInput | FileUpsertWithWhereUniqueWithoutTagInput[]
-    createMany?: FileCreateManyTagInputEnvelope
-    set?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    disconnect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    delete?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    connect?: FileWhereUniqueInput | FileWhereUniqueInput[]
-    update?: FileUpdateWithWhereUniqueWithoutTagInput | FileUpdateWithWhereUniqueWithoutTagInput[]
-    updateMany?: FileUpdateManyWithWhereWithoutTagInput | FileUpdateManyWithWhereWithoutTagInput[]
-    deleteMany?: FileScalarWhereInput | FileScalarWhereInput[]
   }
 
   export type FileUncheckedUpdateManyWithoutTagNestedInput = {
@@ -38853,17 +38788,6 @@ export namespace Prisma {
     not?: NestedEnumCharacterPersonalityFilter<$PrismaModel> | $Enums.CharacterPersonality
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -38873,6 +38797,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -38940,6 +38875,20 @@ export namespace Prisma {
     _max?: NestedEnumCharacterPersonalityFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -38965,20 +38914,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedEnumClipStatusFilter<$PrismaModel = never> = {
@@ -39299,22 +39234,22 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    emotion: EmotionCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
@@ -39332,21 +39267,21 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
@@ -39462,19 +39397,19 @@ export namespace Prisma {
     frames?: IntNullableFilter<"Clip"> | number | null
     durationS?: FloatNullableFilter<"Clip"> | number | null
     prompt?: StringNullableFilter<"Clip"> | string | null
-    variantPrompt?: StringNullableFilter<"Clip"> | string | null
     modelName?: StringNullableFilter<"Clip"> | string | null
-    xaiJobId?: StringNullableFilter<"Clip"> | string | null
     previewUrl?: StringNullableFilter<"Clip"> | string | null
-    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
-    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
-    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
     weight?: IntFilter<"Clip"> | number
-    trigger?: StringNullableFilter<"Clip"> | string | null
-    variant?: IntFilter<"Clip"> | number
     tags?: StringNullableListFilter<"Clip">
     createdAt?: DateTimeFilter<"Clip"> | Date | string
     updatedAt?: DateTimeFilter<"Clip"> | Date | string
+    xaiJobId?: StringNullableFilter<"Clip"> | string | null
+    loopStartFrame?: IntNullableFilter<"Clip"> | number | null
+    loopEndFrame?: IntNullableFilter<"Clip"> | number | null
+    workingPreviewUrl?: StringNullableFilter<"Clip"> | string | null
+    variantPrompt?: StringNullableFilter<"Clip"> | string | null
+    trigger?: StringNullableFilter<"Clip"> | string | null
+    variant?: IntFilter<"Clip"> | number
   }
 
   export type EmotionDeviceUpsertWithWhereUniqueWithoutCharacterInput = {
@@ -39552,22 +39487,22 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    character: CharacterCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    character: CharacterCreateNestedOneWithoutClipsInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
@@ -39585,21 +39520,21 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
   }
@@ -39618,8 +39553,8 @@ export namespace Prisma {
     slot: number
     lastSeenAt?: Date | string
     lastPlayedAt?: Date | string | null
-    device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
     clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
+    device: EmotionDeviceCreateNestedOneWithoutDeviceClipCachesInput
   }
 
   export type DeviceClipCacheUncheckedCreateWithoutEmotionInput = {
@@ -39646,20 +39581,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
     sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
   }
 
@@ -39670,20 +39603,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type EmotionVideoCreateOrConnectWithoutEmotionInput = {
@@ -39767,34 +39698,108 @@ export namespace Prisma {
     fps?: IntFilter<"EmotionVideo"> | number
     width?: IntFilter<"EmotionVideo"> | number
     height?: IntFilter<"EmotionVideo"> | number
-    introTimeline?: JsonFilter<"EmotionVideo">
-    loopTimeline?: JsonFilter<"EmotionVideo">
-    exitTimeline?: JsonFilter<"EmotionVideo">
-    trigger?: StringNullableFilter<"EmotionVideo"> | string | null
-    variant?: IntFilter<"EmotionVideo"> | number
     status?: EnumClipStatusFilter<"EmotionVideo"> | $Enums.ClipStatus
     binUrl?: StringNullableFilter<"EmotionVideo"> | string | null
-    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     sha256?: StringNullableFilter<"EmotionVideo"> | string | null
     sizeBytes?: IntNullableFilter<"EmotionVideo"> | number | null
-    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     durationS?: FloatNullableFilter<"EmotionVideo"> | number | null
     createdAt?: DateTimeFilter<"EmotionVideo"> | Date | string
     updatedAt?: DateTimeFilter<"EmotionVideo"> | Date | string
+    exitTimeline?: JsonFilter<"EmotionVideo">
+    introTimeline?: JsonFilter<"EmotionVideo">
+    loopTimeline?: JsonFilter<"EmotionVideo">
+    totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
+    idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+  }
+
+  export type ClipArtifactCreateWithoutClipInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+  }
+
+  export type ClipArtifactUncheckedCreateWithoutClipInput = {
+    id?: string
+    frameIndex?: number
+    name: string
+    x: number
+    y: number
+    w: number
+    h: number
+    cornerStyle?: $Enums.CornerStyle
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    imageUrl?: string | null
+  }
+
+  export type ClipArtifactCreateOrConnectWithoutClipInput = {
+    where: ClipArtifactWhereUniqueInput
+    create: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipArtifactCreateManyClipInputEnvelope = {
+    data: ClipArtifactCreateManyClipInput | ClipArtifactCreateManyClipInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ClipFaceRegionCreateWithoutClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    x: number
+    y: number
+    w: number
+    h: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+  }
+
+  export type ClipFaceRegionUncheckedCreateWithoutClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    x: number
+    y: number
+    w: number
+    h: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
+  }
+
+  export type ClipFaceRegionCreateOrConnectWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionCreateManyClipInputEnvelope = {
+    data: ClipFaceRegionCreateManyClipInput | ClipFaceRegionCreateManyClipInput[]
+    skipDuplicates?: boolean
   }
 
   export type CharacterCreateWithoutClipsInput = {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
     rules?: RuleCreateNestedManyWithoutCharacterInput
   }
@@ -39803,14 +39808,14 @@ export namespace Prisma {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
     rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
   }
@@ -39824,9 +39829,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
   }
@@ -39835,9 +39840,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
   }
@@ -39845,82 +39850,6 @@ export namespace Prisma {
   export type EmotionCreateOrConnectWithoutClipsInput = {
     where: EmotionWhereUniqueInput
     create: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
-  }
-
-  export type ClipFaceRegionCreateWithoutClipInput = {
-    id?: string
-    regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
-    x: number
-    y: number
-    w: number
-    h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClipFaceRegionUncheckedCreateWithoutClipInput = {
-    id?: string
-    regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
-    x: number
-    y: number
-    w: number
-    h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClipFaceRegionCreateOrConnectWithoutClipInput = {
-    where: ClipFaceRegionWhereUniqueInput
-    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
-  }
-
-  export type ClipFaceRegionCreateManyClipInputEnvelope = {
-    data: ClipFaceRegionCreateManyClipInput | ClipFaceRegionCreateManyClipInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ClipArtifactCreateWithoutClipInput = {
-    id?: string
-    frameIndex?: number
-    name: string
-    x: number
-    y: number
-    w: number
-    h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClipArtifactUncheckedCreateWithoutClipInput = {
-    id?: string
-    frameIndex?: number
-    name: string
-    x: number
-    y: number
-    w: number
-    h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ClipArtifactCreateOrConnectWithoutClipInput = {
-    where: ClipArtifactWhereUniqueInput
-    create: XOR<ClipArtifactCreateWithoutClipInput, ClipArtifactUncheckedCreateWithoutClipInput>
-  }
-
-  export type ClipArtifactCreateManyClipInputEnvelope = {
-    data: ClipArtifactCreateManyClipInput | ClipArtifactCreateManyClipInput[]
-    skipDuplicates?: boolean
   }
 
   export type DeviceClipCacheCreateWithoutClipInput = {
@@ -39955,20 +39884,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
     emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
   }
 
@@ -39979,20 +39906,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type EmotionVideoCreateOrConnectWithoutSourceClipInput = {
@@ -40003,116 +39928,6 @@ export namespace Prisma {
   export type EmotionVideoCreateManySourceClipInputEnvelope = {
     data: EmotionVideoCreateManySourceClipInput | EmotionVideoCreateManySourceClipInput[]
     skipDuplicates?: boolean
-  }
-
-  export type CharacterUpsertWithoutClipsInput = {
-    update: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
-    create: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
-    where?: CharacterWhereInput
-  }
-
-  export type CharacterUpdateToOneWithWhereWithoutClipsInput = {
-    where?: CharacterWhereInput
-    data: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
-  }
-
-  export type CharacterUpdateWithoutClipsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
-    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
-    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
-    rules?: RuleUpdateManyWithoutCharacterNestedInput
-  }
-
-  export type CharacterUncheckedUpdateWithoutClipsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
-    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
-    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
-    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
-  }
-
-  export type EmotionUpsertWithoutClipsInput = {
-    update: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
-    create: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
-    where?: EmotionWhereInput
-  }
-
-  export type EmotionUpdateToOneWithWhereWithoutClipsInput = {
-    where?: EmotionWhereInput
-    data: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
-  }
-
-  export type EmotionUpdateWithoutClipsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    key?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
-    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
-  }
-
-  export type EmotionUncheckedUpdateWithoutClipsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    key?: StringFieldUpdateOperationsInput | string
-    label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
-    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
-  }
-
-  export type ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput = {
-    where: ClipFaceRegionWhereUniqueInput
-    update: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
-    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
-  }
-
-  export type ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput = {
-    where: ClipFaceRegionWhereUniqueInput
-    data: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
-  }
-
-  export type ClipFaceRegionUpdateManyWithWhereWithoutClipInput = {
-    where: ClipFaceRegionScalarWhereInput
-    data: XOR<ClipFaceRegionUpdateManyMutationInput, ClipFaceRegionUncheckedUpdateManyWithoutClipInput>
-  }
-
-  export type ClipFaceRegionScalarWhereInput = {
-    AND?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
-    OR?: ClipFaceRegionScalarWhereInput[]
-    NOT?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
-    id?: StringFilter<"ClipFaceRegion"> | string
-    clipId?: StringFilter<"ClipFaceRegion"> | string
-    regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
-    frameIndex?: IntFilter<"ClipFaceRegion"> | number
-    x?: FloatFilter<"ClipFaceRegion"> | number
-    y?: FloatFilter<"ClipFaceRegion"> | number
-    w?: FloatFilter<"ClipFaceRegion"> | number
-    h?: FloatFilter<"ClipFaceRegion"> | number
-    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
-    createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
-    updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
   }
 
   export type ClipArtifactUpsertWithWhereUniqueWithoutClipInput = {
@@ -40144,9 +39959,119 @@ export namespace Prisma {
     w?: FloatFilter<"ClipArtifact"> | number
     h?: FloatFilter<"ClipArtifact"> | number
     cornerStyle?: EnumCornerStyleFilter<"ClipArtifact"> | $Enums.CornerStyle
-    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
     createdAt?: DateTimeFilter<"ClipArtifact"> | Date | string
     updatedAt?: DateTimeFilter<"ClipArtifact"> | Date | string
+    imageUrl?: StringNullableFilter<"ClipArtifact"> | string | null
+  }
+
+  export type ClipFaceRegionUpsertWithWhereUniqueWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    update: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
+    create: XOR<ClipFaceRegionCreateWithoutClipInput, ClipFaceRegionUncheckedCreateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionUpdateWithWhereUniqueWithoutClipInput = {
+    where: ClipFaceRegionWhereUniqueInput
+    data: XOR<ClipFaceRegionUpdateWithoutClipInput, ClipFaceRegionUncheckedUpdateWithoutClipInput>
+  }
+
+  export type ClipFaceRegionUpdateManyWithWhereWithoutClipInput = {
+    where: ClipFaceRegionScalarWhereInput
+    data: XOR<ClipFaceRegionUpdateManyMutationInput, ClipFaceRegionUncheckedUpdateManyWithoutClipInput>
+  }
+
+  export type ClipFaceRegionScalarWhereInput = {
+    AND?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+    OR?: ClipFaceRegionScalarWhereInput[]
+    NOT?: ClipFaceRegionScalarWhereInput | ClipFaceRegionScalarWhereInput[]
+    id?: StringFilter<"ClipFaceRegion"> | string
+    clipId?: StringFilter<"ClipFaceRegion"> | string
+    regionKey?: EnumFaceRegionKeyFilter<"ClipFaceRegion"> | $Enums.FaceRegionKey
+    x?: FloatFilter<"ClipFaceRegion"> | number
+    y?: FloatFilter<"ClipFaceRegion"> | number
+    w?: FloatFilter<"ClipFaceRegion"> | number
+    h?: FloatFilter<"ClipFaceRegion"> | number
+    createdAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    updatedAt?: DateTimeFilter<"ClipFaceRegion"> | Date | string
+    frameIndex?: IntFilter<"ClipFaceRegion"> | number
+    cornerStyle?: EnumCornerStyleFilter<"ClipFaceRegion"> | $Enums.CornerStyle
+    imageUrl?: StringNullableFilter<"ClipFaceRegion"> | string | null
+  }
+
+  export type CharacterUpsertWithoutClipsInput = {
+    update: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
+    create: XOR<CharacterCreateWithoutClipsInput, CharacterUncheckedCreateWithoutClipsInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutClipsInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutClipsInput, CharacterUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type CharacterUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
+    emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
+    emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type EmotionUpsertWithoutClipsInput = {
+    update: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
+    create: XOR<EmotionCreateWithoutClipsInput, EmotionUncheckedCreateWithoutClipsInput>
+    where?: EmotionWhereInput
+  }
+
+  export type EmotionUpdateToOneWithWhereWithoutClipsInput = {
+    where?: EmotionWhereInput
+    data: XOR<EmotionUpdateWithoutClipsInput, EmotionUncheckedUpdateWithoutClipsInput>
+  }
+
+  export type EmotionUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
+  }
+
+  export type EmotionUncheckedUpdateWithoutClipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
   }
 
   export type DeviceClipCacheUpsertWithWhereUniqueWithoutClipInput = {
@@ -40193,22 +40118,22 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     character: CharacterCreateNestedOneWithoutClipsInput
     emotion: EmotionCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
@@ -40227,19 +40152,19 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
@@ -40273,22 +40198,22 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
@@ -40307,19 +40232,19 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
@@ -40337,22 +40262,22 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     character: CharacterCreateNestedOneWithoutClipsInput
     emotion: EmotionCreateNestedOneWithoutClipsInput
-    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
   }
@@ -40371,19 +40296,19 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
@@ -40417,22 +40342,22 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
@@ -40451,19 +40376,19 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
@@ -40473,9 +40398,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutEmotionInput
   }
@@ -40484,9 +40409,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutEmotionInput
   }
@@ -40508,23 +40433,23 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
     character: CharacterCreateNestedOneWithoutClipsInput
     emotion: EmotionCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
-    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheCreateNestedManyWithoutClipInput
   }
 
@@ -40542,21 +40467,21 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
     artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
     deviceClipCaches?: DeviceClipCacheUncheckedCreateNestedManyWithoutClipInput
   }
 
@@ -40580,9 +40505,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutEmotionNestedInput
   }
@@ -40591,9 +40516,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutEmotionNestedInput
   }
@@ -40621,23 +40546,23 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
     character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
     emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
-    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
   }
 
@@ -40655,67 +40580,30 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
-  }
-
-  export type CharacterCreateWithoutEmotionDevicesInput = {
-    id?: string
-    name?: string | null
-    defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
-    sex: $Enums.CharacterSex
-    personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    clips?: ClipCreateNestedManyWithoutCharacterInput
-    rules?: RuleCreateNestedManyWithoutCharacterInput
-  }
-
-  export type CharacterUncheckedCreateWithoutEmotionDevicesInput = {
-    id?: string
-    name?: string | null
-    defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
-    sex: $Enums.CharacterSex
-    personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
-    rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
-  }
-
-  export type CharacterCreateOrConnectWithoutEmotionDevicesInput = {
-    where: CharacterWhereUniqueInput
-    create: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
   }
 
   export type DeviceClipCacheCreateWithoutDeviceInput = {
     slot: number
     lastSeenAt?: Date | string
     lastPlayedAt?: Date | string | null
-    emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
     clip: ClipCreateNestedOneWithoutDeviceClipCachesInput
+    emotion: EmotionCreateNestedOneWithoutDeviceClipCachesInput
   }
 
   export type DeviceClipCacheUncheckedCreateWithoutDeviceInput = {
@@ -40736,47 +40624,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type CharacterUpsertWithoutEmotionDevicesInput = {
-    update: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+  export type CharacterCreateWithoutEmotionDevicesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
+    clips?: ClipCreateNestedManyWithoutCharacterInput
+    rules?: RuleCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateWithoutEmotionDevicesInput = {
+    id?: string
+    name?: string | null
+    defaultImageUrl?: string | null
+    sex: $Enums.CharacterSex
+    personality: $Enums.CharacterPersonality
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
+    clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
+    rules?: RuleUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterCreateOrConnectWithoutEmotionDevicesInput = {
+    where: CharacterWhereUniqueInput
     create: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
-    where?: CharacterWhereInput
-  }
-
-  export type CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput = {
-    where?: CharacterWhereInput
-    data: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
-  }
-
-  export type CharacterUpdateWithoutEmotionDevicesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
-    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
-    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    clips?: ClipUpdateManyWithoutCharacterNestedInput
-    rules?: RuleUpdateManyWithoutCharacterNestedInput
-  }
-
-  export type CharacterUncheckedUpdateWithoutEmotionDevicesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
-    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
-    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
-    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
   }
 
   export type DeviceClipCacheUpsertWithWhereUniqueWithoutDeviceInput = {
@@ -40793,6 +40675,118 @@ export namespace Prisma {
   export type DeviceClipCacheUpdateManyWithWhereWithoutDeviceInput = {
     where: DeviceClipCacheScalarWhereInput
     data: XOR<DeviceClipCacheUpdateManyMutationInput, DeviceClipCacheUncheckedUpdateManyWithoutDeviceInput>
+  }
+
+  export type CharacterUpsertWithoutEmotionDevicesInput = {
+    update: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+    create: XOR<CharacterCreateWithoutEmotionDevicesInput, CharacterUncheckedCreateWithoutEmotionDevicesInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutEmotionDevicesInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutEmotionDevicesInput, CharacterUncheckedUpdateWithoutEmotionDevicesInput>
+  }
+
+  export type CharacterUpdateWithoutEmotionDevicesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
+    clips?: ClipUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutEmotionDevicesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
+    personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
+    clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
+    rules?: RuleUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type ClipCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    previewUrl?: string | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
+    character: CharacterCreateNestedOneWithoutClipsInput
+    emotion: EmotionCreateNestedOneWithoutClipsInput
+    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipUncheckedCreateWithoutDeviceClipCachesInput = {
+    id?: string
+    characterId: string
+    emotionId: string
+    status?: $Enums.ClipStatus
+    fileUrl?: string | null
+    sha256?: string | null
+    sizeBytes?: number | null
+    width?: number | null
+    height?: number | null
+    fps?: number | null
+    frames?: number | null
+    durationS?: number | null
+    prompt?: string | null
+    modelName?: string | null
+    previewUrl?: string | null
+    weight?: number
+    tags?: ClipCreatetagsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
+    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
+    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
+    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
+  }
+
+  export type ClipCreateOrConnectWithoutDeviceClipCachesInput = {
+    where: ClipWhereUniqueInput
+    create: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
   }
 
   export type EmotionDeviceCreateWithoutDeviceClipCachesInput = {
@@ -40826,9 +40820,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoCreateNestedManyWithoutEmotionInput
   }
@@ -40837,9 +40831,9 @@ export namespace Prisma {
     id?: string
     key: string
     label: string
-    promptCustom?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    promptCustom?: string | null
     clips?: ClipUncheckedCreateNestedManyWithoutEmotionInput
     emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutEmotionInput
   }
@@ -40849,73 +40843,79 @@ export namespace Prisma {
     create: XOR<EmotionCreateWithoutDeviceClipCachesInput, EmotionUncheckedCreateWithoutDeviceClipCachesInput>
   }
 
-  export type ClipCreateWithoutDeviceClipCachesInput = {
-    id?: string
-    status?: $Enums.ClipStatus
-    fileUrl?: string | null
-    sha256?: string | null
-    sizeBytes?: number | null
-    width?: number | null
-    height?: number | null
-    fps?: number | null
-    frames?: number | null
-    durationS?: number | null
-    prompt?: string | null
-    variantPrompt?: string | null
-    modelName?: string | null
-    xaiJobId?: string | null
-    previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
-    weight?: number
-    trigger?: string | null
-    variant?: number
-    tags?: ClipCreatetagsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    character: CharacterCreateNestedOneWithoutClipsInput
-    emotion: EmotionCreateNestedOneWithoutClipsInput
-    faceRegions?: ClipFaceRegionCreateNestedManyWithoutClipInput
-    artifacts?: ClipArtifactCreateNestedManyWithoutClipInput
-    emotionVideos?: EmotionVideoCreateNestedManyWithoutSourceClipInput
-  }
-
-  export type ClipUncheckedCreateWithoutDeviceClipCachesInput = {
-    id?: string
-    characterId: string
-    emotionId: string
-    status?: $Enums.ClipStatus
-    fileUrl?: string | null
-    sha256?: string | null
-    sizeBytes?: number | null
-    width?: number | null
-    height?: number | null
-    fps?: number | null
-    frames?: number | null
-    durationS?: number | null
-    prompt?: string | null
-    variantPrompt?: string | null
-    modelName?: string | null
-    xaiJobId?: string | null
-    previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
-    weight?: number
-    trigger?: string | null
-    variant?: number
-    tags?: ClipCreatetagsInput | string[]
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    faceRegions?: ClipFaceRegionUncheckedCreateNestedManyWithoutClipInput
-    artifacts?: ClipArtifactUncheckedCreateNestedManyWithoutClipInput
-    emotionVideos?: EmotionVideoUncheckedCreateNestedManyWithoutSourceClipInput
-  }
-
-  export type ClipCreateOrConnectWithoutDeviceClipCachesInput = {
-    where: ClipWhereUniqueInput
+  export type ClipUpsertWithoutDeviceClipCachesInput = {
+    update: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
     create: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
+    where?: ClipWhereInput
+  }
+
+  export type ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput = {
+    where?: ClipWhereInput
+    data: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
+  }
+
+  export type ClipUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
+    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
+  }
+
+  export type ClipUncheckedUpdateWithoutDeviceClipCachesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    emotionId?: StringFieldUpdateOperationsInput | string
+    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
+    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    sha256?: NullableStringFieldUpdateOperationsInput | string | null
+    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
+    width?: NullableIntFieldUpdateOperationsInput | number | null
+    height?: NullableIntFieldUpdateOperationsInput | number | null
+    fps?: NullableIntFieldUpdateOperationsInput | number | null
+    frames?: NullableIntFieldUpdateOperationsInput | number | null
+    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
+    prompt?: NullableStringFieldUpdateOperationsInput | string | null
+    modelName?: NullableStringFieldUpdateOperationsInput | string | null
+    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    weight?: IntFieldUpdateOperationsInput | number
+    tags?: ClipUpdatetagsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
+    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type EmotionDeviceUpsertWithoutDeviceClipCachesInput = {
@@ -40966,9 +40966,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUpdateManyWithoutEmotionNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutEmotionNestedInput
   }
@@ -40977,100 +40977,25 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     label?: StringFieldUpdateOperationsInput | string
-    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    promptCustom?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUncheckedUpdateManyWithoutEmotionNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutEmotionNestedInput
-  }
-
-  export type ClipUpsertWithoutDeviceClipCachesInput = {
-    update: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
-    create: XOR<ClipCreateWithoutDeviceClipCachesInput, ClipUncheckedCreateWithoutDeviceClipCachesInput>
-    where?: ClipWhereInput
-  }
-
-  export type ClipUpdateToOneWithWhereWithoutDeviceClipCachesInput = {
-    where?: ClipWhereInput
-    data: XOR<ClipUpdateWithoutDeviceClipCachesInput, ClipUncheckedUpdateWithoutDeviceClipCachesInput>
-  }
-
-  export type ClipUpdateWithoutDeviceClipCachesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
-    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    sha256?: NullableStringFieldUpdateOperationsInput | string | null
-    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    width?: NullableIntFieldUpdateOperationsInput | number | null
-    height?: NullableIntFieldUpdateOperationsInput | number | null
-    fps?: NullableIntFieldUpdateOperationsInput | number | null
-    frames?: NullableIntFieldUpdateOperationsInput | number | null
-    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
-    prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
-    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
-    tags?: ClipUpdatetagsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
-    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
-    artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
-    emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
-  }
-
-  export type ClipUncheckedUpdateWithoutDeviceClipCachesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    characterId?: StringFieldUpdateOperationsInput | string
-    emotionId?: StringFieldUpdateOperationsInput | string
-    status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
-    fileUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    sha256?: NullableStringFieldUpdateOperationsInput | string | null
-    sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    width?: NullableIntFieldUpdateOperationsInput | number | null
-    height?: NullableIntFieldUpdateOperationsInput | number | null
-    fps?: NullableIntFieldUpdateOperationsInput | number | null
-    frames?: NullableIntFieldUpdateOperationsInput | number | null
-    durationS?: NullableFloatFieldUpdateOperationsInput | number | null
-    prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
-    previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
-    tags?: ClipUpdatetagsInput | string[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
-    artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
-    emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
 
   export type CharacterCreateWithoutRulesInput = {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     clips?: ClipCreateNestedManyWithoutCharacterInput
     emotionDevices?: EmotionDeviceCreateNestedManyWithoutCharacterInput
   }
@@ -41079,14 +41004,14 @@ export namespace Prisma {
     id?: string
     name?: string | null
     defaultImageUrl?: string | null
-    stylePrompt?: string | null
-    characterContext?: string | null
     sex: $Enums.CharacterSex
     personality: $Enums.CharacterPersonality
-    imageWidth?: number
-    imageHeight?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    stylePrompt?: string | null
+    imageHeight?: number
+    imageWidth?: number
+    characterContext?: string | null
     clips?: ClipUncheckedCreateNestedManyWithoutCharacterInput
     emotionDevices?: EmotionDeviceUncheckedCreateNestedManyWithoutCharacterInput
   }
@@ -41111,14 +41036,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUpdateManyWithoutCharacterNestedInput
     emotionDevices?: EmotionDeviceUpdateManyWithoutCharacterNestedInput
   }
@@ -41127,14 +41052,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     defaultImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
-    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     sex?: EnumCharacterSexFieldUpdateOperationsInput | $Enums.CharacterSex
     personality?: EnumCharacterPersonalityFieldUpdateOperationsInput | $Enums.CharacterPersonality
-    imageWidth?: IntFieldUpdateOperationsInput | number
-    imageHeight?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stylePrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    imageHeight?: IntFieldUpdateOperationsInput | number
+    imageWidth?: IntFieldUpdateOperationsInput | number
+    characterContext?: NullableStringFieldUpdateOperationsInput | string | null
     clips?: ClipUncheckedUpdateManyWithoutCharacterNestedInput
     emotionDevices?: EmotionDeviceUncheckedUpdateManyWithoutCharacterNestedInput
   }
@@ -41269,122 +41194,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type SessionCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type SessionUncheckedCreateWithoutUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type SessionCreateOrConnectWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
-  }
-
-  export type SessionCreateManyUserInputEnvelope = {
-    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type KidooCreateWithoutUserInput = {
-    id?: string
-    name: string
-    model?: $Enums.KidooModel
-    macAddress?: string | null
-    bluetoothMacAddress?: string | null
-    deviceId: string
-    firmwareVersion?: string | null
-    lastConnected?: Date | string | null
-    isConnected?: boolean
-    wifiSSID?: string | null
-    isSynced?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
-    sleepColorB?: number | null
-    sleepEffect?: number | null
-    tags?: TagCreateNestedManyWithoutKidooInput
-    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
-    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
-  }
-
-  export type KidooUncheckedCreateWithoutUserInput = {
-    id?: string
-    name: string
-    model?: $Enums.KidooModel
-    macAddress?: string | null
-    bluetoothMacAddress?: string | null
-    deviceId: string
-    firmwareVersion?: string | null
-    lastConnected?: Date | string | null
-    isConnected?: boolean
-    wifiSSID?: string | null
-    isSynced?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
-    sleepColorB?: number | null
-    sleepEffect?: number | null
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
-    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
-    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
-  }
-
-  export type KidooCreateOrConnectWithoutUserInput = {
-    where: KidooWhereUniqueInput
-    create: XOR<KidooCreateWithoutUserInput, KidooUncheckedCreateWithoutUserInput>
-  }
-
-  export type KidooCreateManyUserInputEnvelope = {
-    data: KidooCreateManyUserInput | KidooCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type TagCreateWithoutUserInput = {
-    id?: string
-    tagId?: string | null
-    uid?: string | null
-    name?: string | null
-    type?: $Enums.TagType | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    kidoo: KidooCreateNestedOneWithoutTagsInput
-    multimediaFiles?: FileCreateNestedManyWithoutTagInput
-  }
-
-  export type TagUncheckedCreateWithoutUserInput = {
-    id?: string
-    tagId?: string | null
-    uid?: string | null
-    name?: string | null
-    type?: $Enums.TagType | null
-    kidooId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    multimediaFiles?: FileUncheckedCreateNestedManyWithoutTagInput
-  }
-
-  export type TagCreateOrConnectWithoutUserInput = {
-    where: TagWhereUniqueInput
-    create: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput>
-  }
-
-  export type TagCreateManyUserInputEnvelope = {
-    data: TagCreateManyUserInput | TagCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type FileCreateWithoutUserInput = {
     id?: string
     url: string
@@ -41425,6 +41234,122 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type KidooCreateWithoutUserInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooCreateOrConnectWithoutUserInput = {
+    where: KidooWhereUniqueInput
+    create: XOR<KidooCreateWithoutUserInput, KidooUncheckedCreateWithoutUserInput>
+  }
+
+  export type KidooCreateManyUserInputEnvelope = {
+    data: KidooCreateManyUserInput | KidooCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SessionCreateWithoutUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
+  }
+
+  export type SessionUncheckedCreateWithoutUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
+  }
+
+  export type SessionCreateOrConnectWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TagCreateWithoutUserInput = {
+    id?: string
+    uid?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
+    multimediaFiles?: FileCreateNestedManyWithoutTagInput
+    kidoo: KidooCreateNestedOneWithoutTagsInput
+  }
+
+  export type TagUncheckedCreateWithoutUserInput = {
+    id?: string
+    uid?: string | null
+    name?: string | null
+    kidooId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
+    multimediaFiles?: FileUncheckedCreateNestedManyWithoutTagInput
+  }
+
+  export type TagCreateOrConnectWithoutUserInput = {
+    where: TagWhereUniqueInput
+    create: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput>
+  }
+
+  export type TagCreateManyUserInputEnvelope = {
+    data: TagCreateManyUserInput | TagCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
     where: AccountWhereUniqueInput
     update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
@@ -41457,105 +41382,6 @@ export namespace Prisma {
     scope?: StringNullableFilter<"Account"> | string | null
     id_token?: StringNullableFilter<"Account"> | string | null
     session_state?: StringNullableFilter<"Account"> | string | null
-  }
-
-  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
-  }
-
-  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
-    where: SessionWhereUniqueInput
-    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type SessionUpdateManyWithWhereWithoutUserInput = {
-    where: SessionScalarWhereInput
-    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type SessionScalarWhereInput = {
-    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    OR?: SessionScalarWhereInput[]
-    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
-    id?: StringFilter<"Session"> | string
-    sessionToken?: StringFilter<"Session"> | string
-    userId?: StringFilter<"Session"> | string
-    expires?: DateTimeFilter<"Session"> | Date | string
-  }
-
-  export type KidooUpsertWithWhereUniqueWithoutUserInput = {
-    where: KidooWhereUniqueInput
-    update: XOR<KidooUpdateWithoutUserInput, KidooUncheckedUpdateWithoutUserInput>
-    create: XOR<KidooCreateWithoutUserInput, KidooUncheckedCreateWithoutUserInput>
-  }
-
-  export type KidooUpdateWithWhereUniqueWithoutUserInput = {
-    where: KidooWhereUniqueInput
-    data: XOR<KidooUpdateWithoutUserInput, KidooUncheckedUpdateWithoutUserInput>
-  }
-
-  export type KidooUpdateManyWithWhereWithoutUserInput = {
-    where: KidooScalarWhereInput
-    data: XOR<KidooUpdateManyMutationInput, KidooUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type KidooScalarWhereInput = {
-    AND?: KidooScalarWhereInput | KidooScalarWhereInput[]
-    OR?: KidooScalarWhereInput[]
-    NOT?: KidooScalarWhereInput | KidooScalarWhereInput[]
-    id?: StringFilter<"Kidoo"> | string
-    name?: StringFilter<"Kidoo"> | string
-    model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
-    macAddress?: StringNullableFilter<"Kidoo"> | string | null
-    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
-    deviceId?: StringFilter<"Kidoo"> | string
-    firmwareVersion?: StringNullableFilter<"Kidoo"> | string | null
-    lastConnected?: DateTimeNullableFilter<"Kidoo"> | Date | string | null
-    isConnected?: BoolFilter<"Kidoo"> | boolean
-    wifiSSID?: StringNullableFilter<"Kidoo"> | string | null
-    userId?: StringNullableFilter<"Kidoo"> | string | null
-    isSynced?: BoolFilter<"Kidoo"> | boolean
-    createdAt?: DateTimeFilter<"Kidoo"> | Date | string
-    updatedAt?: DateTimeFilter<"Kidoo"> | Date | string
-    brightness?: IntFilter<"Kidoo"> | number
-    sleepTimeout?: IntFilter<"Kidoo"> | number
-    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
-    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
-    sleepColorB?: IntNullableFilter<"Kidoo"> | number | null
-    sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
-  }
-
-  export type TagUpsertWithWhereUniqueWithoutUserInput = {
-    where: TagWhereUniqueInput
-    update: XOR<TagUpdateWithoutUserInput, TagUncheckedUpdateWithoutUserInput>
-    create: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput>
-  }
-
-  export type TagUpdateWithWhereUniqueWithoutUserInput = {
-    where: TagWhereUniqueInput
-    data: XOR<TagUpdateWithoutUserInput, TagUncheckedUpdateWithoutUserInput>
-  }
-
-  export type TagUpdateManyWithWhereWithoutUserInput = {
-    where: TagScalarWhereInput
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type TagScalarWhereInput = {
-    AND?: TagScalarWhereInput | TagScalarWhereInput[]
-    OR?: TagScalarWhereInput[]
-    NOT?: TagScalarWhereInput | TagScalarWhereInput[]
-    id?: StringFilter<"Tag"> | string
-    tagId?: StringNullableFilter<"Tag"> | string | null
-    uid?: StringNullableFilter<"Tag"> | string | null
-    name?: StringNullableFilter<"Tag"> | string | null
-    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
-    kidooId?: StringFilter<"Tag"> | string
-    userId?: StringFilter<"Tag"> | string
-    createdAt?: DateTimeFilter<"Tag"> | Date | string
-    updatedAt?: DateTimeFilter<"Tag"> | Date | string
   }
 
   export type FileUpsertWithWhereUniqueWithoutUserInput = {
@@ -41593,75 +41419,103 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"File"> | Date | string
   }
 
-  export type UserCreateWithoutKidoosInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    isAdmin?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    tags?: TagCreateNestedManyWithoutUserInput
-    files?: FileCreateNestedManyWithoutUserInput
+  export type KidooUpsertWithWhereUniqueWithoutUserInput = {
+    where: KidooWhereUniqueInput
+    update: XOR<KidooUpdateWithoutUserInput, KidooUncheckedUpdateWithoutUserInput>
+    create: XOR<KidooCreateWithoutUserInput, KidooUncheckedCreateWithoutUserInput>
   }
 
-  export type UserUncheckedCreateWithoutKidoosInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    isAdmin?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    files?: FileUncheckedCreateNestedManyWithoutUserInput
+  export type KidooUpdateWithWhereUniqueWithoutUserInput = {
+    where: KidooWhereUniqueInput
+    data: XOR<KidooUpdateWithoutUserInput, KidooUncheckedUpdateWithoutUserInput>
   }
 
-  export type UserCreateOrConnectWithoutKidoosInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
+  export type KidooUpdateManyWithWhereWithoutUserInput = {
+    where: KidooScalarWhereInput
+    data: XOR<KidooUpdateManyMutationInput, KidooUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type TagCreateWithoutKidooInput = {
-    id?: string
-    tagId?: string | null
-    uid?: string | null
-    name?: string | null
-    type?: $Enums.TagType | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutTagsInput
-    multimediaFiles?: FileCreateNestedManyWithoutTagInput
+  export type KidooScalarWhereInput = {
+    AND?: KidooScalarWhereInput | KidooScalarWhereInput[]
+    OR?: KidooScalarWhereInput[]
+    NOT?: KidooScalarWhereInput | KidooScalarWhereInput[]
+    id?: StringFilter<"Kidoo"> | string
+    name?: StringFilter<"Kidoo"> | string
+    model?: EnumKidooModelFilter<"Kidoo"> | $Enums.KidooModel
+    macAddress?: StringNullableFilter<"Kidoo"> | string | null
+    deviceId?: StringFilter<"Kidoo"> | string
+    firmwareVersion?: StringNullableFilter<"Kidoo"> | string | null
+    lastConnected?: DateTimeNullableFilter<"Kidoo"> | Date | string | null
+    isConnected?: BoolFilter<"Kidoo"> | boolean
+    wifiSSID?: StringNullableFilter<"Kidoo"> | string | null
+    userId?: StringNullableFilter<"Kidoo"> | string | null
+    isSynced?: BoolFilter<"Kidoo"> | boolean
+    createdAt?: DateTimeFilter<"Kidoo"> | Date | string
+    updatedAt?: DateTimeFilter<"Kidoo"> | Date | string
+    bluetoothMacAddress?: StringNullableFilter<"Kidoo"> | string | null
+    brightness?: IntFilter<"Kidoo"> | number
+    sleepColorB?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorG?: IntNullableFilter<"Kidoo"> | number | null
+    sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
+    sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
+    sleepTimeout?: IntFilter<"Kidoo"> | number
   }
 
-  export type TagUncheckedCreateWithoutKidooInput = {
-    id?: string
-    tagId?: string | null
-    uid?: string | null
-    name?: string | null
-    type?: $Enums.TagType | null
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    multimediaFiles?: FileUncheckedCreateNestedManyWithoutTagInput
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
   }
 
-  export type TagCreateOrConnectWithoutKidooInput = {
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    id?: StringFilter<"Session"> | string
+    sessionToken?: StringFilter<"Session"> | string
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
+  }
+
+  export type TagUpsertWithWhereUniqueWithoutUserInput = {
     where: TagWhereUniqueInput
-    create: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput>
+    update: XOR<TagUpdateWithoutUserInput, TagUncheckedUpdateWithoutUserInput>
+    create: XOR<TagCreateWithoutUserInput, TagUncheckedCreateWithoutUserInput>
   }
 
-  export type TagCreateManyKidooInputEnvelope = {
-    data: TagCreateManyKidooInput | TagCreateManyKidooInput[]
-    skipDuplicates?: boolean
+  export type TagUpdateWithWhereUniqueWithoutUserInput = {
+    where: TagWhereUniqueInput
+    data: XOR<TagUpdateWithoutUserInput, TagUncheckedUpdateWithoutUserInput>
+  }
+
+  export type TagUpdateManyWithWhereWithoutUserInput = {
+    where: TagScalarWhereInput
+    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type TagScalarWhereInput = {
+    AND?: TagScalarWhereInput | TagScalarWhereInput[]
+    OR?: TagScalarWhereInput[]
+    NOT?: TagScalarWhereInput | TagScalarWhereInput[]
+    id?: StringFilter<"Tag"> | string
+    uid?: StringNullableFilter<"Tag"> | string | null
+    name?: StringNullableFilter<"Tag"> | string | null
+    kidooId?: StringFilter<"Tag"> | string
+    userId?: StringFilter<"Tag"> | string
+    createdAt?: DateTimeFilter<"Tag"> | Date | string
+    updatedAt?: DateTimeFilter<"Tag"> | Date | string
+    tagId?: StringNullableFilter<"Tag"> | string | null
+    type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
   }
 
   export type KidooConfigBasicCreateWithoutKidooInput = {
@@ -41734,63 +41588,75 @@ export namespace Prisma {
     create: XOR<KidooConfigDreamCreateWithoutKidooInput, KidooConfigDreamUncheckedCreateWithoutKidooInput>
   }
 
-  export type UserUpsertWithoutKidoosInput = {
-    update: XOR<UserUpdateWithoutKidoosInput, UserUncheckedUpdateWithoutKidoosInput>
+  export type UserCreateWithoutKidoosInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutKidoosInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutKidoosInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
-    where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutKidoosInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutKidoosInput, UserUncheckedUpdateWithoutKidoosInput>
+  export type TagCreateWithoutKidooInput = {
+    id?: string
+    uid?: string | null
+    name?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
+    multimediaFiles?: FileCreateNestedManyWithoutTagInput
+    user: UserCreateNestedOneWithoutTagsInput
   }
 
-  export type UserUpdateWithoutKidoosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    tags?: TagUpdateManyWithoutUserNestedInput
-    files?: FileUpdateManyWithoutUserNestedInput
+  export type TagUncheckedCreateWithoutKidooInput = {
+    id?: string
+    uid?: string | null
+    name?: string | null
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
+    multimediaFiles?: FileUncheckedCreateNestedManyWithoutTagInput
   }
 
-  export type UserUncheckedUpdateWithoutKidoosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    files?: FileUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type TagUpsertWithWhereUniqueWithoutKidooInput = {
+  export type TagCreateOrConnectWithoutKidooInput = {
     where: TagWhereUniqueInput
-    update: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
     create: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput>
   }
 
-  export type TagUpdateWithWhereUniqueWithoutKidooInput = {
-    where: TagWhereUniqueInput
-    data: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
-  }
-
-  export type TagUpdateManyWithWhereWithoutKidooInput = {
-    where: TagScalarWhereInput
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutKidooInput>
+  export type TagCreateManyKidooInputEnvelope = {
+    data: TagCreateManyKidooInput | TagCreateManyKidooInput[]
+    skipDuplicates?: boolean
   }
 
   export type KidooConfigBasicUpsertWithoutKidooInput = {
@@ -41875,96 +41741,63 @@ export namespace Prisma {
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 
-  export type KidooCreateWithoutTagsInput = {
-    id?: string
-    name: string
-    model?: $Enums.KidooModel
-    macAddress?: string | null
-    bluetoothMacAddress?: string | null
-    deviceId: string
-    firmwareVersion?: string | null
-    lastConnected?: Date | string | null
-    isConnected?: boolean
-    wifiSSID?: string | null
-    isSynced?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
-    sleepColorB?: number | null
-    sleepEffect?: number | null
-    user?: UserCreateNestedOneWithoutKidoosInput
-    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
-    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+  export type UserUpsertWithoutKidoosInput = {
+    update: XOR<UserUpdateWithoutKidoosInput, UserUncheckedUpdateWithoutKidoosInput>
+    create: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
+    where?: UserWhereInput
   }
 
-  export type KidooUncheckedCreateWithoutTagsInput = {
-    id?: string
-    name: string
-    model?: $Enums.KidooModel
-    macAddress?: string | null
-    bluetoothMacAddress?: string | null
-    deviceId: string
-    firmwareVersion?: string | null
-    lastConnected?: Date | string | null
-    isConnected?: boolean
-    wifiSSID?: string | null
-    userId?: string | null
-    isSynced?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
-    sleepColorB?: number | null
-    sleepEffect?: number | null
-    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
-    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+  export type UserUpdateToOneWithWhereWithoutKidoosInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutKidoosInput, UserUncheckedUpdateWithoutKidoosInput>
   }
 
-  export type KidooCreateOrConnectWithoutTagsInput = {
-    where: KidooWhereUniqueInput
-    create: XOR<KidooCreateWithoutTagsInput, KidooUncheckedCreateWithoutTagsInput>
+  export type UserUpdateWithoutKidoosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    files?: FileUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
   }
 
-  export type UserCreateWithoutTagsInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    isAdmin?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    kidoos?: KidooCreateNestedManyWithoutUserInput
-    files?: FileCreateNestedManyWithoutUserInput
+  export type UserUncheckedUpdateWithoutKidoosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedCreateWithoutTagsInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    isAdmin?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    files?: FileUncheckedCreateNestedManyWithoutUserInput
+  export type TagUpsertWithWhereUniqueWithoutKidooInput = {
+    where: TagWhereUniqueInput
+    update: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
+    create: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput>
   }
 
-  export type UserCreateOrConnectWithoutTagsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutTagsInput, UserUncheckedCreateWithoutTagsInput>
+  export type TagUpdateWithWhereUniqueWithoutKidooInput = {
+    where: TagWhereUniqueInput
+    data: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type TagUpdateManyWithWhereWithoutKidooInput = {
+    where: TagScalarWhereInput
+    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutKidooInput>
   }
 
   export type FileCreateWithoutTagInput = {
@@ -42007,6 +41840,114 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type KidooCreateWithoutTagsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    user?: UserCreateNestedOneWithoutKidoosInput
+  }
+
+  export type KidooUncheckedCreateWithoutTagsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    userId?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+  }
+
+  export type KidooCreateOrConnectWithoutTagsInput = {
+    where: KidooWhereUniqueInput
+    create: XOR<KidooCreateWithoutTagsInput, KidooUncheckedCreateWithoutTagsInput>
+  }
+
+  export type UserCreateWithoutTagsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutTagsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutTagsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutTagsInput, UserUncheckedCreateWithoutTagsInput>
+  }
+
+  export type FileUpsertWithWhereUniqueWithoutTagInput = {
+    where: FileWhereUniqueInput
+    update: XOR<FileUpdateWithoutTagInput, FileUncheckedUpdateWithoutTagInput>
+    create: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput>
+  }
+
+  export type FileUpdateWithWhereUniqueWithoutTagInput = {
+    where: FileWhereUniqueInput
+    data: XOR<FileUpdateWithoutTagInput, FileUncheckedUpdateWithoutTagInput>
+  }
+
+  export type FileUpdateManyWithWhereWithoutTagInput = {
+    where: FileScalarWhereInput
+    data: XOR<FileUpdateManyMutationInput, FileUncheckedUpdateManyWithoutTagInput>
+  }
+
   export type KidooUpsertWithoutTagsInput = {
     update: XOR<KidooUpdateWithoutTagsInput, KidooUncheckedUpdateWithoutTagsInput>
     create: XOR<KidooCreateWithoutTagsInput, KidooUncheckedCreateWithoutTagsInput>
@@ -42023,7 +41964,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42032,15 +41972,16 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    user?: UserUpdateOneWithoutKidoosNestedInput
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    user?: UserUpdateOneWithoutKidoosNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutTagsInput = {
@@ -42048,7 +41989,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42058,12 +41998,13 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
   }
@@ -42086,13 +42027,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTagsInput = {
@@ -42102,29 +42043,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type FileUpsertWithWhereUniqueWithoutTagInput = {
-    where: FileWhereUniqueInput
-    update: XOR<FileUpdateWithoutTagInput, FileUncheckedUpdateWithoutTagInput>
-    create: XOR<FileCreateWithoutTagInput, FileUncheckedCreateWithoutTagInput>
-  }
-
-  export type FileUpdateWithWhereUniqueWithoutTagInput = {
-    where: FileWhereUniqueInput
-    data: XOR<FileUpdateWithoutTagInput, FileUncheckedUpdateWithoutTagInput>
-  }
-
-  export type FileUpdateManyWithWhereWithoutTagInput = {
-    where: FileScalarWhereInput
-    data: XOR<FileUpdateManyMutationInput, FileUncheckedUpdateManyWithoutTagInput>
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -42134,13 +42059,13 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    kidoos?: KidooCreateNestedManyWithoutUserInput
-    tags?: TagCreateNestedManyWithoutUserInput
+    isAdmin?: boolean
     files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -42150,13 +42075,13 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    isAdmin?: boolean
     files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -42182,13 +42107,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUpdateManyWithoutUserNestedInput
-    tags?: TagUpdateManyWithoutUserNestedInput
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -42198,13 +42123,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
-    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -42214,13 +42139,13 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    files?: FileCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -42230,13 +42155,13 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    files?: FileUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -42262,13 +42187,13 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    files?: FileUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -42278,37 +42203,37 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    files?: FileUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TagCreateWithoutMultimediaFilesInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
     kidoo: KidooCreateNestedOneWithoutTagsInput
     user: UserCreateNestedOneWithoutTagsInput
   }
 
   export type TagUncheckedCreateWithoutMultimediaFilesInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     kidooId: string
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
   }
 
   export type TagCreateOrConnectWithoutMultimediaFilesInput = {
@@ -42323,12 +42248,12 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
   }
 
@@ -42339,12 +42264,12 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    isAdmin?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isAdmin?: boolean
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -42366,26 +42291,26 @@ export namespace Prisma {
 
   export type TagUpdateWithoutMultimediaFilesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     kidoo?: KidooUpdateOneRequiredWithoutTagsNestedInput
     user?: UserUpdateOneRequiredWithoutTagsNestedInput
   }
 
   export type TagUncheckedUpdateWithoutMultimediaFilesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     kidooId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
   export type UserUpsertWithoutFilesInput = {
@@ -42406,12 +42331,12 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
   }
 
@@ -42422,12 +42347,12 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -42436,7 +42361,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -42445,15 +42369,16 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
+    sleepTimeout?: number
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
-    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigBasicInput = {
@@ -42461,7 +42386,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -42471,14 +42395,15 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    sleepTimeout?: number
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigBasicInput = {
@@ -42502,7 +42427,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42511,15 +42435,16 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
-    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigBasicInput = {
@@ -42527,7 +42452,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42537,14 +42461,15 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateWithoutConfigDreamInput = {
@@ -42552,7 +42477,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -42561,15 +42485,16 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
+    sleepTimeout?: number
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
-    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigDreamInput = {
@@ -42577,7 +42502,6 @@ export namespace Prisma {
     name: string
     model?: $Enums.KidooModel
     macAddress?: string | null
-    bluetoothMacAddress?: string | null
     deviceId: string
     firmwareVersion?: string | null
     lastConnected?: Date | string | null
@@ -42587,14 +42511,15 @@ export namespace Prisma {
     isSynced?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
     brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
     sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
     sleepEffect?: number | null
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    sleepTimeout?: number
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigDreamInput = {
@@ -42678,7 +42603,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42687,15 +42611,16 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
-    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigDreamInput = {
@@ -42703,7 +42628,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
     macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     deviceId?: StringFieldUpdateOperationsInput | string
     firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
     lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42713,14 +42637,15 @@ export namespace Prisma {
     isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
     brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
     sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooConfigDreamBedtimeScheduleUpsertWithWhereUniqueWithoutKidooConfigDreamInput = {
@@ -42972,19 +42897,19 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
   }
 
   export type EmotionDeviceCreateManyCharacterInput = {
@@ -43022,22 +42947,22 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutClipsNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
@@ -43055,21 +42980,21 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
@@ -43087,19 +43012,19 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
   }
 
   export type EmotionDeviceUpdateWithoutCharacterInput = {
@@ -43186,19 +43111,19 @@ export namespace Prisma {
     frames?: number | null
     durationS?: number | null
     prompt?: string | null
-    variantPrompt?: string | null
     modelName?: string | null
-    xaiJobId?: string | null
     previewUrl?: string | null
-    workingPreviewUrl?: string | null
-    loopStartFrame?: number | null
-    loopEndFrame?: number | null
     weight?: number
-    trigger?: string | null
-    variant?: number
     tags?: ClipCreatetagsInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    xaiJobId?: string | null
+    loopStartFrame?: number | null
+    loopEndFrame?: number | null
+    workingPreviewUrl?: string | null
+    variantPrompt?: string | null
+    trigger?: string | null
+    variant?: number
   }
 
   export type DeviceClipCacheCreateManyEmotionInput = {
@@ -43216,20 +43141,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type ClipUpdateWithoutEmotionInput = {
@@ -43244,22 +43167,22 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
-    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUpdateManyWithoutClipNestedInput
+    character?: CharacterUpdateOneRequiredWithoutClipsNestedInput
     deviceClipCaches?: DeviceClipCacheUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUpdateManyWithoutSourceClipNestedInput
   }
@@ -43277,21 +43200,21 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
     artifacts?: ClipArtifactUncheckedUpdateManyWithoutClipNestedInput
+    faceRegions?: ClipFaceRegionUncheckedUpdateManyWithoutClipNestedInput
     deviceClipCaches?: DeviceClipCacheUncheckedUpdateManyWithoutClipNestedInput
     emotionVideos?: EmotionVideoUncheckedUpdateManyWithoutSourceClipNestedInput
   }
@@ -43309,27 +43232,27 @@ export namespace Prisma {
     frames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     prompt?: NullableStringFieldUpdateOperationsInput | string | null
-    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
     modelName?: NullableStringFieldUpdateOperationsInput | string | null
-    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
     previewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
-    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
     weight?: IntFieldUpdateOperationsInput | number
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     tags?: ClipUpdatetagsInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xaiJobId?: NullableStringFieldUpdateOperationsInput | string | null
+    loopStartFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    loopEndFrame?: NullableIntFieldUpdateOperationsInput | number | null
+    workingPreviewUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    variantPrompt?: NullableStringFieldUpdateOperationsInput | string | null
+    trigger?: NullableStringFieldUpdateOperationsInput | string | null
+    variant?: IntFieldUpdateOperationsInput | number
   }
 
   export type DeviceClipCacheUpdateWithoutEmotionInput = {
     slot?: IntFieldUpdateOperationsInput | number
     lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
     clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    device?: EmotionDeviceUpdateOneRequiredWithoutDeviceClipCachesNestedInput
   }
 
   export type DeviceClipCacheUncheckedUpdateWithoutEmotionInput = {
@@ -43354,20 +43277,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
 
@@ -43378,20 +43299,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyWithoutEmotionInput = {
@@ -43401,34 +43320,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClipFaceRegionCreateManyClipInput = {
-    id?: string
-    regionKey: $Enums.FaceRegionKey
-    frameIndex?: number
-    x: number
-    y: number
-    w: number
-    h: number
-    cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactCreateManyClipInput = {
@@ -43440,9 +43343,23 @@ export namespace Prisma {
     w: number
     h: number
     cornerStyle?: $Enums.CornerStyle
-    imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    imageUrl?: string | null
+  }
+
+  export type ClipFaceRegionCreateManyClipInput = {
+    id?: string
+    regionKey: $Enums.FaceRegionKey
+    x: number
+    y: number
+    w: number
+    h: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    frameIndex?: number
+    cornerStyle?: $Enums.CornerStyle
+    imageUrl?: string | null
   }
 
   export type DeviceClipCacheCreateManyClipInput = {
@@ -43460,62 +43377,18 @@ export namespace Prisma {
     fps?: number
     width?: number
     height?: number
-    introTimeline: JsonNullValueInput | InputJsonValue
-    loopTimeline: JsonNullValueInput | InputJsonValue
-    exitTimeline: JsonNullValueInput | InputJsonValue
-    trigger?: string | null
-    variant?: number
     status?: $Enums.ClipStatus
     binUrl?: string | null
-    idxUrl?: string | null
     sha256?: string | null
     sizeBytes?: number | null
-    totalFrames?: number | null
     durationS?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
-  }
-
-  export type ClipFaceRegionUpdateWithoutClipInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
-    x?: FloatFieldUpdateOperationsInput | number
-    y?: FloatFieldUpdateOperationsInput | number
-    w?: FloatFieldUpdateOperationsInput | number
-    h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClipFaceRegionUncheckedUpdateWithoutClipInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
-    x?: FloatFieldUpdateOperationsInput | number
-    y?: FloatFieldUpdateOperationsInput | number
-    w?: FloatFieldUpdateOperationsInput | number
-    h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ClipFaceRegionUncheckedUpdateManyWithoutClipInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
-    frameIndex?: IntFieldUpdateOperationsInput | number
-    x?: FloatFieldUpdateOperationsInput | number
-    y?: FloatFieldUpdateOperationsInput | number
-    w?: FloatFieldUpdateOperationsInput | number
-    h?: FloatFieldUpdateOperationsInput | number
-    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline: JsonNullValueInput | InputJsonValue
+    introTimeline: JsonNullValueInput | InputJsonValue
+    loopTimeline: JsonNullValueInput | InputJsonValue
+    totalFrames?: number | null
+    idxUrl?: string | null
   }
 
   export type ClipArtifactUpdateWithoutClipInput = {
@@ -43527,9 +43400,9 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactUncheckedUpdateWithoutClipInput = {
@@ -43541,9 +43414,9 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactUncheckedUpdateManyWithoutClipInput = {
@@ -43555,9 +43428,51 @@ export namespace Prisma {
     w?: FloatFieldUpdateOperationsInput | number
     h?: FloatFieldUpdateOperationsInput | number
     cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClipFaceRegionUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClipFaceRegionUncheckedUpdateWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClipFaceRegionUncheckedUpdateManyWithoutClipInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    regionKey?: EnumFaceRegionKeyFieldUpdateOperationsInput | $Enums.FaceRegionKey
+    x?: FloatFieldUpdateOperationsInput | number
+    y?: FloatFieldUpdateOperationsInput | number
+    w?: FloatFieldUpdateOperationsInput | number
+    h?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    frameIndex?: IntFieldUpdateOperationsInput | number
+    cornerStyle?: EnumCornerStyleFieldUpdateOperationsInput | $Enums.CornerStyle
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeviceClipCacheUpdateWithoutClipInput = {
@@ -43590,20 +43505,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
 
@@ -43614,20 +43527,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyWithoutSourceClipInput = {
@@ -43637,20 +43548,18 @@ export namespace Prisma {
     fps?: IntFieldUpdateOperationsInput | number
     width?: IntFieldUpdateOperationsInput | number
     height?: IntFieldUpdateOperationsInput | number
-    introTimeline?: JsonNullValueInput | InputJsonValue
-    loopTimeline?: JsonNullValueInput | InputJsonValue
-    exitTimeline?: JsonNullValueInput | InputJsonValue
-    trigger?: NullableStringFieldUpdateOperationsInput | string | null
-    variant?: IntFieldUpdateOperationsInput | number
     status?: EnumClipStatusFieldUpdateOperationsInput | $Enums.ClipStatus
     binUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sha256?: NullableStringFieldUpdateOperationsInput | string | null
     sizeBytes?: NullableIntFieldUpdateOperationsInput | number | null
-    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     durationS?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    exitTimeline?: JsonNullValueInput | InputJsonValue
+    introTimeline?: JsonNullValueInput | InputJsonValue
+    loopTimeline?: JsonNullValueInput | InputJsonValue
+    totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
+    idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeviceClipCacheCreateManyDeviceInput = {
@@ -43665,8 +43574,8 @@ export namespace Prisma {
     slot?: IntFieldUpdateOperationsInput | number
     lastSeenAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastPlayedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
     clip?: ClipUpdateOneRequiredWithoutDeviceClipCachesNestedInput
+    emotion?: EmotionUpdateOneRequiredWithoutDeviceClipCachesNestedInput
   }
 
   export type DeviceClipCacheUncheckedUpdateWithoutDeviceInput = {
@@ -43723,45 +43632,6 @@ export namespace Prisma {
     session_state?: string | null
   }
 
-  export type SessionCreateManyUserInput = {
-    id?: string
-    sessionToken: string
-    expires: Date | string
-  }
-
-  export type KidooCreateManyUserInput = {
-    id?: string
-    name: string
-    model?: $Enums.KidooModel
-    macAddress?: string | null
-    bluetoothMacAddress?: string | null
-    deviceId: string
-    firmwareVersion?: string | null
-    lastConnected?: Date | string | null
-    isConnected?: boolean
-    wifiSSID?: string | null
-    isSynced?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    brightness?: number
-    sleepTimeout?: number
-    sleepColorR?: number | null
-    sleepColorG?: number | null
-    sleepColorB?: number | null
-    sleepEffect?: number | null
-  }
-
-  export type TagCreateManyUserInput = {
-    id?: string
-    tagId?: string | null
-    uid?: string | null
-    name?: string | null
-    type?: $Enums.TagType | null
-    kidooId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
   export type FileCreateManyUserInput = {
     id?: string
     tagId: string
@@ -43775,6 +43645,45 @@ export namespace Prisma {
     disabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type KidooCreateManyUserInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+  }
+
+  export type SessionCreateManyUserInput = {
+    id?: string
+    sessionToken: string
+    expires: Date | string
+  }
+
+  export type TagCreateManyUserInput = {
+    id?: string
+    uid?: string | null
+    name?: string | null
+    kidooId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -43817,131 +43726,6 @@ export namespace Prisma {
     scope?: NullableStringFieldUpdateOperationsInput | string | null
     id_token?: NullableStringFieldUpdateOperationsInput | string | null
     session_state?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type SessionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type SessionUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sessionToken?: StringFieldUpdateOperationsInput | string
-    expires?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type KidooUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
-    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    deviceId?: StringFieldUpdateOperationsInput | string
-    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
-    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    isConnected?: BoolFieldUpdateOperationsInput | boolean
-    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
-    isSynced?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    tags?: TagUpdateManyWithoutKidooNestedInput
-    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
-    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
-  }
-
-  export type KidooUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
-    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    deviceId?: StringFieldUpdateOperationsInput | string
-    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
-    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    isConnected?: BoolFieldUpdateOperationsInput | boolean
-    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
-    isSynced?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
-    configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
-    configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
-  }
-
-  export type KidooUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
-    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
-    deviceId?: StringFieldUpdateOperationsInput | string
-    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
-    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    isConnected?: BoolFieldUpdateOperationsInput | boolean
-    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
-    isSynced?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    brightness?: IntFieldUpdateOperationsInput | number
-    sleepTimeout?: IntFieldUpdateOperationsInput | number
-    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
-    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type TagUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
-    uid?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    kidoo?: KidooUpdateOneRequiredWithoutTagsNestedInput
-    multimediaFiles?: FileUpdateManyWithoutTagNestedInput
-  }
-
-  export type TagUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
-    uid?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
-    kidooId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    multimediaFiles?: FileUncheckedUpdateManyWithoutTagNestedInput
-  }
-
-  export type TagUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
-    uid?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
-    kidooId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FileUpdateWithoutUserInput = {
@@ -43989,50 +43773,175 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type KidooUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
+  }
+
+  export type KidooUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+  }
+
+  export type KidooUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TagUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    uid?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
+    multimediaFiles?: FileUpdateManyWithoutTagNestedInput
+    kidoo?: KidooUpdateOneRequiredWithoutTagsNestedInput
+  }
+
+  export type TagUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    uid?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    kidooId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
+    multimediaFiles?: FileUncheckedUpdateManyWithoutTagNestedInput
+  }
+
+  export type TagUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    uid?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    kidooId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
+  }
+
   export type TagCreateManyKidooInput = {
     id?: string
-    tagId?: string | null
     uid?: string | null
     name?: string | null
-    type?: $Enums.TagType | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    tagId?: string | null
+    type?: $Enums.TagType | null
   }
 
   export type TagUpdateWithoutKidooInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutTagsNestedInput
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     multimediaFiles?: FileUpdateManyWithoutTagNestedInput
+    user?: UserUpdateOneRequiredWithoutTagsNestedInput
   }
 
   export type TagUncheckedUpdateWithoutKidooInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     multimediaFiles?: FileUncheckedUpdateManyWithoutTagNestedInput
   }
 
   export type TagUncheckedUpdateManyWithoutKidooInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tagId?: NullableStringFieldUpdateOperationsInput | string | null
     uid?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tagId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
   export type FileCreateManyTagInput = {

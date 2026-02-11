@@ -124,23 +124,23 @@ exports.Prisma.CharacterScalarFieldEnum = {
   id: 'id',
   name: 'name',
   defaultImageUrl: 'defaultImageUrl',
-  stylePrompt: 'stylePrompt',
-  characterContext: 'characterContext',
   sex: 'sex',
   personality: 'personality',
-  imageWidth: 'imageWidth',
-  imageHeight: 'imageHeight',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  stylePrompt: 'stylePrompt',
+  imageHeight: 'imageHeight',
+  imageWidth: 'imageWidth',
+  characterContext: 'characterContext'
 };
 
 exports.Prisma.EmotionScalarFieldEnum = {
   id: 'id',
   key: 'key',
   label: 'label',
-  promptCustom: 'promptCustom',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  promptCustom: 'promptCustom'
 };
 
 exports.Prisma.ClipScalarFieldEnum = {
@@ -157,19 +157,19 @@ exports.Prisma.ClipScalarFieldEnum = {
   frames: 'frames',
   durationS: 'durationS',
   prompt: 'prompt',
-  variantPrompt: 'variantPrompt',
   modelName: 'modelName',
-  xaiJobId: 'xaiJobId',
   previewUrl: 'previewUrl',
-  workingPreviewUrl: 'workingPreviewUrl',
-  loopStartFrame: 'loopStartFrame',
-  loopEndFrame: 'loopEndFrame',
   weight: 'weight',
-  trigger: 'trigger',
-  variant: 'variant',
   tags: 'tags',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  xaiJobId: 'xaiJobId',
+  loopStartFrame: 'loopStartFrame',
+  loopEndFrame: 'loopEndFrame',
+  workingPreviewUrl: 'workingPreviewUrl',
+  variantPrompt: 'variantPrompt',
+  trigger: 'trigger',
+  variant: 'variant'
 };
 
 exports.Prisma.ClipArtifactScalarFieldEnum = {
@@ -182,24 +182,24 @@ exports.Prisma.ClipArtifactScalarFieldEnum = {
   w: 'w',
   h: 'h',
   cornerStyle: 'cornerStyle',
-  imageUrl: 'imageUrl',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  imageUrl: 'imageUrl'
 };
 
 exports.Prisma.ClipFaceRegionScalarFieldEnum = {
   id: 'id',
   clipId: 'clipId',
   regionKey: 'regionKey',
-  frameIndex: 'frameIndex',
   x: 'x',
   y: 'y',
   w: 'w',
   h: 'h',
-  cornerStyle: 'cornerStyle',
-  imageUrl: 'imageUrl',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  frameIndex: 'frameIndex',
+  cornerStyle: 'cornerStyle',
+  imageUrl: 'imageUrl'
 };
 
 exports.Prisma.EmotionVideoScalarFieldEnum = {
@@ -210,20 +210,18 @@ exports.Prisma.EmotionVideoScalarFieldEnum = {
   fps: 'fps',
   width: 'width',
   height: 'height',
-  introTimeline: 'introTimeline',
-  loopTimeline: 'loopTimeline',
-  exitTimeline: 'exitTimeline',
-  trigger: 'trigger',
-  variant: 'variant',
   status: 'status',
   binUrl: 'binUrl',
-  idxUrl: 'idxUrl',
   sha256: 'sha256',
   sizeBytes: 'sizeBytes',
-  totalFrames: 'totalFrames',
   durationS: 'durationS',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  exitTimeline: 'exitTimeline',
+  introTimeline: 'introTimeline',
+  loopTimeline: 'loopTimeline',
+  totalFrames: 'totalFrames',
+  idxUrl: 'idxUrl'
 };
 
 exports.Prisma.EmotionDeviceScalarFieldEnum = {
@@ -281,9 +279,9 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   avatar: 'avatar',
   password: 'password',
-  isAdmin: 'isAdmin',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  isAdmin: 'isAdmin'
 };
 
 exports.Prisma.KidooScalarFieldEnum = {
@@ -291,7 +289,6 @@ exports.Prisma.KidooScalarFieldEnum = {
   name: 'name',
   model: 'model',
   macAddress: 'macAddress',
-  bluetoothMacAddress: 'bluetoothMacAddress',
   deviceId: 'deviceId',
   firmwareVersion: 'firmwareVersion',
   lastConnected: 'lastConnected',
@@ -301,24 +298,25 @@ exports.Prisma.KidooScalarFieldEnum = {
   isSynced: 'isSynced',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
+  bluetoothMacAddress: 'bluetoothMacAddress',
   brightness: 'brightness',
-  sleepTimeout: 'sleepTimeout',
-  sleepColorR: 'sleepColorR',
-  sleepColorG: 'sleepColorG',
   sleepColorB: 'sleepColorB',
-  sleepEffect: 'sleepEffect'
+  sleepColorG: 'sleepColorG',
+  sleepColorR: 'sleepColorR',
+  sleepEffect: 'sleepEffect',
+  sleepTimeout: 'sleepTimeout'
 };
 
 exports.Prisma.TagScalarFieldEnum = {
   id: 'id',
-  tagId: 'tagId',
   uid: 'uid',
   name: 'name',
-  type: 'type',
   kidooId: 'kidooId',
   userId: 'userId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  tagId: 'tagId',
+  type: 'type'
 };
 
 exports.Prisma.AccountScalarFieldEnum = {
@@ -357,9 +355,9 @@ exports.Prisma.FirmwareScalarFieldEnum = {
   path: 'path',
   fileName: 'fileName',
   fileSize: 'fileSize',
-  partCount: 'partCount',
+  createdAt: 'createdAt',
   changelog: 'changelog',
-  createdAt: 'createdAt'
+  partCount: 'partCount'
 };
 
 exports.Prisma.FileScalarFieldEnum = {

@@ -30,3 +30,6 @@ export * from './firmware/schema';
 
 // Characters (admin / TamaBotchi)
 export * from './characters/schema';
+
+// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
+export * from './emotions/triggers';
