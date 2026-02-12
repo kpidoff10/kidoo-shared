@@ -26,10 +26,6 @@ export * from './kidoos/commands/get-info';
 export * from './kidoos/commands/reboot';
 export * from './kidoos/commands/firmware-update';// Firmware - Modèles supportés
 export * from './firmware/models';
-export * from './firmware/schema';
-
-// Characters (admin / TamaBotchi)
-export * from './characters/schema';
-
-// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
-export * from './emotions/triggers';
+export * from './firmware/schema';// Characters (admin / TamaBotchi)
+export * from './characters/schema';// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
+export * from './emotions';
