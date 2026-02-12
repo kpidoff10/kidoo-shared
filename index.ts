@@ -32,4 +32,4 @@ export * from './firmware/schema';
 export * from './characters/schema';
 
 // Emotions – déclencheurs automatiques (alignés avec l’ESP32)
-export * from './emotions/triggers';
+export * from './emotions';
