@@ -9745,6 +9745,7 @@ export namespace Prisma {
     updatedAt: Date | null
     totalFrames: number | null
     idxUrl: string | null
+    animUrl: string | null
   }
 
   export type EmotionVideoMaxAggregateOutputType = {
@@ -9764,6 +9765,7 @@ export namespace Prisma {
     updatedAt: Date | null
     totalFrames: number | null
     idxUrl: string | null
+    animUrl: string | null
   }
 
   export type EmotionVideoCountAggregateOutputType = {
@@ -9786,6 +9788,7 @@ export namespace Prisma {
     loopTimeline: number
     totalFrames: number
     idxUrl: number
+    animUrl: number
     _all: number
   }
 
@@ -9825,6 +9828,7 @@ export namespace Prisma {
     updatedAt?: true
     totalFrames?: true
     idxUrl?: true
+    animUrl?: true
   }
 
   export type EmotionVideoMaxAggregateInputType = {
@@ -9844,6 +9848,7 @@ export namespace Prisma {
     updatedAt?: true
     totalFrames?: true
     idxUrl?: true
+    animUrl?: true
   }
 
   export type EmotionVideoCountAggregateInputType = {
@@ -9866,6 +9871,7 @@ export namespace Prisma {
     loopTimeline?: true
     totalFrames?: true
     idxUrl?: true
+    animUrl?: true
     _all?: true
   }
 
@@ -9975,6 +9981,7 @@ export namespace Prisma {
     loopTimeline: JsonValue
     totalFrames: number | null
     idxUrl: string | null
+    animUrl: string | null
     _count: EmotionVideoCountAggregateOutputType | null
     _avg: EmotionVideoAvgAggregateOutputType | null
     _sum: EmotionVideoSumAggregateOutputType | null
@@ -10016,6 +10023,7 @@ export namespace Prisma {
     loopTimeline?: boolean
     totalFrames?: boolean
     idxUrl?: boolean
+    animUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10040,6 +10048,7 @@ export namespace Prisma {
     loopTimeline?: boolean
     totalFrames?: boolean
     idxUrl?: boolean
+    animUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10064,6 +10073,7 @@ export namespace Prisma {
     loopTimeline?: boolean
     totalFrames?: boolean
     idxUrl?: boolean
+    animUrl?: boolean
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["emotionVideo"]>
@@ -10088,9 +10098,10 @@ export namespace Prisma {
     loopTimeline?: boolean
     totalFrames?: boolean
     idxUrl?: boolean
+    animUrl?: boolean
   }
 
-  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "status" | "binUrl" | "sha256" | "sizeBytes" | "durationS" | "createdAt" | "updatedAt" | "exitTimeline" | "introTimeline" | "loopTimeline" | "totalFrames" | "idxUrl", ExtArgs["result"]["emotionVideo"]>
+  export type EmotionVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "emotionId" | "sourceClipId" | "name" | "fps" | "width" | "height" | "status" | "binUrl" | "sha256" | "sizeBytes" | "durationS" | "createdAt" | "updatedAt" | "exitTimeline" | "introTimeline" | "loopTimeline" | "totalFrames" | "idxUrl" | "animUrl", ExtArgs["result"]["emotionVideo"]>
   export type EmotionVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emotion?: boolean | EmotionDefaultArgs<ExtArgs>
     sourceClip?: boolean | ClipDefaultArgs<ExtArgs>
@@ -10130,6 +10141,7 @@ export namespace Prisma {
       loopTimeline: Prisma.JsonValue
       totalFrames: number | null
       idxUrl: string | null
+      animUrl: string | null
     }, ExtArgs["result"]["emotionVideo"]>
     composites: {}
   }
@@ -10574,6 +10586,7 @@ export namespace Prisma {
     readonly loopTimeline: FieldRef<"EmotionVideo", 'Json'>
     readonly totalFrames: FieldRef<"EmotionVideo", 'Int'>
     readonly idxUrl: FieldRef<"EmotionVideo", 'String'>
+    readonly animUrl: FieldRef<"EmotionVideo", 'String'>
   }
     
 
@@ -30678,7 +30691,8 @@ export namespace Prisma {
     introTimeline: 'introTimeline',
     loopTimeline: 'loopTimeline',
     totalFrames: 'totalFrames',
-    idxUrl: 'idxUrl'
+    idxUrl: 'idxUrl',
+    animUrl: 'animUrl'
   };
 
   export type EmotionVideoScalarFieldEnum = (typeof EmotionVideoScalarFieldEnum)[keyof typeof EmotionVideoScalarFieldEnum]
@@ -31770,6 +31784,7 @@ export namespace Prisma {
     loopTimeline?: JsonFilter<"EmotionVideo">
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    animUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }
@@ -31794,6 +31809,7 @@ export namespace Prisma {
     loopTimeline?: SortOrder
     totalFrames?: SortOrderInput | SortOrder
     idxUrl?: SortOrderInput | SortOrder
+    animUrl?: SortOrderInput | SortOrder
     emotion?: EmotionOrderByWithRelationInput
     sourceClip?: ClipOrderByWithRelationInput
   }
@@ -31822,6 +31838,7 @@ export namespace Prisma {
     loopTimeline?: JsonFilter<"EmotionVideo">
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    animUrl?: StringNullableFilter<"EmotionVideo"> | string | null
     emotion?: XOR<EmotionScalarRelationFilter, EmotionWhereInput>
     sourceClip?: XOR<ClipScalarRelationFilter, ClipWhereInput>
   }, "id" | "sourceClipId_emotionId">
@@ -31846,6 +31863,7 @@ export namespace Prisma {
     loopTimeline?: SortOrder
     totalFrames?: SortOrderInput | SortOrder
     idxUrl?: SortOrderInput | SortOrder
+    animUrl?: SortOrderInput | SortOrder
     _count?: EmotionVideoCountOrderByAggregateInput
     _avg?: EmotionVideoAvgOrderByAggregateInput
     _max?: EmotionVideoMaxOrderByAggregateInput
@@ -31876,6 +31894,7 @@ export namespace Prisma {
     loopTimeline?: JsonWithAggregatesFilter<"EmotionVideo">
     totalFrames?: IntNullableWithAggregatesFilter<"EmotionVideo"> | number | null
     idxUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
+    animUrl?: StringNullableWithAggregatesFilter<"EmotionVideo"> | string | null
   }
 
   export type EmotionDeviceWhereInput = {
@@ -33846,6 +33865,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
     emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
     sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
   }
@@ -33870,6 +33890,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type EmotionVideoUpdateInput = {
@@ -33890,6 +33911,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
     sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
@@ -33914,6 +33936,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoCreateManyInput = {
@@ -33936,6 +33959,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type EmotionVideoUpdateManyMutationInput = {
@@ -33956,6 +33980,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyInput = {
@@ -33978,6 +34003,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionDeviceCreateInput = {
@@ -36191,6 +36217,7 @@ export namespace Prisma {
     loopTimeline?: SortOrder
     totalFrames?: SortOrder
     idxUrl?: SortOrder
+    animUrl?: SortOrder
   }
 
   export type EmotionVideoAvgOrderByAggregateInput = {
@@ -36219,6 +36246,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     totalFrames?: SortOrder
     idxUrl?: SortOrder
+    animUrl?: SortOrder
   }
 
   export type EmotionVideoMinOrderByAggregateInput = {
@@ -36238,6 +36266,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     totalFrames?: SortOrder
     idxUrl?: SortOrder
+    animUrl?: SortOrder
   }
 
   export type EmotionVideoSumOrderByAggregateInput = {
@@ -39593,6 +39622,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
     sourceClip: ClipCreateNestedOneWithoutEmotionVideosInput
   }
 
@@ -39615,6 +39645,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type EmotionVideoCreateOrConnectWithoutEmotionInput = {
@@ -39710,6 +39741,7 @@ export namespace Prisma {
     loopTimeline?: JsonFilter<"EmotionVideo">
     totalFrames?: IntNullableFilter<"EmotionVideo"> | number | null
     idxUrl?: StringNullableFilter<"EmotionVideo"> | string | null
+    animUrl?: StringNullableFilter<"EmotionVideo"> | string | null
   }
 
   export type ClipArtifactCreateWithoutClipInput = {
@@ -39896,6 +39928,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
     emotion: EmotionCreateNestedOneWithoutEmotionVideosInput
   }
 
@@ -39918,6 +39951,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type EmotionVideoCreateOrConnectWithoutSourceClipInput = {
@@ -43153,6 +43187,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type ClipUpdateWithoutEmotionInput = {
@@ -43289,6 +43324,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
     sourceClip?: ClipUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
 
@@ -43311,6 +43347,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyWithoutEmotionInput = {
@@ -43332,6 +43369,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClipArtifactCreateManyClipInput = {
@@ -43389,6 +43427,7 @@ export namespace Prisma {
     loopTimeline: JsonNullValueInput | InputJsonValue
     totalFrames?: number | null
     idxUrl?: string | null
+    animUrl?: string | null
   }
 
   export type ClipArtifactUpdateWithoutClipInput = {
@@ -43517,6 +43556,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
     emotion?: EmotionUpdateOneRequiredWithoutEmotionVideosNestedInput
   }
 
@@ -43539,6 +43579,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type EmotionVideoUncheckedUpdateManyWithoutSourceClipInput = {
@@ -43560,6 +43601,7 @@ export namespace Prisma {
     loopTimeline?: JsonNullValueInput | InputJsonValue
     totalFrames?: NullableIntFieldUpdateOperationsInput | number | null
     idxUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    animUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type DeviceClipCacheCreateManyDeviceInput = {

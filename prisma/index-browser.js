@@ -221,7 +221,8 @@ exports.Prisma.EmotionVideoScalarFieldEnum = {
   introTimeline: 'introTimeline',
   loopTimeline: 'loopTimeline',
   totalFrames: 'totalFrames',
-  idxUrl: 'idxUrl'
+  idxUrl: 'idxUrl',
+  animUrl: 'animUrl'
 };
 
 exports.Prisma.EmotionDeviceScalarFieldEnum = {

@@ -73,6 +73,7 @@ export const PROGRESSIVE_FOOD_EFFECTS: readonly ProgressiveFoodEffect[] = EATING
     tickHunger: v.tickHunger!,
     tickHappiness: v.tickHappiness ?? 0,
     tickHealth: v.tickHealth ?? 0,
+    tickSickness: v.tickSickness ?? 0,
     tickIntervalMs: v.tickIntervalMs!,
     totalTicks: v.totalTicks ?? 0,
   })
