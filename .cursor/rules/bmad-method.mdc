@@ -1,0 +1,21 @@
+---
+description: Intégration BMAD Method — workflows, aide /bmad-help et agents (workspace)
+alwaysApply: true
+---
+
+# BMAD Method – Workspace Kidoo
+
+Le workspace utilise **BMAD Method** ; l'installation est dans **kidoo-shared**. Utiliser BMAD depuis n'importe quel projet (kidoo-app inclus).
+
+## Emplacements
+
+- **Racine BMAD** : `kidoo-shared/_bmad/` (ou `_bmad/` depuis ce projet)
+- **Catalogue d'aide** : `kidoo-shared/_bmad_config/bmad-help.csv`
+- **Tâche d'aide** : `kidoo-shared/_bmad/core/tasks/help.md`
+- **Sorties** : `kidoo-shared/_bmad-output/`
+
+## /bmad-help
+
+Quand l'utilisateur tape **/bmad-help** ou demande la prochaine étape : charger le catalogue ci-dessus, suivre `kidoo-shared/_bmad/core/tasks/help.md`, proposer les prochaines étapes. Langue : `kidoo-shared/_bmad_memory/config.yaml` (communication_language).
+
+Workflows avec commande → afficher `/bmad-bmm-...`. Sans commande → indiquer agent + code (ex. EC, WD).

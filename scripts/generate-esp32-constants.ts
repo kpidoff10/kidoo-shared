@@ -7,10 +7,11 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
-import { EATING_VARIANTS, TRIGGER_EFFECTS } from '../emotions/constants';
+import { EATING_VARIANTS } from '../models/gotchi/food';
+import { TRIGGER_EFFECTS } from '../models/gotchi/emotions/constants';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+/** Racine du package (script lancé depuis kidoo-shared). */
+const packageRoot = process.cwd();
 
 /** Entrées pour la table TRIGGER_STAT_EFFECTS (source : constants.ts). */
 const triggerEffectEntries = Object.entries(TRIGGER_EFFECTS);
@@ -37,7 +38,7 @@ function generateHeader(): string {
     ' * Constantes pour le modèle Kidoo Gotchi',
     ' *',
     ' * Fichier généré par kidoo-shared/scripts/generate-esp32-constants.ts',
-    ' * Ne pas éditer à la main. Source de vérité : emotions/constants.ts (EATING_VARIANTS, TRIGGER_EFFECTS).',
+    ' * Ne pas éditer à la main. Source : models/gotchi/food (EATING_VARIANTS), models/gotchi/emotions/constants (TRIGGER_EFFECTS).',
     ' */',
     '',
     '// ============================================',
@@ -173,7 +174,7 @@ function main() {
     outPath = path.resolve(process.cwd(), args[outIdx + 1]);
   } else {
     // Par défaut : kidoo-esp32 (sibling du workspace) ou cwd
-    outPath = path.resolve(__dirname, '..', '..', 'kidoo-esp32', 'src', 'models', 'gotchi', 'config', 'constants.h');
+    outPath = path.resolve(packageRoot, '..', 'kidoo-esp32', 'src', 'models', 'gotchi', 'config', 'constants.h');
   }
 
   const content = generateHeader();

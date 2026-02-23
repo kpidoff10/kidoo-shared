@@ -232,7 +232,8 @@ export type EmotionDeviceMode = (typeof EmotionDeviceMode)[keyof typeof EmotionD
 
 export const KidooModel: {
   basic: 'basic',
-  dream: 'dream'
+  dream: 'dream',
+  gotchi: 'gotchi'
 };
 
 export type KidooModel = (typeof KidooModel)[keyof typeof KidooModel]

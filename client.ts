@@ -3,22 +3,21 @@
  * Réexporte tout le shared SAUF les modules qui dépendent de Prisma (Node.js),
  * pour éviter "node:buffer" et autres APIs Node dans le runtime natif.
  *
- * Ne pas exporter: ./characters/schema (dépend de ../prisma).
+ * Ne pas exporter: ./models/gotchi (emotions + characters ; characters dépend de prisma).
  */
 
 export * from './types/common';
 export * from './auth/schema';
 export * from './auth/type';
-export * from './kidoos/schemas';
-export * from './kidoos/config/brightness';
-export * from './kidoos/config/sleep-timeout';
-export * from './kidoos/config/sleep-mode';
-export * from './kidoos/config/name';
-export * from './kidoos/config/dream-bedtime';
-export * from './kidoos/config/dream-wakeup';
-export * from './kidoos/commands/get-info';
-export * from './kidoos/commands/reboot';
-export * from './kidoos/commands/firmware-update';
+export * from './models/common/schemas';
+export * from './models/common/config/brightness';
+export * from './models/common/config/sleep-timeout';
+export * from './models/common/config/sleep-mode';
+export * from './models/common/config/name';
+// dream-bedtime / dream-wakeup : import via @kidoo/shared/models/dream
+export * from './models/common/commands/get-info';
+export * from './models/common/commands/reboot';
+export * from './models/common/commands/firmware-update';
 export * from './firmware/models';
 export * from './firmware/schema';
 // Characters (Prisma) exclu volontairement pour le client

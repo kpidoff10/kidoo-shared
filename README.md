@@ -2,6 +2,8 @@
 
 Ce répertoire contient les schémas Zod et types TypeScript partagés entre `kidoo-app` (Expo/React Native) et `kidoo-server` (Next.js).
 
+**→ Vue d’ensemble du workspace (4 projets, scripts, procédures) : [docs/workspace.md](docs/workspace.md)**
+
 ## Structure
 
 ```

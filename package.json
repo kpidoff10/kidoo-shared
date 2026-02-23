@@ -25,11 +25,25 @@
     "./types/*": {
       "types": "./types/*.ts",
       "default": "./types/*.ts"
+    },
+    "./models/common": {
+      "types": "./models/common/index.ts",
+      "default": "./models/common/index.ts"
+    },
+    "./models/gotchi": {
+      "types": "./models/gotchi/index.ts",
+      "default": "./models/gotchi/index.ts"
+    },
+    "./models/dream": {
+      "types": "./models/dream/index.ts",
+      "default": "./models/dream/index.ts"
     }
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "generate:esp32-constants": "tsx scripts/generate-esp32-constants.ts"
+    "generate:esp32-constants": "tsx scripts/generate-esp32-constants.ts",
+    "generate:esp32-model-ids": "tsx scripts/generate-esp32-model-ids.ts",
+    "generate:scaffold-models": "tsx scripts/scaffold-model.ts"
   },
   "peerDependencies": {
     "zod": "^4.3.5"

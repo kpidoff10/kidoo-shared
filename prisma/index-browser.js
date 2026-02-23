@@ -524,7 +524,8 @@ exports.EventKey = exports.$Enums.EventKey = {
 
 exports.KidooModel = exports.$Enums.KidooModel = {
   basic: 'basic',
-  dream: 'dream'
+  dream: 'dream',
+  gotchi: 'gotchi'
 };
 
 exports.TagType = exports.$Enums.TagType = {

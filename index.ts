@@ -10,22 +10,20 @@ export * from './types/common';
 export * from './auth/schema';
 export * from './auth/type';
 
-// Kidoos - CRUD schemas
-export * from './kidoos/schemas';
+// Common - CRUD schemas
+export * from './models/common/schemas';
 
-// Kidoos - Config (persistant)
-export * from './kidoos/config/brightness';
-export * from './kidoos/config/sleep-timeout';
-export * from './kidoos/config/sleep-mode';
-export * from './kidoos/config/name';
-export * from './kidoos/config/dream-bedtime';
-export * from './kidoos/config/dream-wakeup';
+// Common - Config (persistant)
+export * from './models/common/config/brightness';
+export * from './models/common/config/sleep-timeout';
+export * from './models/common/config/sleep-mode';
+export * from './models/common/config/name';
+// dream-bedtime / dream-wakeup : import via @kidoo/shared/models/dream
 
-// Kidoos - Commands (temps réel)
-export * from './kidoos/commands/get-info';
-export * from './kidoos/commands/reboot';
-export * from './kidoos/commands/firmware-update';// Firmware - Modèles supportés
+// Common - Commands (temps réel)
+export * from './models/common/commands/get-info';
+export * from './models/common/commands/reboot';
+export * from './models/common/commands/firmware-update';// Firmware - Modèles supportés
 export * from './firmware/models';
-export * from './firmware/schema';// Characters (admin / TamaBotchi)
-export * from './characters/schema';// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
-export * from './emotions';
+export * from './firmware/schema';// Characters Gotchi : import explicite via @kidoo/shared/models/gotchi// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
+// Emotions Gotchi : import explicite via @kidoo/shared/models/gotchi (voir docs/shared-by-model.md)

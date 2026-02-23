@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# BMAD Method — artefacts générés
+_bmad-output/
+
 # Prisma généré (mais on garde types.ts et README.md)
 generated/prisma/*
 !generated/prisma/types.ts
