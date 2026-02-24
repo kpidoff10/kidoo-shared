@@ -12,6 +12,7 @@ export const WAKEUP_LIMITS = {
   minute: { min: 0, max: 59 },
   colorRGB: { min: 0, max: 255 },
   brightness: { min: 0, max: 100 },
+  autoShutdownMinutes: { min: 5, max: 120 },
 } as const;
 
 import type { Weekday } from '../../../../types/common';
@@ -49,6 +50,8 @@ export const updateDreamWakeupConfigSchema = z.preprocess((data: unknown) => {
     .optional(),
   color: z.string().regex(/^#[0-9A-Fa-f]{6}$/, 'La couleur doit être au format hexadécimal (#RRGGBB)'),
   brightness: z.number().int().min(0).max(100),
+  autoShutdown: z.boolean().optional().default(true),
+  autoShutdownMinutes: z.number().int().min(WAKEUP_LIMITS.autoShutdownMinutes.min).max(WAKEUP_LIMITS.autoShutdownMinutes.max).optional().default(30),
 }));
 
 export type UpdateDreamWakeupConfigInput = z.infer<typeof updateDreamWakeupConfigSchema>;
@@ -59,6 +62,8 @@ export const dreamWakeupConfigResponseSchema = z.object({
   colorG: z.number().int().min(0).max(255),
   colorB: z.number().int().min(0).max(255),
   brightness: z.number().int().min(0).max(100),
+  autoShutdown: z.boolean(),
+  autoShutdownMinutes: z.number().int().min(WAKEUP_LIMITS.autoShutdownMinutes.min).max(WAKEUP_LIMITS.autoShutdownMinutes.max),
 });
 
 export type DreamWakeupConfigResponse = z.infer<typeof dreamWakeupConfigResponseSchema>;

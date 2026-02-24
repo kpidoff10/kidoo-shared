@@ -23,7 +23,7 @@ const timeSchema = z.object({
   activated: z.boolean(),
 });
 
-export const BEDTIME_EFFECTS = ['none', 'pulse', 'rainbow-soft', 'breathe', 'nightlight'] as const;
+export const BEDTIME_EFFECTS = ['none', 'rotate', 'pulse', 'rainbow-soft', 'breathe', 'nightlight'] as const;
 export type BedtimeEffect = (typeof BEDTIME_EFFECTS)[number];
 
 export const updateDreamBedtimeConfigSchema = z.preprocess((data: unknown) => {

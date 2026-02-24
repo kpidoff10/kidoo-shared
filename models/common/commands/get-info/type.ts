@@ -3,6 +3,7 @@
  */
 
 import type { KidooModelId } from '../../../../firmware/models';
+import type { KidooEnvResponse } from '../get-env/type';
 
 /**
  * Structure de base de la réponse - champs communs à tous les modèles
@@ -20,6 +21,8 @@ export interface KidooInfoResponseBase {
     ssid: string;
     rssi: number; // force du signal
   };
+  /** Capteur env (température, humidité, pression) — inclus à l'init pour éviter un get-env séparé */
+  env?: KidooEnvResponse;
 }
 
 /**

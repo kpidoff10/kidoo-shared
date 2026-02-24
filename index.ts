@@ -18,12 +18,20 @@ export * from './models/common/config/brightness';
 export * from './models/common/config/sleep-timeout';
 export * from './models/common/config/sleep-mode';
 export * from './models/common/config/name';
-// dream-bedtime / dream-wakeup : import via @kidoo/shared/models/dream
+// dream-bedtime / dream-wakeup
+export * from './models/dream';
 
 // Common - Commands (temps réel)
+export * from './models/common/commands/actions';
 export * from './models/common/commands/get-info';
+export * from './models/common/commands/get-env';
 export * from './models/common/commands/reboot';
 export * from './models/common/commands/firmware-update';// Firmware - Modèles supportés
 export * from './firmware/models';
-export * from './firmware/schema';// Characters Gotchi : import explicite via @kidoo/shared/models/gotchi// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
-// Emotions Gotchi : import explicite via @kidoo/shared/models/gotchi (voir docs/shared-by-model.md)
+export * from './firmware/schema';
+// Characters Gotchi : import explicite via @kidoo/shared/models/gotchi// Emotions – déclencheurs automatiques (alignés avec l’ESP32)
+// Gotchi (characters + emotions) — utilisé côté serveur uniquement (dépend de Prisma)
+export * from './models/gotchi';
+
+// Notifications - Types partagés
+export * from './models/notifications';

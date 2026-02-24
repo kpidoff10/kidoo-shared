@@ -280,9 +280,31 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   avatar: 'avatar',
   password: 'password',
+  timezoneId: 'timezoneId',
+  resetCode: 'resetCode',
+  resetCodeExpiresAt: 'resetCodeExpiresAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   isAdmin: 'isAdmin'
+};
+
+exports.Prisma.PushTokenScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  token: 'token',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  kidooId: 'kidooId',
+  type: 'type',
+  isRead: 'isRead',
+  readAt: 'readAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.KidooScalarFieldEnum = {
@@ -305,7 +327,8 @@ exports.Prisma.KidooScalarFieldEnum = {
   sleepColorG: 'sleepColorG',
   sleepColorR: 'sleepColorR',
   sleepEffect: 'sleepEffect',
-  sleepTimeout: 'sleepTimeout'
+  sleepTimeout: 'sleepTimeout',
+  publicKey: 'publicKey'
 };
 
 exports.Prisma.TagScalarFieldEnum = {
@@ -403,6 +426,14 @@ exports.Prisma.KidooConfigDreamScalarFieldEnum = {
   wakeupColorG: 'wakeupColorG',
   wakeupColorB: 'wakeupColorB',
   wakeupBrightness: 'wakeupBrightness',
+  wakeupAutoShutdown: 'wakeupAutoShutdown',
+  wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes',
+  defaultColorR: 'defaultColorR',
+  defaultColorG: 'defaultColorG',
+  defaultColorB: 'defaultColorB',
+  defaultBrightness: 'defaultBrightness',
+  defaultEffect: 'defaultEffect',
+  nighttimeAlertEnabled: 'nighttimeAlertEnabled',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -425,6 +456,19 @@ exports.Prisma.KidooConfigDreamWakeupScheduleScalarFieldEnum = {
   hour: 'hour',
   minute: 'minute',
   activated: 'activated',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  excerpt: 'excerpt',
+  content: 'content',
+  imageUrl: 'imageUrl',
+  type: 'type',
+  published: 'published',
+  publishedAt: 'publishedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -524,14 +568,20 @@ exports.EventKey = exports.$Enums.EventKey = {
 
 exports.KidooModel = exports.$Enums.KidooModel = {
   basic: 'basic',
-  dream: 'dream',
-  gotchi: 'gotchi'
+  dream: 'dream'
 };
 
 exports.TagType = exports.$Enums.TagType = {
   MUSIC: 'MUSIC',
   STORY: 'STORY',
   SOUND: 'SOUND'
+};
+
+exports.PostType = exports.$Enums.PostType = {
+  update: 'update',
+  promo: 'promo',
+  feature: 'feature',
+  news: 'news'
 };
 
 exports.Prisma.ModelName = {
@@ -547,6 +597,8 @@ exports.Prisma.ModelName = {
   ObjectType: 'ObjectType',
   RfidObject: 'RfidObject',
   User: 'User',
+  PushToken: 'PushToken',
+  Notification: 'Notification',
   Kidoo: 'Kidoo',
   Tag: 'Tag',
   Account: 'Account',
@@ -557,7 +609,8 @@ exports.Prisma.ModelName = {
   KidooConfigBasic: 'KidooConfigBasic',
   KidooConfigDream: 'KidooConfigDream',
   KidooConfigDreamBedtimeSchedule: 'KidooConfigDreamBedtimeSchedule',
-  KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule'
+  KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule',
+  Post: 'Post'
 };
 
 /**

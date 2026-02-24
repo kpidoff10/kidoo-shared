@@ -74,6 +74,16 @@ export type RfidObject = $Result.DefaultSelection<Prisma.$RfidObjectPayload>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
+ * Model PushToken
+ * 
+ */
+export type PushToken = $Result.DefaultSelection<Prisma.$PushTokenPayload>
+/**
+ * Model Notification
+ * 
+ */
+export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
+/**
  * Model Kidoo
  * 
  */
@@ -128,6 +138,11 @@ export type KidooConfigDreamBedtimeSchedule = $Result.DefaultSelection<Prisma.$K
  * 
  */
 export type KidooConfigDreamWakeupSchedule = $Result.DefaultSelection<Prisma.$KidooConfigDreamWakeupSchedulePayload>
+/**
+ * Model Post
+ * 
+ */
+export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
 
 /**
  * Enums
@@ -232,11 +247,20 @@ export type EmotionDeviceMode = (typeof EmotionDeviceMode)[keyof typeof EmotionD
 
 export const KidooModel: {
   basic: 'basic',
-  dream: 'dream',
-  gotchi: 'gotchi'
+  dream: 'dream'
 };
 
 export type KidooModel = (typeof KidooModel)[keyof typeof KidooModel]
+
+
+export const PostType: {
+  update: 'update',
+  promo: 'promo',
+  feature: 'feature',
+  news: 'news'
+};
+
+export type PostType = (typeof PostType)[keyof typeof PostType]
 
 }
 
@@ -279,6 +303,10 @@ export const EmotionDeviceMode: typeof $Enums.EmotionDeviceMode
 export type KidooModel = $Enums.KidooModel
 
 export const KidooModel: typeof $Enums.KidooModel
+
+export type PostType = $Enums.PostType
+
+export const PostType: typeof $Enums.PostType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -518,6 +546,26 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.pushToken`: Exposes CRUD operations for the **PushToken** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PushTokens
+    * const pushTokens = await prisma.pushToken.findMany()
+    * ```
+    */
+  get pushToken(): Prisma.PushTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Notifications
+    * const notifications = await prisma.notification.findMany()
+    * ```
+    */
+  get notification(): Prisma.NotificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.kidoo`: Exposes CRUD operations for the **Kidoo** model.
     * Example usage:
     * ```ts
@@ -626,6 +674,16 @@ export class PrismaClient<
     * ```
     */
   get kidooConfigDreamWakeupSchedule(): Prisma.KidooConfigDreamWakeupScheduleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.post`: Exposes CRUD operations for the **Post** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Posts
+    * const posts = await prisma.post.findMany()
+    * ```
+    */
+  get post(): Prisma.PostDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1072,6 +1130,8 @@ export namespace Prisma {
     ObjectType: 'ObjectType',
     RfidObject: 'RfidObject',
     User: 'User',
+    PushToken: 'PushToken',
+    Notification: 'Notification',
     Kidoo: 'Kidoo',
     Tag: 'Tag',
     Account: 'Account',
@@ -1082,7 +1142,8 @@ export namespace Prisma {
     KidooConfigBasic: 'KidooConfigBasic',
     KidooConfigDream: 'KidooConfigDream',
     KidooConfigDreamBedtimeSchedule: 'KidooConfigDreamBedtimeSchedule',
-    KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule'
+    KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule',
+    Post: 'Post'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1098,7 +1159,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule"
+      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "pushToken" | "notification" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule" | "post"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1990,6 +2051,154 @@ export namespace Prisma {
           }
         }
       }
+      PushToken: {
+        payload: Prisma.$PushTokenPayload<ExtArgs>
+        fields: Prisma.PushTokenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PushTokenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PushTokenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          findFirst: {
+            args: Prisma.PushTokenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PushTokenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          findMany: {
+            args: Prisma.PushTokenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>[]
+          }
+          create: {
+            args: Prisma.PushTokenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          createMany: {
+            args: Prisma.PushTokenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PushTokenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>[]
+          }
+          delete: {
+            args: Prisma.PushTokenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          update: {
+            args: Prisma.PushTokenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          deleteMany: {
+            args: Prisma.PushTokenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PushTokenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PushTokenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>[]
+          }
+          upsert: {
+            args: Prisma.PushTokenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PushTokenPayload>
+          }
+          aggregate: {
+            args: Prisma.PushTokenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePushToken>
+          }
+          groupBy: {
+            args: Prisma.PushTokenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PushTokenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PushTokenCountArgs<ExtArgs>
+            result: $Utils.Optional<PushTokenCountAggregateOutputType> | number
+          }
+        }
+      }
+      Notification: {
+        payload: Prisma.$NotificationPayload<ExtArgs>
+        fields: Prisma.NotificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NotificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NotificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findFirst: {
+            args: Prisma.NotificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NotificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findMany: {
+            args: Prisma.NotificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          create: {
+            args: Prisma.NotificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          createMany: {
+            args: Prisma.NotificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NotificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          delete: {
+            args: Prisma.NotificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          update: {
+            args: Prisma.NotificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.NotificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NotificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NotificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.NotificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          aggregate: {
+            args: Prisma.NotificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNotification>
+          }
+          groupBy: {
+            args: Prisma.NotificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NotificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NotificationCountArgs<ExtArgs>
+            result: $Utils.Optional<NotificationCountAggregateOutputType> | number
+          }
+        }
+      }
       Kidoo: {
         payload: Prisma.$KidooPayload<ExtArgs>
         fields: Prisma.KidooFieldRefs
@@ -2804,6 +3013,80 @@ export namespace Prisma {
           }
         }
       }
+      Post: {
+        payload: Prisma.$PostPayload<ExtArgs>
+        fields: Prisma.PostFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PostFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PostFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          findFirst: {
+            args: Prisma.PostFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PostFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          findMany: {
+            args: Prisma.PostFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+          }
+          create: {
+            args: Prisma.PostCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          createMany: {
+            args: Prisma.PostCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PostCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+          }
+          delete: {
+            args: Prisma.PostDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          update: {
+            args: Prisma.PostUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          deleteMany: {
+            args: Prisma.PostDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PostUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PostUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>[]
+          }
+          upsert: {
+            args: Prisma.PostUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PostPayload>
+          }
+          aggregate: {
+            args: Prisma.PostAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePost>
+          }
+          groupBy: {
+            args: Prisma.PostGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PostGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PostCountArgs<ExtArgs>
+            result: $Utils.Optional<PostCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2924,6 +3207,8 @@ export namespace Prisma {
     objectType?: ObjectTypeOmit
     rfidObject?: RfidObjectOmit
     user?: UserOmit
+    pushToken?: PushTokenOmit
+    notification?: NotificationOmit
     kidoo?: KidooOmit
     tag?: TagOmit
     account?: AccountOmit
@@ -2935,6 +3220,7 @@ export namespace Prisma {
     kidooConfigDream?: KidooConfigDreamOmit
     kidooConfigDreamBedtimeSchedule?: KidooConfigDreamBedtimeScheduleOmit
     kidooConfigDreamWakeupSchedule?: KidooConfigDreamWakeupScheduleOmit
+    post?: PostOmit
   }
 
   /* Types for Logging */
@@ -3238,6 +3524,8 @@ export namespace Prisma {
     kidoos: number
     sessions: number
     tags: number
+    pushTokens: number
+    notifications: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3246,6 +3534,8 @@ export namespace Prisma {
     kidoos?: boolean | UserCountOutputTypeCountKidoosArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     tags?: boolean | UserCountOutputTypeCountTagsArgs
+    pushTokens?: boolean | UserCountOutputTypeCountPushTokensArgs
+    notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
   }
 
   // Custom InputTypes
@@ -3294,6 +3584,20 @@ export namespace Prisma {
     where?: TagWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPushTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PushTokenWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+  }
+
 
   /**
    * Count Type KidooCountOutputType
@@ -3301,10 +3605,12 @@ export namespace Prisma {
 
   export type KidooCountOutputType = {
     tags: number
+    notifications: number
   }
 
   export type KidooCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tags?: boolean | KidooCountOutputTypeCountTagsArgs
+    notifications?: boolean | KidooCountOutputTypeCountNotificationsArgs
   }
 
   // Custom InputTypes
@@ -3323,6 +3629,13 @@ export namespace Prisma {
    */
   export type KidooCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TagWhereInput
+  }
+
+  /**
+   * KidooCountOutputType without action
+   */
+  export type KidooCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
   }
 
 
@@ -16554,6 +16867,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
+    timezoneId: string | null
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     isAdmin: boolean | null
@@ -16566,6 +16882,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
+    timezoneId: string | null
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     isAdmin: boolean | null
@@ -16578,6 +16897,9 @@ export namespace Prisma {
     name: number
     avatar: number
     password: number
+    timezoneId: number
+    resetCode: number
+    resetCodeExpiresAt: number
     createdAt: number
     updatedAt: number
     isAdmin: number
@@ -16592,6 +16914,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
@@ -16604,6 +16929,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
@@ -16616,6 +16944,9 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
@@ -16701,6 +17032,9 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
+    timezoneId: string
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
     createdAt: Date
     updatedAt: Date
     isAdmin: boolean
@@ -16730,6 +17064,9 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
@@ -16738,6 +17075,8 @@ export namespace Prisma {
     kidoos?: boolean | User$kidoosArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     tags?: boolean | User$tagsArgs<ExtArgs>
+    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -16748,6 +17087,9 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
@@ -16760,6 +17102,9 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
@@ -16772,18 +17117,23 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "createdAt" | "updatedAt" | "isAdmin", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "timezoneId" | "resetCode" | "resetCodeExpiresAt" | "createdAt" | "updatedAt" | "isAdmin", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     files?: boolean | User$filesArgs<ExtArgs>
     kidoos?: boolean | User$kidoosArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     tags?: boolean | User$tagsArgs<ExtArgs>
+    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -16797,6 +17147,8 @@ export namespace Prisma {
       kidoos: Prisma.$KidooPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       tags: Prisma.$TagPayload<ExtArgs>[]
+      pushTokens: Prisma.$PushTokenPayload<ExtArgs>[]
+      notifications: Prisma.$NotificationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -16805,6 +17157,9 @@ export namespace Prisma {
       name: string | null
       avatar: string | null
       password: string | null
+      timezoneId: string
+      resetCode: string | null
+      resetCodeExpiresAt: Date | null
       createdAt: Date
       updatedAt: Date
       isAdmin: boolean
@@ -17207,6 +17562,8 @@ export namespace Prisma {
     kidoos<T extends User$kidoosArgs<ExtArgs> = {}>(args?: Subset<T, User$kidoosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tags<T extends User$tagsArgs<ExtArgs> = {}>(args?: Subset<T, User$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pushTokens<T extends User$pushTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$pushTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17242,6 +17599,9 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly timezoneId: FieldRef<"User", 'String'>
+    readonly resetCode: FieldRef<"User", 'String'>
+    readonly resetCodeExpiresAt: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly isAdmin: FieldRef<"User", 'Boolean'>
@@ -17753,6 +18113,54 @@ export namespace Prisma {
   }
 
   /**
+   * User.pushTokens
+   */
+  export type User$pushTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    where?: PushTokenWhereInput
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    cursor?: PushTokenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
+  }
+
+  /**
+   * User.notifications
+   */
+  export type User$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17768,6 +18176,2188 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PushToken
+   */
+
+  export type AggregatePushToken = {
+    _count: PushTokenCountAggregateOutputType | null
+    _min: PushTokenMinAggregateOutputType | null
+    _max: PushTokenMaxAggregateOutputType | null
+  }
+
+  export type PushTokenMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    token: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PushTokenMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    token: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PushTokenCountAggregateOutputType = {
+    id: number
+    userId: number
+    token: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PushTokenMinAggregateInputType = {
+    id?: true
+    userId?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PushTokenMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PushTokenCountAggregateInputType = {
+    id?: true
+    userId?: true
+    token?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PushTokenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PushToken to aggregate.
+     */
+    where?: PushTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PushTokens to fetch.
+     */
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PushTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PushTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PushTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PushTokens
+    **/
+    _count?: true | PushTokenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PushTokenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PushTokenMaxAggregateInputType
+  }
+
+  export type GetPushTokenAggregateType<T extends PushTokenAggregateArgs> = {
+        [P in keyof T & keyof AggregatePushToken]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePushToken[P]>
+      : GetScalarType<T[P], AggregatePushToken[P]>
+  }
+
+
+
+
+  export type PushTokenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PushTokenWhereInput
+    orderBy?: PushTokenOrderByWithAggregationInput | PushTokenOrderByWithAggregationInput[]
+    by: PushTokenScalarFieldEnum[] | PushTokenScalarFieldEnum
+    having?: PushTokenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PushTokenCountAggregateInputType | true
+    _min?: PushTokenMinAggregateInputType
+    _max?: PushTokenMaxAggregateInputType
+  }
+
+  export type PushTokenGroupByOutputType = {
+    id: string
+    userId: string
+    token: string
+    createdAt: Date
+    updatedAt: Date
+    _count: PushTokenCountAggregateOutputType | null
+    _min: PushTokenMinAggregateOutputType | null
+    _max: PushTokenMaxAggregateOutputType | null
+  }
+
+  type GetPushTokenGroupByPayload<T extends PushTokenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PushTokenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PushTokenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PushTokenGroupByOutputType[P]>
+            : GetScalarType<T[P], PushTokenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PushTokenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pushToken"]>
+
+  export type PushTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pushToken"]>
+
+  export type PushTokenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pushToken"]>
+
+  export type PushTokenSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    token?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PushTokenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "token" | "createdAt" | "updatedAt", ExtArgs["result"]["pushToken"]>
+  export type PushTokenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type PushTokenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type PushTokenIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $PushTokenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PushToken"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      token: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["pushToken"]>
+    composites: {}
+  }
+
+  type PushTokenGetPayload<S extends boolean | null | undefined | PushTokenDefaultArgs> = $Result.GetResult<Prisma.$PushTokenPayload, S>
+
+  type PushTokenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PushTokenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PushTokenCountAggregateInputType | true
+    }
+
+  export interface PushTokenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PushToken'], meta: { name: 'PushToken' } }
+    /**
+     * Find zero or one PushToken that matches the filter.
+     * @param {PushTokenFindUniqueArgs} args - Arguments to find a PushToken
+     * @example
+     * // Get one PushToken
+     * const pushToken = await prisma.pushToken.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PushTokenFindUniqueArgs>(args: SelectSubset<T, PushTokenFindUniqueArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PushToken that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PushTokenFindUniqueOrThrowArgs} args - Arguments to find a PushToken
+     * @example
+     * // Get one PushToken
+     * const pushToken = await prisma.pushToken.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PushTokenFindUniqueOrThrowArgs>(args: SelectSubset<T, PushTokenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PushToken that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenFindFirstArgs} args - Arguments to find a PushToken
+     * @example
+     * // Get one PushToken
+     * const pushToken = await prisma.pushToken.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PushTokenFindFirstArgs>(args?: SelectSubset<T, PushTokenFindFirstArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PushToken that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenFindFirstOrThrowArgs} args - Arguments to find a PushToken
+     * @example
+     * // Get one PushToken
+     * const pushToken = await prisma.pushToken.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PushTokenFindFirstOrThrowArgs>(args?: SelectSubset<T, PushTokenFindFirstOrThrowArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PushTokens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PushTokens
+     * const pushTokens = await prisma.pushToken.findMany()
+     * 
+     * // Get first 10 PushTokens
+     * const pushTokens = await prisma.pushToken.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pushTokenWithIdOnly = await prisma.pushToken.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PushTokenFindManyArgs>(args?: SelectSubset<T, PushTokenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PushToken.
+     * @param {PushTokenCreateArgs} args - Arguments to create a PushToken.
+     * @example
+     * // Create one PushToken
+     * const PushToken = await prisma.pushToken.create({
+     *   data: {
+     *     // ... data to create a PushToken
+     *   }
+     * })
+     * 
+     */
+    create<T extends PushTokenCreateArgs>(args: SelectSubset<T, PushTokenCreateArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PushTokens.
+     * @param {PushTokenCreateManyArgs} args - Arguments to create many PushTokens.
+     * @example
+     * // Create many PushTokens
+     * const pushToken = await prisma.pushToken.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PushTokenCreateManyArgs>(args?: SelectSubset<T, PushTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PushTokens and returns the data saved in the database.
+     * @param {PushTokenCreateManyAndReturnArgs} args - Arguments to create many PushTokens.
+     * @example
+     * // Create many PushTokens
+     * const pushToken = await prisma.pushToken.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PushTokens and only return the `id`
+     * const pushTokenWithIdOnly = await prisma.pushToken.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PushTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, PushTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PushToken.
+     * @param {PushTokenDeleteArgs} args - Arguments to delete one PushToken.
+     * @example
+     * // Delete one PushToken
+     * const PushToken = await prisma.pushToken.delete({
+     *   where: {
+     *     // ... filter to delete one PushToken
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PushTokenDeleteArgs>(args: SelectSubset<T, PushTokenDeleteArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PushToken.
+     * @param {PushTokenUpdateArgs} args - Arguments to update one PushToken.
+     * @example
+     * // Update one PushToken
+     * const pushToken = await prisma.pushToken.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PushTokenUpdateArgs>(args: SelectSubset<T, PushTokenUpdateArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PushTokens.
+     * @param {PushTokenDeleteManyArgs} args - Arguments to filter PushTokens to delete.
+     * @example
+     * // Delete a few PushTokens
+     * const { count } = await prisma.pushToken.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PushTokenDeleteManyArgs>(args?: SelectSubset<T, PushTokenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PushTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PushTokens
+     * const pushToken = await prisma.pushToken.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PushTokenUpdateManyArgs>(args: SelectSubset<T, PushTokenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PushTokens and returns the data updated in the database.
+     * @param {PushTokenUpdateManyAndReturnArgs} args - Arguments to update many PushTokens.
+     * @example
+     * // Update many PushTokens
+     * const pushToken = await prisma.pushToken.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PushTokens and only return the `id`
+     * const pushTokenWithIdOnly = await prisma.pushToken.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PushTokenUpdateManyAndReturnArgs>(args: SelectSubset<T, PushTokenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PushToken.
+     * @param {PushTokenUpsertArgs} args - Arguments to update or create a PushToken.
+     * @example
+     * // Update or create a PushToken
+     * const pushToken = await prisma.pushToken.upsert({
+     *   create: {
+     *     // ... data to create a PushToken
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PushToken we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PushTokenUpsertArgs>(args: SelectSubset<T, PushTokenUpsertArgs<ExtArgs>>): Prisma__PushTokenClient<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PushTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenCountArgs} args - Arguments to filter PushTokens to count.
+     * @example
+     * // Count the number of PushTokens
+     * const count = await prisma.pushToken.count({
+     *   where: {
+     *     // ... the filter for the PushTokens we want to count
+     *   }
+     * })
+    **/
+    count<T extends PushTokenCountArgs>(
+      args?: Subset<T, PushTokenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PushTokenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PushToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PushTokenAggregateArgs>(args: Subset<T, PushTokenAggregateArgs>): Prisma.PrismaPromise<GetPushTokenAggregateType<T>>
+
+    /**
+     * Group by PushToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PushTokenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PushTokenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PushTokenGroupByArgs['orderBy'] }
+        : { orderBy?: PushTokenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PushTokenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPushTokenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PushToken model
+   */
+  readonly fields: PushTokenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PushToken.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PushTokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PushToken model
+   */
+  interface PushTokenFieldRefs {
+    readonly id: FieldRef<"PushToken", 'String'>
+    readonly userId: FieldRef<"PushToken", 'String'>
+    readonly token: FieldRef<"PushToken", 'String'>
+    readonly createdAt: FieldRef<"PushToken", 'DateTime'>
+    readonly updatedAt: FieldRef<"PushToken", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PushToken findUnique
+   */
+  export type PushTokenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PushToken to fetch.
+     */
+    where: PushTokenWhereUniqueInput
+  }
+
+  /**
+   * PushToken findUniqueOrThrow
+   */
+  export type PushTokenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PushToken to fetch.
+     */
+    where: PushTokenWhereUniqueInput
+  }
+
+  /**
+   * PushToken findFirst
+   */
+  export type PushTokenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PushToken to fetch.
+     */
+    where?: PushTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PushTokens to fetch.
+     */
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PushTokens.
+     */
+    cursor?: PushTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PushTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PushTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PushTokens.
+     */
+    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PushToken findFirstOrThrow
+   */
+  export type PushTokenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PushToken to fetch.
+     */
+    where?: PushTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PushTokens to fetch.
+     */
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PushTokens.
+     */
+    cursor?: PushTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PushTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PushTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PushTokens.
+     */
+    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PushToken findMany
+   */
+  export type PushTokenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter, which PushTokens to fetch.
+     */
+    where?: PushTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PushTokens to fetch.
+     */
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PushTokens.
+     */
+    cursor?: PushTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PushTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PushTokens.
+     */
+    skip?: number
+    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
+  }
+
+  /**
+   * PushToken create
+   */
+  export type PushTokenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PushToken.
+     */
+    data: XOR<PushTokenCreateInput, PushTokenUncheckedCreateInput>
+  }
+
+  /**
+   * PushToken createMany
+   */
+  export type PushTokenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PushTokens.
+     */
+    data: PushTokenCreateManyInput | PushTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PushToken createManyAndReturn
+   */
+  export type PushTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * The data used to create many PushTokens.
+     */
+    data: PushTokenCreateManyInput | PushTokenCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PushToken update
+   */
+  export type PushTokenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PushToken.
+     */
+    data: XOR<PushTokenUpdateInput, PushTokenUncheckedUpdateInput>
+    /**
+     * Choose, which PushToken to update.
+     */
+    where: PushTokenWhereUniqueInput
+  }
+
+  /**
+   * PushToken updateMany
+   */
+  export type PushTokenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PushTokens.
+     */
+    data: XOR<PushTokenUpdateManyMutationInput, PushTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which PushTokens to update
+     */
+    where?: PushTokenWhereInput
+    /**
+     * Limit how many PushTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PushToken updateManyAndReturn
+   */
+  export type PushTokenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * The data used to update PushTokens.
+     */
+    data: XOR<PushTokenUpdateManyMutationInput, PushTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which PushTokens to update
+     */
+    where?: PushTokenWhereInput
+    /**
+     * Limit how many PushTokens to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PushToken upsert
+   */
+  export type PushTokenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PushToken to update in case it exists.
+     */
+    where: PushTokenWhereUniqueInput
+    /**
+     * In case the PushToken found by the `where` argument doesn't exist, create a new PushToken with this data.
+     */
+    create: XOR<PushTokenCreateInput, PushTokenUncheckedCreateInput>
+    /**
+     * In case the PushToken was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PushTokenUpdateInput, PushTokenUncheckedUpdateInput>
+  }
+
+  /**
+   * PushToken delete
+   */
+  export type PushTokenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    /**
+     * Filter which PushToken to delete.
+     */
+    where: PushTokenWhereUniqueInput
+  }
+
+  /**
+   * PushToken deleteMany
+   */
+  export type PushTokenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PushTokens to delete
+     */
+    where?: PushTokenWhereInput
+    /**
+     * Limit how many PushTokens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PushToken without action
+   */
+  export type PushTokenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Notification
+   */
+
+  export type AggregateNotification = {
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  export type NotificationMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    kidooId: string | null
+    type: string | null
+    isRead: boolean | null
+    readAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    kidooId: string | null
+    type: string | null
+    isRead: boolean | null
+    readAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationCountAggregateOutputType = {
+    id: number
+    userId: number
+    kidooId: number
+    type: number
+    isRead: number
+    readAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NotificationMinAggregateInputType = {
+    id?: true
+    userId?: true
+    kidooId?: true
+    type?: true
+    isRead?: true
+    readAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    kidooId?: true
+    type?: true
+    isRead?: true
+    readAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationCountAggregateInputType = {
+    id?: true
+    userId?: true
+    kidooId?: true
+    type?: true
+    isRead?: true
+    readAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notification to aggregate.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Notifications
+    **/
+    _count?: true | NotificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NotificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type GetNotificationAggregateType<T extends NotificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateNotification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNotification[P]>
+      : GetScalarType<T[P], AggregateNotification[P]>
+  }
+
+
+
+
+  export type NotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithAggregationInput | NotificationOrderByWithAggregationInput[]
+    by: NotificationScalarFieldEnum[] | NotificationScalarFieldEnum
+    having?: NotificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NotificationCountAggregateInputType | true
+    _min?: NotificationMinAggregateInputType
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type NotificationGroupByOutputType = {
+    id: string
+    userId: string
+    kidooId: string | null
+    type: string
+    isRead: boolean
+    readAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  type GetNotificationGroupByPayload<T extends NotificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NotificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NotificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+            : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    kidooId?: boolean
+    type?: boolean
+    isRead?: boolean
+    readAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    kidooId?: boolean
+    type?: boolean
+    isRead?: boolean
+    readAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    kidooId?: boolean
+    type?: boolean
+    isRead?: boolean
+    readAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    kidooId?: boolean
+    type?: boolean
+    isRead?: boolean
+    readAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "kidooId" | "type" | "isRead" | "readAt" | "createdAt" | "updatedAt", ExtArgs["result"]["notification"]>
+  export type NotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }
+  export type NotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }
+  export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+  }
+
+  export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Notification"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      kidoo: Prisma.$KidooPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      kidooId: string | null
+      type: string
+      isRead: boolean
+      readAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["notification"]>
+    composites: {}
+  }
+
+  type NotificationGetPayload<S extends boolean | null | undefined | NotificationDefaultArgs> = $Result.GetResult<Prisma.$NotificationPayload, S>
+
+  type NotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NotificationCountAggregateInputType | true
+    }
+
+  export interface NotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Notification'], meta: { name: 'Notification' } }
+    /**
+     * Find zero or one Notification that matches the filter.
+     * @param {NotificationFindUniqueArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NotificationFindUniqueArgs>(args: SelectSubset<T, NotificationFindUniqueArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Notification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NotificationFindUniqueOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, NotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NotificationFindFirstArgs>(args?: SelectSubset<T, NotificationFindFirstArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, NotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Notifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Notifications
+     * const notifications = await prisma.notification.findMany()
+     * 
+     * // Get first 10 Notifications
+     * const notifications = await prisma.notification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const notificationWithIdOnly = await prisma.notification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NotificationFindManyArgs>(args?: SelectSubset<T, NotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Notification.
+     * @param {NotificationCreateArgs} args - Arguments to create a Notification.
+     * @example
+     * // Create one Notification
+     * const Notification = await prisma.notification.create({
+     *   data: {
+     *     // ... data to create a Notification
+     *   }
+     * })
+     * 
+     */
+    create<T extends NotificationCreateArgs>(args: SelectSubset<T, NotificationCreateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Notifications.
+     * @param {NotificationCreateManyArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NotificationCreateManyArgs>(args?: SelectSubset<T, NotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Notifications and returns the data saved in the database.
+     * @param {NotificationCreateManyAndReturnArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Notification.
+     * @param {NotificationDeleteArgs} args - Arguments to delete one Notification.
+     * @example
+     * // Delete one Notification
+     * const Notification = await prisma.notification.delete({
+     *   where: {
+     *     // ... filter to delete one Notification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NotificationDeleteArgs>(args: SelectSubset<T, NotificationDeleteArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Notification.
+     * @param {NotificationUpdateArgs} args - Arguments to update one Notification.
+     * @example
+     * // Update one Notification
+     * const notification = await prisma.notification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NotificationUpdateArgs>(args: SelectSubset<T, NotificationUpdateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Notifications.
+     * @param {NotificationDeleteManyArgs} args - Arguments to filter Notifications to delete.
+     * @example
+     * // Delete a few Notifications
+     * const { count } = await prisma.notification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NotificationDeleteManyArgs>(args?: SelectSubset<T, NotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NotificationUpdateManyArgs>(args: SelectSubset<T, NotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications and returns the data updated in the database.
+     * @param {NotificationUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Notification.
+     * @param {NotificationUpsertArgs} args - Arguments to update or create a Notification.
+     * @example
+     * // Update or create a Notification
+     * const notification = await prisma.notification.upsert({
+     *   create: {
+     *     // ... data to create a Notification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Notification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NotificationUpsertArgs>(args: SelectSubset<T, NotificationUpsertArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationCountArgs} args - Arguments to filter Notifications to count.
+     * @example
+     * // Count the number of Notifications
+     * const count = await prisma.notification.count({
+     *   where: {
+     *     // ... the filter for the Notifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends NotificationCountArgs>(
+      args?: Subset<T, NotificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NotificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NotificationAggregateArgs>(args: Subset<T, NotificationAggregateArgs>): Prisma.PrismaPromise<GetNotificationAggregateType<T>>
+
+    /**
+     * Group by Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NotificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NotificationGroupByArgs['orderBy'] }
+        : { orderBy?: NotificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Notification model
+   */
+  readonly fields: NotificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Notification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    kidoo<T extends Notification$kidooArgs<ExtArgs> = {}>(args?: Subset<T, Notification$kidooArgs<ExtArgs>>): Prisma__KidooClient<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Notification model
+   */
+  interface NotificationFieldRefs {
+    readonly id: FieldRef<"Notification", 'String'>
+    readonly userId: FieldRef<"Notification", 'String'>
+    readonly kidooId: FieldRef<"Notification", 'String'>
+    readonly type: FieldRef<"Notification", 'String'>
+    readonly isRead: FieldRef<"Notification", 'Boolean'>
+    readonly readAt: FieldRef<"Notification", 'DateTime'>
+    readonly createdAt: FieldRef<"Notification", 'DateTime'>
+    readonly updatedAt: FieldRef<"Notification", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Notification findUnique
+   */
+  export type NotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findUniqueOrThrow
+   */
+  export type NotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findFirst
+   */
+  export type NotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findFirstOrThrow
+   */
+  export type NotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findMany
+   */
+  export type NotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notifications to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification create
+   */
+  export type NotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Notification.
+     */
+    data: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+  }
+
+  /**
+   * Notification createMany
+   */
+  export type NotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Notification createManyAndReturn
+   */
+  export type NotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification update
+   */
+  export type NotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Notification.
+     */
+    data: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+    /**
+     * Choose, which Notification to update.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification updateMany
+   */
+  export type NotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification updateManyAndReturn
+   */
+  export type NotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification upsert
+   */
+  export type NotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Notification to update in case it exists.
+     */
+    where: NotificationWhereUniqueInput
+    /**
+     * In case the Notification found by the `where` argument doesn't exist, create a new Notification with this data.
+     */
+    create: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+    /**
+     * In case the Notification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+  }
+
+  /**
+   * Notification delete
+   */
+  export type NotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter which Notification to delete.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification deleteMany
+   */
+  export type NotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notifications to delete
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification.kidoo
+   */
+  export type Notification$kidooArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kidoo
+     */
+    select?: KidooSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kidoo
+     */
+    omit?: KidooOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooInclude<ExtArgs> | null
+    where?: KidooWhereInput
+  }
+
+  /**
+   * Notification without action
+   */
+  export type NotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
   }
 
 
@@ -17822,6 +20412,7 @@ export namespace Prisma {
     sleepColorR: number | null
     sleepEffect: number | null
     sleepTimeout: number | null
+    publicKey: string | null
   }
 
   export type KidooMaxAggregateOutputType = {
@@ -17845,6 +20436,7 @@ export namespace Prisma {
     sleepColorR: number | null
     sleepEffect: number | null
     sleepTimeout: number | null
+    publicKey: string | null
   }
 
   export type KidooCountAggregateOutputType = {
@@ -17868,6 +20460,7 @@ export namespace Prisma {
     sleepColorR: number
     sleepEffect: number
     sleepTimeout: number
+    publicKey: number
     _all: number
   }
 
@@ -17911,6 +20504,7 @@ export namespace Prisma {
     sleepColorR?: true
     sleepEffect?: true
     sleepTimeout?: true
+    publicKey?: true
   }
 
   export type KidooMaxAggregateInputType = {
@@ -17934,6 +20528,7 @@ export namespace Prisma {
     sleepColorR?: true
     sleepEffect?: true
     sleepTimeout?: true
+    publicKey?: true
   }
 
   export type KidooCountAggregateInputType = {
@@ -17957,6 +20552,7 @@ export namespace Prisma {
     sleepColorR?: true
     sleepEffect?: true
     sleepTimeout?: true
+    publicKey?: true
     _all?: true
   }
 
@@ -18067,6 +20663,7 @@ export namespace Prisma {
     sleepColorR: number | null
     sleepEffect: number | null
     sleepTimeout: number
+    publicKey: string | null
     _count: KidooCountAggregateOutputType | null
     _avg: KidooAvgAggregateOutputType | null
     _sum: KidooSumAggregateOutputType | null
@@ -18109,10 +20706,12 @@ export namespace Prisma {
     sleepColorR?: boolean
     sleepEffect?: boolean
     sleepTimeout?: boolean
+    publicKey?: boolean
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
     user?: boolean | Kidoo$userArgs<ExtArgs>
     tags?: boolean | Kidoo$tagsArgs<ExtArgs>
+    notifications?: boolean | Kidoo$notificationsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18137,6 +20736,7 @@ export namespace Prisma {
     sleepColorR?: boolean
     sleepEffect?: boolean
     sleepTimeout?: boolean
+    publicKey?: boolean
     user?: boolean | Kidoo$userArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18161,6 +20761,7 @@ export namespace Prisma {
     sleepColorR?: boolean
     sleepEffect?: boolean
     sleepTimeout?: boolean
+    publicKey?: boolean
     user?: boolean | Kidoo$userArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -18185,14 +20786,16 @@ export namespace Prisma {
     sleepColorR?: boolean
     sleepEffect?: boolean
     sleepTimeout?: boolean
+    publicKey?: boolean
   }
 
-  export type KidooOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "model" | "macAddress" | "deviceId" | "firmwareVersion" | "lastConnected" | "isConnected" | "wifiSSID" | "userId" | "isSynced" | "createdAt" | "updatedAt" | "bluetoothMacAddress" | "brightness" | "sleepColorB" | "sleepColorG" | "sleepColorR" | "sleepEffect" | "sleepTimeout", ExtArgs["result"]["kidoo"]>
+  export type KidooOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "model" | "macAddress" | "deviceId" | "firmwareVersion" | "lastConnected" | "isConnected" | "wifiSSID" | "userId" | "isSynced" | "createdAt" | "updatedAt" | "bluetoothMacAddress" | "brightness" | "sleepColorB" | "sleepColorG" | "sleepColorR" | "sleepEffect" | "sleepTimeout" | "publicKey", ExtArgs["result"]["kidoo"]>
   export type KidooInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
     user?: boolean | Kidoo$userArgs<ExtArgs>
     tags?: boolean | Kidoo$tagsArgs<ExtArgs>
+    notifications?: boolean | Kidoo$notificationsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KidooIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18209,6 +20812,7 @@ export namespace Prisma {
       configDream: Prisma.$KidooConfigDreamPayload<ExtArgs> | null
       user: Prisma.$UserPayload<ExtArgs> | null
       tags: Prisma.$TagPayload<ExtArgs>[]
+      notifications: Prisma.$NotificationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -18231,6 +20835,10 @@ export namespace Prisma {
       sleepColorR: number | null
       sleepEffect: number | null
       sleepTimeout: number
+      /**
+       * Clé publique Ed25519 (base64) pour authentification device - générée par l'ESP32 au setup
+       */
+      publicKey: string | null
     }, ExtArgs["result"]["kidoo"]>
     composites: {}
   }
@@ -18629,6 +21237,7 @@ export namespace Prisma {
     configDream<T extends Kidoo$configDreamArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configDreamArgs<ExtArgs>>): Prisma__KidooConfigDreamClient<$Result.GetResult<Prisma.$KidooConfigDreamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user<T extends Kidoo$userArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    notifications<T extends Kidoo$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18678,6 +21287,7 @@ export namespace Prisma {
     readonly sleepColorR: FieldRef<"Kidoo", 'Int'>
     readonly sleepEffect: FieldRef<"Kidoo", 'Int'>
     readonly sleepTimeout: FieldRef<"Kidoo", 'Int'>
+    readonly publicKey: FieldRef<"Kidoo", 'String'>
   }
     
 
@@ -19152,6 +21762,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
+  }
+
+  /**
+   * Kidoo.notifications
+   */
+  export type Kidoo$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
   }
 
   /**
@@ -27018,6 +29652,11 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
+    wakeupAutoShutdownMinutes: number | null
+    defaultColorR: number | null
+    defaultColorG: number | null
+    defaultColorB: number | null
+    defaultBrightness: number | null
   }
 
   export type KidooConfigDreamSumAggregateOutputType = {
@@ -27029,6 +29668,11 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
+    wakeupAutoShutdownMinutes: number | null
+    defaultColorR: number | null
+    defaultColorG: number | null
+    defaultColorB: number | null
+    defaultBrightness: number | null
   }
 
   export type KidooConfigDreamMinAggregateOutputType = {
@@ -27044,6 +29688,14 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
+    wakeupAutoShutdown: boolean | null
+    wakeupAutoShutdownMinutes: number | null
+    defaultColorR: number | null
+    defaultColorG: number | null
+    defaultColorB: number | null
+    defaultBrightness: number | null
+    defaultEffect: string | null
+    nighttimeAlertEnabled: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -27061,6 +29713,14 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
+    wakeupAutoShutdown: boolean | null
+    wakeupAutoShutdownMinutes: number | null
+    defaultColorR: number | null
+    defaultColorG: number | null
+    defaultColorB: number | null
+    defaultBrightness: number | null
+    defaultEffect: string | null
+    nighttimeAlertEnabled: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -27078,6 +29738,14 @@ export namespace Prisma {
     wakeupColorG: number
     wakeupColorB: number
     wakeupBrightness: number
+    wakeupAutoShutdown: number
+    wakeupAutoShutdownMinutes: number
+    defaultColorR: number
+    defaultColorG: number
+    defaultColorB: number
+    defaultBrightness: number
+    defaultEffect: number
+    nighttimeAlertEnabled: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -27093,6 +29761,11 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
+    wakeupAutoShutdownMinutes?: true
+    defaultColorR?: true
+    defaultColorG?: true
+    defaultColorB?: true
+    defaultBrightness?: true
   }
 
   export type KidooConfigDreamSumAggregateInputType = {
@@ -27104,6 +29777,11 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
+    wakeupAutoShutdownMinutes?: true
+    defaultColorR?: true
+    defaultColorG?: true
+    defaultColorB?: true
+    defaultBrightness?: true
   }
 
   export type KidooConfigDreamMinAggregateInputType = {
@@ -27119,6 +29797,14 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
+    defaultColorR?: true
+    defaultColorG?: true
+    defaultColorB?: true
+    defaultBrightness?: true
+    defaultEffect?: true
+    nighttimeAlertEnabled?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -27136,6 +29822,14 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
+    defaultColorR?: true
+    defaultColorG?: true
+    defaultColorB?: true
+    defaultBrightness?: true
+    defaultEffect?: true
+    nighttimeAlertEnabled?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -27153,6 +29847,14 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
+    defaultColorR?: true
+    defaultColorG?: true
+    defaultColorB?: true
+    defaultBrightness?: true
+    defaultEffect?: true
+    nighttimeAlertEnabled?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -27257,6 +29959,14 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
+    wakeupAutoShutdown: boolean
+    wakeupAutoShutdownMinutes: number | null
+    defaultColorR: number | null
+    defaultColorG: number | null
+    defaultColorB: number | null
+    defaultBrightness: number | null
+    defaultEffect: string | null
+    nighttimeAlertEnabled: boolean
     createdAt: Date
     updatedAt: Date
     _count: KidooConfigDreamCountAggregateOutputType | null
@@ -27293,6 +30003,14 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
+    defaultColorR?: boolean
+    defaultColorG?: boolean
+    defaultColorB?: boolean
+    defaultBrightness?: boolean
+    defaultEffect?: boolean
+    nighttimeAlertEnabled?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -27314,6 +30032,14 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
+    defaultColorR?: boolean
+    defaultColorG?: boolean
+    defaultColorB?: boolean
+    defaultBrightness?: boolean
+    defaultEffect?: boolean
+    nighttimeAlertEnabled?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -27332,6 +30058,14 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
+    defaultColorR?: boolean
+    defaultColorG?: boolean
+    defaultColorB?: boolean
+    defaultBrightness?: boolean
+    defaultEffect?: boolean
+    nighttimeAlertEnabled?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -27350,11 +30084,19 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
+    defaultColorR?: boolean
+    defaultColorG?: boolean
+    defaultColorB?: boolean
+    defaultBrightness?: boolean
+    defaultEffect?: boolean
+    nighttimeAlertEnabled?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigDream"]>
+  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "wakeupAutoShutdown" | "wakeupAutoShutdownMinutes" | "defaultColorR" | "defaultColorG" | "defaultColorB" | "defaultBrightness" | "defaultEffect" | "nighttimeAlertEnabled" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigDream"]>
   export type KidooConfigDreamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     bedtimeSchedules?: boolean | KidooConfigDream$bedtimeSchedulesArgs<ExtArgs>
@@ -27388,6 +30130,14 @@ export namespace Prisma {
       wakeupColorG: number | null
       wakeupColorB: number | null
       wakeupBrightness: number | null
+      wakeupAutoShutdown: boolean
+      wakeupAutoShutdownMinutes: number | null
+      defaultColorR: number | null
+      defaultColorG: number | null
+      defaultColorB: number | null
+      defaultBrightness: number | null
+      defaultEffect: string | null
+      nighttimeAlertEnabled: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["kidooConfigDream"]>
@@ -27828,6 +30578,14 @@ export namespace Prisma {
     readonly wakeupColorG: FieldRef<"KidooConfigDream", 'Int'>
     readonly wakeupColorB: FieldRef<"KidooConfigDream", 'Int'>
     readonly wakeupBrightness: FieldRef<"KidooConfigDream", 'Int'>
+    readonly wakeupAutoShutdown: FieldRef<"KidooConfigDream", 'Boolean'>
+    readonly wakeupAutoShutdownMinutes: FieldRef<"KidooConfigDream", 'Int'>
+    readonly defaultColorR: FieldRef<"KidooConfigDream", 'Int'>
+    readonly defaultColorG: FieldRef<"KidooConfigDream", 'Int'>
+    readonly defaultColorB: FieldRef<"KidooConfigDream", 'Int'>
+    readonly defaultBrightness: FieldRef<"KidooConfigDream", 'Int'>
+    readonly defaultEffect: FieldRef<"KidooConfigDream", 'String'>
+    readonly nighttimeAlertEnabled: FieldRef<"KidooConfigDream", 'Boolean'>
     readonly createdAt: FieldRef<"KidooConfigDream", 'DateTime'>
     readonly updatedAt: FieldRef<"KidooConfigDream", 'DateTime'>
   }
@@ -30563,6 +33321,1066 @@ export namespace Prisma {
 
 
   /**
+   * Model Post
+   */
+
+  export type AggregatePost = {
+    _count: PostCountAggregateOutputType | null
+    _min: PostMinAggregateOutputType | null
+    _max: PostMaxAggregateOutputType | null
+  }
+
+  export type PostMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    excerpt: string | null
+    content: string | null
+    imageUrl: string | null
+    type: $Enums.PostType | null
+    published: boolean | null
+    publishedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PostMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    excerpt: string | null
+    content: string | null
+    imageUrl: string | null
+    type: $Enums.PostType | null
+    published: boolean | null
+    publishedAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PostCountAggregateOutputType = {
+    id: number
+    title: number
+    excerpt: number
+    content: number
+    imageUrl: number
+    type: number
+    published: number
+    publishedAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PostMinAggregateInputType = {
+    id?: true
+    title?: true
+    excerpt?: true
+    content?: true
+    imageUrl?: true
+    type?: true
+    published?: true
+    publishedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PostMaxAggregateInputType = {
+    id?: true
+    title?: true
+    excerpt?: true
+    content?: true
+    imageUrl?: true
+    type?: true
+    published?: true
+    publishedAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PostCountAggregateInputType = {
+    id?: true
+    title?: true
+    excerpt?: true
+    content?: true
+    imageUrl?: true
+    type?: true
+    published?: true
+    publishedAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Post to aggregate.
+     */
+    where?: PostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Posts to fetch.
+     */
+    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Posts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Posts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Posts
+    **/
+    _count?: true | PostCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PostMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PostMaxAggregateInputType
+  }
+
+  export type GetPostAggregateType<T extends PostAggregateArgs> = {
+        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePost[P]>
+      : GetScalarType<T[P], AggregatePost[P]>
+  }
+
+
+
+
+  export type PostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PostWhereInput
+    orderBy?: PostOrderByWithAggregationInput | PostOrderByWithAggregationInput[]
+    by: PostScalarFieldEnum[] | PostScalarFieldEnum
+    having?: PostScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PostCountAggregateInputType | true
+    _min?: PostMinAggregateInputType
+    _max?: PostMaxAggregateInputType
+  }
+
+  export type PostGroupByOutputType = {
+    id: string
+    title: string
+    excerpt: string | null
+    content: string
+    imageUrl: string | null
+    type: $Enums.PostType
+    published: boolean
+    publishedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PostCountAggregateOutputType | null
+    _min: PostMinAggregateOutputType | null
+    _max: PostMaxAggregateOutputType | null
+  }
+
+  type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PostGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PostGroupByOutputType[P]>
+            : GetScalarType<T[P], PostGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    excerpt?: boolean
+    content?: boolean
+    imageUrl?: boolean
+    type?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["post"]>
+
+  export type PostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    excerpt?: boolean
+    content?: boolean
+    imageUrl?: boolean
+    type?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["post"]>
+
+  export type PostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    excerpt?: boolean
+    content?: boolean
+    imageUrl?: boolean
+    type?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["post"]>
+
+  export type PostSelectScalar = {
+    id?: boolean
+    title?: boolean
+    excerpt?: boolean
+    content?: boolean
+    imageUrl?: boolean
+    type?: boolean
+    published?: boolean
+    publishedAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "excerpt" | "content" | "imageUrl" | "type" | "published" | "publishedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
+
+  export type $PostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Post"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      excerpt: string | null
+      content: string
+      imageUrl: string | null
+      type: $Enums.PostType
+      published: boolean
+      publishedAt: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["post"]>
+    composites: {}
+  }
+
+  type PostGetPayload<S extends boolean | null | undefined | PostDefaultArgs> = $Result.GetResult<Prisma.$PostPayload, S>
+
+  type PostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PostCountAggregateInputType | true
+    }
+
+  export interface PostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Post'], meta: { name: 'Post' } }
+    /**
+     * Find zero or one Post that matches the filter.
+     * @param {PostFindUniqueArgs} args - Arguments to find a Post
+     * @example
+     * // Get one Post
+     * const post = await prisma.post.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PostFindUniqueArgs>(args: SelectSubset<T, PostFindUniqueArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Post that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PostFindUniqueOrThrowArgs} args - Arguments to find a Post
+     * @example
+     * // Get one Post
+     * const post = await prisma.post.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PostFindUniqueOrThrowArgs>(args: SelectSubset<T, PostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Post that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostFindFirstArgs} args - Arguments to find a Post
+     * @example
+     * // Get one Post
+     * const post = await prisma.post.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PostFindFirstArgs>(args?: SelectSubset<T, PostFindFirstArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Post that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostFindFirstOrThrowArgs} args - Arguments to find a Post
+     * @example
+     * // Get one Post
+     * const post = await prisma.post.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PostFindFirstOrThrowArgs>(args?: SelectSubset<T, PostFindFirstOrThrowArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Posts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Posts
+     * const posts = await prisma.post.findMany()
+     * 
+     * // Get first 10 Posts
+     * const posts = await prisma.post.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PostFindManyArgs>(args?: SelectSubset<T, PostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Post.
+     * @param {PostCreateArgs} args - Arguments to create a Post.
+     * @example
+     * // Create one Post
+     * const Post = await prisma.post.create({
+     *   data: {
+     *     // ... data to create a Post
+     *   }
+     * })
+     * 
+     */
+    create<T extends PostCreateArgs>(args: SelectSubset<T, PostCreateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Posts.
+     * @param {PostCreateManyArgs} args - Arguments to create many Posts.
+     * @example
+     * // Create many Posts
+     * const post = await prisma.post.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PostCreateManyArgs>(args?: SelectSubset<T, PostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Posts and returns the data saved in the database.
+     * @param {PostCreateManyAndReturnArgs} args - Arguments to create many Posts.
+     * @example
+     * // Create many Posts
+     * const post = await prisma.post.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Posts and only return the `id`
+     * const postWithIdOnly = await prisma.post.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PostCreateManyAndReturnArgs>(args?: SelectSubset<T, PostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Post.
+     * @param {PostDeleteArgs} args - Arguments to delete one Post.
+     * @example
+     * // Delete one Post
+     * const Post = await prisma.post.delete({
+     *   where: {
+     *     // ... filter to delete one Post
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PostDeleteArgs>(args: SelectSubset<T, PostDeleteArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Post.
+     * @param {PostUpdateArgs} args - Arguments to update one Post.
+     * @example
+     * // Update one Post
+     * const post = await prisma.post.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PostUpdateArgs>(args: SelectSubset<T, PostUpdateArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Posts.
+     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
+     * @example
+     * // Delete a few Posts
+     * const { count } = await prisma.post.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PostDeleteManyArgs>(args?: SelectSubset<T, PostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Posts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Posts
+     * const post = await prisma.post.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PostUpdateManyArgs>(args: SelectSubset<T, PostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Posts and returns the data updated in the database.
+     * @param {PostUpdateManyAndReturnArgs} args - Arguments to update many Posts.
+     * @example
+     * // Update many Posts
+     * const post = await prisma.post.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Posts and only return the `id`
+     * const postWithIdOnly = await prisma.post.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PostUpdateManyAndReturnArgs>(args: SelectSubset<T, PostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Post.
+     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
+     * @example
+     * // Update or create a Post
+     * const post = await prisma.post.upsert({
+     *   create: {
+     *     // ... data to create a Post
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Post we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PostUpsertArgs>(args: SelectSubset<T, PostUpsertArgs<ExtArgs>>): Prisma__PostClient<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Posts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostCountArgs} args - Arguments to filter Posts to count.
+     * @example
+     * // Count the number of Posts
+     * const count = await prisma.post.count({
+     *   where: {
+     *     // ... the filter for the Posts we want to count
+     *   }
+     * })
+    **/
+    count<T extends PostCountArgs>(
+      args?: Subset<T, PostCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PostCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Post.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): Prisma.PrismaPromise<GetPostAggregateType<T>>
+
+    /**
+     * Group by Post.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PostGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PostGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PostGroupByArgs['orderBy'] }
+        : { orderBy?: PostGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Post model
+   */
+  readonly fields: PostFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Post.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Post model
+   */
+  interface PostFieldRefs {
+    readonly id: FieldRef<"Post", 'String'>
+    readonly title: FieldRef<"Post", 'String'>
+    readonly excerpt: FieldRef<"Post", 'String'>
+    readonly content: FieldRef<"Post", 'String'>
+    readonly imageUrl: FieldRef<"Post", 'String'>
+    readonly type: FieldRef<"Post", 'PostType'>
+    readonly published: FieldRef<"Post", 'Boolean'>
+    readonly publishedAt: FieldRef<"Post", 'DateTime'>
+    readonly createdAt: FieldRef<"Post", 'DateTime'>
+    readonly updatedAt: FieldRef<"Post", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Post findUnique
+   */
+  export type PostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter, which Post to fetch.
+     */
+    where: PostWhereUniqueInput
+  }
+
+  /**
+   * Post findUniqueOrThrow
+   */
+  export type PostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter, which Post to fetch.
+     */
+    where: PostWhereUniqueInput
+  }
+
+  /**
+   * Post findFirst
+   */
+  export type PostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter, which Post to fetch.
+     */
+    where?: PostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Posts to fetch.
+     */
+    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Posts.
+     */
+    cursor?: PostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Posts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Posts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Posts.
+     */
+    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * Post findFirstOrThrow
+   */
+  export type PostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter, which Post to fetch.
+     */
+    where?: PostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Posts to fetch.
+     */
+    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Posts.
+     */
+    cursor?: PostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Posts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Posts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Posts.
+     */
+    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * Post findMany
+   */
+  export type PostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter, which Posts to fetch.
+     */
+    where?: PostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Posts to fetch.
+     */
+    orderBy?: PostOrderByWithRelationInput | PostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Posts.
+     */
+    cursor?: PostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Posts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Posts.
+     */
+    skip?: number
+    distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * Post create
+   */
+  export type PostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Post.
+     */
+    data: XOR<PostCreateInput, PostUncheckedCreateInput>
+  }
+
+  /**
+   * Post createMany
+   */
+  export type PostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Posts.
+     */
+    data: PostCreateManyInput | PostCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Post createManyAndReturn
+   */
+  export type PostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * The data used to create many Posts.
+     */
+    data: PostCreateManyInput | PostCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Post update
+   */
+  export type PostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Post.
+     */
+    data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+    /**
+     * Choose, which Post to update.
+     */
+    where: PostWhereUniqueInput
+  }
+
+  /**
+   * Post updateMany
+   */
+  export type PostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Posts.
+     */
+    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    /**
+     * Filter which Posts to update
+     */
+    where?: PostWhereInput
+    /**
+     * Limit how many Posts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Post updateManyAndReturn
+   */
+  export type PostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * The data used to update Posts.
+     */
+    data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
+    /**
+     * Filter which Posts to update
+     */
+    where?: PostWhereInput
+    /**
+     * Limit how many Posts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Post upsert
+   */
+  export type PostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Post to update in case it exists.
+     */
+    where: PostWhereUniqueInput
+    /**
+     * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
+     */
+    create: XOR<PostCreateInput, PostUncheckedCreateInput>
+    /**
+     * In case the Post was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PostUpdateInput, PostUncheckedUpdateInput>
+  }
+
+  /**
+   * Post delete
+   */
+  export type PostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+    /**
+     * Filter which Post to delete.
+     */
+    where: PostWhereUniqueInput
+  }
+
+  /**
+   * Post deleteMany
+   */
+  export type PostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Posts to delete
+     */
+    where?: PostWhereInput
+    /**
+     * Limit how many Posts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Post without action
+   */
+  export type PostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Post
+     */
+    select?: PostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Post
+     */
+    omit?: PostOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -30769,12 +34587,40 @@ export namespace Prisma {
     name: 'name',
     avatar: 'avatar',
     password: 'password',
+    timezoneId: 'timezoneId',
+    resetCode: 'resetCode',
+    resetCodeExpiresAt: 'resetCodeExpiresAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     isAdmin: 'isAdmin'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const PushTokenScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    token: 'token',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PushTokenScalarFieldEnum = (typeof PushTokenScalarFieldEnum)[keyof typeof PushTokenScalarFieldEnum]
+
+
+  export const NotificationScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    kidooId: 'kidooId',
+    type: 'type',
+    isRead: 'isRead',
+    readAt: 'readAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
 
 
   export const KidooScalarFieldEnum: {
@@ -30797,7 +34643,8 @@ export namespace Prisma {
     sleepColorG: 'sleepColorG',
     sleepColorR: 'sleepColorR',
     sleepEffect: 'sleepEffect',
-    sleepTimeout: 'sleepTimeout'
+    sleepTimeout: 'sleepTimeout',
+    publicKey: 'publicKey'
   };
 
   export type KidooScalarFieldEnum = (typeof KidooScalarFieldEnum)[keyof typeof KidooScalarFieldEnum]
@@ -30919,6 +34766,14 @@ export namespace Prisma {
     wakeupColorG: 'wakeupColorG',
     wakeupColorB: 'wakeupColorB',
     wakeupBrightness: 'wakeupBrightness',
+    wakeupAutoShutdown: 'wakeupAutoShutdown',
+    wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes',
+    defaultColorR: 'defaultColorR',
+    defaultColorG: 'defaultColorG',
+    defaultColorB: 'defaultColorB',
+    defaultBrightness: 'defaultBrightness',
+    defaultEffect: 'defaultEffect',
+    nighttimeAlertEnabled: 'nighttimeAlertEnabled',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -30952,6 +34807,22 @@ export namespace Prisma {
   };
 
   export type KidooConfigDreamWakeupScheduleScalarFieldEnum = (typeof KidooConfigDreamWakeupScheduleScalarFieldEnum)[keyof typeof KidooConfigDreamWakeupScheduleScalarFieldEnum]
+
+
+  export const PostScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    excerpt: 'excerpt',
+    content: 'content',
+    imageUrl: 'imageUrl',
+    type: 'type',
+    published: 'published',
+    publishedAt: 'publishedAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -31235,6 +35106,20 @@ export namespace Prisma {
    * Reference to a field of type 'BigInt[]'
    */
   export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'PostType'
+   */
+  export type EnumPostTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PostType'>
+    
+
+
+  /**
+   * Reference to a field of type 'PostType[]'
+   */
+  export type ListEnumPostTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PostType[]'>
     
   /**
    * Deep Input Types
@@ -32237,6 +36122,9 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
+    timezoneId?: StringFilter<"User"> | string
+    resetCode?: StringNullableFilter<"User"> | string | null
+    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     isAdmin?: BoolFilter<"User"> | boolean
@@ -32245,6 +36133,8 @@ export namespace Prisma {
     kidoos?: KidooListRelationFilter
     sessions?: SessionListRelationFilter
     tags?: TagListRelationFilter
+    pushTokens?: PushTokenListRelationFilter
+    notifications?: NotificationListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -32254,6 +36144,9 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrderInput | SortOrder
+    resetCodeExpiresAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
@@ -32262,11 +36155,14 @@ export namespace Prisma {
     kidoos?: KidooOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     tags?: TagOrderByRelationAggregateInput
+    pushTokens?: PushTokenOrderByRelationAggregateInput
+    notifications?: NotificationOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
+    resetCode?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -32274,6 +36170,8 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
+    timezoneId?: StringFilter<"User"> | string
+    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     isAdmin?: BoolFilter<"User"> | boolean
@@ -32282,7 +36180,9 @@ export namespace Prisma {
     kidoos?: KidooListRelationFilter
     sessions?: SessionListRelationFilter
     tags?: TagListRelationFilter
-  }, "id" | "email">
+    pushTokens?: PushTokenListRelationFilter
+    notifications?: NotificationListRelationFilter
+  }, "id" | "email" | "resetCode">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -32291,6 +36191,9 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrderInput | SortOrder
+    resetCodeExpiresAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
@@ -32309,9 +36212,140 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    timezoneId?: StringWithAggregatesFilter<"User"> | string
+    resetCode?: StringNullableWithAggregatesFilter<"User"> | string | null
+    resetCodeExpiresAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
+  }
+
+  export type PushTokenWhereInput = {
+    AND?: PushTokenWhereInput | PushTokenWhereInput[]
+    OR?: PushTokenWhereInput[]
+    NOT?: PushTokenWhereInput | PushTokenWhereInput[]
+    id?: StringFilter<"PushToken"> | string
+    userId?: StringFilter<"PushToken"> | string
+    token?: StringFilter<"PushToken"> | string
+    createdAt?: DateTimeFilter<"PushToken"> | Date | string
+    updatedAt?: DateTimeFilter<"PushToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type PushTokenOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type PushTokenWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    token?: string
+    AND?: PushTokenWhereInput | PushTokenWhereInput[]
+    OR?: PushTokenWhereInput[]
+    NOT?: PushTokenWhereInput | PushTokenWhereInput[]
+    userId?: StringFilter<"PushToken"> | string
+    createdAt?: DateTimeFilter<"PushToken"> | Date | string
+    updatedAt?: DateTimeFilter<"PushToken"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "token">
+
+  export type PushTokenOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PushTokenCountOrderByAggregateInput
+    _max?: PushTokenMaxOrderByAggregateInput
+    _min?: PushTokenMinOrderByAggregateInput
+  }
+
+  export type PushTokenScalarWhereWithAggregatesInput = {
+    AND?: PushTokenScalarWhereWithAggregatesInput | PushTokenScalarWhereWithAggregatesInput[]
+    OR?: PushTokenScalarWhereWithAggregatesInput[]
+    NOT?: PushTokenScalarWhereWithAggregatesInput | PushTokenScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PushToken"> | string
+    userId?: StringWithAggregatesFilter<"PushToken"> | string
+    token?: StringWithAggregatesFilter<"PushToken"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"PushToken"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PushToken"> | Date | string
+  }
+
+  export type NotificationWhereInput = {
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    userId?: StringFilter<"Notification"> | string
+    kidooId?: StringNullableFilter<"Notification"> | string | null
+    type?: StringFilter<"Notification"> | string
+    isRead?: BoolFilter<"Notification"> | boolean
+    readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    kidoo?: XOR<KidooNullableScalarRelationFilter, KidooWhereInput> | null
+  }
+
+  export type NotificationOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    kidooId?: SortOrderInput | SortOrder
+    type?: SortOrder
+    isRead?: SortOrder
+    readAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    kidoo?: KidooOrderByWithRelationInput
+  }
+
+  export type NotificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    userId?: StringFilter<"Notification"> | string
+    kidooId?: StringNullableFilter<"Notification"> | string | null
+    type?: StringFilter<"Notification"> | string
+    isRead?: BoolFilter<"Notification"> | boolean
+    readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    kidoo?: XOR<KidooNullableScalarRelationFilter, KidooWhereInput> | null
+  }, "id">
+
+  export type NotificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    kidooId?: SortOrderInput | SortOrder
+    type?: SortOrder
+    isRead?: SortOrder
+    readAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NotificationCountOrderByAggregateInput
+    _max?: NotificationMaxOrderByAggregateInput
+    _min?: NotificationMinOrderByAggregateInput
+  }
+
+  export type NotificationScalarWhereWithAggregatesInput = {
+    AND?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    OR?: NotificationScalarWhereWithAggregatesInput[]
+    NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Notification"> | string
+    userId?: StringWithAggregatesFilter<"Notification"> | string
+    kidooId?: StringNullableWithAggregatesFilter<"Notification"> | string | null
+    type?: StringWithAggregatesFilter<"Notification"> | string
+    isRead?: BoolWithAggregatesFilter<"Notification"> | boolean
+    readAt?: DateTimeNullableWithAggregatesFilter<"Notification"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
   }
 
   export type KidooWhereInput = {
@@ -32338,10 +36372,12 @@ export namespace Prisma {
     sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
     sleepTimeout?: IntFilter<"Kidoo"> | number
+    publicKey?: StringNullableFilter<"Kidoo"> | string | null
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     tags?: TagListRelationFilter
+    notifications?: NotificationListRelationFilter
   }
 
   export type KidooOrderByWithRelationInput = {
@@ -32365,10 +36401,12 @@ export namespace Prisma {
     sleepColorR?: SortOrderInput | SortOrder
     sleepEffect?: SortOrderInput | SortOrder
     sleepTimeout?: SortOrder
+    publicKey?: SortOrderInput | SortOrder
     configBasic?: KidooConfigBasicOrderByWithRelationInput
     configDream?: KidooConfigDreamOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     tags?: TagOrderByRelationAggregateInput
+    notifications?: NotificationOrderByRelationAggregateInput
   }
 
   export type KidooWhereUniqueInput = Prisma.AtLeast<{
@@ -32395,10 +36433,12 @@ export namespace Prisma {
     sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
     sleepTimeout?: IntFilter<"Kidoo"> | number
+    publicKey?: StringNullableFilter<"Kidoo"> | string | null
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     tags?: TagListRelationFilter
+    notifications?: NotificationListRelationFilter
   }, "id" | "deviceId">
 
   export type KidooOrderByWithAggregationInput = {
@@ -32422,6 +36462,7 @@ export namespace Prisma {
     sleepColorR?: SortOrderInput | SortOrder
     sleepEffect?: SortOrderInput | SortOrder
     sleepTimeout?: SortOrder
+    publicKey?: SortOrderInput | SortOrder
     _count?: KidooCountOrderByAggregateInput
     _avg?: KidooAvgOrderByAggregateInput
     _max?: KidooMaxOrderByAggregateInput
@@ -32453,6 +36494,7 @@ export namespace Prisma {
     sleepColorR?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableWithAggregatesFilter<"Kidoo"> | number | null
     sleepTimeout?: IntWithAggregatesFilter<"Kidoo"> | number
+    publicKey?: StringNullableWithAggregatesFilter<"Kidoo"> | string | null
   }
 
   export type TagWhereInput = {
@@ -33000,6 +37042,14 @@ export namespace Prisma {
     wakeupColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
+    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorR?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
+    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
     createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
     updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
@@ -33020,6 +37070,14 @@ export namespace Prisma {
     wakeupColorG?: SortOrderInput | SortOrder
     wakeupColorB?: SortOrderInput | SortOrder
     wakeupBrightness?: SortOrderInput | SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    defaultColorR?: SortOrderInput | SortOrder
+    defaultColorG?: SortOrderInput | SortOrder
+    defaultColorB?: SortOrderInput | SortOrder
+    defaultBrightness?: SortOrderInput | SortOrder
+    defaultEffect?: SortOrderInput | SortOrder
+    nighttimeAlertEnabled?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     kidoo?: KidooOrderByWithRelationInput
@@ -33043,6 +37101,14 @@ export namespace Prisma {
     wakeupColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
+    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorR?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
+    defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
+    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
     createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
     updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
@@ -33063,6 +37129,14 @@ export namespace Prisma {
     wakeupColorG?: SortOrderInput | SortOrder
     wakeupColorB?: SortOrderInput | SortOrder
     wakeupBrightness?: SortOrderInput | SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    defaultColorR?: SortOrderInput | SortOrder
+    defaultColorG?: SortOrderInput | SortOrder
+    defaultColorB?: SortOrderInput | SortOrder
+    defaultBrightness?: SortOrderInput | SortOrder
+    defaultEffect?: SortOrderInput | SortOrder
+    nighttimeAlertEnabled?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: KidooConfigDreamCountOrderByAggregateInput
@@ -33088,6 +37162,14 @@ export namespace Prisma {
     wakeupColorG?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    wakeupAutoShutdown?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    defaultColorR?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    defaultColorG?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    defaultColorB?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    defaultBrightness?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    defaultEffect?: StringNullableWithAggregatesFilter<"KidooConfigDream"> | string | null
+    nighttimeAlertEnabled?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
   }
@@ -33236,6 +37318,83 @@ export namespace Prisma {
     activated?: BoolWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
+  }
+
+  export type PostWhereInput = {
+    AND?: PostWhereInput | PostWhereInput[]
+    OR?: PostWhereInput[]
+    NOT?: PostWhereInput | PostWhereInput[]
+    id?: StringFilter<"Post"> | string
+    title?: StringFilter<"Post"> | string
+    excerpt?: StringNullableFilter<"Post"> | string | null
+    content?: StringFilter<"Post"> | string
+    imageUrl?: StringNullableFilter<"Post"> | string | null
+    type?: EnumPostTypeFilter<"Post"> | $Enums.PostType
+    published?: BoolFilter<"Post"> | boolean
+    publishedAt?: DateTimeNullableFilter<"Post"> | Date | string | null
+    createdAt?: DateTimeFilter<"Post"> | Date | string
+    updatedAt?: DateTimeFilter<"Post"> | Date | string
+  }
+
+  export type PostOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    content?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    type?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PostWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PostWhereInput | PostWhereInput[]
+    OR?: PostWhereInput[]
+    NOT?: PostWhereInput | PostWhereInput[]
+    title?: StringFilter<"Post"> | string
+    excerpt?: StringNullableFilter<"Post"> | string | null
+    content?: StringFilter<"Post"> | string
+    imageUrl?: StringNullableFilter<"Post"> | string | null
+    type?: EnumPostTypeFilter<"Post"> | $Enums.PostType
+    published?: BoolFilter<"Post"> | boolean
+    publishedAt?: DateTimeNullableFilter<"Post"> | Date | string | null
+    createdAt?: DateTimeFilter<"Post"> | Date | string
+    updatedAt?: DateTimeFilter<"Post"> | Date | string
+  }, "id">
+
+  export type PostOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    content?: SortOrder
+    imageUrl?: SortOrderInput | SortOrder
+    type?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PostCountOrderByAggregateInput
+    _max?: PostMaxOrderByAggregateInput
+    _min?: PostMinOrderByAggregateInput
+  }
+
+  export type PostScalarWhereWithAggregatesInput = {
+    AND?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
+    OR?: PostScalarWhereWithAggregatesInput[]
+    NOT?: PostScalarWhereWithAggregatesInput | PostScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Post"> | string
+    title?: StringWithAggregatesFilter<"Post"> | string
+    excerpt?: StringNullableWithAggregatesFilter<"Post"> | string | null
+    content?: StringWithAggregatesFilter<"Post"> | string
+    imageUrl?: StringNullableWithAggregatesFilter<"Post"> | string | null
+    type?: EnumPostTypeWithAggregatesFilter<"Post"> | $Enums.PostType
+    published?: BoolWithAggregatesFilter<"Post"> | boolean
+    publishedAt?: DateTimeNullableWithAggregatesFilter<"Post"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
   }
 
   export type CharacterCreateInput = {
@@ -34352,6 +38511,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -34360,6 +38522,8 @@ export namespace Prisma {
     kidoos?: KidooCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -34369,6 +38533,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -34377,6 +38544,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -34386,6 +38555,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -34394,6 +38566,8 @@ export namespace Prisma {
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -34403,6 +38577,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -34411,6 +38588,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -34420,6 +38599,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -34432,6 +38614,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -34444,9 +38629,142 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type PushTokenCreateInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutPushTokensInput
+  }
+
+  export type PushTokenUncheckedCreateInput = {
+    id?: string
+    userId: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPushTokensNestedInput
+  }
+
+  export type PushTokenUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenCreateManyInput = {
+    id?: string
+    userId: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationCreateInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotificationsInput
+    kidoo?: KidooCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateInput = {
+    id?: string
+    userId: string
+    kidooId?: string | null
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
+    kidoo?: KidooUpdateOneWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationCreateManyInput = {
+    id?: string
+    userId: string
+    kidooId?: string | null
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type KidooCreateInput = {
@@ -34469,10 +38787,12 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateInput = {
@@ -34496,9 +38816,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUpdateInput = {
@@ -34521,10 +38843,12 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateInput = {
@@ -34548,9 +38872,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateManyInput = {
@@ -34574,6 +38900,7 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
   }
 
   export type KidooUpdateManyMutationInput = {
@@ -34596,6 +38923,7 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type KidooUncheckedUpdateManyInput = {
@@ -34619,6 +38947,7 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TagCreateInput = {
@@ -35204,6 +39533,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
@@ -35224,6 +39561,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
@@ -35242,6 +39587,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
@@ -35262,6 +39615,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
@@ -35281,6 +39642,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -35297,6 +39666,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -35314,6 +39691,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -35466,6 +39851,97 @@ export namespace Prisma {
     hour?: IntFieldUpdateOperationsInput | number
     minute?: IntFieldUpdateOperationsInput | number
     activated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostCreateInput = {
+    id?: string
+    title: string
+    excerpt?: string | null
+    content: string
+    imageUrl?: string | null
+    type?: $Enums.PostType
+    published?: boolean
+    publishedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PostUncheckedCreateInput = {
+    id?: string
+    title: string
+    excerpt?: string | null
+    content: string
+    imageUrl?: string | null
+    type?: $Enums.PostType
+    published?: boolean
+    publishedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PostUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumPostTypeFieldUpdateOperationsInput | $Enums.PostType
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumPostTypeFieldUpdateOperationsInput | $Enums.PostType
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostCreateManyInput = {
+    id?: string
+    title: string
+    excerpt?: string | null
+    content: string
+    imageUrl?: string | null
+    type?: $Enums.PostType
+    published?: boolean
+    publishedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PostUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumPostTypeFieldUpdateOperationsInput | $Enums.PostType
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PostUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: EnumPostTypeFieldUpdateOperationsInput | $Enums.PostType
+    published?: BoolFieldUpdateOperationsInput | boolean
+    publishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -36662,6 +41138,18 @@ export namespace Prisma {
     none?: TagWhereInput
   }
 
+  export type PushTokenListRelationFilter = {
+    every?: PushTokenWhereInput
+    some?: PushTokenWhereInput
+    none?: PushTokenWhereInput
+  }
+
+  export type NotificationListRelationFilter = {
+    every?: NotificationWhereInput
+    some?: NotificationWhereInput
+    none?: NotificationWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -36682,6 +41170,14 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type PushTokenOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NotificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
@@ -36689,6 +41185,9 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
@@ -36701,6 +41200,9 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
@@ -36713,9 +41215,79 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type PushTokenCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PushTokenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PushTokenMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    token?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type KidooNullableScalarRelationFilter = {
+    is?: KidooWhereInput | null
+    isNot?: KidooWhereInput | null
+  }
+
+  export type NotificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    kidooId?: SortOrder
+    type?: SortOrder
+    isRead?: SortOrder
+    readAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    kidooId?: SortOrder
+    type?: SortOrder
+    isRead?: SortOrder
+    readAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    kidooId?: SortOrder
+    type?: SortOrder
+    isRead?: SortOrder
+    readAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type EnumKidooModelFilter<$PrismaModel = never> = {
@@ -36761,6 +41333,7 @@ export namespace Prisma {
     sleepColorR?: SortOrder
     sleepEffect?: SortOrder
     sleepTimeout?: SortOrder
+    publicKey?: SortOrder
   }
 
   export type KidooAvgOrderByAggregateInput = {
@@ -36793,6 +41366,7 @@ export namespace Prisma {
     sleepColorR?: SortOrder
     sleepEffect?: SortOrder
     sleepTimeout?: SortOrder
+    publicKey?: SortOrder
   }
 
   export type KidooMinOrderByAggregateInput = {
@@ -36816,6 +41390,7 @@ export namespace Prisma {
     sleepColorR?: SortOrder
     sleepEffect?: SortOrder
     sleepTimeout?: SortOrder
+    publicKey?: SortOrder
   }
 
   export type KidooSumOrderByAggregateInput = {
@@ -36847,11 +41422,6 @@ export namespace Prisma {
   export type KidooScalarRelationFilter = {
     is?: KidooWhereInput
     isNot?: KidooWhereInput
-  }
-
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
   }
 
   export type TagCountOrderByAggregateInput = {
@@ -37234,6 +41804,14 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
+    defaultColorR?: SortOrder
+    defaultColorG?: SortOrder
+    defaultColorB?: SortOrder
+    defaultBrightness?: SortOrder
+    defaultEffect?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -37247,6 +41825,11 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
+    defaultColorR?: SortOrder
+    defaultColorG?: SortOrder
+    defaultColorB?: SortOrder
+    defaultBrightness?: SortOrder
   }
 
   export type KidooConfigDreamMaxOrderByAggregateInput = {
@@ -37262,6 +41845,14 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
+    defaultColorR?: SortOrder
+    defaultColorG?: SortOrder
+    defaultColorB?: SortOrder
+    defaultBrightness?: SortOrder
+    defaultEffect?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -37279,6 +41870,14 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
+    defaultColorR?: SortOrder
+    defaultColorG?: SortOrder
+    defaultColorB?: SortOrder
+    defaultBrightness?: SortOrder
+    defaultEffect?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -37292,6 +41891,11 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
+    defaultColorR?: SortOrder
+    defaultColorG?: SortOrder
+    defaultColorB?: SortOrder
+    defaultBrightness?: SortOrder
   }
 
   export type KidooConfigDreamScalarRelationFilter = {
@@ -37393,6 +41997,62 @@ export namespace Prisma {
   export type KidooConfigDreamWakeupScheduleSumOrderByAggregateInput = {
     hour?: SortOrder
     minute?: SortOrder
+  }
+
+  export type EnumPostTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PostType | EnumPostTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPostTypeFilter<$PrismaModel> | $Enums.PostType
+  }
+
+  export type PostCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    excerpt?: SortOrder
+    content?: SortOrder
+    imageUrl?: SortOrder
+    type?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PostMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    excerpt?: SortOrder
+    content?: SortOrder
+    imageUrl?: SortOrder
+    type?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PostMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    excerpt?: SortOrder
+    content?: SortOrder
+    imageUrl?: SortOrder
+    type?: SortOrder
+    published?: SortOrder
+    publishedAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type EnumPostTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PostType | EnumPostTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPostTypeWithAggregatesFilter<$PrismaModel> | $Enums.PostType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPostTypeFilter<$PrismaModel>
+    _max?: NestedEnumPostTypeFilter<$PrismaModel>
   }
 
   export type ClipCreateNestedManyWithoutCharacterInput = {
@@ -38197,6 +42857,20 @@ export namespace Prisma {
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
   }
 
+  export type PushTokenCreateNestedManyWithoutUserInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+  }
+
+  export type NotificationCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -38230,6 +42904,20 @@ export namespace Prisma {
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
     createMany?: TagCreateManyUserInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+  }
+
+  export type PushTokenUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+  }
+
+  export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -38302,6 +42990,34 @@ export namespace Prisma {
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
+  export type PushTokenUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+  }
+
+  export type NotificationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -38372,6 +43088,78 @@ export namespace Prisma {
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
+  export type PushTokenUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutPushTokensInput = {
+    create?: XOR<UserCreateWithoutPushTokensInput, UserUncheckedCreateWithoutPushTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPushTokensInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutPushTokensNestedInput = {
+    create?: XOR<UserCreateWithoutPushTokensInput, UserUncheckedCreateWithoutPushTokensInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPushTokensInput
+    upsert?: UserUpsertWithoutPushTokensInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPushTokensInput, UserUpdateWithoutPushTokensInput>, UserUncheckedUpdateWithoutPushTokensInput>
+  }
+
+  export type UserCreateNestedOneWithoutNotificationsInput = {
+    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type KidooCreateNestedOneWithoutNotificationsInput = {
+    create?: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutNotificationsInput
+    connect?: KidooWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
+    upsert?: UserUpsertWithoutNotificationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotificationsInput, UserUpdateWithoutNotificationsInput>, UserUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type KidooUpdateOneWithoutNotificationsNestedInput = {
+    create?: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutNotificationsInput
+    upsert?: KidooUpsertWithoutNotificationsInput
+    disconnect?: KidooWhereInput | boolean
+    delete?: KidooWhereInput | boolean
+    connect?: KidooWhereUniqueInput
+    update?: XOR<XOR<KidooUpdateToOneWithWhereWithoutNotificationsInput, KidooUpdateWithoutNotificationsInput>, KidooUncheckedUpdateWithoutNotificationsInput>
+  }
+
   export type KidooConfigBasicCreateNestedOneWithoutKidooInput = {
     create?: XOR<KidooConfigBasicCreateWithoutKidooInput, KidooConfigBasicUncheckedCreateWithoutKidooInput>
     connectOrCreate?: KidooConfigBasicCreateOrConnectWithoutKidooInput
@@ -38397,6 +43185,13 @@ export namespace Prisma {
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
   }
 
+  export type NotificationCreateNestedManyWithoutKidooInput = {
+    create?: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput> | NotificationCreateWithoutKidooInput[] | NotificationUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
+    createMany?: NotificationCreateManyKidooInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
   export type KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput = {
     create?: XOR<KidooConfigBasicCreateWithoutKidooInput, KidooConfigBasicUncheckedCreateWithoutKidooInput>
     connectOrCreate?: KidooConfigBasicCreateOrConnectWithoutKidooInput
@@ -38414,6 +43209,13 @@ export namespace Prisma {
     connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
     createMany?: TagCreateManyKidooInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+  }
+
+  export type NotificationUncheckedCreateNestedManyWithoutKidooInput = {
+    create?: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput> | NotificationCreateWithoutKidooInput[] | NotificationUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
+    createMany?: NotificationCreateManyKidooInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
   }
 
   export type EnumKidooModelFieldUpdateOperationsInput = {
@@ -38464,6 +43266,20 @@ export namespace Prisma {
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
+  export type NotificationUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput> | NotificationCreateWithoutKidooInput[] | NotificationUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutKidooInput | NotificationUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: NotificationCreateManyKidooInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutKidooInput | NotificationUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutKidooInput | NotificationUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
   export type KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput = {
     create?: XOR<KidooConfigBasicCreateWithoutKidooInput, KidooConfigBasicUncheckedCreateWithoutKidooInput>
     connectOrCreate?: KidooConfigBasicCreateOrConnectWithoutKidooInput
@@ -38496,6 +43312,20 @@ export namespace Prisma {
     update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
     updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput> | NotificationCreateWithoutKidooInput[] | NotificationUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutKidooInput | NotificationUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: NotificationCreateManyKidooInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutKidooInput | NotificationUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutKidooInput | NotificationUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
   }
 
   export type FileCreateNestedManyWithoutTagInput = {
@@ -38774,6 +43604,10 @@ export namespace Prisma {
     upsert?: KidooConfigDreamUpsertWithoutWakeupSchedulesInput
     connect?: KidooConfigDreamWhereUniqueInput
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutWakeupSchedulesInput, KidooConfigDreamUpdateWithoutWakeupSchedulesInput>, KidooConfigDreamUncheckedUpdateWithoutWakeupSchedulesInput>
+  }
+
+  export type EnumPostTypeFieldUpdateOperationsInput = {
+    set?: $Enums.PostType
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -39250,6 +44084,23 @@ export namespace Prisma {
     _sum?: NestedBigIntNullableFilter<$PrismaModel>
     _min?: NestedBigIntNullableFilter<$PrismaModel>
     _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumPostTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PostType | EnumPostTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPostTypeFilter<$PrismaModel> | $Enums.PostType
+  }
+
+  export type NestedEnumPostTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PostType | EnumPostTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PostType[] | ListEnumPostTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPostTypeWithAggregatesFilter<$PrismaModel> | $Enums.PostType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPostTypeFilter<$PrismaModel>
+    _max?: NestedEnumPostTypeFilter<$PrismaModel>
   }
 
   export type ClipCreateWithoutCharacterInput = {
@@ -41289,9 +46140,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
     tags?: TagCreateNestedManyWithoutKidooInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutUserInput = {
@@ -41314,9 +46167,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutUserInput = {
@@ -41382,6 +46237,60 @@ export namespace Prisma {
 
   export type TagCreateManyUserInputEnvelope = {
     data: TagCreateManyUserInput | TagCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PushTokenCreateWithoutUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenUncheckedCreateWithoutUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenCreateOrConnectWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PushTokenCreateManyUserInputEnvelope = {
+    data: PushTokenCreateManyUserInput | PushTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NotificationCreateWithoutUserInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kidoo?: KidooCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateWithoutUserInput = {
+    id?: string
+    kidooId?: string | null
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationCreateManyUserInputEnvelope = {
+    data: NotificationCreateManyUserInput | NotificationCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -41494,6 +46403,7 @@ export namespace Prisma {
     sleepColorR?: IntNullableFilter<"Kidoo"> | number | null
     sleepEffect?: IntNullableFilter<"Kidoo"> | number | null
     sleepTimeout?: IntFilter<"Kidoo"> | number
+    publicKey?: StringNullableFilter<"Kidoo"> | string | null
   }
 
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -41553,6 +46463,387 @@ export namespace Prisma {
     type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
   }
 
+  export type PushTokenUpsertWithWhereUniqueWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    update: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
+    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PushTokenUpdateWithWhereUniqueWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    data: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PushTokenUpdateManyWithWhereWithoutUserInput = {
+    where: PushTokenScalarWhereInput
+    data: XOR<PushTokenUpdateManyMutationInput, PushTokenUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PushTokenScalarWhereInput = {
+    AND?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+    OR?: PushTokenScalarWhereInput[]
+    NOT?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+    id?: StringFilter<"PushToken"> | string
+    userId?: StringFilter<"PushToken"> | string
+    token?: StringFilter<"PushToken"> | string
+    createdAt?: DateTimeFilter<"PushToken"> | Date | string
+    updatedAt?: DateTimeFilter<"PushToken"> | Date | string
+  }
+
+  export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutUserInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NotificationScalarWhereInput = {
+    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    OR?: NotificationScalarWhereInput[]
+    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    userId?: StringFilter<"Notification"> | string
+    kidooId?: StringNullableFilter<"Notification"> | string | null
+    type?: StringFilter<"Notification"> | string
+    isRead?: BoolFilter<"Notification"> | boolean
+    readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+  }
+
+  export type UserCreateWithoutPushTokensInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPushTokensInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPushTokensInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPushTokensInput, UserUncheckedCreateWithoutPushTokensInput>
+  }
+
+  export type UserUpsertWithoutPushTokensInput = {
+    update: XOR<UserUpdateWithoutPushTokensInput, UserUncheckedUpdateWithoutPushTokensInput>
+    create: XOR<UserCreateWithoutPushTokensInput, UserUncheckedCreateWithoutPushTokensInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPushTokensInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPushTokensInput, UserUncheckedUpdateWithoutPushTokensInput>
+  }
+
+  export type UserUpdateWithoutPushTokensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPushTokensInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutNotificationsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNotificationsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNotificationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+  }
+
+  export type KidooCreateWithoutNotificationsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    publicKey?: string | null
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    user?: UserCreateNestedOneWithoutKidoosInput
+    tags?: TagCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooUncheckedCreateWithoutNotificationsInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    userId?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    publicKey?: string | null
+    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooCreateOrConnectWithoutNotificationsInput = {
+    where: KidooWhereUniqueInput
+    create: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
+  }
+
+  export type UserUpsertWithoutNotificationsInput = {
+    update: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type UserUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type KidooUpsertWithoutNotificationsInput = {
+    update: XOR<KidooUpdateWithoutNotificationsInput, KidooUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
+    where?: KidooWhereInput
+  }
+
+  export type KidooUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: KidooWhereInput
+    data: XOR<KidooUpdateWithoutNotificationsInput, KidooUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type KidooUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
+    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    user?: UserUpdateOneWithoutKidoosNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
+  }
+
+  export type KidooUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
+    configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+  }
+
   export type KidooConfigBasicCreateWithoutKidooInput = {
     id?: string
     storageTotalBytes?: bigint | number | null
@@ -41594,6 +46885,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
@@ -41612,6 +46911,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
@@ -41630,6 +46937,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -41637,6 +46947,8 @@ export namespace Prisma {
     files?: FileCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutKidoosInput = {
@@ -41646,6 +46958,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -41653,6 +46968,8 @@ export namespace Prisma {
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutKidoosInput = {
@@ -41691,6 +47008,36 @@ export namespace Prisma {
 
   export type TagCreateManyKidooInputEnvelope = {
     data: TagCreateManyKidooInput | TagCreateManyKidooInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NotificationCreateWithoutKidooInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateWithoutKidooInput = {
+    id?: string
+    userId: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutKidooInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput>
+  }
+
+  export type NotificationCreateManyKidooInputEnvelope = {
+    data: NotificationCreateManyKidooInput | NotificationCreateManyKidooInput[]
     skipDuplicates?: boolean
   }
 
@@ -41752,6 +47099,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
@@ -41770,6 +47125,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
@@ -41794,6 +47157,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -41801,6 +47167,8 @@ export namespace Prisma {
     files?: FileUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutKidoosInput = {
@@ -41810,6 +47178,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -41817,6 +47188,8 @@ export namespace Prisma {
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TagUpsertWithWhereUniqueWithoutKidooInput = {
@@ -41833,6 +47206,22 @@ export namespace Prisma {
   export type TagUpdateManyWithWhereWithoutKidooInput = {
     where: TagScalarWhereInput
     data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutKidooInput>
+  }
+
+  export type NotificationUpsertWithWhereUniqueWithoutKidooInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutKidooInput, NotificationUncheckedUpdateWithoutKidooInput>
+    create: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutKidooInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutKidooInput, NotificationUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutKidooInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutKidooInput>
   }
 
   export type FileCreateWithoutTagInput = {
@@ -41895,9 +47284,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutTagsInput = {
@@ -41921,8 +47312,10 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutTagsInput = {
@@ -41937,6 +47330,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -41944,6 +47340,8 @@ export namespace Prisma {
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTagsInput = {
@@ -41953,6 +47351,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -41960,6 +47361,8 @@ export namespace Prisma {
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTagsInput = {
@@ -42014,9 +47417,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutTagsInput = {
@@ -42040,8 +47445,10 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type UserUpsertWithoutTagsInput = {
@@ -42062,6 +47469,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42069,6 +47479,8 @@ export namespace Prisma {
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTagsInput = {
@@ -42078,6 +47490,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42085,6 +47500,8 @@ export namespace Prisma {
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -42094,6 +47511,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42101,6 +47521,8 @@ export namespace Prisma {
     kidoos?: KidooCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -42110,6 +47532,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42117,6 +47542,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -42142,6 +47569,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42149,6 +47579,8 @@ export namespace Prisma {
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -42158,6 +47590,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42165,6 +47600,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -42174,6 +47611,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42181,6 +47621,8 @@ export namespace Prisma {
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -42190,6 +47632,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42197,6 +47642,8 @@ export namespace Prisma {
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -42222,6 +47669,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42229,6 +47679,8 @@ export namespace Prisma {
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -42238,6 +47690,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42245,6 +47700,8 @@ export namespace Prisma {
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TagCreateWithoutMultimediaFilesInput = {
@@ -42283,6 +47740,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42290,6 +47750,8 @@ export namespace Prisma {
     kidoos?: KidooCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFilesInput = {
@@ -42299,6 +47761,9 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
@@ -42306,6 +47771,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFilesInput = {
@@ -42366,6 +47833,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42373,6 +47843,8 @@ export namespace Prisma {
     kidoos?: KidooUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFilesInput = {
@@ -42382,6 +47854,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
@@ -42389,6 +47864,8 @@ export namespace Prisma {
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type KidooCreateWithoutConfigBasicInput = {
@@ -42411,9 +47888,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigBasicInput = {
@@ -42437,8 +47916,10 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigBasicInput = {
@@ -42477,9 +47958,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigBasicInput = {
@@ -42503,8 +47986,10 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateWithoutConfigDreamInput = {
@@ -42527,9 +48012,11 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigDreamInput = {
@@ -42553,8 +48040,10 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigDreamInput = {
@@ -42653,9 +48142,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigDreamInput = {
@@ -42679,8 +48170,10 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooConfigDreamBedtimeScheduleUpsertWithWhereUniqueWithoutKidooConfigDreamInput = {
@@ -42755,6 +48248,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
@@ -42774,6 +48275,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
@@ -42807,6 +48316,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
@@ -42826,6 +48343,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
@@ -42843,6 +48368,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
@@ -42862,6 +48395,14 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
+    defaultColorR?: number | null
+    defaultColorG?: number | null
+    defaultColorB?: number | null
+    defaultBrightness?: number | null
+    defaultEffect?: string | null
+    nighttimeAlertEnabled?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
@@ -42895,6 +48436,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
@@ -42914,6 +48463,14 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
+    defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
@@ -43710,6 +49267,7 @@ export namespace Prisma {
     sleepColorR?: number | null
     sleepEffect?: number | null
     sleepTimeout?: number
+    publicKey?: string | null
   }
 
   export type SessionCreateManyUserInput = {
@@ -43727,6 +49285,23 @@ export namespace Prisma {
     updatedAt?: Date | string
     tagId?: string | null
     type?: $Enums.TagType | null
+  }
+
+  export type PushTokenCreateManyUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateManyUserInput = {
+    id?: string
+    kidooId?: string | null
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -43836,9 +49411,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutUserInput = {
@@ -43861,9 +49438,11 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateManyWithoutUserInput = {
@@ -43886,6 +49465,7 @@ export namespace Prisma {
     sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -43941,6 +49521,57 @@ export namespace Prisma {
     type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
+  export type PushTokenUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidoo?: KidooUpdateOneWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type TagCreateManyKidooInput = {
     id?: string
     uid?: string | null
@@ -43950,6 +49581,16 @@ export namespace Prisma {
     updatedAt?: Date | string
     tagId?: string | null
     type?: $Enums.TagType | null
+  }
+
+  export type NotificationCreateManyKidooInput = {
+    id?: string
+    userId: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type TagUpdateWithoutKidooInput = {
@@ -43985,6 +49626,36 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tagId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
+  }
+
+  export type NotificationUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FileCreateManyTagInput = {

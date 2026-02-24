@@ -14,7 +14,9 @@ export * from './models/common/config/brightness';
 export * from './models/common/config/sleep-timeout';
 export * from './models/common/config/sleep-mode';
 export * from './models/common/config/name';
-// dream-bedtime / dream-wakeup : import via @kidoo/shared/models/dream
+// dream-bedtime / dream-wakeup (color-utils n'a pas de dépendance Prisma)
+export * from './models/dream';
+export * from './models/common/commands/actions';
 export * from './models/common/commands/get-info';
 export * from './models/common/commands/reboot';
 export * from './models/common/commands/firmware-update';

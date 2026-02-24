@@ -8,6 +8,8 @@ export * from './config/brightness';
 export * from './config/sleep-timeout';
 export * from './config/sleep-mode';
 export * from './config/name';
+export * from './commands/actions';
 export * from './commands/get-info';
+export * from './commands/get-env';
 export * from './commands/reboot';
 export * from './commands/firmware-update';

@@ -20,6 +20,8 @@ export const createKidooInputSchema = z.object({
   firmwareVersion: z.string().optional(),
   brightness: z.number().int().min(0).max(100).optional(), // Brightness en pourcentage (0-100)
   sleepTimeout: z.number().int().min(0).optional(), // Sleep timeout en millisecondes
+  /** Clé publique Ed25519 (base64) - générée par l'ESP32 au setup pour authentification device */
+  publicKey: z.string().max(128).optional(),
 });
 
 export type CreateKidooInput = z.infer<typeof createKidooInputSchema>;
