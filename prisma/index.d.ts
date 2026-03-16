@@ -139,6 +139,11 @@ export type KidooConfigDreamBedtimeSchedule = $Result.DefaultSelection<Prisma.$K
  */
 export type KidooConfigDreamWakeupSchedule = $Result.DefaultSelection<Prisma.$KidooConfigDreamWakeupSchedulePayload>
 /**
+ * Model KidooConfigSound
+ * 
+ */
+export type KidooConfigSound = $Result.DefaultSelection<Prisma.$KidooConfigSoundPayload>
+/**
  * Model Post
  * 
  */
@@ -247,7 +252,9 @@ export type EmotionDeviceMode = (typeof EmotionDeviceMode)[keyof typeof EmotionD
 
 export const KidooModel: {
   basic: 'basic',
-  dream: 'dream'
+  dream: 'dream',
+  gotchi: 'gotchi',
+  sound: 'sound'
 };
 
 export type KidooModel = (typeof KidooModel)[keyof typeof KidooModel]
@@ -674,6 +681,16 @@ export class PrismaClient<
     * ```
     */
   get kidooConfigDreamWakeupSchedule(): Prisma.KidooConfigDreamWakeupScheduleDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.kidooConfigSound`: Exposes CRUD operations for the **KidooConfigSound** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more KidooConfigSounds
+    * const kidooConfigSounds = await prisma.kidooConfigSound.findMany()
+    * ```
+    */
+  get kidooConfigSound(): Prisma.KidooConfigSoundDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.post`: Exposes CRUD operations for the **Post** model.
@@ -1143,6 +1160,7 @@ export namespace Prisma {
     KidooConfigDream: 'KidooConfigDream',
     KidooConfigDreamBedtimeSchedule: 'KidooConfigDreamBedtimeSchedule',
     KidooConfigDreamWakeupSchedule: 'KidooConfigDreamWakeupSchedule',
+    KidooConfigSound: 'KidooConfigSound',
     Post: 'Post'
   };
 
@@ -1159,7 +1177,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "pushToken" | "notification" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule" | "post"
+      modelProps: "character" | "emotion" | "clip" | "clipArtifact" | "clipFaceRegion" | "emotionVideo" | "emotionDevice" | "deviceClipCache" | "rule" | "objectType" | "rfidObject" | "user" | "pushToken" | "notification" | "kidoo" | "tag" | "account" | "session" | "verificationToken" | "firmware" | "file" | "kidooConfigBasic" | "kidooConfigDream" | "kidooConfigDreamBedtimeSchedule" | "kidooConfigDreamWakeupSchedule" | "kidooConfigSound" | "post"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3013,6 +3031,80 @@ export namespace Prisma {
           }
         }
       }
+      KidooConfigSound: {
+        payload: Prisma.$KidooConfigSoundPayload<ExtArgs>
+        fields: Prisma.KidooConfigSoundFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.KidooConfigSoundFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.KidooConfigSoundFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          findFirst: {
+            args: Prisma.KidooConfigSoundFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.KidooConfigSoundFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          findMany: {
+            args: Prisma.KidooConfigSoundFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>[]
+          }
+          create: {
+            args: Prisma.KidooConfigSoundCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          createMany: {
+            args: Prisma.KidooConfigSoundCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.KidooConfigSoundCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>[]
+          }
+          delete: {
+            args: Prisma.KidooConfigSoundDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          update: {
+            args: Prisma.KidooConfigSoundUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          deleteMany: {
+            args: Prisma.KidooConfigSoundDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.KidooConfigSoundUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.KidooConfigSoundUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>[]
+          }
+          upsert: {
+            args: Prisma.KidooConfigSoundUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KidooConfigSoundPayload>
+          }
+          aggregate: {
+            args: Prisma.KidooConfigSoundAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateKidooConfigSound>
+          }
+          groupBy: {
+            args: Prisma.KidooConfigSoundGroupByArgs<ExtArgs>
+            result: $Utils.Optional<KidooConfigSoundGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.KidooConfigSoundCountArgs<ExtArgs>
+            result: $Utils.Optional<KidooConfigSoundCountAggregateOutputType> | number
+          }
+        }
+      }
       Post: {
         payload: Prisma.$PostPayload<ExtArgs>
         fields: Prisma.PostFieldRefs
@@ -3220,6 +3312,7 @@ export namespace Prisma {
     kidooConfigDream?: KidooConfigDreamOmit
     kidooConfigDreamBedtimeSchedule?: KidooConfigDreamBedtimeScheduleOmit
     kidooConfigDreamWakeupSchedule?: KidooConfigDreamWakeupScheduleOmit
+    kidooConfigSound?: KidooConfigSoundOmit
     post?: PostOmit
   }
 
@@ -3522,20 +3615,20 @@ export namespace Prisma {
     accounts: number
     files: number
     kidoos: number
+    notifications: number
+    pushTokens: number
     sessions: number
     tags: number
-    pushTokens: number
-    notifications: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     files?: boolean | UserCountOutputTypeCountFilesArgs
     kidoos?: boolean | UserCountOutputTypeCountKidoosArgs
+    notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
+    pushTokens?: boolean | UserCountOutputTypeCountPushTokensArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     tags?: boolean | UserCountOutputTypeCountTagsArgs
-    pushTokens?: boolean | UserCountOutputTypeCountPushTokensArgs
-    notifications?: boolean | UserCountOutputTypeCountNotificationsArgs
   }
 
   // Custom InputTypes
@@ -3573,15 +3666,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SessionWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TagWhereInput
+  export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
   }
 
   /**
@@ -3594,8 +3680,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NotificationWhereInput
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TagWhereInput
   }
 
 
@@ -3604,13 +3697,13 @@ export namespace Prisma {
    */
 
   export type KidooCountOutputType = {
-    tags: number
     notifications: number
+    tags: number
   }
 
   export type KidooCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tags?: boolean | KidooCountOutputTypeCountTagsArgs
     notifications?: boolean | KidooCountOutputTypeCountNotificationsArgs
+    tags?: boolean | KidooCountOutputTypeCountTagsArgs
   }
 
   // Custom InputTypes
@@ -3627,15 +3720,15 @@ export namespace Prisma {
   /**
    * KidooCountOutputType without action
    */
-  export type KidooCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TagWhereInput
+  export type KidooCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
   }
 
   /**
    * KidooCountOutputType without action
    */
-  export type KidooCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NotificationWhereInput
+  export type KidooCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TagWhereInput
   }
 
 
@@ -16867,12 +16960,12 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    timezoneId: string | null
-    resetCode: string | null
-    resetCodeExpiresAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     isAdmin: boolean | null
+    timezoneId: string | null
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -16882,12 +16975,12 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    timezoneId: string | null
-    resetCode: string | null
-    resetCodeExpiresAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
     isAdmin: boolean | null
+    timezoneId: string | null
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -16897,12 +16990,12 @@ export namespace Prisma {
     name: number
     avatar: number
     password: number
-    timezoneId: number
-    resetCode: number
-    resetCodeExpiresAt: number
     createdAt: number
     updatedAt: number
     isAdmin: number
+    timezoneId: number
+    resetCode: number
+    resetCodeExpiresAt: number
     _all: number
   }
 
@@ -16914,12 +17007,12 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    timezoneId?: true
-    resetCode?: true
-    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -16929,12 +17022,12 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    timezoneId?: true
-    resetCode?: true
-    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -16944,12 +17037,12 @@ export namespace Prisma {
     name?: true
     avatar?: true
     password?: true
-    timezoneId?: true
-    resetCode?: true
-    resetCodeExpiresAt?: true
     createdAt?: true
     updatedAt?: true
     isAdmin?: true
+    timezoneId?: true
+    resetCode?: true
+    resetCodeExpiresAt?: true
     _all?: true
   }
 
@@ -17032,12 +17125,12 @@ export namespace Prisma {
     name: string | null
     avatar: string | null
     password: string | null
-    timezoneId: string
-    resetCode: string | null
-    resetCodeExpiresAt: Date | null
     createdAt: Date
     updatedAt: Date
     isAdmin: boolean
+    timezoneId: string
+    resetCode: string | null
+    resetCodeExpiresAt: Date | null
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -17064,19 +17157,19 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    timezoneId?: boolean
-    resetCode?: boolean
-    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     files?: boolean | User$filesArgs<ExtArgs>
     kidoos?: boolean | User$kidoosArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
+    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     tags?: boolean | User$tagsArgs<ExtArgs>
-    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
-    notifications?: boolean | User$notificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -17087,12 +17180,12 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    timezoneId?: boolean
-    resetCode?: boolean
-    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -17102,12 +17195,12 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    timezoneId?: boolean
-    resetCode?: boolean
-    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -17117,23 +17210,23 @@ export namespace Prisma {
     name?: boolean
     avatar?: boolean
     password?: boolean
-    timezoneId?: boolean
-    resetCode?: boolean
-    resetCodeExpiresAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     isAdmin?: boolean
+    timezoneId?: boolean
+    resetCode?: boolean
+    resetCodeExpiresAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "timezoneId" | "resetCode" | "resetCodeExpiresAt" | "createdAt" | "updatedAt" | "isAdmin", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "emailVerified" | "name" | "avatar" | "password" | "createdAt" | "updatedAt" | "isAdmin" | "timezoneId" | "resetCode" | "resetCodeExpiresAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     files?: boolean | User$filesArgs<ExtArgs>
     kidoos?: boolean | User$kidoosArgs<ExtArgs>
+    notifications?: boolean | User$notificationsArgs<ExtArgs>
+    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     tags?: boolean | User$tagsArgs<ExtArgs>
-    pushTokens?: boolean | User$pushTokensArgs<ExtArgs>
-    notifications?: boolean | User$notificationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -17145,10 +17238,10 @@ export namespace Prisma {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       files: Prisma.$FilePayload<ExtArgs>[]
       kidoos: Prisma.$KidooPayload<ExtArgs>[]
+      notifications: Prisma.$NotificationPayload<ExtArgs>[]
+      pushTokens: Prisma.$PushTokenPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       tags: Prisma.$TagPayload<ExtArgs>[]
-      pushTokens: Prisma.$PushTokenPayload<ExtArgs>[]
-      notifications: Prisma.$NotificationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -17157,12 +17250,12 @@ export namespace Prisma {
       name: string | null
       avatar: string | null
       password: string | null
-      timezoneId: string
-      resetCode: string | null
-      resetCodeExpiresAt: Date | null
       createdAt: Date
       updatedAt: Date
       isAdmin: boolean
+      timezoneId: string
+      resetCode: string | null
+      resetCodeExpiresAt: Date | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -17560,10 +17653,10 @@ export namespace Prisma {
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     files<T extends User$filesArgs<ExtArgs> = {}>(args?: Subset<T, User$filesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     kidoos<T extends User$kidoosArgs<ExtArgs> = {}>(args?: Subset<T, User$kidoosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pushTokens<T extends User$pushTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$pushTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tags<T extends User$tagsArgs<ExtArgs> = {}>(args?: Subset<T, User$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    pushTokens<T extends User$pushTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$pushTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PushTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    notifications<T extends User$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, User$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17599,12 +17692,12 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly timezoneId: FieldRef<"User", 'String'>
-    readonly resetCode: FieldRef<"User", 'String'>
-    readonly resetCodeExpiresAt: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly isAdmin: FieldRef<"User", 'Boolean'>
+    readonly timezoneId: FieldRef<"User", 'String'>
+    readonly resetCode: FieldRef<"User", 'String'>
+    readonly resetCodeExpiresAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -18065,6 +18158,54 @@ export namespace Prisma {
   }
 
   /**
+   * User.notifications
+   */
+  export type User$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * User.pushTokens
+   */
+  export type User$pushTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PushToken
+     */
+    select?: PushTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PushToken
+     */
+    omit?: PushTokenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PushTokenInclude<ExtArgs> | null
+    where?: PushTokenWhereInput
+    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
+    cursor?: PushTokenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
+  }
+
+  /**
    * User.sessions
    */
   export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18110,54 +18251,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
-  }
-
-  /**
-   * User.pushTokens
-   */
-  export type User$pushTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PushToken
-     */
-    select?: PushTokenSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PushToken
-     */
-    omit?: PushTokenOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PushTokenInclude<ExtArgs> | null
-    where?: PushTokenWhereInput
-    orderBy?: PushTokenOrderByWithRelationInput | PushTokenOrderByWithRelationInput[]
-    cursor?: PushTokenWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PushTokenScalarFieldEnum | PushTokenScalarFieldEnum[]
-  }
-
-  /**
-   * User.notifications
-   */
-  export type User$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Notification
-     */
-    select?: NotificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Notification
-     */
-    omit?: NotificationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: NotificationInclude<ExtArgs> | null
-    where?: NotificationWhereInput
-    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
-    cursor?: NotificationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
   }
 
   /**
@@ -19250,34 +19343,34 @@ export namespace Prisma {
   export type NotificationMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    kidooId: string | null
     type: string | null
     isRead: boolean | null
     readAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    kidooId: string | null
   }
 
   export type NotificationMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    kidooId: string | null
     type: string | null
     isRead: boolean | null
     readAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
+    kidooId: string | null
   }
 
   export type NotificationCountAggregateOutputType = {
     id: number
     userId: number
-    kidooId: number
     type: number
     isRead: number
     readAt: number
     createdAt: number
     updatedAt: number
+    kidooId: number
     _all: number
   }
 
@@ -19285,34 +19378,34 @@ export namespace Prisma {
   export type NotificationMinAggregateInputType = {
     id?: true
     userId?: true
-    kidooId?: true
     type?: true
     isRead?: true
     readAt?: true
     createdAt?: true
     updatedAt?: true
+    kidooId?: true
   }
 
   export type NotificationMaxAggregateInputType = {
     id?: true
     userId?: true
-    kidooId?: true
     type?: true
     isRead?: true
     readAt?: true
     createdAt?: true
     updatedAt?: true
+    kidooId?: true
   }
 
   export type NotificationCountAggregateInputType = {
     id?: true
     userId?: true
-    kidooId?: true
     type?: true
     isRead?: true
     readAt?: true
     createdAt?: true
     updatedAt?: true
+    kidooId?: true
     _all?: true
   }
 
@@ -19391,12 +19484,12 @@ export namespace Prisma {
   export type NotificationGroupByOutputType = {
     id: string
     userId: string
-    kidooId: string | null
     type: string
     isRead: boolean
     readAt: Date | null
     createdAt: Date
     updatedAt: Date
+    kidooId: string | null
     _count: NotificationCountAggregateOutputType | null
     _min: NotificationMinAggregateOutputType | null
     _max: NotificationMaxAggregateOutputType | null
@@ -19419,82 +19512,82 @@ export namespace Prisma {
   export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    kidooId?: boolean
     type?: boolean
     isRead?: boolean
     readAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidooId?: boolean
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notification"]>
 
   export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    kidooId?: boolean
     type?: boolean
     isRead?: boolean
     readAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidooId?: boolean
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notification"]>
 
   export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    kidooId?: boolean
     type?: boolean
     isRead?: boolean
     readAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    kidooId?: boolean
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["notification"]>
 
   export type NotificationSelectScalar = {
     id?: boolean
     userId?: boolean
-    kidooId?: boolean
     type?: boolean
     isRead?: boolean
     readAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    kidooId?: boolean
   }
 
-  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "kidooId" | "type" | "isRead" | "readAt" | "createdAt" | "updatedAt", ExtArgs["result"]["notification"]>
+  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "type" | "isRead" | "readAt" | "createdAt" | "updatedAt" | "kidooId", ExtArgs["result"]["notification"]>
   export type NotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type NotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     kidoo?: boolean | Notification$kidooArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Notification"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       kidoo: Prisma.$KidooPayload<ExtArgs> | null
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
-      kidooId: string | null
       type: string
       isRead: boolean
       readAt: Date | null
       createdAt: Date
       updatedAt: Date
+      kidooId: string | null
     }, ExtArgs["result"]["notification"]>
     composites: {}
   }
@@ -19889,8 +19982,8 @@ export namespace Prisma {
    */
   export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     kidoo<T extends Notification$kidooArgs<ExtArgs> = {}>(args?: Subset<T, Notification$kidooArgs<ExtArgs>>): Prisma__KidooClient<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19922,12 +20015,12 @@ export namespace Prisma {
   interface NotificationFieldRefs {
     readonly id: FieldRef<"Notification", 'String'>
     readonly userId: FieldRef<"Notification", 'String'>
-    readonly kidooId: FieldRef<"Notification", 'String'>
     readonly type: FieldRef<"Notification", 'String'>
     readonly isRead: FieldRef<"Notification", 'Boolean'>
     readonly readAt: FieldRef<"Notification", 'DateTime'>
     readonly createdAt: FieldRef<"Notification", 'DateTime'>
     readonly updatedAt: FieldRef<"Notification", 'DateTime'>
+    readonly kidooId: FieldRef<"Notification", 'String'>
   }
     
 
@@ -20709,9 +20802,10 @@ export namespace Prisma {
     publicKey?: boolean
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    configSound?: boolean | Kidoo$configSoundArgs<ExtArgs>
     user?: boolean | Kidoo$userArgs<ExtArgs>
-    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     notifications?: boolean | Kidoo$notificationsArgs<ExtArgs>
+    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidoo"]>
 
@@ -20793,9 +20887,10 @@ export namespace Prisma {
   export type KidooInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     configBasic?: boolean | Kidoo$configBasicArgs<ExtArgs>
     configDream?: boolean | Kidoo$configDreamArgs<ExtArgs>
+    configSound?: boolean | Kidoo$configSoundArgs<ExtArgs>
     user?: boolean | Kidoo$userArgs<ExtArgs>
-    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     notifications?: boolean | Kidoo$notificationsArgs<ExtArgs>
+    tags?: boolean | Kidoo$tagsArgs<ExtArgs>
     _count?: boolean | KidooCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KidooIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20810,9 +20905,10 @@ export namespace Prisma {
     objects: {
       configBasic: Prisma.$KidooConfigBasicPayload<ExtArgs> | null
       configDream: Prisma.$KidooConfigDreamPayload<ExtArgs> | null
+      configSound: Prisma.$KidooConfigSoundPayload<ExtArgs> | null
       user: Prisma.$UserPayload<ExtArgs> | null
-      tags: Prisma.$TagPayload<ExtArgs>[]
       notifications: Prisma.$NotificationPayload<ExtArgs>[]
+      tags: Prisma.$TagPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -21235,9 +21331,10 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     configBasic<T extends Kidoo$configBasicArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configBasicArgs<ExtArgs>>): Prisma__KidooConfigBasicClient<$Result.GetResult<Prisma.$KidooConfigBasicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     configDream<T extends Kidoo$configDreamArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configDreamArgs<ExtArgs>>): Prisma__KidooConfigDreamClient<$Result.GetResult<Prisma.$KidooConfigDreamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    configSound<T extends Kidoo$configSoundArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$configSoundArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     user<T extends Kidoo$userArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notifications<T extends Kidoo$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tags<T extends Kidoo$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Kidoo$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -21722,6 +21819,25 @@ export namespace Prisma {
   }
 
   /**
+   * Kidoo.configSound
+   */
+  export type Kidoo$configSoundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    where?: KidooConfigSoundWhereInput
+  }
+
+  /**
    * Kidoo.user
    */
   export type Kidoo$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21738,30 +21854,6 @@ export namespace Prisma {
      */
     include?: UserInclude<ExtArgs> | null
     where?: UserWhereInput
-  }
-
-  /**
-   * Kidoo.tags
-   */
-  export type Kidoo$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tag
-     */
-    select?: TagSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tag
-     */
-    omit?: TagOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: TagInclude<ExtArgs> | null
-    where?: TagWhereInput
-    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
-    cursor?: TagWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
   }
 
   /**
@@ -21786,6 +21878,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Kidoo.tags
+   */
+  export type Kidoo$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tag
+     */
+    select?: TagSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tag
+     */
+    omit?: TagOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TagInclude<ExtArgs> | null
+    where?: TagWhereInput
+    orderBy?: TagOrderByWithRelationInput | TagOrderByWithRelationInput[]
+    cursor?: TagWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TagScalarFieldEnum | TagScalarFieldEnum[]
   }
 
   /**
@@ -29652,11 +29768,11 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
-    wakeupAutoShutdownMinutes: number | null
     defaultColorR: number | null
     defaultColorG: number | null
     defaultColorB: number | null
     defaultBrightness: number | null
+    wakeupAutoShutdownMinutes: number | null
   }
 
   export type KidooConfigDreamSumAggregateOutputType = {
@@ -29668,11 +29784,11 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
-    wakeupAutoShutdownMinutes: number | null
     defaultColorR: number | null
     defaultColorG: number | null
     defaultColorB: number | null
     defaultBrightness: number | null
+    wakeupAutoShutdownMinutes: number | null
   }
 
   export type KidooConfigDreamMinAggregateOutputType = {
@@ -29688,16 +29804,16 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
-    wakeupAutoShutdown: boolean | null
-    wakeupAutoShutdownMinutes: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    nighttimeAlertEnabled: boolean | null
     defaultColorR: number | null
     defaultColorG: number | null
     defaultColorB: number | null
     defaultBrightness: number | null
     defaultEffect: string | null
-    nighttimeAlertEnabled: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    wakeupAutoShutdown: boolean | null
+    wakeupAutoShutdownMinutes: number | null
   }
 
   export type KidooConfigDreamMaxAggregateOutputType = {
@@ -29713,16 +29829,16 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
-    wakeupAutoShutdown: boolean | null
-    wakeupAutoShutdownMinutes: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    nighttimeAlertEnabled: boolean | null
     defaultColorR: number | null
     defaultColorG: number | null
     defaultColorB: number | null
     defaultBrightness: number | null
     defaultEffect: string | null
-    nighttimeAlertEnabled: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    wakeupAutoShutdown: boolean | null
+    wakeupAutoShutdownMinutes: number | null
   }
 
   export type KidooConfigDreamCountAggregateOutputType = {
@@ -29738,16 +29854,16 @@ export namespace Prisma {
     wakeupColorG: number
     wakeupColorB: number
     wakeupBrightness: number
-    wakeupAutoShutdown: number
-    wakeupAutoShutdownMinutes: number
+    createdAt: number
+    updatedAt: number
+    nighttimeAlertEnabled: number
     defaultColorR: number
     defaultColorG: number
     defaultColorB: number
     defaultBrightness: number
     defaultEffect: number
-    nighttimeAlertEnabled: number
-    createdAt: number
-    updatedAt: number
+    wakeupAutoShutdown: number
+    wakeupAutoShutdownMinutes: number
     _all: number
   }
 
@@ -29761,11 +29877,11 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
-    wakeupAutoShutdownMinutes?: true
     defaultColorR?: true
     defaultColorG?: true
     defaultColorB?: true
     defaultBrightness?: true
+    wakeupAutoShutdownMinutes?: true
   }
 
   export type KidooConfigDreamSumAggregateInputType = {
@@ -29777,11 +29893,11 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
-    wakeupAutoShutdownMinutes?: true
     defaultColorR?: true
     defaultColorG?: true
     defaultColorB?: true
     defaultBrightness?: true
+    wakeupAutoShutdownMinutes?: true
   }
 
   export type KidooConfigDreamMinAggregateInputType = {
@@ -29797,16 +29913,16 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
-    wakeupAutoShutdown?: true
-    wakeupAutoShutdownMinutes?: true
+    createdAt?: true
+    updatedAt?: true
+    nighttimeAlertEnabled?: true
     defaultColorR?: true
     defaultColorG?: true
     defaultColorB?: true
     defaultBrightness?: true
     defaultEffect?: true
-    nighttimeAlertEnabled?: true
-    createdAt?: true
-    updatedAt?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
   }
 
   export type KidooConfigDreamMaxAggregateInputType = {
@@ -29822,16 +29938,16 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
-    wakeupAutoShutdown?: true
-    wakeupAutoShutdownMinutes?: true
+    createdAt?: true
+    updatedAt?: true
+    nighttimeAlertEnabled?: true
     defaultColorR?: true
     defaultColorG?: true
     defaultColorB?: true
     defaultBrightness?: true
     defaultEffect?: true
-    nighttimeAlertEnabled?: true
-    createdAt?: true
-    updatedAt?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
   }
 
   export type KidooConfigDreamCountAggregateInputType = {
@@ -29847,16 +29963,16 @@ export namespace Prisma {
     wakeupColorG?: true
     wakeupColorB?: true
     wakeupBrightness?: true
-    wakeupAutoShutdown?: true
-    wakeupAutoShutdownMinutes?: true
+    createdAt?: true
+    updatedAt?: true
+    nighttimeAlertEnabled?: true
     defaultColorR?: true
     defaultColorG?: true
     defaultColorB?: true
     defaultBrightness?: true
     defaultEffect?: true
-    nighttimeAlertEnabled?: true
-    createdAt?: true
-    updatedAt?: true
+    wakeupAutoShutdown?: true
+    wakeupAutoShutdownMinutes?: true
     _all?: true
   }
 
@@ -29959,16 +30075,16 @@ export namespace Prisma {
     wakeupColorG: number | null
     wakeupColorB: number | null
     wakeupBrightness: number | null
-    wakeupAutoShutdown: boolean
-    wakeupAutoShutdownMinutes: number | null
+    createdAt: Date
+    updatedAt: Date
+    nighttimeAlertEnabled: boolean
     defaultColorR: number | null
     defaultColorG: number | null
     defaultColorB: number | null
     defaultBrightness: number | null
     defaultEffect: string | null
-    nighttimeAlertEnabled: boolean
-    createdAt: Date
-    updatedAt: Date
+    wakeupAutoShutdown: boolean
+    wakeupAutoShutdownMinutes: number | null
     _count: KidooConfigDreamCountAggregateOutputType | null
     _avg: KidooConfigDreamAvgAggregateOutputType | null
     _sum: KidooConfigDreamSumAggregateOutputType | null
@@ -30003,16 +30119,16 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: boolean
     defaultColorG?: boolean
     defaultColorB?: boolean
     defaultBrightness?: boolean
     defaultEffect?: boolean
-    nighttimeAlertEnabled?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     bedtimeSchedules?: boolean | KidooConfigDream$bedtimeSchedulesArgs<ExtArgs>
     wakeupSchedules?: boolean | KidooConfigDream$wakeupSchedulesArgs<ExtArgs>
@@ -30032,16 +30148,16 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: boolean
     defaultColorG?: boolean
     defaultColorB?: boolean
     defaultBrightness?: boolean
     defaultEffect?: boolean
-    nighttimeAlertEnabled?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidooConfigDream"]>
 
@@ -30058,16 +30174,16 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: boolean
     defaultColorG?: boolean
     defaultColorB?: boolean
     defaultBrightness?: boolean
     defaultEffect?: boolean
-    nighttimeAlertEnabled?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidooConfigDream"]>
 
@@ -30084,19 +30200,19 @@ export namespace Prisma {
     wakeupColorG?: boolean
     wakeupColorB?: boolean
     wakeupBrightness?: boolean
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: boolean
     defaultColorG?: boolean
     defaultColorB?: boolean
     defaultBrightness?: boolean
     defaultEffect?: boolean
-    nighttimeAlertEnabled?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: boolean
   }
 
-  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "wakeupAutoShutdown" | "wakeupAutoShutdownMinutes" | "defaultColorR" | "defaultColorG" | "defaultColorB" | "defaultBrightness" | "defaultEffect" | "nighttimeAlertEnabled" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigDream"]>
+  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "createdAt" | "updatedAt" | "nighttimeAlertEnabled" | "defaultColorR" | "defaultColorG" | "defaultColorB" | "defaultBrightness" | "defaultEffect" | "wakeupAutoShutdown" | "wakeupAutoShutdownMinutes", ExtArgs["result"]["kidooConfigDream"]>
   export type KidooConfigDreamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     bedtimeSchedules?: boolean | KidooConfigDream$bedtimeSchedulesArgs<ExtArgs>
@@ -30130,16 +30246,16 @@ export namespace Prisma {
       wakeupColorG: number | null
       wakeupColorB: number | null
       wakeupBrightness: number | null
-      wakeupAutoShutdown: boolean
-      wakeupAutoShutdownMinutes: number | null
+      createdAt: Date
+      updatedAt: Date
+      nighttimeAlertEnabled: boolean
       defaultColorR: number | null
       defaultColorG: number | null
       defaultColorB: number | null
       defaultBrightness: number | null
       defaultEffect: string | null
-      nighttimeAlertEnabled: boolean
-      createdAt: Date
-      updatedAt: Date
+      wakeupAutoShutdown: boolean
+      wakeupAutoShutdownMinutes: number | null
     }, ExtArgs["result"]["kidooConfigDream"]>
     composites: {}
   }
@@ -30578,16 +30694,16 @@ export namespace Prisma {
     readonly wakeupColorG: FieldRef<"KidooConfigDream", 'Int'>
     readonly wakeupColorB: FieldRef<"KidooConfigDream", 'Int'>
     readonly wakeupBrightness: FieldRef<"KidooConfigDream", 'Int'>
-    readonly wakeupAutoShutdown: FieldRef<"KidooConfigDream", 'Boolean'>
-    readonly wakeupAutoShutdownMinutes: FieldRef<"KidooConfigDream", 'Int'>
+    readonly createdAt: FieldRef<"KidooConfigDream", 'DateTime'>
+    readonly updatedAt: FieldRef<"KidooConfigDream", 'DateTime'>
+    readonly nighttimeAlertEnabled: FieldRef<"KidooConfigDream", 'Boolean'>
     readonly defaultColorR: FieldRef<"KidooConfigDream", 'Int'>
     readonly defaultColorG: FieldRef<"KidooConfigDream", 'Int'>
     readonly defaultColorB: FieldRef<"KidooConfigDream", 'Int'>
     readonly defaultBrightness: FieldRef<"KidooConfigDream", 'Int'>
     readonly defaultEffect: FieldRef<"KidooConfigDream", 'String'>
-    readonly nighttimeAlertEnabled: FieldRef<"KidooConfigDream", 'Boolean'>
-    readonly createdAt: FieldRef<"KidooConfigDream", 'DateTime'>
-    readonly updatedAt: FieldRef<"KidooConfigDream", 'DateTime'>
+    readonly wakeupAutoShutdown: FieldRef<"KidooConfigDream", 'Boolean'>
+    readonly wakeupAutoShutdownMinutes: FieldRef<"KidooConfigDream", 'Int'>
   }
     
 
@@ -33321,6 +33437,1162 @@ export namespace Prisma {
 
 
   /**
+   * Model KidooConfigSound
+   */
+
+  export type AggregateKidooConfigSound = {
+    _count: KidooConfigSoundCountAggregateOutputType | null
+    _avg: KidooConfigSoundAvgAggregateOutputType | null
+    _sum: KidooConfigSoundSumAggregateOutputType | null
+    _min: KidooConfigSoundMinAggregateOutputType | null
+    _max: KidooConfigSoundMaxAggregateOutputType | null
+  }
+
+  export type KidooConfigSoundAvgAggregateOutputType = {
+    colorR: number | null
+    colorG: number | null
+    colorB: number | null
+    brightness: number | null
+  }
+
+  export type KidooConfigSoundSumAggregateOutputType = {
+    colorR: number | null
+    colorG: number | null
+    colorB: number | null
+    brightness: number | null
+  }
+
+  export type KidooConfigSoundMinAggregateOutputType = {
+    id: string | null
+    kidooId: string | null
+    colorR: number | null
+    colorG: number | null
+    colorB: number | null
+    brightness: number | null
+    effect: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type KidooConfigSoundMaxAggregateOutputType = {
+    id: string | null
+    kidooId: string | null
+    colorR: number | null
+    colorG: number | null
+    colorB: number | null
+    brightness: number | null
+    effect: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type KidooConfigSoundCountAggregateOutputType = {
+    id: number
+    kidooId: number
+    colorR: number
+    colorG: number
+    colorB: number
+    brightness: number
+    effect: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type KidooConfigSoundAvgAggregateInputType = {
+    colorR?: true
+    colorG?: true
+    colorB?: true
+    brightness?: true
+  }
+
+  export type KidooConfigSoundSumAggregateInputType = {
+    colorR?: true
+    colorG?: true
+    colorB?: true
+    brightness?: true
+  }
+
+  export type KidooConfigSoundMinAggregateInputType = {
+    id?: true
+    kidooId?: true
+    colorR?: true
+    colorG?: true
+    colorB?: true
+    brightness?: true
+    effect?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type KidooConfigSoundMaxAggregateInputType = {
+    id?: true
+    kidooId?: true
+    colorR?: true
+    colorG?: true
+    colorB?: true
+    brightness?: true
+    effect?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type KidooConfigSoundCountAggregateInputType = {
+    id?: true
+    kidooId?: true
+    colorR?: true
+    colorG?: true
+    colorB?: true
+    brightness?: true
+    effect?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type KidooConfigSoundAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which KidooConfigSound to aggregate.
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooConfigSounds to fetch.
+     */
+    orderBy?: KidooConfigSoundOrderByWithRelationInput | KidooConfigSoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: KidooConfigSoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooConfigSounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooConfigSounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned KidooConfigSounds
+    **/
+    _count?: true | KidooConfigSoundCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: KidooConfigSoundAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: KidooConfigSoundSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: KidooConfigSoundMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: KidooConfigSoundMaxAggregateInputType
+  }
+
+  export type GetKidooConfigSoundAggregateType<T extends KidooConfigSoundAggregateArgs> = {
+        [P in keyof T & keyof AggregateKidooConfigSound]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateKidooConfigSound[P]>
+      : GetScalarType<T[P], AggregateKidooConfigSound[P]>
+  }
+
+
+
+
+  export type KidooConfigSoundGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KidooConfigSoundWhereInput
+    orderBy?: KidooConfigSoundOrderByWithAggregationInput | KidooConfigSoundOrderByWithAggregationInput[]
+    by: KidooConfigSoundScalarFieldEnum[] | KidooConfigSoundScalarFieldEnum
+    having?: KidooConfigSoundScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: KidooConfigSoundCountAggregateInputType | true
+    _avg?: KidooConfigSoundAvgAggregateInputType
+    _sum?: KidooConfigSoundSumAggregateInputType
+    _min?: KidooConfigSoundMinAggregateInputType
+    _max?: KidooConfigSoundMaxAggregateInputType
+  }
+
+  export type KidooConfigSoundGroupByOutputType = {
+    id: string
+    kidooId: string
+    colorR: number | null
+    colorG: number | null
+    colorB: number | null
+    brightness: number | null
+    effect: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: KidooConfigSoundCountAggregateOutputType | null
+    _avg: KidooConfigSoundAvgAggregateOutputType | null
+    _sum: KidooConfigSoundSumAggregateOutputType | null
+    _min: KidooConfigSoundMinAggregateOutputType | null
+    _max: KidooConfigSoundMaxAggregateOutputType | null
+  }
+
+  type GetKidooConfigSoundGroupByPayload<T extends KidooConfigSoundGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<KidooConfigSoundGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof KidooConfigSoundGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], KidooConfigSoundGroupByOutputType[P]>
+            : GetScalarType<T[P], KidooConfigSoundGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type KidooConfigSoundSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    colorR?: boolean
+    colorG?: boolean
+    colorB?: boolean
+    brightness?: boolean
+    effect?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooConfigSound"]>
+
+  export type KidooConfigSoundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    colorR?: boolean
+    colorG?: boolean
+    colorB?: boolean
+    brightness?: boolean
+    effect?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooConfigSound"]>
+
+  export type KidooConfigSoundSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kidooId?: boolean
+    colorR?: boolean
+    colorG?: boolean
+    colorB?: boolean
+    brightness?: boolean
+    effect?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kidooConfigSound"]>
+
+  export type KidooConfigSoundSelectScalar = {
+    id?: boolean
+    kidooId?: boolean
+    colorR?: boolean
+    colorG?: boolean
+    colorB?: boolean
+    brightness?: boolean
+    effect?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type KidooConfigSoundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "effect" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigSound"]>
+  export type KidooConfigSoundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+  export type KidooConfigSoundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+  export type KidooConfigSoundIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    kidoo?: boolean | KidooDefaultArgs<ExtArgs>
+  }
+
+  export type $KidooConfigSoundPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "KidooConfigSound"
+    objects: {
+      kidoo: Prisma.$KidooPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      kidooId: string
+      colorR: number | null
+      colorG: number | null
+      colorB: number | null
+      brightness: number | null
+      effect: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["kidooConfigSound"]>
+    composites: {}
+  }
+
+  type KidooConfigSoundGetPayload<S extends boolean | null | undefined | KidooConfigSoundDefaultArgs> = $Result.GetResult<Prisma.$KidooConfigSoundPayload, S>
+
+  type KidooConfigSoundCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<KidooConfigSoundFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: KidooConfigSoundCountAggregateInputType | true
+    }
+
+  export interface KidooConfigSoundDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['KidooConfigSound'], meta: { name: 'KidooConfigSound' } }
+    /**
+     * Find zero or one KidooConfigSound that matches the filter.
+     * @param {KidooConfigSoundFindUniqueArgs} args - Arguments to find a KidooConfigSound
+     * @example
+     * // Get one KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends KidooConfigSoundFindUniqueArgs>(args: SelectSubset<T, KidooConfigSoundFindUniqueArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one KidooConfigSound that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {KidooConfigSoundFindUniqueOrThrowArgs} args - Arguments to find a KidooConfigSound
+     * @example
+     * // Get one KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends KidooConfigSoundFindUniqueOrThrowArgs>(args: SelectSubset<T, KidooConfigSoundFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first KidooConfigSound that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundFindFirstArgs} args - Arguments to find a KidooConfigSound
+     * @example
+     * // Get one KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends KidooConfigSoundFindFirstArgs>(args?: SelectSubset<T, KidooConfigSoundFindFirstArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first KidooConfigSound that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundFindFirstOrThrowArgs} args - Arguments to find a KidooConfigSound
+     * @example
+     * // Get one KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends KidooConfigSoundFindFirstOrThrowArgs>(args?: SelectSubset<T, KidooConfigSoundFindFirstOrThrowArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more KidooConfigSounds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all KidooConfigSounds
+     * const kidooConfigSounds = await prisma.kidooConfigSound.findMany()
+     * 
+     * // Get first 10 KidooConfigSounds
+     * const kidooConfigSounds = await prisma.kidooConfigSound.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const kidooConfigSoundWithIdOnly = await prisma.kidooConfigSound.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends KidooConfigSoundFindManyArgs>(args?: SelectSubset<T, KidooConfigSoundFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a KidooConfigSound.
+     * @param {KidooConfigSoundCreateArgs} args - Arguments to create a KidooConfigSound.
+     * @example
+     * // Create one KidooConfigSound
+     * const KidooConfigSound = await prisma.kidooConfigSound.create({
+     *   data: {
+     *     // ... data to create a KidooConfigSound
+     *   }
+     * })
+     * 
+     */
+    create<T extends KidooConfigSoundCreateArgs>(args: SelectSubset<T, KidooConfigSoundCreateArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many KidooConfigSounds.
+     * @param {KidooConfigSoundCreateManyArgs} args - Arguments to create many KidooConfigSounds.
+     * @example
+     * // Create many KidooConfigSounds
+     * const kidooConfigSound = await prisma.kidooConfigSound.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends KidooConfigSoundCreateManyArgs>(args?: SelectSubset<T, KidooConfigSoundCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many KidooConfigSounds and returns the data saved in the database.
+     * @param {KidooConfigSoundCreateManyAndReturnArgs} args - Arguments to create many KidooConfigSounds.
+     * @example
+     * // Create many KidooConfigSounds
+     * const kidooConfigSound = await prisma.kidooConfigSound.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many KidooConfigSounds and only return the `id`
+     * const kidooConfigSoundWithIdOnly = await prisma.kidooConfigSound.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends KidooConfigSoundCreateManyAndReturnArgs>(args?: SelectSubset<T, KidooConfigSoundCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a KidooConfigSound.
+     * @param {KidooConfigSoundDeleteArgs} args - Arguments to delete one KidooConfigSound.
+     * @example
+     * // Delete one KidooConfigSound
+     * const KidooConfigSound = await prisma.kidooConfigSound.delete({
+     *   where: {
+     *     // ... filter to delete one KidooConfigSound
+     *   }
+     * })
+     * 
+     */
+    delete<T extends KidooConfigSoundDeleteArgs>(args: SelectSubset<T, KidooConfigSoundDeleteArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one KidooConfigSound.
+     * @param {KidooConfigSoundUpdateArgs} args - Arguments to update one KidooConfigSound.
+     * @example
+     * // Update one KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends KidooConfigSoundUpdateArgs>(args: SelectSubset<T, KidooConfigSoundUpdateArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more KidooConfigSounds.
+     * @param {KidooConfigSoundDeleteManyArgs} args - Arguments to filter KidooConfigSounds to delete.
+     * @example
+     * // Delete a few KidooConfigSounds
+     * const { count } = await prisma.kidooConfigSound.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends KidooConfigSoundDeleteManyArgs>(args?: SelectSubset<T, KidooConfigSoundDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more KidooConfigSounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many KidooConfigSounds
+     * const kidooConfigSound = await prisma.kidooConfigSound.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends KidooConfigSoundUpdateManyArgs>(args: SelectSubset<T, KidooConfigSoundUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more KidooConfigSounds and returns the data updated in the database.
+     * @param {KidooConfigSoundUpdateManyAndReturnArgs} args - Arguments to update many KidooConfigSounds.
+     * @example
+     * // Update many KidooConfigSounds
+     * const kidooConfigSound = await prisma.kidooConfigSound.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more KidooConfigSounds and only return the `id`
+     * const kidooConfigSoundWithIdOnly = await prisma.kidooConfigSound.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends KidooConfigSoundUpdateManyAndReturnArgs>(args: SelectSubset<T, KidooConfigSoundUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one KidooConfigSound.
+     * @param {KidooConfigSoundUpsertArgs} args - Arguments to update or create a KidooConfigSound.
+     * @example
+     * // Update or create a KidooConfigSound
+     * const kidooConfigSound = await prisma.kidooConfigSound.upsert({
+     *   create: {
+     *     // ... data to create a KidooConfigSound
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the KidooConfigSound we want to update
+     *   }
+     * })
+     */
+    upsert<T extends KidooConfigSoundUpsertArgs>(args: SelectSubset<T, KidooConfigSoundUpsertArgs<ExtArgs>>): Prisma__KidooConfigSoundClient<$Result.GetResult<Prisma.$KidooConfigSoundPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of KidooConfigSounds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundCountArgs} args - Arguments to filter KidooConfigSounds to count.
+     * @example
+     * // Count the number of KidooConfigSounds
+     * const count = await prisma.kidooConfigSound.count({
+     *   where: {
+     *     // ... the filter for the KidooConfigSounds we want to count
+     *   }
+     * })
+    **/
+    count<T extends KidooConfigSoundCountArgs>(
+      args?: Subset<T, KidooConfigSoundCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], KidooConfigSoundCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a KidooConfigSound.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends KidooConfigSoundAggregateArgs>(args: Subset<T, KidooConfigSoundAggregateArgs>): Prisma.PrismaPromise<GetKidooConfigSoundAggregateType<T>>
+
+    /**
+     * Group by KidooConfigSound.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KidooConfigSoundGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends KidooConfigSoundGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: KidooConfigSoundGroupByArgs['orderBy'] }
+        : { orderBy?: KidooConfigSoundGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, KidooConfigSoundGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKidooConfigSoundGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the KidooConfigSound model
+   */
+  readonly fields: KidooConfigSoundFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for KidooConfigSound.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__KidooConfigSoundClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    kidoo<T extends KidooDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KidooDefaultArgs<ExtArgs>>): Prisma__KidooClient<$Result.GetResult<Prisma.$KidooPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the KidooConfigSound model
+   */
+  interface KidooConfigSoundFieldRefs {
+    readonly id: FieldRef<"KidooConfigSound", 'String'>
+    readonly kidooId: FieldRef<"KidooConfigSound", 'String'>
+    readonly colorR: FieldRef<"KidooConfigSound", 'Int'>
+    readonly colorG: FieldRef<"KidooConfigSound", 'Int'>
+    readonly colorB: FieldRef<"KidooConfigSound", 'Int'>
+    readonly brightness: FieldRef<"KidooConfigSound", 'Int'>
+    readonly effect: FieldRef<"KidooConfigSound", 'String'>
+    readonly createdAt: FieldRef<"KidooConfigSound", 'DateTime'>
+    readonly updatedAt: FieldRef<"KidooConfigSound", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * KidooConfigSound findUnique
+   */
+  export type KidooConfigSoundFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooConfigSound to fetch.
+     */
+    where: KidooConfigSoundWhereUniqueInput
+  }
+
+  /**
+   * KidooConfigSound findUniqueOrThrow
+   */
+  export type KidooConfigSoundFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooConfigSound to fetch.
+     */
+    where: KidooConfigSoundWhereUniqueInput
+  }
+
+  /**
+   * KidooConfigSound findFirst
+   */
+  export type KidooConfigSoundFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooConfigSound to fetch.
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooConfigSounds to fetch.
+     */
+    orderBy?: KidooConfigSoundOrderByWithRelationInput | KidooConfigSoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for KidooConfigSounds.
+     */
+    cursor?: KidooConfigSoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooConfigSounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooConfigSounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of KidooConfigSounds.
+     */
+    distinct?: KidooConfigSoundScalarFieldEnum | KidooConfigSoundScalarFieldEnum[]
+  }
+
+  /**
+   * KidooConfigSound findFirstOrThrow
+   */
+  export type KidooConfigSoundFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooConfigSound to fetch.
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooConfigSounds to fetch.
+     */
+    orderBy?: KidooConfigSoundOrderByWithRelationInput | KidooConfigSoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for KidooConfigSounds.
+     */
+    cursor?: KidooConfigSoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooConfigSounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooConfigSounds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of KidooConfigSounds.
+     */
+    distinct?: KidooConfigSoundScalarFieldEnum | KidooConfigSoundScalarFieldEnum[]
+  }
+
+  /**
+   * KidooConfigSound findMany
+   */
+  export type KidooConfigSoundFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter, which KidooConfigSounds to fetch.
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of KidooConfigSounds to fetch.
+     */
+    orderBy?: KidooConfigSoundOrderByWithRelationInput | KidooConfigSoundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing KidooConfigSounds.
+     */
+    cursor?: KidooConfigSoundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` KidooConfigSounds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` KidooConfigSounds.
+     */
+    skip?: number
+    distinct?: KidooConfigSoundScalarFieldEnum | KidooConfigSoundScalarFieldEnum[]
+  }
+
+  /**
+   * KidooConfigSound create
+   */
+  export type KidooConfigSoundCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * The data needed to create a KidooConfigSound.
+     */
+    data: XOR<KidooConfigSoundCreateInput, KidooConfigSoundUncheckedCreateInput>
+  }
+
+  /**
+   * KidooConfigSound createMany
+   */
+  export type KidooConfigSoundCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many KidooConfigSounds.
+     */
+    data: KidooConfigSoundCreateManyInput | KidooConfigSoundCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * KidooConfigSound createManyAndReturn
+   */
+  export type KidooConfigSoundCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * The data used to create many KidooConfigSounds.
+     */
+    data: KidooConfigSoundCreateManyInput | KidooConfigSoundCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * KidooConfigSound update
+   */
+  export type KidooConfigSoundUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * The data needed to update a KidooConfigSound.
+     */
+    data: XOR<KidooConfigSoundUpdateInput, KidooConfigSoundUncheckedUpdateInput>
+    /**
+     * Choose, which KidooConfigSound to update.
+     */
+    where: KidooConfigSoundWhereUniqueInput
+  }
+
+  /**
+   * KidooConfigSound updateMany
+   */
+  export type KidooConfigSoundUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update KidooConfigSounds.
+     */
+    data: XOR<KidooConfigSoundUpdateManyMutationInput, KidooConfigSoundUncheckedUpdateManyInput>
+    /**
+     * Filter which KidooConfigSounds to update
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * Limit how many KidooConfigSounds to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * KidooConfigSound updateManyAndReturn
+   */
+  export type KidooConfigSoundUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * The data used to update KidooConfigSounds.
+     */
+    data: XOR<KidooConfigSoundUpdateManyMutationInput, KidooConfigSoundUncheckedUpdateManyInput>
+    /**
+     * Filter which KidooConfigSounds to update
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * Limit how many KidooConfigSounds to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * KidooConfigSound upsert
+   */
+  export type KidooConfigSoundUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * The filter to search for the KidooConfigSound to update in case it exists.
+     */
+    where: KidooConfigSoundWhereUniqueInput
+    /**
+     * In case the KidooConfigSound found by the `where` argument doesn't exist, create a new KidooConfigSound with this data.
+     */
+    create: XOR<KidooConfigSoundCreateInput, KidooConfigSoundUncheckedCreateInput>
+    /**
+     * In case the KidooConfigSound was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<KidooConfigSoundUpdateInput, KidooConfigSoundUncheckedUpdateInput>
+  }
+
+  /**
+   * KidooConfigSound delete
+   */
+  export type KidooConfigSoundDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+    /**
+     * Filter which KidooConfigSound to delete.
+     */
+    where: KidooConfigSoundWhereUniqueInput
+  }
+
+  /**
+   * KidooConfigSound deleteMany
+   */
+  export type KidooConfigSoundDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which KidooConfigSounds to delete
+     */
+    where?: KidooConfigSoundWhereInput
+    /**
+     * Limit how many KidooConfigSounds to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * KidooConfigSound without action
+   */
+  export type KidooConfigSoundDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KidooConfigSound
+     */
+    select?: KidooConfigSoundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the KidooConfigSound
+     */
+    omit?: KidooConfigSoundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KidooConfigSoundInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Post
    */
 
@@ -34587,12 +35859,12 @@ export namespace Prisma {
     name: 'name',
     avatar: 'avatar',
     password: 'password',
-    timezoneId: 'timezoneId',
-    resetCode: 'resetCode',
-    resetCodeExpiresAt: 'resetCodeExpiresAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    isAdmin: 'isAdmin'
+    isAdmin: 'isAdmin',
+    timezoneId: 'timezoneId',
+    resetCode: 'resetCode',
+    resetCodeExpiresAt: 'resetCodeExpiresAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -34612,12 +35884,12 @@ export namespace Prisma {
   export const NotificationScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    kidooId: 'kidooId',
     type: 'type',
     isRead: 'isRead',
     readAt: 'readAt',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    kidooId: 'kidooId'
   };
 
   export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
@@ -34766,16 +36038,16 @@ export namespace Prisma {
     wakeupColorG: 'wakeupColorG',
     wakeupColorB: 'wakeupColorB',
     wakeupBrightness: 'wakeupBrightness',
-    wakeupAutoShutdown: 'wakeupAutoShutdown',
-    wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    nighttimeAlertEnabled: 'nighttimeAlertEnabled',
     defaultColorR: 'defaultColorR',
     defaultColorG: 'defaultColorG',
     defaultColorB: 'defaultColorB',
     defaultBrightness: 'defaultBrightness',
     defaultEffect: 'defaultEffect',
-    nighttimeAlertEnabled: 'nighttimeAlertEnabled',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    wakeupAutoShutdown: 'wakeupAutoShutdown',
+    wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes'
   };
 
   export type KidooConfigDreamScalarFieldEnum = (typeof KidooConfigDreamScalarFieldEnum)[keyof typeof KidooConfigDreamScalarFieldEnum]
@@ -34807,6 +36079,21 @@ export namespace Prisma {
   };
 
   export type KidooConfigDreamWakeupScheduleScalarFieldEnum = (typeof KidooConfigDreamWakeupScheduleScalarFieldEnum)[keyof typeof KidooConfigDreamWakeupScheduleScalarFieldEnum]
+
+
+  export const KidooConfigSoundScalarFieldEnum: {
+    id: 'id',
+    kidooId: 'kidooId',
+    colorR: 'colorR',
+    colorG: 'colorG',
+    colorB: 'colorB',
+    brightness: 'brightness',
+    effect: 'effect',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type KidooConfigSoundScalarFieldEnum = (typeof KidooConfigSoundScalarFieldEnum)[keyof typeof KidooConfigSoundScalarFieldEnum]
 
 
   export const PostScalarFieldEnum: {
@@ -36122,19 +37409,19 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    timezoneId?: StringFilter<"User"> | string
-    resetCode?: StringNullableFilter<"User"> | string | null
-    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     isAdmin?: BoolFilter<"User"> | boolean
+    timezoneId?: StringFilter<"User"> | string
+    resetCode?: StringNullableFilter<"User"> | string | null
+    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     accounts?: AccountListRelationFilter
     files?: FileListRelationFilter
     kidoos?: KidooListRelationFilter
+    notifications?: NotificationListRelationFilter
+    pushTokens?: PushTokenListRelationFilter
     sessions?: SessionListRelationFilter
     tags?: TagListRelationFilter
-    pushTokens?: PushTokenListRelationFilter
-    notifications?: NotificationListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -36144,19 +37431,19 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    timezoneId?: SortOrder
-    resetCode?: SortOrderInput | SortOrder
-    resetCodeExpiresAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrderInput | SortOrder
+    resetCodeExpiresAt?: SortOrderInput | SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     files?: FileOrderByRelationAggregateInput
     kidoos?: KidooOrderByRelationAggregateInput
+    notifications?: NotificationOrderByRelationAggregateInput
+    pushTokens?: PushTokenOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     tags?: TagOrderByRelationAggregateInput
-    pushTokens?: PushTokenOrderByRelationAggregateInput
-    notifications?: NotificationOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -36170,18 +37457,18 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     avatar?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    timezoneId?: StringFilter<"User"> | string
-    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     isAdmin?: BoolFilter<"User"> | boolean
+    timezoneId?: StringFilter<"User"> | string
+    resetCodeExpiresAt?: DateTimeNullableFilter<"User"> | Date | string | null
     accounts?: AccountListRelationFilter
     files?: FileListRelationFilter
     kidoos?: KidooListRelationFilter
+    notifications?: NotificationListRelationFilter
+    pushTokens?: PushTokenListRelationFilter
     sessions?: SessionListRelationFilter
     tags?: TagListRelationFilter
-    pushTokens?: PushTokenListRelationFilter
-    notifications?: NotificationListRelationFilter
   }, "id" | "email" | "resetCode">
 
   export type UserOrderByWithAggregationInput = {
@@ -36191,12 +37478,12 @@ export namespace Prisma {
     name?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    timezoneId?: SortOrder
-    resetCode?: SortOrderInput | SortOrder
-    resetCodeExpiresAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrderInput | SortOrder
+    resetCodeExpiresAt?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -36212,12 +37499,12 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
-    timezoneId?: StringWithAggregatesFilter<"User"> | string
-    resetCode?: StringNullableWithAggregatesFilter<"User"> | string | null
-    resetCodeExpiresAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     isAdmin?: BoolWithAggregatesFilter<"User"> | boolean
+    timezoneId?: StringWithAggregatesFilter<"User"> | string
+    resetCode?: StringNullableWithAggregatesFilter<"User"> | string | null
+    resetCodeExpiresAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   }
 
   export type PushTokenWhereInput = {
@@ -36281,27 +37568,27 @@ export namespace Prisma {
     NOT?: NotificationWhereInput | NotificationWhereInput[]
     id?: StringFilter<"Notification"> | string
     userId?: StringFilter<"Notification"> | string
-    kidooId?: StringNullableFilter<"Notification"> | string | null
     type?: StringFilter<"Notification"> | string
     isRead?: BoolFilter<"Notification"> | boolean
     readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
     createdAt?: DateTimeFilter<"Notification"> | Date | string
     updatedAt?: DateTimeFilter<"Notification"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    kidooId?: StringNullableFilter<"Notification"> | string | null
     kidoo?: XOR<KidooNullableScalarRelationFilter, KidooWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type NotificationOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
-    kidooId?: SortOrderInput | SortOrder
     type?: SortOrder
     isRead?: SortOrder
     readAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    kidooId?: SortOrderInput | SortOrder
     kidoo?: KidooOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type NotificationWhereUniqueInput = Prisma.AtLeast<{
@@ -36310,25 +37597,25 @@ export namespace Prisma {
     OR?: NotificationWhereInput[]
     NOT?: NotificationWhereInput | NotificationWhereInput[]
     userId?: StringFilter<"Notification"> | string
-    kidooId?: StringNullableFilter<"Notification"> | string | null
     type?: StringFilter<"Notification"> | string
     isRead?: BoolFilter<"Notification"> | boolean
     readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
     createdAt?: DateTimeFilter<"Notification"> | Date | string
     updatedAt?: DateTimeFilter<"Notification"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    kidooId?: StringNullableFilter<"Notification"> | string | null
     kidoo?: XOR<KidooNullableScalarRelationFilter, KidooWhereInput> | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type NotificationOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
-    kidooId?: SortOrderInput | SortOrder
     type?: SortOrder
     isRead?: SortOrder
     readAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    kidooId?: SortOrderInput | SortOrder
     _count?: NotificationCountOrderByAggregateInput
     _max?: NotificationMaxOrderByAggregateInput
     _min?: NotificationMinOrderByAggregateInput
@@ -36340,12 +37627,12 @@ export namespace Prisma {
     NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Notification"> | string
     userId?: StringWithAggregatesFilter<"Notification"> | string
-    kidooId?: StringNullableWithAggregatesFilter<"Notification"> | string | null
     type?: StringWithAggregatesFilter<"Notification"> | string
     isRead?: BoolWithAggregatesFilter<"Notification"> | boolean
     readAt?: DateTimeNullableWithAggregatesFilter<"Notification"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+    kidooId?: StringNullableWithAggregatesFilter<"Notification"> | string | null
   }
 
   export type KidooWhereInput = {
@@ -36375,9 +37662,10 @@ export namespace Prisma {
     publicKey?: StringNullableFilter<"Kidoo"> | string | null
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    configSound?: XOR<KidooConfigSoundNullableScalarRelationFilter, KidooConfigSoundWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    tags?: TagListRelationFilter
     notifications?: NotificationListRelationFilter
+    tags?: TagListRelationFilter
   }
 
   export type KidooOrderByWithRelationInput = {
@@ -36404,9 +37692,10 @@ export namespace Prisma {
     publicKey?: SortOrderInput | SortOrder
     configBasic?: KidooConfigBasicOrderByWithRelationInput
     configDream?: KidooConfigDreamOrderByWithRelationInput
+    configSound?: KidooConfigSoundOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    tags?: TagOrderByRelationAggregateInput
     notifications?: NotificationOrderByRelationAggregateInput
+    tags?: TagOrderByRelationAggregateInput
   }
 
   export type KidooWhereUniqueInput = Prisma.AtLeast<{
@@ -36436,9 +37725,10 @@ export namespace Prisma {
     publicKey?: StringNullableFilter<"Kidoo"> | string | null
     configBasic?: XOR<KidooConfigBasicNullableScalarRelationFilter, KidooConfigBasicWhereInput> | null
     configDream?: XOR<KidooConfigDreamNullableScalarRelationFilter, KidooConfigDreamWhereInput> | null
+    configSound?: XOR<KidooConfigSoundNullableScalarRelationFilter, KidooConfigSoundWhereInput> | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    tags?: TagListRelationFilter
     notifications?: NotificationListRelationFilter
+    tags?: TagListRelationFilter
   }, "id" | "deviceId">
 
   export type KidooOrderByWithAggregationInput = {
@@ -37042,16 +38332,16 @@ export namespace Prisma {
     wakeupColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
-    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
-    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
     defaultColorR?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
-    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
-    createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
-    updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleListRelationFilter
     wakeupSchedules?: KidooConfigDreamWakeupScheduleListRelationFilter
@@ -37070,16 +38360,16 @@ export namespace Prisma {
     wakeupColorG?: SortOrderInput | SortOrder
     wakeupColorB?: SortOrderInput | SortOrder
     wakeupBrightness?: SortOrderInput | SortOrder
-    wakeupAutoShutdown?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     defaultColorR?: SortOrderInput | SortOrder
     defaultColorG?: SortOrderInput | SortOrder
     defaultColorB?: SortOrderInput | SortOrder
     defaultBrightness?: SortOrderInput | SortOrder
     defaultEffect?: SortOrderInput | SortOrder
-    nighttimeAlertEnabled?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
     kidoo?: KidooOrderByWithRelationInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleOrderByRelationAggregateInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleOrderByRelationAggregateInput
@@ -37101,16 +38391,16 @@ export namespace Prisma {
     wakeupColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
-    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
-    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
     defaultColorR?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultColorG?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultColorB?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultBrightness?: IntNullableFilter<"KidooConfigDream"> | number | null
     defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
-    nighttimeAlertEnabled?: BoolFilter<"KidooConfigDream"> | boolean
-    createdAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
-    updatedAt?: DateTimeFilter<"KidooConfigDream"> | Date | string
+    wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleListRelationFilter
     wakeupSchedules?: KidooConfigDreamWakeupScheduleListRelationFilter
@@ -37129,16 +38419,16 @@ export namespace Prisma {
     wakeupColorG?: SortOrderInput | SortOrder
     wakeupColorB?: SortOrderInput | SortOrder
     wakeupBrightness?: SortOrderInput | SortOrder
-    wakeupAutoShutdown?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     defaultColorR?: SortOrderInput | SortOrder
     defaultColorG?: SortOrderInput | SortOrder
     defaultColorB?: SortOrderInput | SortOrder
     defaultBrightness?: SortOrderInput | SortOrder
     defaultEffect?: SortOrderInput | SortOrder
-    nighttimeAlertEnabled?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
     _count?: KidooConfigDreamCountOrderByAggregateInput
     _avg?: KidooConfigDreamAvgOrderByAggregateInput
     _max?: KidooConfigDreamMaxOrderByAggregateInput
@@ -37162,16 +38452,16 @@ export namespace Prisma {
     wakeupColorG?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     wakeupColorB?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     wakeupBrightness?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
-    wakeupAutoShutdown?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
-    wakeupAutoShutdownMinutes?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
+    nighttimeAlertEnabled?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
     defaultColorR?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     defaultColorG?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     defaultColorB?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     defaultBrightness?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
     defaultEffect?: StringNullableWithAggregatesFilter<"KidooConfigDream"> | string | null
-    nighttimeAlertEnabled?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDream"> | Date | string
+    wakeupAutoShutdown?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
+    wakeupAutoShutdownMinutes?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
   }
 
   export type KidooConfigDreamBedtimeScheduleWhereInput = {
@@ -37318,6 +38608,83 @@ export namespace Prisma {
     activated?: BoolWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigDreamWakeupSchedule"> | Date | string
+  }
+
+  export type KidooConfigSoundWhereInput = {
+    AND?: KidooConfigSoundWhereInput | KidooConfigSoundWhereInput[]
+    OR?: KidooConfigSoundWhereInput[]
+    NOT?: KidooConfigSoundWhereInput | KidooConfigSoundWhereInput[]
+    id?: StringFilter<"KidooConfigSound"> | string
+    kidooId?: StringFilter<"KidooConfigSound"> | string
+    colorR?: IntNullableFilter<"KidooConfigSound"> | number | null
+    colorG?: IntNullableFilter<"KidooConfigSound"> | number | null
+    colorB?: IntNullableFilter<"KidooConfigSound"> | number | null
+    brightness?: IntNullableFilter<"KidooConfigSound"> | number | null
+    effect?: StringNullableFilter<"KidooConfigSound"> | string | null
+    createdAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
+    updatedAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
+    kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
+  }
+
+  export type KidooConfigSoundOrderByWithRelationInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    colorR?: SortOrderInput | SortOrder
+    colorG?: SortOrderInput | SortOrder
+    colorB?: SortOrderInput | SortOrder
+    brightness?: SortOrderInput | SortOrder
+    effect?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    kidoo?: KidooOrderByWithRelationInput
+  }
+
+  export type KidooConfigSoundWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    kidooId?: string
+    AND?: KidooConfigSoundWhereInput | KidooConfigSoundWhereInput[]
+    OR?: KidooConfigSoundWhereInput[]
+    NOT?: KidooConfigSoundWhereInput | KidooConfigSoundWhereInput[]
+    colorR?: IntNullableFilter<"KidooConfigSound"> | number | null
+    colorG?: IntNullableFilter<"KidooConfigSound"> | number | null
+    colorB?: IntNullableFilter<"KidooConfigSound"> | number | null
+    brightness?: IntNullableFilter<"KidooConfigSound"> | number | null
+    effect?: StringNullableFilter<"KidooConfigSound"> | string | null
+    createdAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
+    updatedAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
+    kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
+  }, "id" | "kidooId">
+
+  export type KidooConfigSoundOrderByWithAggregationInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    colorR?: SortOrderInput | SortOrder
+    colorG?: SortOrderInput | SortOrder
+    colorB?: SortOrderInput | SortOrder
+    brightness?: SortOrderInput | SortOrder
+    effect?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: KidooConfigSoundCountOrderByAggregateInput
+    _avg?: KidooConfigSoundAvgOrderByAggregateInput
+    _max?: KidooConfigSoundMaxOrderByAggregateInput
+    _min?: KidooConfigSoundMinOrderByAggregateInput
+    _sum?: KidooConfigSoundSumOrderByAggregateInput
+  }
+
+  export type KidooConfigSoundScalarWhereWithAggregatesInput = {
+    AND?: KidooConfigSoundScalarWhereWithAggregatesInput | KidooConfigSoundScalarWhereWithAggregatesInput[]
+    OR?: KidooConfigSoundScalarWhereWithAggregatesInput[]
+    NOT?: KidooConfigSoundScalarWhereWithAggregatesInput | KidooConfigSoundScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"KidooConfigSound"> | string
+    kidooId?: StringWithAggregatesFilter<"KidooConfigSound"> | string
+    colorR?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
+    colorG?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
+    colorB?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
+    brightness?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
+    effect?: StringNullableWithAggregatesFilter<"KidooConfigSound"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"KidooConfigSound"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigSound"> | Date | string
   }
 
   export type PostWhereInput = {
@@ -38511,19 +39878,19 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
-    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -38533,19 +39900,19 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
-    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -38555,19 +39922,19 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -38577,19 +39944,19 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -38599,12 +39966,12 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -38614,12 +39981,12 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -38629,12 +39996,12 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PushTokenCreateInput = {
@@ -38699,19 +40066,19 @@ export namespace Prisma {
     readAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutNotificationsInput
     kidoo?: KidooCreateNestedOneWithoutNotificationsInput
+    user: UserCreateNestedOneWithoutNotificationsInput
   }
 
   export type NotificationUncheckedCreateInput = {
     id?: string
     userId: string
-    kidooId?: string | null
     type: string
     isRead?: boolean
     readAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    kidooId?: string | null
   }
 
   export type NotificationUpdateInput = {
@@ -38721,30 +40088,30 @@ export namespace Prisma {
     readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
     kidoo?: KidooUpdateOneWithoutNotificationsNestedInput
+    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
   }
 
   export type NotificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     isRead?: BoolFieldUpdateOperationsInput | boolean
     readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type NotificationCreateManyInput = {
     id?: string
     userId: string
-    kidooId?: string | null
     type: string
     isRead?: boolean
     readAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    kidooId?: string | null
   }
 
   export type NotificationUpdateManyMutationInput = {
@@ -38759,12 +40126,12 @@ export namespace Prisma {
   export type NotificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
-    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: StringFieldUpdateOperationsInput | string
     isRead?: BoolFieldUpdateOperationsInput | boolean
     readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type KidooCreateInput = {
@@ -38790,9 +40157,10 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
-    tags?: TagCreateNestedManyWithoutKidooInput
     notifications?: NotificationCreateNestedManyWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateInput = {
@@ -38819,8 +40187,9 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUpdateInput = {
@@ -38846,9 +40215,10 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
-    tags?: TagUpdateManyWithoutKidooNestedInput
     notifications?: NotificationUpdateManyWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateInput = {
@@ -38875,8 +40245,9 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateManyInput = {
@@ -39533,16 +40904,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
@@ -39561,16 +40932,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -39587,16 +40958,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
@@ -39615,16 +40986,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -39642,16 +41013,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
   }
 
   export type KidooConfigDreamUpdateManyMutationInput = {
@@ -39666,16 +41037,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type KidooConfigDreamUncheckedUpdateManyInput = {
@@ -39691,16 +41062,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type KidooConfigDreamBedtimeScheduleCreateInput = {
@@ -39851,6 +41222,89 @@ export namespace Prisma {
     hour?: IntFieldUpdateOperationsInput | number
     minute?: IntFieldUpdateOperationsInput | number
     activated?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooConfigSoundCreateInput = {
+    id?: string
+    colorR?: number | null
+    colorG?: number | null
+    colorB?: number | null
+    brightness?: number | null
+    effect?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kidoo: KidooCreateNestedOneWithoutConfigSoundInput
+  }
+
+  export type KidooConfigSoundUncheckedCreateInput = {
+    id?: string
+    kidooId: string
+    colorR?: number | null
+    colorG?: number | null
+    colorB?: number | null
+    brightness?: number | null
+    effect?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type KidooConfigSoundUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidoo?: KidooUpdateOneRequiredWithoutConfigSoundNestedInput
+  }
+
+  export type KidooConfigSoundUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooConfigSoundCreateManyInput = {
+    id?: string
+    kidooId: string
+    colorR?: number | null
+    colorG?: number | null
+    colorB?: number | null
+    brightness?: number | null
+    effect?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type KidooConfigSoundUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooConfigSoundUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kidooId?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -41126,6 +42580,18 @@ export namespace Prisma {
     none?: KidooWhereInput
   }
 
+  export type NotificationListRelationFilter = {
+    every?: NotificationWhereInput
+    some?: NotificationWhereInput
+    none?: NotificationWhereInput
+  }
+
+  export type PushTokenListRelationFilter = {
+    every?: PushTokenWhereInput
+    some?: PushTokenWhereInput
+    none?: PushTokenWhereInput
+  }
+
   export type SessionListRelationFilter = {
     every?: SessionWhereInput
     some?: SessionWhereInput
@@ -41136,18 +42602,6 @@ export namespace Prisma {
     every?: TagWhereInput
     some?: TagWhereInput
     none?: TagWhereInput
-  }
-
-  export type PushTokenListRelationFilter = {
-    every?: PushTokenWhereInput
-    some?: PushTokenWhereInput
-    none?: PushTokenWhereInput
-  }
-
-  export type NotificationListRelationFilter = {
-    every?: NotificationWhereInput
-    some?: NotificationWhereInput
-    none?: NotificationWhereInput
   }
 
   export type AccountOrderByRelationAggregateInput = {
@@ -41162,11 +42616,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type SessionOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type TagOrderByRelationAggregateInput = {
+  export type NotificationOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -41174,7 +42624,11 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type NotificationOrderByRelationAggregateInput = {
+  export type SessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TagOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -41185,12 +42639,12 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    timezoneId?: SortOrder
-    resetCode?: SortOrder
-    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -41200,12 +42654,12 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    timezoneId?: SortOrder
-    resetCode?: SortOrder
-    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -41215,12 +42669,12 @@ export namespace Prisma {
     name?: SortOrder
     avatar?: SortOrder
     password?: SortOrder
-    timezoneId?: SortOrder
-    resetCode?: SortOrder
-    resetCodeExpiresAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     isAdmin?: SortOrder
+    timezoneId?: SortOrder
+    resetCode?: SortOrder
+    resetCodeExpiresAt?: SortOrder
   }
 
   export type UserScalarRelationFilter = {
@@ -41260,34 +42714,34 @@ export namespace Prisma {
   export type NotificationCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    kidooId?: SortOrder
     type?: SortOrder
     isRead?: SortOrder
     readAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    kidooId?: SortOrder
   }
 
   export type NotificationMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    kidooId?: SortOrder
     type?: SortOrder
     isRead?: SortOrder
     readAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    kidooId?: SortOrder
   }
 
   export type NotificationMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    kidooId?: SortOrder
     type?: SortOrder
     isRead?: SortOrder
     readAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    kidooId?: SortOrder
   }
 
   export type EnumKidooModelFilter<$PrismaModel = never> = {
@@ -41305,6 +42759,11 @@ export namespace Prisma {
   export type KidooConfigDreamNullableScalarRelationFilter = {
     is?: KidooConfigDreamWhereInput | null
     isNot?: KidooConfigDreamWhereInput | null
+  }
+
+  export type KidooConfigSoundNullableScalarRelationFilter = {
+    is?: KidooConfigSoundWhereInput | null
+    isNot?: KidooConfigSoundWhereInput | null
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -41804,16 +43263,16 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
-    wakeupAutoShutdown?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     defaultColorR?: SortOrder
     defaultColorG?: SortOrder
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
     defaultEffect?: SortOrder
-    nighttimeAlertEnabled?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
   }
 
   export type KidooConfigDreamAvgOrderByAggregateInput = {
@@ -41825,11 +43284,11 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrder
     defaultColorR?: SortOrder
     defaultColorG?: SortOrder
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
   }
 
   export type KidooConfigDreamMaxOrderByAggregateInput = {
@@ -41845,16 +43304,16 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
-    wakeupAutoShutdown?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     defaultColorR?: SortOrder
     defaultColorG?: SortOrder
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
     defaultEffect?: SortOrder
-    nighttimeAlertEnabled?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
   }
 
   export type KidooConfigDreamMinOrderByAggregateInput = {
@@ -41870,16 +43329,16 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
-    wakeupAutoShutdown?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    nighttimeAlertEnabled?: SortOrder
     defaultColorR?: SortOrder
     defaultColorG?: SortOrder
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
     defaultEffect?: SortOrder
-    nighttimeAlertEnabled?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    wakeupAutoShutdown?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
   }
 
   export type KidooConfigDreamSumOrderByAggregateInput = {
@@ -41891,11 +43350,11 @@ export namespace Prisma {
     wakeupColorG?: SortOrder
     wakeupColorB?: SortOrder
     wakeupBrightness?: SortOrder
-    wakeupAutoShutdownMinutes?: SortOrder
     defaultColorR?: SortOrder
     defaultColorG?: SortOrder
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
+    wakeupAutoShutdownMinutes?: SortOrder
   }
 
   export type KidooConfigDreamScalarRelationFilter = {
@@ -41997,6 +43456,56 @@ export namespace Prisma {
   export type KidooConfigDreamWakeupScheduleSumOrderByAggregateInput = {
     hour?: SortOrder
     minute?: SortOrder
+  }
+
+  export type KidooConfigSoundCountOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    colorR?: SortOrder
+    colorG?: SortOrder
+    colorB?: SortOrder
+    brightness?: SortOrder
+    effect?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type KidooConfigSoundAvgOrderByAggregateInput = {
+    colorR?: SortOrder
+    colorG?: SortOrder
+    colorB?: SortOrder
+    brightness?: SortOrder
+  }
+
+  export type KidooConfigSoundMaxOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    colorR?: SortOrder
+    colorG?: SortOrder
+    colorB?: SortOrder
+    brightness?: SortOrder
+    effect?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type KidooConfigSoundMinOrderByAggregateInput = {
+    id?: SortOrder
+    kidooId?: SortOrder
+    colorR?: SortOrder
+    colorG?: SortOrder
+    colorB?: SortOrder
+    brightness?: SortOrder
+    effect?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type KidooConfigSoundSumOrderByAggregateInput = {
+    colorR?: SortOrder
+    colorG?: SortOrder
+    colorB?: SortOrder
+    brightness?: SortOrder
   }
 
   export type EnumPostTypeFilter<$PrismaModel = never> = {
@@ -42843,6 +44352,20 @@ export namespace Prisma {
     connect?: KidooWhereUniqueInput | KidooWhereUniqueInput[]
   }
 
+  export type NotificationCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type PushTokenCreateNestedManyWithoutUserInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -42855,20 +44378,6 @@ export namespace Prisma {
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
     createMany?: TagCreateManyUserInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type PushTokenCreateNestedManyWithoutUserInput = {
-    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
-    createMany?: PushTokenCreateManyUserInputEnvelope
-    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-  }
-
-  export type NotificationCreateNestedManyWithoutUserInput = {
-    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
-    createMany?: NotificationCreateManyUserInputEnvelope
-    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
   }
 
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
@@ -42892,6 +44401,20 @@ export namespace Prisma {
     connect?: KidooWhereUniqueInput | KidooWhereUniqueInput[]
   }
 
+  export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type PushTokenUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -42904,20 +44427,6 @@ export namespace Prisma {
     connectOrCreate?: TagCreateOrConnectWithoutUserInput | TagCreateOrConnectWithoutUserInput[]
     createMany?: TagCreateManyUserInputEnvelope
     connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-  }
-
-  export type PushTokenUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
-    createMany?: PushTokenCreateManyUserInputEnvelope
-    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-  }
-
-  export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
-    createMany?: NotificationCreateManyUserInputEnvelope
-    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
   }
 
   export type AccountUpdateManyWithoutUserNestedInput = {
@@ -42962,6 +44471,34 @@ export namespace Prisma {
     deleteMany?: KidooScalarWhereInput | KidooScalarWhereInput[]
   }
 
+  export type NotificationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type PushTokenUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+  }
+
   export type SessionUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -42988,34 +44525,6 @@ export namespace Prisma {
     update?: TagUpdateWithWhereUniqueWithoutUserInput | TagUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: TagUpdateManyWithWhereWithoutUserInput | TagUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
-  }
-
-  export type PushTokenUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
-    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PushTokenCreateManyUserInputEnvelope
-    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
-  }
-
-  export type NotificationUpdateManyWithoutUserNestedInput = {
-    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
-    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: NotificationCreateManyUserInputEnvelope
-    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
   }
 
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
@@ -43060,6 +44569,34 @@ export namespace Prisma {
     deleteMany?: KidooScalarWhereInput | KidooScalarWhereInput[]
   }
 
+  export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type PushTokenUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
+    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PushTokenCreateManyUserInputEnvelope
+    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
+    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -43088,34 +44625,6 @@ export namespace Prisma {
     deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
-  export type PushTokenUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput> | PushTokenCreateWithoutUserInput[] | PushTokenUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PushTokenCreateOrConnectWithoutUserInput | PushTokenCreateOrConnectWithoutUserInput[]
-    upsert?: PushTokenUpsertWithWhereUniqueWithoutUserInput | PushTokenUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PushTokenCreateManyUserInputEnvelope
-    set?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    disconnect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    delete?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    connect?: PushTokenWhereUniqueInput | PushTokenWhereUniqueInput[]
-    update?: PushTokenUpdateWithWhereUniqueWithoutUserInput | PushTokenUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PushTokenUpdateManyWithWhereWithoutUserInput | PushTokenUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
-  }
-
-  export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
-    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: NotificationCreateManyUserInputEnvelope
-    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
-    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
-  }
-
   export type UserCreateNestedOneWithoutPushTokensInput = {
     create?: XOR<UserCreateWithoutPushTokensInput, UserUncheckedCreateWithoutPushTokensInput>
     connectOrCreate?: UserCreateOrConnectWithoutPushTokensInput
@@ -43130,24 +44639,16 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPushTokensInput, UserUpdateWithoutPushTokensInput>, UserUncheckedUpdateWithoutPushTokensInput>
   }
 
-  export type UserCreateNestedOneWithoutNotificationsInput = {
-    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type KidooCreateNestedOneWithoutNotificationsInput = {
     create?: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
     connectOrCreate?: KidooCreateOrConnectWithoutNotificationsInput
     connect?: KidooWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+  export type UserCreateNestedOneWithoutNotificationsInput = {
     create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
     connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
-    upsert?: UserUpsertWithoutNotificationsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotificationsInput, UserUpdateWithoutNotificationsInput>, UserUncheckedUpdateWithoutNotificationsInput>
   }
 
   export type KidooUpdateOneWithoutNotificationsNestedInput = {
@@ -43158,6 +44659,14 @@ export namespace Prisma {
     delete?: KidooWhereInput | boolean
     connect?: KidooWhereUniqueInput
     update?: XOR<XOR<KidooUpdateToOneWithWhereWithoutNotificationsInput, KidooUpdateWithoutNotificationsInput>, KidooUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutNotificationsNestedInput = {
+    create?: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationsInput
+    upsert?: UserUpsertWithoutNotificationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotificationsInput, UserUpdateWithoutNotificationsInput>, UserUncheckedUpdateWithoutNotificationsInput>
   }
 
   export type KidooConfigBasicCreateNestedOneWithoutKidooInput = {
@@ -43172,17 +44681,16 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
+  export type KidooConfigSoundCreateNestedOneWithoutKidooInput = {
+    create?: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+    connectOrCreate?: KidooConfigSoundCreateOrConnectWithoutKidooInput
+    connect?: KidooConfigSoundWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutKidoosInput = {
     create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
     connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type TagCreateNestedManyWithoutKidooInput = {
-    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    createMany?: TagCreateManyKidooInputEnvelope
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
   }
 
   export type NotificationCreateNestedManyWithoutKidooInput = {
@@ -43190,6 +44698,13 @@ export namespace Prisma {
     connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
     createMany?: NotificationCreateManyKidooInputEnvelope
     connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type TagCreateNestedManyWithoutKidooInput = {
+    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
+    createMany?: TagCreateManyKidooInputEnvelope
+    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
   }
 
   export type KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput = {
@@ -43204,11 +44719,10 @@ export namespace Prisma {
     connect?: KidooConfigDreamWhereUniqueInput
   }
 
-  export type TagUncheckedCreateNestedManyWithoutKidooInput = {
-    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    createMany?: TagCreateManyKidooInputEnvelope
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+  export type KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput = {
+    create?: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+    connectOrCreate?: KidooConfigSoundCreateOrConnectWithoutKidooInput
+    connect?: KidooConfigSoundWhereUniqueInput
   }
 
   export type NotificationUncheckedCreateNestedManyWithoutKidooInput = {
@@ -43216,6 +44730,13 @@ export namespace Prisma {
     connectOrCreate?: NotificationCreateOrConnectWithoutKidooInput | NotificationCreateOrConnectWithoutKidooInput[]
     createMany?: NotificationCreateManyKidooInputEnvelope
     connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type TagUncheckedCreateNestedManyWithoutKidooInput = {
+    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
+    createMany?: TagCreateManyKidooInputEnvelope
+    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
   }
 
   export type EnumKidooModelFieldUpdateOperationsInput = {
@@ -43242,6 +44763,16 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
   }
 
+  export type KidooConfigSoundUpdateOneWithoutKidooNestedInput = {
+    create?: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+    connectOrCreate?: KidooConfigSoundCreateOrConnectWithoutKidooInput
+    upsert?: KidooConfigSoundUpsertWithoutKidooInput
+    disconnect?: KidooConfigSoundWhereInput | boolean
+    delete?: KidooConfigSoundWhereInput | boolean
+    connect?: KidooConfigSoundWhereUniqueInput
+    update?: XOR<XOR<KidooConfigSoundUpdateToOneWithWhereWithoutKidooInput, KidooConfigSoundUpdateWithoutKidooInput>, KidooConfigSoundUncheckedUpdateWithoutKidooInput>
+  }
+
   export type UserUpdateOneWithoutKidoosNestedInput = {
     create?: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
     connectOrCreate?: UserCreateOrConnectWithoutKidoosInput
@@ -43250,20 +44781,6 @@ export namespace Prisma {
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutKidoosInput, UserUpdateWithoutKidoosInput>, UserUncheckedUpdateWithoutKidoosInput>
-  }
-
-  export type TagUpdateManyWithoutKidooNestedInput = {
-    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
-    createMany?: TagCreateManyKidooInputEnvelope
-    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
-    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
-    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
   export type NotificationUpdateManyWithoutKidooNestedInput = {
@@ -43278,6 +44795,20 @@ export namespace Prisma {
     update?: NotificationUpdateWithWhereUniqueWithoutKidooInput | NotificationUpdateWithWhereUniqueWithoutKidooInput[]
     updateMany?: NotificationUpdateManyWithWhereWithoutKidooInput | NotificationUpdateManyWithWhereWithoutKidooInput[]
     deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type TagUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
+    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: TagCreateManyKidooInputEnvelope
+    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
   export type KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput = {
@@ -43300,18 +44831,14 @@ export namespace Prisma {
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutKidooInput, KidooConfigDreamUpdateWithoutKidooInput>, KidooConfigDreamUncheckedUpdateWithoutKidooInput>
   }
 
-  export type TagUncheckedUpdateManyWithoutKidooNestedInput = {
-    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
-    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
-    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
-    createMany?: TagCreateManyKidooInputEnvelope
-    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
-    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
-    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
-    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
+  export type KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput = {
+    create?: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+    connectOrCreate?: KidooConfigSoundCreateOrConnectWithoutKidooInput
+    upsert?: KidooConfigSoundUpsertWithoutKidooInput
+    disconnect?: KidooConfigSoundWhereInput | boolean
+    delete?: KidooConfigSoundWhereInput | boolean
+    connect?: KidooConfigSoundWhereUniqueInput
+    update?: XOR<XOR<KidooConfigSoundUpdateToOneWithWhereWithoutKidooInput, KidooConfigSoundUpdateWithoutKidooInput>, KidooConfigSoundUncheckedUpdateWithoutKidooInput>
   }
 
   export type NotificationUncheckedUpdateManyWithoutKidooNestedInput = {
@@ -43326,6 +44853,20 @@ export namespace Prisma {
     update?: NotificationUpdateWithWhereUniqueWithoutKidooInput | NotificationUpdateWithWhereUniqueWithoutKidooInput[]
     updateMany?: NotificationUpdateManyWithWhereWithoutKidooInput | NotificationUpdateManyWithWhereWithoutKidooInput[]
     deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type TagUncheckedUpdateManyWithoutKidooNestedInput = {
+    create?: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput> | TagCreateWithoutKidooInput[] | TagUncheckedCreateWithoutKidooInput[]
+    connectOrCreate?: TagCreateOrConnectWithoutKidooInput | TagCreateOrConnectWithoutKidooInput[]
+    upsert?: TagUpsertWithWhereUniqueWithoutKidooInput | TagUpsertWithWhereUniqueWithoutKidooInput[]
+    createMany?: TagCreateManyKidooInputEnvelope
+    set?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    disconnect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    delete?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    connect?: TagWhereUniqueInput | TagWhereUniqueInput[]
+    update?: TagUpdateWithWhereUniqueWithoutKidooInput | TagUpdateWithWhereUniqueWithoutKidooInput[]
+    updateMany?: TagUpdateManyWithWhereWithoutKidooInput | TagUpdateManyWithWhereWithoutKidooInput[]
+    deleteMany?: TagScalarWhereInput | TagScalarWhereInput[]
   }
 
   export type FileCreateNestedManyWithoutTagInput = {
@@ -43604,6 +45145,20 @@ export namespace Prisma {
     upsert?: KidooConfigDreamUpsertWithoutWakeupSchedulesInput
     connect?: KidooConfigDreamWhereUniqueInput
     update?: XOR<XOR<KidooConfigDreamUpdateToOneWithWhereWithoutWakeupSchedulesInput, KidooConfigDreamUpdateWithoutWakeupSchedulesInput>, KidooConfigDreamUncheckedUpdateWithoutWakeupSchedulesInput>
+  }
+
+  export type KidooCreateNestedOneWithoutConfigSoundInput = {
+    create?: XOR<KidooCreateWithoutConfigSoundInput, KidooUncheckedCreateWithoutConfigSoundInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutConfigSoundInput
+    connect?: KidooWhereUniqueInput
+  }
+
+  export type KidooUpdateOneRequiredWithoutConfigSoundNestedInput = {
+    create?: XOR<KidooCreateWithoutConfigSoundInput, KidooUncheckedCreateWithoutConfigSoundInput>
+    connectOrCreate?: KidooCreateOrConnectWithoutConfigSoundInput
+    upsert?: KidooUpsertWithoutConfigSoundInput
+    connect?: KidooWhereUniqueInput
+    update?: XOR<XOR<KidooUpdateToOneWithWhereWithoutConfigSoundInput, KidooUpdateWithoutConfigSoundInput>, KidooUncheckedUpdateWithoutConfigSoundInput>
   }
 
   export type EnumPostTypeFieldUpdateOperationsInput = {
@@ -46143,8 +47698,9 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
-    tags?: TagCreateNestedManyWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     notifications?: NotificationCreateNestedManyWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutUserInput = {
@@ -46170,8 +47726,9 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutUserInput = {
@@ -46181,6 +47738,60 @@ export namespace Prisma {
 
   export type KidooCreateManyUserInputEnvelope = {
     data: KidooCreateManyUserInput | KidooCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NotificationCreateWithoutUserInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kidoo?: KidooCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateWithoutUserInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kidooId?: string | null
+  }
+
+  export type NotificationCreateOrConnectWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationCreateManyUserInputEnvelope = {
+    data: NotificationCreateManyUserInput | NotificationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PushTokenCreateWithoutUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenUncheckedCreateWithoutUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PushTokenCreateOrConnectWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PushTokenCreateManyUserInputEnvelope = {
+    data: PushTokenCreateManyUserInput | PushTokenCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -46237,60 +47848,6 @@ export namespace Prisma {
 
   export type TagCreateManyUserInputEnvelope = {
     data: TagCreateManyUserInput | TagCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type PushTokenCreateWithoutUserInput = {
-    id?: string
-    token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PushTokenUncheckedCreateWithoutUserInput = {
-    id?: string
-    token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type PushTokenCreateOrConnectWithoutUserInput = {
-    where: PushTokenWhereUniqueInput
-    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
-  }
-
-  export type PushTokenCreateManyUserInputEnvelope = {
-    data: PushTokenCreateManyUserInput | PushTokenCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type NotificationCreateWithoutUserInput = {
-    id?: string
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    kidoo?: KidooCreateNestedOneWithoutNotificationsInput
-  }
-
-  export type NotificationUncheckedCreateWithoutUserInput = {
-    id?: string
-    kidooId?: string | null
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NotificationCreateOrConnectWithoutUserInput = {
-    where: NotificationWhereUniqueInput
-    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
-  }
-
-  export type NotificationCreateManyUserInputEnvelope = {
-    data: NotificationCreateManyUserInput | NotificationCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -46406,6 +47963,63 @@ export namespace Prisma {
     publicKey?: StringNullableFilter<"Kidoo"> | string | null
   }
 
+  export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutUserInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NotificationScalarWhereInput = {
+    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    OR?: NotificationScalarWhereInput[]
+    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    userId?: StringFilter<"Notification"> | string
+    type?: StringFilter<"Notification"> | string
+    isRead?: BoolFilter<"Notification"> | boolean
+    readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    kidooId?: StringNullableFilter<"Notification"> | string | null
+  }
+
+  export type PushTokenUpsertWithWhereUniqueWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    update: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
+    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
+  }
+
+  export type PushTokenUpdateWithWhereUniqueWithoutUserInput = {
+    where: PushTokenWhereUniqueInput
+    data: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PushTokenUpdateManyWithWhereWithoutUserInput = {
+    where: PushTokenScalarWhereInput
+    data: XOR<PushTokenUpdateManyMutationInput, PushTokenUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PushTokenScalarWhereInput = {
+    AND?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+    OR?: PushTokenScalarWhereInput[]
+    NOT?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
+    id?: StringFilter<"PushToken"> | string
+    userId?: StringFilter<"PushToken"> | string
+    token?: StringFilter<"PushToken"> | string
+    createdAt?: DateTimeFilter<"PushToken"> | Date | string
+    updatedAt?: DateTimeFilter<"PushToken"> | Date | string
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -46463,63 +48077,6 @@ export namespace Prisma {
     type?: EnumTagTypeNullableFilter<"Tag"> | $Enums.TagType | null
   }
 
-  export type PushTokenUpsertWithWhereUniqueWithoutUserInput = {
-    where: PushTokenWhereUniqueInput
-    update: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
-    create: XOR<PushTokenCreateWithoutUserInput, PushTokenUncheckedCreateWithoutUserInput>
-  }
-
-  export type PushTokenUpdateWithWhereUniqueWithoutUserInput = {
-    where: PushTokenWhereUniqueInput
-    data: XOR<PushTokenUpdateWithoutUserInput, PushTokenUncheckedUpdateWithoutUserInput>
-  }
-
-  export type PushTokenUpdateManyWithWhereWithoutUserInput = {
-    where: PushTokenScalarWhereInput
-    data: XOR<PushTokenUpdateManyMutationInput, PushTokenUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type PushTokenScalarWhereInput = {
-    AND?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
-    OR?: PushTokenScalarWhereInput[]
-    NOT?: PushTokenScalarWhereInput | PushTokenScalarWhereInput[]
-    id?: StringFilter<"PushToken"> | string
-    userId?: StringFilter<"PushToken"> | string
-    token?: StringFilter<"PushToken"> | string
-    createdAt?: DateTimeFilter<"PushToken"> | Date | string
-    updatedAt?: DateTimeFilter<"PushToken"> | Date | string
-  }
-
-  export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
-    where: NotificationWhereUniqueInput
-    update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
-    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
-  }
-
-  export type NotificationUpdateWithWhereUniqueWithoutUserInput = {
-    where: NotificationWhereUniqueInput
-    data: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
-  }
-
-  export type NotificationUpdateManyWithWhereWithoutUserInput = {
-    where: NotificationScalarWhereInput
-    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type NotificationScalarWhereInput = {
-    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
-    OR?: NotificationScalarWhereInput[]
-    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
-    id?: StringFilter<"Notification"> | string
-    userId?: StringFilter<"Notification"> | string
-    kidooId?: StringNullableFilter<"Notification"> | string | null
-    type?: StringFilter<"Notification"> | string
-    isRead?: BoolFilter<"Notification"> | boolean
-    readAt?: DateTimeNullableFilter<"Notification"> | Date | string | null
-    createdAt?: DateTimeFilter<"Notification"> | Date | string
-    updatedAt?: DateTimeFilter<"Notification"> | Date | string
-  }
-
   export type UserCreateWithoutPushTokensInput = {
     id?: string
     email: string
@@ -46527,18 +48084,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPushTokensInput = {
@@ -46548,18 +48105,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPushTokensInput = {
@@ -46585,18 +48142,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPushTokensInput = {
@@ -46606,65 +48163,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutNotificationsInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    isAdmin?: boolean
-    accounts?: AccountCreateNestedManyWithoutUserInput
-    files?: FileCreateNestedManyWithoutUserInput
-    kidoos?: KidooCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutNotificationsInput = {
-    id?: string
-    email: string
-    emailVerified?: Date | string | null
-    name?: string | null
-    avatar?: string | null
-    password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    isAdmin?: boolean
-    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
-    files?: FileUncheckedCreateNestedManyWithoutUserInput
-    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutNotificationsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
   }
 
   export type KidooCreateWithoutNotificationsInput = {
@@ -46690,6 +48200,7 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     tags?: TagCreateNestedManyWithoutKidooInput
   }
@@ -46718,6 +48229,7 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
@@ -46726,57 +48238,51 @@ export namespace Prisma {
     create: XOR<KidooCreateWithoutNotificationsInput, KidooUncheckedCreateWithoutNotificationsInput>
   }
 
-  export type UserUpsertWithoutNotificationsInput = {
-    update: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+  export type UserCreateWithoutNotificationsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    files?: FileCreateNestedManyWithoutUserInput
+    kidoos?: KidooCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNotificationsInput = {
+    id?: string
+    email: string
+    emailVerified?: Date | string | null
+    name?: string | null
+    avatar?: string | null
+    password?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    files?: FileUncheckedCreateNestedManyWithoutUserInput
+    kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNotificationsInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
-  }
-
-  export type UserUpdateWithoutNotificationsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    accounts?: AccountUpdateManyWithoutUserNestedInput
-    files?: FileUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutNotificationsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    isAdmin?: BoolFieldUpdateOperationsInput | boolean
-    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
-    files?: FileUncheckedUpdateManyWithoutUserNestedInput
-    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type KidooUpsertWithoutNotificationsInput = {
@@ -46813,6 +48319,7 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     tags?: TagUpdateManyWithoutKidooNestedInput
   }
@@ -46841,7 +48348,61 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+  }
+
+  export type UserUpsertWithoutNotificationsInput = {
+    update: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<UserCreateWithoutNotificationsInput, UserUncheckedCreateWithoutNotificationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNotificationsInput, UserUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type UserUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    files?: FileUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type KidooConfigBasicCreateWithoutKidooInput = {
@@ -46885,16 +48446,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -46911,16 +48472,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -46930,6 +48491,33 @@ export namespace Prisma {
     create: XOR<KidooConfigDreamCreateWithoutKidooInput, KidooConfigDreamUncheckedCreateWithoutKidooInput>
   }
 
+  export type KidooConfigSoundCreateWithoutKidooInput = {
+    id?: string
+    colorR?: number | null
+    colorG?: number | null
+    colorB?: number | null
+    brightness?: number | null
+    effect?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type KidooConfigSoundUncheckedCreateWithoutKidooInput = {
+    id?: string
+    colorR?: number | null
+    colorG?: number | null
+    colorB?: number | null
+    brightness?: number | null
+    effect?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type KidooConfigSoundCreateOrConnectWithoutKidooInput = {
+    where: KidooConfigSoundWhereUniqueInput
+    create: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+  }
+
   export type UserCreateWithoutKidoosInput = {
     id?: string
     email: string
@@ -46937,18 +48525,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
-    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutKidoosInput = {
@@ -46958,23 +48546,53 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
-    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutKidoosInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutKidoosInput, UserUncheckedCreateWithoutKidoosInput>
+  }
+
+  export type NotificationCreateWithoutKidooInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateWithoutKidooInput = {
+    id?: string
+    userId: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutKidooInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput>
+  }
+
+  export type NotificationCreateManyKidooInputEnvelope = {
+    data: NotificationCreateManyKidooInput | NotificationCreateManyKidooInput[]
+    skipDuplicates?: boolean
   }
 
   export type TagCreateWithoutKidooInput = {
@@ -47008,36 +48626,6 @@ export namespace Prisma {
 
   export type TagCreateManyKidooInputEnvelope = {
     data: TagCreateManyKidooInput | TagCreateManyKidooInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type NotificationCreateWithoutKidooInput = {
-    id?: string
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutNotificationsInput
-  }
-
-  export type NotificationUncheckedCreateWithoutKidooInput = {
-    id?: string
-    userId: string
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NotificationCreateOrConnectWithoutKidooInput = {
-    where: NotificationWhereUniqueInput
-    create: XOR<NotificationCreateWithoutKidooInput, NotificationUncheckedCreateWithoutKidooInput>
-  }
-
-  export type NotificationCreateManyKidooInputEnvelope = {
-    data: NotificationCreateManyKidooInput | NotificationCreateManyKidooInput[]
     skipDuplicates?: boolean
   }
 
@@ -47099,16 +48687,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -47125,18 +48713,51 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
+  }
+
+  export type KidooConfigSoundUpsertWithoutKidooInput = {
+    update: XOR<KidooConfigSoundUpdateWithoutKidooInput, KidooConfigSoundUncheckedUpdateWithoutKidooInput>
+    create: XOR<KidooConfigSoundCreateWithoutKidooInput, KidooConfigSoundUncheckedCreateWithoutKidooInput>
+    where?: KidooConfigSoundWhereInput
+  }
+
+  export type KidooConfigSoundUpdateToOneWithWhereWithoutKidooInput = {
+    where?: KidooConfigSoundWhereInput
+    data: XOR<KidooConfigSoundUpdateWithoutKidooInput, KidooConfigSoundUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type KidooConfigSoundUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type KidooConfigSoundUncheckedUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    colorR?: NullableIntFieldUpdateOperationsInput | number | null
+    colorG?: NullableIntFieldUpdateOperationsInput | number | null
+    colorB?: NullableIntFieldUpdateOperationsInput | number | null
+    brightness?: NullableIntFieldUpdateOperationsInput | number | null
+    effect?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUpsertWithoutKidoosInput = {
@@ -47157,18 +48778,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutKidoosInput = {
@@ -47178,34 +48799,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type TagUpsertWithWhereUniqueWithoutKidooInput = {
-    where: TagWhereUniqueInput
-    update: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
-    create: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput>
-  }
-
-  export type TagUpdateWithWhereUniqueWithoutKidooInput = {
-    where: TagWhereUniqueInput
-    data: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
-  }
-
-  export type TagUpdateManyWithWhereWithoutKidooInput = {
-    where: TagScalarWhereInput
-    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutKidooInput>
   }
 
   export type NotificationUpsertWithWhereUniqueWithoutKidooInput = {
@@ -47222,6 +48827,22 @@ export namespace Prisma {
   export type NotificationUpdateManyWithWhereWithoutKidooInput = {
     where: NotificationScalarWhereInput
     data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutKidooInput>
+  }
+
+  export type TagUpsertWithWhereUniqueWithoutKidooInput = {
+    where: TagWhereUniqueInput
+    update: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
+    create: XOR<TagCreateWithoutKidooInput, TagUncheckedCreateWithoutKidooInput>
+  }
+
+  export type TagUpdateWithWhereUniqueWithoutKidooInput = {
+    where: TagWhereUniqueInput
+    data: XOR<TagUpdateWithoutKidooInput, TagUncheckedUpdateWithoutKidooInput>
+  }
+
+  export type TagUpdateManyWithWhereWithoutKidooInput = {
+    where: TagScalarWhereInput
+    data: XOR<TagUpdateManyMutationInput, TagUncheckedUpdateManyWithoutKidooInput>
   }
 
   export type FileCreateWithoutTagInput = {
@@ -47287,6 +48908,7 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
     notifications?: NotificationCreateNestedManyWithoutKidooInput
   }
@@ -47315,6 +48937,7 @@ export namespace Prisma {
     publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
   }
 
@@ -47330,18 +48953,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
-    sessions?: SessionCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutTagsInput = {
@@ -47351,18 +48974,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTagsInput = {
@@ -47420,6 +49043,7 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
     notifications?: NotificationUpdateManyWithoutKidooNestedInput
   }
@@ -47448,6 +49072,7 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
   }
 
@@ -47469,18 +49094,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
-    sessions?: SessionUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTagsInput = {
@@ -47490,18 +49115,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
-    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -47511,18 +49136,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
-    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -47532,18 +49157,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
-    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -47569,18 +49194,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -47590,18 +49215,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -47611,18 +49236,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     files?: FileCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
-    tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
+    tags?: TagCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -47632,18 +49257,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     files?: FileUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
-    tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
+    tags?: TagUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -47669,18 +49294,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     files?: FileUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
-    tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
+    tags?: TagUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -47690,18 +49315,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     files?: FileUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
-    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
+    tags?: TagUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type TagCreateWithoutMultimediaFilesInput = {
@@ -47740,18 +49365,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountCreateNestedManyWithoutUserInput
     kidoos?: KidooCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     tags?: TagCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenCreateNestedManyWithoutUserInput
-    notifications?: NotificationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutFilesInput = {
@@ -47761,18 +49386,18 @@ export namespace Prisma {
     name?: string | null
     avatar?: string | null
     password?: string | null
-    timezoneId?: string
-    resetCode?: string | null
-    resetCodeExpiresAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     isAdmin?: boolean
+    timezoneId?: string
+    resetCode?: string | null
+    resetCodeExpiresAt?: Date | string | null
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     kidoos?: KidooUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     tags?: TagUncheckedCreateNestedManyWithoutUserInput
-    pushTokens?: PushTokenUncheckedCreateNestedManyWithoutUserInput
-    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutFilesInput = {
@@ -47833,18 +49458,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUpdateManyWithoutUserNestedInput
     kidoos?: KidooUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     tags?: TagUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutFilesInput = {
@@ -47854,18 +49479,18 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    timezoneId?: StringFieldUpdateOperationsInput | string
-    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
-    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     isAdmin?: BoolFieldUpdateOperationsInput | boolean
+    timezoneId?: StringFieldUpdateOperationsInput | string
+    resetCode?: NullableStringFieldUpdateOperationsInput | string | null
+    resetCodeExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     kidoos?: KidooUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     tags?: TagUncheckedUpdateManyWithoutUserNestedInput
-    pushTokens?: PushTokenUncheckedUpdateManyWithoutUserNestedInput
-    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type KidooCreateWithoutConfigBasicInput = {
@@ -47890,9 +49515,10 @@ export namespace Prisma {
     sleepTimeout?: number
     publicKey?: string | null
     configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
-    tags?: TagCreateNestedManyWithoutKidooInput
     notifications?: NotificationCreateNestedManyWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigBasicInput = {
@@ -47918,8 +49544,9 @@ export namespace Prisma {
     sleepTimeout?: number
     publicKey?: string | null
     configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigBasicInput = {
@@ -47960,9 +49587,10 @@ export namespace Prisma {
     sleepTimeout?: IntFieldUpdateOperationsInput | number
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
-    tags?: TagUpdateManyWithoutKidooNestedInput
     notifications?: NotificationUpdateManyWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigBasicInput = {
@@ -47988,8 +49616,9 @@ export namespace Prisma {
     sleepTimeout?: IntFieldUpdateOperationsInput | number
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooCreateWithoutConfigDreamInput = {
@@ -48014,9 +49643,10 @@ export namespace Prisma {
     sleepTimeout?: number
     publicKey?: string | null
     configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configSound?: KidooConfigSoundCreateNestedOneWithoutKidooInput
     user?: UserCreateNestedOneWithoutKidoosInput
-    tags?: TagCreateNestedManyWithoutKidooInput
     notifications?: NotificationCreateNestedManyWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
   }
 
   export type KidooUncheckedCreateWithoutConfigDreamInput = {
@@ -48042,8 +49672,9 @@ export namespace Prisma {
     sleepTimeout?: number
     publicKey?: string | null
     configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
-    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+    configSound?: KidooConfigSoundUncheckedCreateNestedOneWithoutKidooInput
     notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
   }
 
   export type KidooCreateOrConnectWithoutConfigDreamInput = {
@@ -48144,9 +49775,10 @@ export namespace Prisma {
     sleepTimeout?: IntFieldUpdateOperationsInput | number
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     user?: UserUpdateOneWithoutKidoosNestedInput
-    tags?: TagUpdateManyWithoutKidooNestedInput
     notifications?: NotificationUpdateManyWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutConfigDreamInput = {
@@ -48172,8 +49804,9 @@ export namespace Prisma {
     sleepTimeout?: IntFieldUpdateOperationsInput | number
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooConfigDreamBedtimeScheduleUpsertWithWhereUniqueWithoutKidooConfigDreamInput = {
@@ -48248,16 +49881,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -48275,16 +49908,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
 
@@ -48316,16 +49949,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -48343,16 +49976,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 
@@ -48368,16 +50001,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -48395,16 +50028,16 @@ export namespace Prisma {
     wakeupColorG?: number | null
     wakeupColorB?: number | null
     wakeupBrightness?: number | null
-    wakeupAutoShutdown?: boolean
-    wakeupAutoShutdownMinutes?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    nighttimeAlertEnabled?: boolean
     defaultColorR?: number | null
     defaultColorG?: number | null
     defaultColorB?: number | null
     defaultBrightness?: number | null
     defaultEffect?: string | null
-    nighttimeAlertEnabled?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    wakeupAutoShutdown?: boolean
+    wakeupAutoShutdownMinutes?: number | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
 
@@ -48436,16 +50069,16 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -48463,17 +50096,145 @@ export namespace Prisma {
     wakeupColorG?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupColorB?: NullableIntFieldUpdateOperationsInput | number | null
     wakeupBrightness?: NullableIntFieldUpdateOperationsInput | number | null
-    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
-    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
     defaultColorR?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorG?: NullableIntFieldUpdateOperationsInput | number | null
     defaultColorB?: NullableIntFieldUpdateOperationsInput | number | null
     defaultBrightness?: NullableIntFieldUpdateOperationsInput | number | null
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
-    nighttimeAlertEnabled?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
+    wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
+  }
+
+  export type KidooCreateWithoutConfigSoundInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    publicKey?: string | null
+    configBasic?: KidooConfigBasicCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamCreateNestedOneWithoutKidooInput
+    user?: UserCreateNestedOneWithoutKidoosInput
+    notifications?: NotificationCreateNestedManyWithoutKidooInput
+    tags?: TagCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooUncheckedCreateWithoutConfigSoundInput = {
+    id?: string
+    name: string
+    model?: $Enums.KidooModel
+    macAddress?: string | null
+    deviceId: string
+    firmwareVersion?: string | null
+    lastConnected?: Date | string | null
+    isConnected?: boolean
+    wifiSSID?: string | null
+    userId?: string | null
+    isSynced?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    bluetoothMacAddress?: string | null
+    brightness?: number
+    sleepColorB?: number | null
+    sleepColorG?: number | null
+    sleepColorR?: number | null
+    sleepEffect?: number | null
+    sleepTimeout?: number
+    publicKey?: string | null
+    configBasic?: KidooConfigBasicUncheckedCreateNestedOneWithoutKidooInput
+    configDream?: KidooConfigDreamUncheckedCreateNestedOneWithoutKidooInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutKidooInput
+    tags?: TagUncheckedCreateNestedManyWithoutKidooInput
+  }
+
+  export type KidooCreateOrConnectWithoutConfigSoundInput = {
+    where: KidooWhereUniqueInput
+    create: XOR<KidooCreateWithoutConfigSoundInput, KidooUncheckedCreateWithoutConfigSoundInput>
+  }
+
+  export type KidooUpsertWithoutConfigSoundInput = {
+    update: XOR<KidooUpdateWithoutConfigSoundInput, KidooUncheckedUpdateWithoutConfigSoundInput>
+    create: XOR<KidooCreateWithoutConfigSoundInput, KidooUncheckedCreateWithoutConfigSoundInput>
+    where?: KidooWhereInput
+  }
+
+  export type KidooUpdateToOneWithWhereWithoutConfigSoundInput = {
+    where?: KidooWhereInput
+    data: XOR<KidooUpdateWithoutConfigSoundInput, KidooUncheckedUpdateWithoutConfigSoundInput>
+  }
+
+  export type KidooUpdateWithoutConfigSoundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
+    configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
+    user?: UserUpdateOneWithoutKidoosNestedInput
+    notifications?: NotificationUpdateManyWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
+  }
+
+  export type KidooUncheckedUpdateWithoutConfigSoundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    model?: EnumKidooModelFieldUpdateOperationsInput | $Enums.KidooModel
+    macAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    deviceId?: StringFieldUpdateOperationsInput | string
+    firmwareVersion?: NullableStringFieldUpdateOperationsInput | string | null
+    lastConnected?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isConnected?: BoolFieldUpdateOperationsInput | boolean
+    wifiSSID?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    isSynced?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bluetoothMacAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    brightness?: IntFieldUpdateOperationsInput | number
+    sleepColorB?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorG?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepColorR?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
+    sleepTimeout?: IntFieldUpdateOperationsInput | number
+    publicKey?: NullableStringFieldUpdateOperationsInput | string | null
+    configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
+    configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type ClipCreateManyCharacterInput = {
@@ -49270,6 +51031,23 @@ export namespace Prisma {
     publicKey?: string | null
   }
 
+  export type NotificationCreateManyUserInput = {
+    id?: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    kidooId?: string | null
+  }
+
+  export type PushTokenCreateManyUserInput = {
+    id?: string
+    token: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type SessionCreateManyUserInput = {
     id?: string
     sessionToken: string
@@ -49285,23 +51063,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     tagId?: string | null
     type?: $Enums.TagType | null
-  }
-
-  export type PushTokenCreateManyUserInput = {
-    id?: string
-    token: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type NotificationCreateManyUserInput = {
-    id?: string
-    kidooId?: string | null
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -49414,8 +51175,9 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUpdateOneWithoutKidooNestedInput
-    tags?: TagUpdateManyWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUpdateManyWithoutKidooNestedInput
+    tags?: TagUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateWithoutUserInput = {
@@ -49441,8 +51203,9 @@ export namespace Prisma {
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
     configBasic?: KidooConfigBasicUncheckedUpdateOneWithoutKidooNestedInput
     configDream?: KidooConfigDreamUncheckedUpdateOneWithoutKidooNestedInput
-    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
+    configSound?: KidooConfigSoundUncheckedUpdateOneWithoutKidooNestedInput
     notifications?: NotificationUncheckedUpdateManyWithoutKidooNestedInput
+    tags?: TagUncheckedUpdateManyWithoutKidooNestedInput
   }
 
   export type KidooUncheckedUpdateManyWithoutUserInput = {
@@ -49466,6 +51229,57 @@ export namespace Prisma {
     sleepEffect?: NullableIntFieldUpdateOperationsInput | number | null
     sleepTimeout?: IntFieldUpdateOperationsInput | number
     publicKey?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type NotificationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidoo?: KidooUpdateOneWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type PushTokenUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PushTokenUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -49521,55 +51335,14 @@ export namespace Prisma {
     type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
   }
 
-  export type PushTokenUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PushTokenUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PushTokenUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NotificationUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    kidoo?: KidooUpdateOneWithoutNotificationsNestedInput
-  }
-
-  export type NotificationUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NotificationUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    kidooId?: NullableStringFieldUpdateOperationsInput | string | null
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type NotificationCreateManyKidooInput = {
+    id?: string
+    userId: string
+    type: string
+    isRead?: boolean
+    readAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type TagCreateManyKidooInput = {
@@ -49583,14 +51356,34 @@ export namespace Prisma {
     type?: $Enums.TagType | null
   }
 
-  export type NotificationCreateManyKidooInput = {
-    id?: string
-    userId: string
-    type: string
-    isRead?: boolean
-    readAt?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type NotificationUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutKidooInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
+    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TagUpdateWithoutKidooInput = {
@@ -49626,36 +51419,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tagId?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableEnumTagTypeFieldUpdateOperationsInput | $Enums.TagType | null
-  }
-
-  export type NotificationUpdateWithoutKidooInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutNotificationsNestedInput
-  }
-
-  export type NotificationUncheckedUpdateWithoutKidooInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type NotificationUncheckedUpdateManyWithoutKidooInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    isRead?: BoolFieldUpdateOperationsInput | boolean
-    readAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FileCreateManyTagInput = {
