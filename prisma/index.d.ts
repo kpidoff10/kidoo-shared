@@ -29773,6 +29773,9 @@ export namespace Prisma {
     defaultColorB: number | null
     defaultBrightness: number | null
     wakeupAutoShutdownMinutes: number | null
+    storageTotalBytes: number | null
+    storageFreeBytes: number | null
+    storageUsedBytes: number | null
   }
 
   export type KidooConfigDreamSumAggregateOutputType = {
@@ -29789,6 +29792,9 @@ export namespace Prisma {
     defaultColorB: number | null
     defaultBrightness: number | null
     wakeupAutoShutdownMinutes: number | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
   }
 
   export type KidooConfigDreamMinAggregateOutputType = {
@@ -29814,6 +29820,10 @@ export namespace Prisma {
     defaultEffect: string | null
     wakeupAutoShutdown: boolean | null
     wakeupAutoShutdownMinutes: number | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
   }
 
   export type KidooConfigDreamMaxAggregateOutputType = {
@@ -29839,6 +29849,10 @@ export namespace Prisma {
     defaultEffect: string | null
     wakeupAutoShutdown: boolean | null
     wakeupAutoShutdownMinutes: number | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
   }
 
   export type KidooConfigDreamCountAggregateOutputType = {
@@ -29864,6 +29878,10 @@ export namespace Prisma {
     defaultEffect: number
     wakeupAutoShutdown: number
     wakeupAutoShutdownMinutes: number
+    storageTotalBytes: number
+    storageFreeBytes: number
+    storageUsedBytes: number
+    storageLastUpdated: number
     _all: number
   }
 
@@ -29882,6 +29900,9 @@ export namespace Prisma {
     defaultColorB?: true
     defaultBrightness?: true
     wakeupAutoShutdownMinutes?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
   }
 
   export type KidooConfigDreamSumAggregateInputType = {
@@ -29898,6 +29919,9 @@ export namespace Prisma {
     defaultColorB?: true
     defaultBrightness?: true
     wakeupAutoShutdownMinutes?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
   }
 
   export type KidooConfigDreamMinAggregateInputType = {
@@ -29923,6 +29947,10 @@ export namespace Prisma {
     defaultEffect?: true
     wakeupAutoShutdown?: true
     wakeupAutoShutdownMinutes?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
   }
 
   export type KidooConfigDreamMaxAggregateInputType = {
@@ -29948,6 +29976,10 @@ export namespace Prisma {
     defaultEffect?: true
     wakeupAutoShutdown?: true
     wakeupAutoShutdownMinutes?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
   }
 
   export type KidooConfigDreamCountAggregateInputType = {
@@ -29973,6 +30005,10 @@ export namespace Prisma {
     defaultEffect?: true
     wakeupAutoShutdown?: true
     wakeupAutoShutdownMinutes?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
     _all?: true
   }
 
@@ -30085,6 +30121,10 @@ export namespace Prisma {
     defaultEffect: string | null
     wakeupAutoShutdown: boolean
     wakeupAutoShutdownMinutes: number | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
     _count: KidooConfigDreamCountAggregateOutputType | null
     _avg: KidooConfigDreamAvgAggregateOutputType | null
     _sum: KidooConfigDreamSumAggregateOutputType | null
@@ -30129,6 +30169,10 @@ export namespace Prisma {
     defaultEffect?: boolean
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     bedtimeSchedules?: boolean | KidooConfigDream$bedtimeSchedulesArgs<ExtArgs>
     wakeupSchedules?: boolean | KidooConfigDream$wakeupSchedulesArgs<ExtArgs>
@@ -30158,6 +30202,10 @@ export namespace Prisma {
     defaultEffect?: boolean
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidooConfigDream"]>
 
@@ -30184,6 +30232,10 @@ export namespace Prisma {
     defaultEffect?: boolean
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["kidooConfigDream"]>
 
@@ -30210,9 +30262,13 @@ export namespace Prisma {
     defaultEffect?: boolean
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
   }
 
-  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "createdAt" | "updatedAt" | "nighttimeAlertEnabled" | "defaultColorR" | "defaultColorG" | "defaultColorB" | "defaultBrightness" | "defaultEffect" | "wakeupAutoShutdown" | "wakeupAutoShutdownMinutes", ExtArgs["result"]["kidooConfigDream"]>
+  export type KidooConfigDreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "allNight" | "effect" | "wakeupColorR" | "wakeupColorG" | "wakeupColorB" | "wakeupBrightness" | "createdAt" | "updatedAt" | "nighttimeAlertEnabled" | "defaultColorR" | "defaultColorG" | "defaultColorB" | "defaultBrightness" | "defaultEffect" | "wakeupAutoShutdown" | "wakeupAutoShutdownMinutes" | "storageTotalBytes" | "storageFreeBytes" | "storageUsedBytes" | "storageLastUpdated", ExtArgs["result"]["kidooConfigDream"]>
   export type KidooConfigDreamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
     bedtimeSchedules?: boolean | KidooConfigDream$bedtimeSchedulesArgs<ExtArgs>
@@ -30256,6 +30312,10 @@ export namespace Prisma {
       defaultEffect: string | null
       wakeupAutoShutdown: boolean
       wakeupAutoShutdownMinutes: number | null
+      storageTotalBytes: bigint | null
+      storageFreeBytes: bigint | null
+      storageUsedBytes: bigint | null
+      storageLastUpdated: Date | null
     }, ExtArgs["result"]["kidooConfigDream"]>
     composites: {}
   }
@@ -30704,6 +30764,10 @@ export namespace Prisma {
     readonly defaultEffect: FieldRef<"KidooConfigDream", 'String'>
     readonly wakeupAutoShutdown: FieldRef<"KidooConfigDream", 'Boolean'>
     readonly wakeupAutoShutdownMinutes: FieldRef<"KidooConfigDream", 'Int'>
+    readonly storageTotalBytes: FieldRef<"KidooConfigDream", 'BigInt'>
+    readonly storageFreeBytes: FieldRef<"KidooConfigDream", 'BigInt'>
+    readonly storageUsedBytes: FieldRef<"KidooConfigDream", 'BigInt'>
+    readonly storageLastUpdated: FieldRef<"KidooConfigDream", 'DateTime'>
   }
     
 
@@ -33453,6 +33517,9 @@ export namespace Prisma {
     colorG: number | null
     colorB: number | null
     brightness: number | null
+    storageTotalBytes: number | null
+    storageFreeBytes: number | null
+    storageUsedBytes: number | null
   }
 
   export type KidooConfigSoundSumAggregateOutputType = {
@@ -33460,6 +33527,9 @@ export namespace Prisma {
     colorG: number | null
     colorB: number | null
     brightness: number | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
   }
 
   export type KidooConfigSoundMinAggregateOutputType = {
@@ -33470,6 +33540,10 @@ export namespace Prisma {
     colorB: number | null
     brightness: number | null
     effect: string | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -33482,6 +33556,10 @@ export namespace Prisma {
     colorB: number | null
     brightness: number | null
     effect: string | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -33494,6 +33572,10 @@ export namespace Prisma {
     colorB: number
     brightness: number
     effect: number
+    storageTotalBytes: number
+    storageFreeBytes: number
+    storageUsedBytes: number
+    storageLastUpdated: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -33505,6 +33587,9 @@ export namespace Prisma {
     colorG?: true
     colorB?: true
     brightness?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
   }
 
   export type KidooConfigSoundSumAggregateInputType = {
@@ -33512,6 +33597,9 @@ export namespace Prisma {
     colorG?: true
     colorB?: true
     brightness?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
   }
 
   export type KidooConfigSoundMinAggregateInputType = {
@@ -33522,6 +33610,10 @@ export namespace Prisma {
     colorB?: true
     brightness?: true
     effect?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -33534,6 +33626,10 @@ export namespace Prisma {
     colorB?: true
     brightness?: true
     effect?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -33546,6 +33642,10 @@ export namespace Prisma {
     colorB?: true
     brightness?: true
     effect?: true
+    storageTotalBytes?: true
+    storageFreeBytes?: true
+    storageUsedBytes?: true
+    storageLastUpdated?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -33645,6 +33745,10 @@ export namespace Prisma {
     colorB: number | null
     brightness: number | null
     effect: string | null
+    storageTotalBytes: bigint | null
+    storageFreeBytes: bigint | null
+    storageUsedBytes: bigint | null
+    storageLastUpdated: Date | null
     createdAt: Date
     updatedAt: Date
     _count: KidooConfigSoundCountAggregateOutputType | null
@@ -33676,6 +33780,10 @@ export namespace Prisma {
     colorB?: boolean
     brightness?: boolean
     effect?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -33689,6 +33797,10 @@ export namespace Prisma {
     colorB?: boolean
     brightness?: boolean
     effect?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -33702,6 +33814,10 @@ export namespace Prisma {
     colorB?: boolean
     brightness?: boolean
     effect?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
@@ -33715,11 +33831,15 @@ export namespace Prisma {
     colorB?: boolean
     brightness?: boolean
     effect?: boolean
+    storageTotalBytes?: boolean
+    storageFreeBytes?: boolean
+    storageUsedBytes?: boolean
+    storageLastUpdated?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type KidooConfigSoundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "effect" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigSound"]>
+  export type KidooConfigSoundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kidooId" | "colorR" | "colorG" | "colorB" | "brightness" | "effect" | "storageTotalBytes" | "storageFreeBytes" | "storageUsedBytes" | "storageLastUpdated" | "createdAt" | "updatedAt", ExtArgs["result"]["kidooConfigSound"]>
   export type KidooConfigSoundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     kidoo?: boolean | KidooDefaultArgs<ExtArgs>
   }
@@ -33743,6 +33863,10 @@ export namespace Prisma {
       colorB: number | null
       brightness: number | null
       effect: string | null
+      storageTotalBytes: bigint | null
+      storageFreeBytes: bigint | null
+      storageUsedBytes: bigint | null
+      storageLastUpdated: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["kidooConfigSound"]>
@@ -34176,6 +34300,10 @@ export namespace Prisma {
     readonly colorB: FieldRef<"KidooConfigSound", 'Int'>
     readonly brightness: FieldRef<"KidooConfigSound", 'Int'>
     readonly effect: FieldRef<"KidooConfigSound", 'String'>
+    readonly storageTotalBytes: FieldRef<"KidooConfigSound", 'BigInt'>
+    readonly storageFreeBytes: FieldRef<"KidooConfigSound", 'BigInt'>
+    readonly storageUsedBytes: FieldRef<"KidooConfigSound", 'BigInt'>
+    readonly storageLastUpdated: FieldRef<"KidooConfigSound", 'DateTime'>
     readonly createdAt: FieldRef<"KidooConfigSound", 'DateTime'>
     readonly updatedAt: FieldRef<"KidooConfigSound", 'DateTime'>
   }
@@ -36047,7 +36175,11 @@ export namespace Prisma {
     defaultBrightness: 'defaultBrightness',
     defaultEffect: 'defaultEffect',
     wakeupAutoShutdown: 'wakeupAutoShutdown',
-    wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes'
+    wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes',
+    storageTotalBytes: 'storageTotalBytes',
+    storageFreeBytes: 'storageFreeBytes',
+    storageUsedBytes: 'storageUsedBytes',
+    storageLastUpdated: 'storageLastUpdated'
   };
 
   export type KidooConfigDreamScalarFieldEnum = (typeof KidooConfigDreamScalarFieldEnum)[keyof typeof KidooConfigDreamScalarFieldEnum]
@@ -36089,6 +36221,10 @@ export namespace Prisma {
     colorB: 'colorB',
     brightness: 'brightness',
     effect: 'effect',
+    storageTotalBytes: 'storageTotalBytes',
+    storageFreeBytes: 'storageFreeBytes',
+    storageUsedBytes: 'storageUsedBytes',
+    storageLastUpdated: 'storageLastUpdated',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -38342,6 +38478,10 @@ export namespace Prisma {
     defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
     wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
     wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    storageTotalBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableFilter<"KidooConfigDream"> | Date | string | null
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleListRelationFilter
     wakeupSchedules?: KidooConfigDreamWakeupScheduleListRelationFilter
@@ -38370,6 +38510,10 @@ export namespace Prisma {
     defaultEffect?: SortOrderInput | SortOrder
     wakeupAutoShutdown?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    storageTotalBytes?: SortOrderInput | SortOrder
+    storageFreeBytes?: SortOrderInput | SortOrder
+    storageUsedBytes?: SortOrderInput | SortOrder
+    storageLastUpdated?: SortOrderInput | SortOrder
     kidoo?: KidooOrderByWithRelationInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleOrderByRelationAggregateInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleOrderByRelationAggregateInput
@@ -38401,6 +38545,10 @@ export namespace Prisma {
     defaultEffect?: StringNullableFilter<"KidooConfigDream"> | string | null
     wakeupAutoShutdown?: BoolFilter<"KidooConfigDream"> | boolean
     wakeupAutoShutdownMinutes?: IntNullableFilter<"KidooConfigDream"> | number | null
+    storageTotalBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableFilter<"KidooConfigDream"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableFilter<"KidooConfigDream"> | Date | string | null
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleListRelationFilter
     wakeupSchedules?: KidooConfigDreamWakeupScheduleListRelationFilter
@@ -38429,6 +38577,10 @@ export namespace Prisma {
     defaultEffect?: SortOrderInput | SortOrder
     wakeupAutoShutdown?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrderInput | SortOrder
+    storageTotalBytes?: SortOrderInput | SortOrder
+    storageFreeBytes?: SortOrderInput | SortOrder
+    storageUsedBytes?: SortOrderInput | SortOrder
+    storageLastUpdated?: SortOrderInput | SortOrder
     _count?: KidooConfigDreamCountOrderByAggregateInput
     _avg?: KidooConfigDreamAvgOrderByAggregateInput
     _max?: KidooConfigDreamMaxOrderByAggregateInput
@@ -38462,6 +38614,10 @@ export namespace Prisma {
     defaultEffect?: StringNullableWithAggregatesFilter<"KidooConfigDream"> | string | null
     wakeupAutoShutdown?: BoolWithAggregatesFilter<"KidooConfigDream"> | boolean
     wakeupAutoShutdownMinutes?: IntNullableWithAggregatesFilter<"KidooConfigDream"> | number | null
+    storageTotalBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigDream"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigDream"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigDream"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableWithAggregatesFilter<"KidooConfigDream"> | Date | string | null
   }
 
   export type KidooConfigDreamBedtimeScheduleWhereInput = {
@@ -38621,6 +38777,10 @@ export namespace Prisma {
     colorB?: IntNullableFilter<"KidooConfigSound"> | number | null
     brightness?: IntNullableFilter<"KidooConfigSound"> | number | null
     effect?: StringNullableFilter<"KidooConfigSound"> | string | null
+    storageTotalBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableFilter<"KidooConfigSound"> | Date | string | null
     createdAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
     updatedAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
@@ -38634,6 +38794,10 @@ export namespace Prisma {
     colorB?: SortOrderInput | SortOrder
     brightness?: SortOrderInput | SortOrder
     effect?: SortOrderInput | SortOrder
+    storageTotalBytes?: SortOrderInput | SortOrder
+    storageFreeBytes?: SortOrderInput | SortOrder
+    storageUsedBytes?: SortOrderInput | SortOrder
+    storageLastUpdated?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     kidoo?: KidooOrderByWithRelationInput
@@ -38650,6 +38814,10 @@ export namespace Prisma {
     colorB?: IntNullableFilter<"KidooConfigSound"> | number | null
     brightness?: IntNullableFilter<"KidooConfigSound"> | number | null
     effect?: StringNullableFilter<"KidooConfigSound"> | string | null
+    storageTotalBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableFilter<"KidooConfigSound"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableFilter<"KidooConfigSound"> | Date | string | null
     createdAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
     updatedAt?: DateTimeFilter<"KidooConfigSound"> | Date | string
     kidoo?: XOR<KidooScalarRelationFilter, KidooWhereInput>
@@ -38663,6 +38831,10 @@ export namespace Prisma {
     colorB?: SortOrderInput | SortOrder
     brightness?: SortOrderInput | SortOrder
     effect?: SortOrderInput | SortOrder
+    storageTotalBytes?: SortOrderInput | SortOrder
+    storageFreeBytes?: SortOrderInput | SortOrder
+    storageUsedBytes?: SortOrderInput | SortOrder
+    storageLastUpdated?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: KidooConfigSoundCountOrderByAggregateInput
@@ -38683,6 +38855,10 @@ export namespace Prisma {
     colorB?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
     brightness?: IntNullableWithAggregatesFilter<"KidooConfigSound"> | number | null
     effect?: StringNullableWithAggregatesFilter<"KidooConfigSound"> | string | null
+    storageTotalBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigSound"> | bigint | number | null
+    storageFreeBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigSound"> | bigint | number | null
+    storageUsedBytes?: BigIntNullableWithAggregatesFilter<"KidooConfigSound"> | bigint | number | null
+    storageLastUpdated?: DateTimeNullableWithAggregatesFilter<"KidooConfigSound"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"KidooConfigSound"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"KidooConfigSound"> | Date | string
   }
@@ -40914,6 +41090,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
@@ -40942,6 +41122,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -40968,6 +41152,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
@@ -40996,6 +41184,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -41023,6 +41215,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
   }
 
   export type KidooConfigDreamUpdateManyMutationInput = {
@@ -41047,6 +41243,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type KidooConfigDreamUncheckedUpdateManyInput = {
@@ -41072,6 +41272,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type KidooConfigDreamBedtimeScheduleCreateInput = {
@@ -41233,6 +41437,10 @@ export namespace Prisma {
     colorB?: number | null
     brightness?: number | null
     effect?: string | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     kidoo: KidooCreateNestedOneWithoutConfigSoundInput
@@ -41246,6 +41454,10 @@ export namespace Prisma {
     colorB?: number | null
     brightness?: number | null
     effect?: string | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -41257,6 +41469,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     kidoo?: KidooUpdateOneRequiredWithoutConfigSoundNestedInput
@@ -41270,6 +41486,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -41282,6 +41502,10 @@ export namespace Prisma {
     colorB?: number | null
     brightness?: number | null
     effect?: string | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -41293,6 +41517,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -41305,6 +41533,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43273,6 +43505,10 @@ export namespace Prisma {
     defaultEffect?: SortOrder
     wakeupAutoShutdown?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
   }
 
   export type KidooConfigDreamAvgOrderByAggregateInput = {
@@ -43289,6 +43525,9 @@ export namespace Prisma {
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
   }
 
   export type KidooConfigDreamMaxOrderByAggregateInput = {
@@ -43314,6 +43553,10 @@ export namespace Prisma {
     defaultEffect?: SortOrder
     wakeupAutoShutdown?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
   }
 
   export type KidooConfigDreamMinOrderByAggregateInput = {
@@ -43339,6 +43582,10 @@ export namespace Prisma {
     defaultEffect?: SortOrder
     wakeupAutoShutdown?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
   }
 
   export type KidooConfigDreamSumOrderByAggregateInput = {
@@ -43355,6 +43602,9 @@ export namespace Prisma {
     defaultColorB?: SortOrder
     defaultBrightness?: SortOrder
     wakeupAutoShutdownMinutes?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
   }
 
   export type KidooConfigDreamScalarRelationFilter = {
@@ -43466,6 +43716,10 @@ export namespace Prisma {
     colorB?: SortOrder
     brightness?: SortOrder
     effect?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -43475,6 +43729,9 @@ export namespace Prisma {
     colorG?: SortOrder
     colorB?: SortOrder
     brightness?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
   }
 
   export type KidooConfigSoundMaxOrderByAggregateInput = {
@@ -43485,6 +43742,10 @@ export namespace Prisma {
     colorB?: SortOrder
     brightness?: SortOrder
     effect?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -43497,6 +43758,10 @@ export namespace Prisma {
     colorB?: SortOrder
     brightness?: SortOrder
     effect?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
+    storageLastUpdated?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -43506,6 +43771,9 @@ export namespace Prisma {
     colorG?: SortOrder
     colorB?: SortOrder
     brightness?: SortOrder
+    storageTotalBytes?: SortOrder
+    storageFreeBytes?: SortOrder
+    storageUsedBytes?: SortOrder
   }
 
   export type EnumPostTypeFilter<$PrismaModel = never> = {
@@ -48456,6 +48724,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -48482,6 +48754,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -48498,6 +48774,10 @@ export namespace Prisma {
     colorB?: number | null
     brightness?: number | null
     effect?: string | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -48509,6 +48789,10 @@ export namespace Prisma {
     colorB?: number | null
     brightness?: number | null
     effect?: string | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -48697,6 +48981,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -48723,6 +49011,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -48745,6 +49037,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -48756,6 +49052,10 @@ export namespace Prisma {
     colorB?: NullableIntFieldUpdateOperationsInput | number | null
     brightness?: NullableIntFieldUpdateOperationsInput | number | null
     effect?: NullableStringFieldUpdateOperationsInput | string | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -49891,6 +50191,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -49918,6 +50222,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
 
@@ -49959,6 +50267,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -49986,6 +50298,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     wakeupSchedules?: KidooConfigDreamWakeupScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 
@@ -50011,6 +50327,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     kidoo: KidooCreateNestedOneWithoutConfigDreamInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleCreateNestedManyWithoutKidooConfigDreamInput
   }
@@ -50038,6 +50358,10 @@ export namespace Prisma {
     defaultEffect?: string | null
     wakeupAutoShutdown?: boolean
     wakeupAutoShutdownMinutes?: number | null
+    storageTotalBytes?: bigint | number | null
+    storageFreeBytes?: bigint | number | null
+    storageUsedBytes?: bigint | number | null
+    storageLastUpdated?: Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedCreateNestedManyWithoutKidooConfigDreamInput
   }
 
@@ -50079,6 +50403,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     kidoo?: KidooUpdateOneRequiredWithoutConfigDreamNestedInput
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUpdateManyWithoutKidooConfigDreamNestedInput
   }
@@ -50106,6 +50434,10 @@ export namespace Prisma {
     defaultEffect?: NullableStringFieldUpdateOperationsInput | string | null
     wakeupAutoShutdown?: BoolFieldUpdateOperationsInput | boolean
     wakeupAutoShutdownMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    storageTotalBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageFreeBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageUsedBytes?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    storageLastUpdated?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bedtimeSchedules?: KidooConfigDreamBedtimeScheduleUncheckedUpdateManyWithoutKidooConfigDreamNestedInput
   }
 

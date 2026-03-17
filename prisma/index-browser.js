@@ -435,7 +435,11 @@ exports.Prisma.KidooConfigDreamScalarFieldEnum = {
   defaultBrightness: 'defaultBrightness',
   defaultEffect: 'defaultEffect',
   wakeupAutoShutdown: 'wakeupAutoShutdown',
-  wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes'
+  wakeupAutoShutdownMinutes: 'wakeupAutoShutdownMinutes',
+  storageTotalBytes: 'storageTotalBytes',
+  storageFreeBytes: 'storageFreeBytes',
+  storageUsedBytes: 'storageUsedBytes',
+  storageLastUpdated: 'storageLastUpdated'
 };
 
 exports.Prisma.KidooConfigDreamBedtimeScheduleScalarFieldEnum = {
@@ -468,6 +472,10 @@ exports.Prisma.KidooConfigSoundScalarFieldEnum = {
   colorB: 'colorB',
   brightness: 'brightness',
   effect: 'effect',
+  storageTotalBytes: 'storageTotalBytes',
+  storageFreeBytes: 'storageFreeBytes',
+  storageUsedBytes: 'storageUsedBytes',
+  storageLastUpdated: 'storageLastUpdated',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
