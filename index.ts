@@ -35,3 +35,6 @@ export * from './models/gotchi';
 
 // Notifications - Types partagés
 export * from './models/notifications';
+
+// MQTT - Types et interfaces
+export * from './models/mqtt';

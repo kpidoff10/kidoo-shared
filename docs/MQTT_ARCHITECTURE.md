@@ -57,20 +57,15 @@ ESP32 → se connecte à MQTT avec MAC + password
 EMQX → appelle /api/mqtt/auth pour valider
 ```
 
-#### 3. **Server**
-```
-Username: server
+#### 3. **Server (Vercel Serverless)**
+**Note:** Le serveur Vercel est serverless et ne maintient pas de connexion MQTT persistante.
+L'app publie les commandes MQTT directement sans passer par le serveur.
 
-Password: MQTT_PASSWORD (statique)
-Défini dans .env
-```
-
-**Flux:**
-```
-Server → mqtt.connect() avec username="server"
-EMQX → valide le password statique
-Server → maintient connexion persistante
-```
+**Endpoints stateless:**
+- `GET /api/mqtt-token` - Fournit credentials JWT à l'app
+- `POST /api/mqtt/auth` - EMQX appelle ça pour valider les credentials
+- `POST /api/mqtt/acl` - EMQX appelle ça pour vérifier les permissions
+- `POST /api/kidoos/{id}/device-info` - App envoie les infos reçues via MQTT pour mettre à jour la DB
 
 ---
 
@@ -206,43 +201,46 @@ DENY:
 
 ---
 
-## Flux - Exemple: Get Info
+## Flux - Exemple: Get Info (Architecture Serverless)
 
-### Étape 1: App demande info
+### Étape 1: App publie commande MQTT directement
 ```
-App → HTTP POST /api/kidoos/{id}/get-info
-Server reçoit la requête
-```
-
-### Étape 2: Server envoie commande
-```
-Server → MQTT Publish kidoo/80B54ED96148/cmd
-Payload: {"cmd": "get-info"}
+App → MQTT Publish kidoo/80B54ED96148/cmd
+Payload: {"action": "get-info"}
+(Pas de requête HTTP - direct au broker)
 ```
 
-### Étape 3: Device reçoit et répond
+### Étape 2: Device reçoit et répond
 ```
 ESP32 reçoit sur topic kidoo/80B54ED96148/cmd
 Lit la commande "get-info"
 Exécute et collecte les infos
 ```
 
-### Étape 4: Device publie réponse
+### Étape 3: Device publie réponse
 ```
 ESP32 → MQTT Publish kidoo/80B54ED96148/telemetry
 Payload: {
   "type": "info",
   "device": "Kidoo Sound",
-  ...
+  "model": "sound",
+  "firmwareVersion": "1.0.0",
+  "storage": { "total": 8000000000, "free": 6000000000, "used": 2000000000 }
 }
 ```
 
-### Étape 5: Server reçoit et retourne à App
+### Étape 4: App reçoit la réponse via MQTT
 ```
-Server abonné à kidoo/+/telemetry
-Reçoit la réponse
-Stocke en cache (lastConnected, etc)
-Retourne à App via HTTP 200
+App abonné à kidoo/80B54ED96148/telemetry
+Reçoit le message "type": "info"
+Récupère les infos (firmware, storage)
+```
+
+### Étape 5: App met à jour la DB (optionnel)
+```
+App → HTTP POST /api/kidoos/{id}/device-info
+Body: { firmwareVersion: "1.0.0", storage: {...} }
+Serveur met à jour la DB pour historique
 ```
 
 ### Étape 6: App met à jour UI
@@ -325,14 +323,18 @@ EXPO_PUBLIC_MQTT_URL=ws://mqtt.kidoo-box.com:9001
 
 ---
 
+## Optimisations Implémentées
+
+### ✅ MQTT Direct pour Commandes (Mars 2026)
+- App publie directement sur `kidoo/{MAC}/cmd` (sans passer par serveur HTTP)
+- ACLs configurées pour autoriser app à publish/subscribe sur ses topics
+- Réduit la latence et la charge serveur
+- Architecture serverless compatible (Vercel)
+
 ## Évolution Future
 
 ### Optimisations possibles
-1. **MQTT direct pour commandes** (au lieu de HTTP → MQTT)
-   - App publie directement sur `kidoo/{MAC}/cmd`
-   - Nécessite ACLs plus complexes
-
-2. **Compression des payloads**
+1. **Compression des payloads**
    - MessagePack au lieu de JSON
    - Pour les devices bas débit
 
