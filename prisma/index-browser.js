@@ -228,7 +228,7 @@ exports.Prisma.EmotionVideoScalarFieldEnum = {
 exports.Prisma.EmotionDeviceScalarFieldEnum = {
   id: 'id',
   characterId: 'characterId',
-  pubnubChannel: 'pubnubChannel',
+  mqttChannel: 'mqttChannel',
   mode: 'mode',
   isCharging: 'isCharging',
   lastSeenAt: 'lastSeenAt',

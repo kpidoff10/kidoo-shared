@@ -11421,7 +11421,7 @@ export namespace Prisma {
   export type EmotionDeviceMinAggregateOutputType = {
     id: string | null
     characterId: string | null
-    pubnubChannel: string | null
+    mqttChannel: string | null
     mode: $Enums.EmotionDeviceMode | null
     isCharging: boolean | null
     lastSeenAt: Date | null
@@ -11432,7 +11432,7 @@ export namespace Prisma {
   export type EmotionDeviceMaxAggregateOutputType = {
     id: string | null
     characterId: string | null
-    pubnubChannel: string | null
+    mqttChannel: string | null
     mode: $Enums.EmotionDeviceMode | null
     isCharging: boolean | null
     lastSeenAt: Date | null
@@ -11443,7 +11443,7 @@ export namespace Prisma {
   export type EmotionDeviceCountAggregateOutputType = {
     id: number
     characterId: number
-    pubnubChannel: number
+    mqttChannel: number
     mode: number
     isCharging: number
     lastSeenAt: number
@@ -11456,7 +11456,7 @@ export namespace Prisma {
   export type EmotionDeviceMinAggregateInputType = {
     id?: true
     characterId?: true
-    pubnubChannel?: true
+    mqttChannel?: true
     mode?: true
     isCharging?: true
     lastSeenAt?: true
@@ -11467,7 +11467,7 @@ export namespace Prisma {
   export type EmotionDeviceMaxAggregateInputType = {
     id?: true
     characterId?: true
-    pubnubChannel?: true
+    mqttChannel?: true
     mode?: true
     isCharging?: true
     lastSeenAt?: true
@@ -11478,7 +11478,7 @@ export namespace Prisma {
   export type EmotionDeviceCountAggregateInputType = {
     id?: true
     characterId?: true
-    pubnubChannel?: true
+    mqttChannel?: true
     mode?: true
     isCharging?: true
     lastSeenAt?: true
@@ -11562,7 +11562,7 @@ export namespace Prisma {
   export type EmotionDeviceGroupByOutputType = {
     id: string
     characterId: string
-    pubnubChannel: string | null
+    mqttChannel: string | null
     mode: $Enums.EmotionDeviceMode
     isCharging: boolean
     lastSeenAt: Date | null
@@ -11590,7 +11590,7 @@ export namespace Prisma {
   export type EmotionDeviceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     characterId?: boolean
-    pubnubChannel?: boolean
+    mqttChannel?: boolean
     mode?: boolean
     isCharging?: boolean
     lastSeenAt?: boolean
@@ -11604,7 +11604,7 @@ export namespace Prisma {
   export type EmotionDeviceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     characterId?: boolean
-    pubnubChannel?: boolean
+    mqttChannel?: boolean
     mode?: boolean
     isCharging?: boolean
     lastSeenAt?: boolean
@@ -11616,7 +11616,7 @@ export namespace Prisma {
   export type EmotionDeviceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     characterId?: boolean
-    pubnubChannel?: boolean
+    mqttChannel?: boolean
     mode?: boolean
     isCharging?: boolean
     lastSeenAt?: boolean
@@ -11628,7 +11628,7 @@ export namespace Prisma {
   export type EmotionDeviceSelectScalar = {
     id?: boolean
     characterId?: boolean
-    pubnubChannel?: boolean
+    mqttChannel?: boolean
     mode?: boolean
     isCharging?: boolean
     lastSeenAt?: boolean
@@ -11636,7 +11636,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type EmotionDeviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "pubnubChannel" | "mode" | "isCharging" | "lastSeenAt" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionDevice"]>
+  export type EmotionDeviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "mqttChannel" | "mode" | "isCharging" | "lastSeenAt" | "createdAt" | "updatedAt", ExtArgs["result"]["emotionDevice"]>
   export type EmotionDeviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     deviceClipCaches?: boolean | EmotionDevice$deviceClipCachesArgs<ExtArgs>
     character?: boolean | CharacterDefaultArgs<ExtArgs>
@@ -11658,7 +11658,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       characterId: string
-      pubnubChannel: string | null
+      mqttChannel: string | null
       mode: $Enums.EmotionDeviceMode
       isCharging: boolean
       lastSeenAt: Date | null
@@ -12091,7 +12091,7 @@ export namespace Prisma {
   interface EmotionDeviceFieldRefs {
     readonly id: FieldRef<"EmotionDevice", 'String'>
     readonly characterId: FieldRef<"EmotionDevice", 'String'>
-    readonly pubnubChannel: FieldRef<"EmotionDevice", 'String'>
+    readonly mqttChannel: FieldRef<"EmotionDevice", 'String'>
     readonly mode: FieldRef<"EmotionDevice", 'EmotionDeviceMode'>
     readonly isCharging: FieldRef<"EmotionDevice", 'Boolean'>
     readonly lastSeenAt: FieldRef<"EmotionDevice", 'DateTime'>
@@ -35920,7 +35920,7 @@ export namespace Prisma {
   export const EmotionDeviceScalarFieldEnum: {
     id: 'id',
     characterId: 'characterId',
-    pubnubChannel: 'pubnubChannel',
+    mqttChannel: 'mqttChannel',
     mode: 'mode',
     isCharging: 'isCharging',
     lastSeenAt: 'lastSeenAt',
@@ -37212,7 +37212,7 @@ export namespace Prisma {
     NOT?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
     id?: StringFilter<"EmotionDevice"> | string
     characterId?: StringFilter<"EmotionDevice"> | string
-    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mqttChannel?: StringNullableFilter<"EmotionDevice"> | string | null
     mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
     isCharging?: BoolFilter<"EmotionDevice"> | boolean
     lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
@@ -37225,7 +37225,7 @@ export namespace Prisma {
   export type EmotionDeviceOrderByWithRelationInput = {
     id?: SortOrder
     characterId?: SortOrder
-    pubnubChannel?: SortOrderInput | SortOrder
+    mqttChannel?: SortOrderInput | SortOrder
     mode?: SortOrder
     isCharging?: SortOrder
     lastSeenAt?: SortOrderInput | SortOrder
@@ -37241,7 +37241,7 @@ export namespace Prisma {
     OR?: EmotionDeviceWhereInput[]
     NOT?: EmotionDeviceWhereInput | EmotionDeviceWhereInput[]
     characterId?: StringFilter<"EmotionDevice"> | string
-    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mqttChannel?: StringNullableFilter<"EmotionDevice"> | string | null
     mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
     isCharging?: BoolFilter<"EmotionDevice"> | boolean
     lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
@@ -37254,7 +37254,7 @@ export namespace Prisma {
   export type EmotionDeviceOrderByWithAggregationInput = {
     id?: SortOrder
     characterId?: SortOrder
-    pubnubChannel?: SortOrderInput | SortOrder
+    mqttChannel?: SortOrderInput | SortOrder
     mode?: SortOrder
     isCharging?: SortOrder
     lastSeenAt?: SortOrderInput | SortOrder
@@ -37271,7 +37271,7 @@ export namespace Prisma {
     NOT?: EmotionDeviceScalarWhereWithAggregatesInput | EmotionDeviceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"EmotionDevice"> | string
     characterId?: StringWithAggregatesFilter<"EmotionDevice"> | string
-    pubnubChannel?: StringNullableWithAggregatesFilter<"EmotionDevice"> | string | null
+    mqttChannel?: StringNullableWithAggregatesFilter<"EmotionDevice"> | string | null
     mode?: EnumEmotionDeviceModeWithAggregatesFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
     isCharging?: BoolWithAggregatesFilter<"EmotionDevice"> | boolean
     lastSeenAt?: DateTimeNullableWithAggregatesFilter<"EmotionDevice"> | Date | string | null
@@ -39711,7 +39711,7 @@ export namespace Prisma {
 
   export type EmotionDeviceCreateInput = {
     id?: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -39724,7 +39724,7 @@ export namespace Prisma {
   export type EmotionDeviceUncheckedCreateInput = {
     id?: string
     characterId: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -39735,7 +39735,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -39748,7 +39748,7 @@ export namespace Prisma {
   export type EmotionDeviceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     characterId?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -39760,7 +39760,7 @@ export namespace Prisma {
   export type EmotionDeviceCreateManyInput = {
     id?: string
     characterId: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -39770,7 +39770,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -39781,7 +39781,7 @@ export namespace Prisma {
   export type EmotionDeviceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     characterId?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42493,7 +42493,7 @@ export namespace Prisma {
   export type EmotionDeviceCountOrderByAggregateInput = {
     id?: SortOrder
     characterId?: SortOrder
-    pubnubChannel?: SortOrder
+    mqttChannel?: SortOrder
     mode?: SortOrder
     isCharging?: SortOrder
     lastSeenAt?: SortOrder
@@ -42504,7 +42504,7 @@ export namespace Prisma {
   export type EmotionDeviceMaxOrderByAggregateInput = {
     id?: SortOrder
     characterId?: SortOrder
-    pubnubChannel?: SortOrder
+    mqttChannel?: SortOrder
     mode?: SortOrder
     isCharging?: SortOrder
     lastSeenAt?: SortOrder
@@ -42515,7 +42515,7 @@ export namespace Prisma {
   export type EmotionDeviceMinOrderByAggregateInput = {
     id?: SortOrder
     characterId?: SortOrder
-    pubnubChannel?: SortOrder
+    mqttChannel?: SortOrder
     mode?: SortOrder
     isCharging?: SortOrder
     lastSeenAt?: SortOrder
@@ -46002,7 +46002,7 @@ export namespace Prisma {
 
   export type EmotionDeviceCreateWithoutCharacterInput = {
     id?: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -46013,7 +46013,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUncheckedCreateWithoutCharacterInput = {
     id?: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -46138,7 +46138,7 @@ export namespace Prisma {
     NOT?: EmotionDeviceScalarWhereInput | EmotionDeviceScalarWhereInput[]
     id?: StringFilter<"EmotionDevice"> | string
     characterId?: StringFilter<"EmotionDevice"> | string
-    pubnubChannel?: StringNullableFilter<"EmotionDevice"> | string | null
+    mqttChannel?: StringNullableFilter<"EmotionDevice"> | string | null
     mode?: EnumEmotionDeviceModeFilter<"EmotionDevice"> | $Enums.EmotionDeviceMode
     isCharging?: BoolFilter<"EmotionDevice"> | boolean
     lastSeenAt?: DateTimeNullableFilter<"EmotionDevice"> | Date | string | null
@@ -47500,7 +47500,7 @@ export namespace Prisma {
 
   export type EmotionDeviceCreateWithoutDeviceClipCachesInput = {
     id?: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -47512,7 +47512,7 @@ export namespace Prisma {
   export type EmotionDeviceUncheckedCreateWithoutDeviceClipCachesInput = {
     id?: string
     characterId: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -47640,7 +47640,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUpdateWithoutDeviceClipCachesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -47652,7 +47652,7 @@ export namespace Prisma {
   export type EmotionDeviceUncheckedUpdateWithoutDeviceClipCachesInput = {
     id?: StringFieldUpdateOperationsInput | string
     characterId?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -50599,7 +50599,7 @@ export namespace Prisma {
 
   export type EmotionDeviceCreateManyCharacterInput = {
     id?: string
-    pubnubChannel?: string | null
+    mqttChannel?: string | null
     mode?: $Enums.EmotionDeviceMode
     isCharging?: boolean
     lastSeenAt?: Date | string | null
@@ -50714,7 +50714,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUpdateWithoutCharacterInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -50725,7 +50725,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUncheckedUpdateWithoutCharacterInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -50736,7 +50736,7 @@ export namespace Prisma {
 
   export type EmotionDeviceUncheckedUpdateManyWithoutCharacterInput = {
     id?: StringFieldUpdateOperationsInput | string
-    pubnubChannel?: NullableStringFieldUpdateOperationsInput | string | null
+    mqttChannel?: NullableStringFieldUpdateOperationsInput | string | null
     mode?: EnumEmotionDeviceModeFieldUpdateOperationsInput | $Enums.EmotionDeviceMode
     isCharging?: BoolFieldUpdateOperationsInput | boolean
     lastSeenAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

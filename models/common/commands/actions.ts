@@ -1,5 +1,5 @@
 /**
- * Actions des commandes PubNub envoyées aux Kidoos (ESP32).
+ * Actions des commandes MQTT envoyées aux Kidoos (ESP32).
  * Utilisé côté serveur pour sendCommand / waitForMessage (logs) afin d'éviter les strings en dur.
  */
 
